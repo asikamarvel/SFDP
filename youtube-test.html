@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Channel | SFDP</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* Extra bulletproof styles for this test page */
+    body {
+      background: #f8fafc;
+      font-family: 'Poppins', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    main {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+      border-radius: 1rem;
+      box-shadow: 0 4px 24px rgba(30,58,95,0.08);
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #1e3a5f;
+    }
+    .youtube-embed-wrapper {
+      width: 100%;
+      max-width: 900px;
+      margin: 2rem auto 0 auto;
+    }
+    .youtube-embed-wrapper iframe {
+      width: 100%;
+      min-height: 400px;
+      height: 400px;
+      display: block;
+      border: 0;
+      background: #000;
+      border-radius: 0.5rem;
+    }
+    .video-grid {
+      max-width: 1100px;
+      margin: 40px auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .video-grid iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 0;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>SFDP YouTube Channel</h1>
+    <p>Watch our latest health education videos, disease prevention tips, and community updates. Subscribe for weekly content!</p>
+    <div class="youtube-embed-wrapper">
+      <iframe
+        src="https://www.youtube.com/embed?listType=playlist&list=UUQpcdv3QCSSZmMLqPaVpkkA"
+        allowfullscreen
+        loading="lazy"
+        title="SFDP YouTube Channel"
+        style="width:100%;min-height:400px;display:block;border:0;background:#000;border-radius:0.5rem;">
+      </iframe>
+    </div>
+    <div style="text-align:center;margin-top:2rem;">
+      <a href="https://www.youtube.com/@societyfordiseasepreventioninc?sub_confirmation=1" target="_blank" style="display:inline-block;padding:0.75rem 2rem;background:#d97706;color:#fff;font-weight:600;border-radius:2rem;text-decoration:none;font-size:1.2rem;box-shadow:0 2px 8px rgba(0,0,0,0.08);transition:background 0.2s;">
+        <i class="fab fa-youtube" style="margin-right:0.5rem;"></i> Subscribe to SFDP
+      </a>
+    </div>
+    <section class="video-grid">
+      <!-- Latest video -->
+      <iframe
+        src="https://www.youtube.com/embed?listType=playlist&list=UUQpcdv3QCSSZmMLqPaVpkkA&index=0"
+        allowfullscreen
+        loading="lazy">
+      </iframe>
+      <!-- Second latest -->
+      <iframe
+        src="https://www.youtube.com/embed?listType=playlist&list=UUQpcdv3QCSSZmMLqPaVpkkA&index=1"
+        allowfullscreen
+        loading="lazy">
+      </iframe>
+      <!-- Third latest -->
+      <iframe
+        src="https://www.youtube.com/embed?listType=playlist&list=UUQpcdv3QCSSZmMLqPaVpkkA&index=2"
+        allowfullscreen
+        loading="lazy">
+      </iframe>
+    </section>
+  </main>
+</body>
+</html>

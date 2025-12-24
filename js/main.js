@@ -5,7 +5,7 @@
 
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
-  // Initialize all components (merged)
+  // Initialize all components
   initHeader();
   initMobileMenu();
   initScrollAnimations();
@@ -15,45 +15,33 @@ document.addEventListener('DOMContentLoaded', function() {
   initSmoothScroll();
   initFormValidation();
   initYouTubeVideos();
-  initLazyLoading();
-  initTabs();
-  initModals();
-  initVideoPlayer();
-  initNewsletterForm();
 });
 
 /* -------------------- YouTube Videos Feed -------------------- */
 function initYouTubeVideos() {
-  // Enabled: fetch and display latest YouTube videos
+  // Enabled: fetch and display real YouTube videos
   
   const container = document.getElementById('youtubeVideos');
   if (!container) return;
   
   const channelHandle = 'societyfordiseasepreventioninc';
   const channelId = 'UCQpcdv3QCSSZmMLqPaVpkkA';
-  const apiKey = 'qcywveqfwjgxiusevrxem7i1vffbczndp9aux9q5';
-  // Using RSS2JSON service to fetch YouTube RSS feed with API key
+  
+  // Using RSS2JSON service to fetch YouTube RSS feed
   const rssUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`;
-  const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}&api_key=${apiKey}`;
+  const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
   
   fetch(apiUrl)
-    .then(response => {
-      if (!response.ok) {
-        console.error('YouTube API fetch failed:', response.status, response.statusText);
-      }
-      return response.json();
-    })
+    .then(response => response.json())
     .then(data => {
-      console.log('YouTube API response:', data);
       if (data.status === 'ok' && data.items && data.items.length > 0) {
         displayVideos(data.items.slice(0, 3), container);
       } else {
-        console.error('YouTube API returned no items or not ok:', data);
         displayFallbackVideos(container, channelHandle);
       }
     })
     .catch(error => {
-      console.error('YouTube API fetch error:', error);
+      console.log('Loading YouTube feed fallback...');
       displayFallbackVideos(container, channelHandle);
     });
 }
@@ -62,12 +50,15 @@ function displayVideos(videos, container) {
   container.innerHTML = '';
   
   videos.forEach((video, index) => {
-    const thumbnail = video.thumbnail || '';
+    // Extract video ID from link
+    const videoId = video.link ? video.link.split('v=')[1] : '';
+    const thumbnail = video.thumbnail || `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`;
     const pubDate = new Date(video.pubDate).toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'short',
       day: 'numeric'
     });
+    
     const videoCard = document.createElement('div');
     videoCard.className = `video-card scroll-animate delay-${index}`;
     videoCard.innerHTML = `
@@ -80,25 +71,32 @@ function displayVideos(videos, container) {
         <p class="video-meta">${pubDate}</p>
       </div>
     `;
+    
     container.appendChild(videoCard);
   });
 }
 
 function displayFallbackVideos(container, channelHandle) {
-  // Display channel embed as fallback
-  container.innerHTML = `
-    <div class="youtube-embed-wrapper">
-      <p class="text-center text-gray mb-lg">Watch our latest health education content</p>
-      <div class="youtube-channel-embed">
-        <iframe 
-          src="https://www.youtube.com/embed?listType=user_uploads&list=${channelHandle}" 
-          frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-          allowfullscreen>
-        </iframe>
-      </div>
+  // Display channel embed as fallback, but never overwrite the parent container holding the iframe
+  // Remove any previous embed only, not the parent
+  const oldEmbed = container.querySelector('.youtube-embed-wrapper');
+  if (oldEmbed) oldEmbed.remove();
+  const wrapper = document.createElement('div');
+  wrapper.className = 'youtube-embed-wrapper';
+  wrapper.innerHTML = `
+    <p class="text-center text-gray mb-lg">Watch our latest health education content</p>
+    <div class="youtube-channel-embed">
+      <iframe 
+        src="https://www.youtube.com/embed?listType=user_uploads&list=${channelHandle}"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+        loading="lazy"
+        style="width:100%;min-height:315px;display:block;border:0;">
+      </iframe>
     </div>
   `;
+  container.appendChild(wrapper);
 }
 
 /* -------------------- Header Scroll Effect -------------------- */
@@ -684,3 +682,11 @@ function initNewsletterForm() {
   });
 }
 
+// Initialize additional components when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+  initLazyLoading();
+  initTabs();
+  initModals();
+  initVideoPlayer();
+  initNewsletterForm();
+});

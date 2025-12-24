@@ -37,16 +37,23 @@ function initYouTubeVideos() {
   const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}&api_key=${apiKey}`;
   
   fetch(apiUrl)
-    .then(response => response.json())
+    .then(response => {
+      if (!response.ok) {
+        console.error('YouTube API fetch failed:', response.status, response.statusText);
+      }
+      return response.json();
+    })
     .then(data => {
+      console.log('YouTube API response:', data);
       if (data.status === 'ok' && data.items && data.items.length > 0) {
         displayVideos(data.items.slice(0, 3), container);
       } else {
+        console.error('YouTube API returned no items or not ok:', data);
         displayFallbackVideos(container, channelHandle);
       }
     })
     .catch(error => {
-      console.log('Loading YouTube feed fallback...');
+      console.error('YouTube API fetch error:', error);
       displayFallbackVideos(container, channelHandle);
     });
 }

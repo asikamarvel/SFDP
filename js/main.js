@@ -26,10 +26,10 @@ function initYouTubeVideos() {
   
   const channelHandle = 'societyfordiseasepreventioninc';
   const channelId = 'UCQpcdv3QCSSZmMLqPaVpkkA';
-  
-  // Using RSS2JSON service to fetch YouTube RSS feed
+  const apiKey = 'qcywveqfwjgxiusevrxem7i1vffbczndp9aux9q5';
+  // Using RSS2JSON service to fetch YouTube RSS feed with API key
   const rssUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`;
-  const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
+  const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}&api_key=${apiKey}`;
   
   fetch(apiUrl)
     .then(response => response.json())

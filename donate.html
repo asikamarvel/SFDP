@@ -25,10 +25,8 @@
   <style>
     .donate-hero {
       position: relative;
-      padding: calc(100px + var(--spacing-4xl)) 0 var(--spacing-4xl);
       background: var(--primary-blue);
       color: var(--white);
-      overflow: hidden;
     }
     
     .donate-hero-bg {
@@ -57,6 +55,11 @@
         rgba(30, 58, 95, 0.5) 85%,
         rgba(30, 58, 95, 0.4) 100%
       );
+    }
+    
+    .donate-hero .section {
+      position: relative;
+      z-index: 1;
     }
     
     .donation-card {
@@ -257,83 +260,85 @@
     <div class="donate-hero-bg">
       <img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Helping hands">
     </div>
-    <div class="container" style="position: relative; z-index: 1;">
-      <div class="grid grid-2" style="gap: 4rem; align-items: center;">
-        <div>
-          <span class="section-label" style="color: var(--accent-orange);">Support Our Cause</span>
-          <h1 style="color: white; font-size: var(--text-5xl); margin-bottom: 1.5rem;">
-            Your Donation <span class="text-highlight">Saves Lives</span>
-          </h1>
-          <p style="font-size: var(--text-xl); opacity: 0.9; margin-bottom: 2rem;">
-            Every contribution helps us prevent public health crises, provide medical care, and educate communities. Together, we can build a healthier world.
-          </p>
-          
-          <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
-            <div>
-              <div style="font-size: var(--text-4xl); font-weight: 700; color: var(--accent-orange);">100%</div>
-              <div style="opacity: 0.8;">Volunteer-Run</div>
-            </div>
-            <div>
-              <div style="font-size: var(--text-4xl); font-weight: 700; color: var(--accent-orange);">5K+</div>
-              <div style="opacity: 0.8;">Lives Impacted</div>
-            </div>
-            <div>
-              <div style="font-size: var(--text-4xl); font-weight: 700; color: var(--accent-orange);">501(c)(3)</div>
-              <div style="opacity: 0.8;">Tax Deductible</div>
+    <section class="section">
+      <div class="container">
+        <div class="grid grid-2" style="gap: 4rem; align-items: center;">
+          <div>
+            <span class="section-label" style="color: var(--accent-orange);">Support Our Cause</span>
+            <h1 style="color: white; font-size: var(--text-5xl); margin-bottom: 1.5rem;">
+              Your Donation <span class="text-highlight">Saves Lives</span>
+            </h1>
+            <p style="font-size: var(--text-xl); opacity: 0.9; margin-bottom: 2rem;">
+              Every contribution helps us prevent public health crises, provide medical care, and educate communities. Together, we can build a healthier world.
+            </p>
+            
+            <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+              <div>
+                <div style="font-size: var(--text-4xl); font-weight: 700; color: var(--accent-orange);">100%</div>
+                <div style="opacity: 0.8;">Volunteer-Run</div>
+              </div>
+              <div>
+                <div style="font-size: var(--text-4xl); font-weight: 700; color: var(--accent-orange);">5K+</div>
+                <div style="opacity: 0.8;">Lives Impacted</div>
+              </div>
+              <div>
+                <div style="font-size: var(--text-4xl); font-weight: 700; color: var(--accent-orange);">501(c)(3)</div>
+                <div style="opacity: 0.8;">Tax Deductible</div>
+              </div>
             </div>
           </div>
-        </div>
-        
-        <!-- Donation Card -->
-        <div class="donation-card scroll-animate">
-          <h3 style="text-align: center; margin-bottom: 1.5rem; color: var(--gray-900);">Make A Donation</h3>
           
-          <!-- Frequency Toggle -->
-          <div class="frequency-toggle">
-            <button class="frequency-btn active" data-frequency="once">One-Time</button>
-            <button class="frequency-btn" data-frequency="monthly">Monthly</button>
-          </div>
-          
-          <!-- Amount Options -->
-          <div class="amount-options">
-            <button class="amount-btn" data-amount="25">$25</button>
-            <button class="amount-btn active" data-amount="50">$50</button>
-            <button class="amount-btn" data-amount="100">$100</button>
-            <button class="amount-btn" data-amount="250">$250</button>
-            <button class="amount-btn" data-amount="500">$500</button>
-            <button class="amount-btn" data-amount="1000">$1,000</button>
-          </div>
-          
-          <!-- Custom Amount -->
-          <div class="custom-amount" style="margin-bottom: 2rem;">
-            <span>$</span>
-            <input type="number" placeholder="Other amount" id="customAmount">
-          </div>
-          
-          <!-- Donate Button -->
-          <a href="https://buy.stripe.com/8wM16SgXl1ga6Kk7ss" target="_blank" class="btn btn-donate btn-lg w-full" style="font-size: var(--text-xl);">
-            <i class="fas fa-heart"></i>
-            <span>Donate Now</span>
-          </a>
-          
-          <!-- Trust Badges -->
-          <div class="trust-badges">
-            <div class="trust-badge">
-              <i class="fas fa-lock"></i>
-              <span>Secure Payment</span>
+          <!-- Donation Card -->
+          <div class="donation-card scroll-animate">
+            <h3 style="text-align: center; margin-bottom: 1.5rem; color: var(--gray-900);">Make A Donation</h3>
+            
+            <!-- Frequency Toggle -->
+            <div class="frequency-toggle">
+              <button class="frequency-btn active" data-frequency="once">One-Time</button>
+              <button class="frequency-btn" data-frequency="monthly">Monthly</button>
             </div>
-            <div class="trust-badge">
-              <i class="fas fa-shield-alt"></i>
-              <span>SSL Encrypted</span>
+            
+            <!-- Amount Options -->
+            <div class="amount-options">
+              <button class="amount-btn" data-amount="25">$25</button>
+              <button class="amount-btn active" data-amount="50">$50</button>
+              <button class="amount-btn" data-amount="100">$100</button>
+              <button class="amount-btn" data-amount="250">$250</button>
+              <button class="amount-btn" data-amount="500">$500</button>
+              <button class="amount-btn" data-amount="1000">$1,000</button>
             </div>
-            <div class="trust-badge">
-              <i class="fas fa-certificate"></i>
-              <span>Tax Deductible</span>
+            
+            <!-- Custom Amount -->
+            <div class="custom-amount" style="margin-bottom: 2rem;">
+              <span>$</span>
+              <input type="number" placeholder="Other amount" id="customAmount">
+            </div>
+            
+            <!-- Donate Button -->
+            <a href="https://buy.stripe.com/8wM16SgXl1ga6Kk7ss" target="_blank" class="btn btn-donate btn-lg w-full" style="font-size: var(--text-xl);">
+              <i class="fas fa-heart"></i>
+              <span>Donate Now</span>
+            </a>
+            
+            <!-- Trust Badges -->
+            <div class="trust-badges">
+              <div class="trust-badge">
+                <i class="fas fa-lock"></i>
+                <span>Secure Payment</span>
+              </div>
+              <div class="trust-badge">
+                <i class="fas fa-shield-alt"></i>
+                <span>SSL Encrypted</span>
+              </div>
+              <div class="trust-badge">
+                <i class="fas fa-certificate"></i>
+                <span>Tax Deductible</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   </section>
 
   <!-- ==================== Impact Section ==================== -->

@@ -884,24 +884,6 @@ p {
   }
 }
 
-/* ==================== Donate Hero Final Mobile Fixes ==================== */
-@media (max-width: 768px) {
-  .donate-hero {
-    padding-top: 96px;
-    padding-bottom: 2.5rem;
-    overflow: visible;
-    min-height: auto;
-  }
-  .donate-hero .grid {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
-  .donate-hero h1 {
-    font-size: 2.2rem;
-    line-height: 1.2;
-  }
-}
-
 /* -------------------- Impact Stats Section -------------------- */
 .stats-section {
   background: var(--gradient-blue);

@@ -1076,7 +1076,8 @@ p {
 
 .video-card {
   display: block;
-  background: var(--white);
+  background: #fffbe6 !important;
+  border: 2px solid #ff0000 !important;
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -1138,7 +1139,8 @@ p {
 .video-title {
   font-size: var(--text-base);
   font-weight: 600;
-  color: var(--gray-900);
+  color: #111 !important;
+  background: #ffe4e1 !important;
   margin-bottom: var(--spacing-xs);
   line-height: 1.4;
   display: -webkit-box;

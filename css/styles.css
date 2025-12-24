@@ -857,6 +857,33 @@ p {
   margin-top: var(--spacing-xs);
 }
 
+/* ==================== Donate Hero Mobile Fixes ==================== */
+@media (max-width: 768px) {
+  .donate-hero {
+    padding: 120px 0 3rem;
+  }
+  .donate-hero .grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .donate-hero h1 {
+    font-size: 2.25rem;
+    line-height: 1.2;
+  }
+  .donate-hero p {
+    font-size: 1rem;
+  }
+  .donation-card {
+    padding: 1.75rem;
+  }
+  .donate-hero .grid > div:first-child {
+    order: 2;
+  }
+  .donate-hero .grid > div:last-child {
+    order: 1;
+  }
+}
+
 /* -------------------- Impact Stats Section -------------------- */
 .stats-section {
   background: var(--gradient-blue);

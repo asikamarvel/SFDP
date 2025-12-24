@@ -62,15 +62,12 @@ function displayVideos(videos, container) {
   container.innerHTML = '';
   
   videos.forEach((video, index) => {
-    // Extract video ID from link
-    const videoId = video.link ? video.link.split('v=')[1] : '';
-    const thumbnail = video.thumbnail || `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`;
+    const thumbnail = video.thumbnail || '';
     const pubDate = new Date(video.pubDate).toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'short',
       day: 'numeric'
     });
-    
     const videoCard = document.createElement('div');
     videoCard.className = `video-card scroll-animate delay-${index}`;
     videoCard.innerHTML = `
@@ -83,7 +80,6 @@ function displayVideos(videos, container) {
         <p class="video-meta">${pubDate}</p>
       </div>
     `;
-    
     container.appendChild(videoCard);
   });
 }

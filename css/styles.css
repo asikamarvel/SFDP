@@ -860,7 +860,7 @@ p {
 /* ==================== Donate Hero Mobile Fixes ==================== */
 @media (max-width: 768px) {
   .donate-hero {
-    padding: 120px 0 3rem;
+    padding-top: var(--header-offset);
   }
   .donate-hero .grid {
     grid-template-columns: 1fr;

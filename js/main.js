@@ -15,6 +15,14 @@ document.addEventListener('DOMContentLoaded', function() {
   initSmoothScroll();
   initFormValidation();
   initYouTubeVideos();
+  
+  // Set donate-hero padding-top to header height
+  const header = document.querySelector(".header");
+  const hero = document.querySelector(".donate-hero");
+  if (header && hero) {
+    const headerHeight = header.offsetHeight;
+    hero.style.paddingTop = `${headerHeight}px`;
+  }
 });
 
 /* -------------------- YouTube Videos Feed -------------------- */

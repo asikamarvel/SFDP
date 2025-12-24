@@ -19,8 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /* -------------------- YouTube Videos Feed -------------------- */
 function initYouTubeVideos() {
-  // Disabled for now - using static placeholders
-  return;
+  // Enabled: fetch and display latest YouTube videos
   
   const container = document.getElementById('youtubeVideos');
   if (!container) return;

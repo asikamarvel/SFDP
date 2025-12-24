@@ -5,7 +5,7 @@
 
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
-  // Initialize all components
+  // Initialize all components (merged)
   initHeader();
   initMobileMenu();
   initScrollAnimations();
@@ -15,6 +15,11 @@ document.addEventListener('DOMContentLoaded', function() {
   initSmoothScroll();
   initFormValidation();
   initYouTubeVideos();
+  initLazyLoading();
+  initTabs();
+  initModals();
+  initVideoPlayer();
+  initNewsletterForm();
 });
 
 /* -------------------- YouTube Videos Feed -------------------- */
@@ -676,11 +681,3 @@ function initNewsletterForm() {
   });
 }
 
-// Initialize additional components when DOM is ready
-document.addEventListener('DOMContentLoaded', function() {
-  initLazyLoading();
-  initTabs();
-  initModals();
-  initVideoPlayer();
-  initNewsletterForm();
-});

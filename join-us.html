@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Join the Society for Disease Prevention as a volunteer. Make a difference in global health by contributing your skills and time.">
+  <meta name="keywords" content="volunteer SFDP, nonprofit volunteer, healthcare volunteer, join SFDP">
+  
+  <title>Join Us | Society for Disease Prevention</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/sfdp favicon.png">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+  
+  <style>
+    .join-hero {
+      position: relative;
+      padding: calc(100px + var(--spacing-4xl)) 0 var(--spacing-4xl);
+      background: var(--primary-blue);
+      color: var(--white);
+      overflow: hidden;
+    }
+    
+    .join-hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    
+    .join-hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center right;
+    }
+    
+    .join-hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to right,
+        var(--primary-blue) 0%,
+        var(--primary-blue) 40%,
+        rgba(30, 58, 95, 0.9) 55%,
+        rgba(30, 58, 95, 0.7) 70%,
+        rgba(30, 58, 95, 0.5) 85%,
+        rgba(30, 58, 95, 0.4) 100%
+      );
+    }
+    
+    .role-card {
+      background: var(--white);
+      border-radius: var(--radius-xl);
+      padding: 2rem;
+      box-shadow: var(--shadow-lg);
+      transition: all var(--transition-normal);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .role-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--gradient-blue);
+      transition: width var(--transition-normal);
+    }
+    
+    .role-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-2xl);
+    }
+    
+    .role-card:hover::before {
+      width: 100%;
+      opacity: 0.05;
+    }
+    
+    .role-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--gray-100);
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: var(--primary-blue);
+      margin-bottom: 1.5rem;
+      transition: all var(--transition-normal);
+    }
+    
+    .role-card:hover .role-icon {
+      background: var(--primary-blue);
+      color: var(--white);
+    }
+    
+    .benefit-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.5rem;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      transition: all var(--transition-normal);
+    }
+    
+    .benefit-item:hover {
+      transform: translateX(10px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .benefit-icon {
+      width: 50px;
+      height: 50px;
+      background: var(--accent-orange);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+    
+    .testimonial-card {
+      background: var(--white);
+      border-radius: var(--radius-xl);
+      padding: 2rem;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+    }
+    
+    .testimonial-card::before {
+      content: '"';
+      position: absolute;
+      top: 1rem;
+      right: 2rem;
+      font-size: 6rem;
+      color: var(--gray-100);
+      font-family: Georgia, serif;
+      line-height: 1;
+    }
+    
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--gray-100);
+    }
+    
+    .testimonial-author img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    
+    .application-form {
+      background: var(--white);
+      border-radius: var(--radius-xl);
+      padding: 3rem;
+      box-shadow: var(--shadow-xl);
+    }
+    
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+    
+    @media (max-width: 768px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--gray-700);
+    }
+    
+    .form-group label span {
+      color: #dc2626;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.875rem 1rem;
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-md);
+      font-size: var(--text-base);
+      transition: all var(--transition-fast);
+    }
+    
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary-blue);
+      box-shadow: 0 0 0 3px rgba(30, 58, 95, 0.1);
+    }
+    
+    .checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .checkbox-item input {
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+    }
+    
+    .checkbox-item label {
+      margin-bottom: 0;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <!-- ==================== Header ==================== -->
+  <header class="header" id="header">
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <img src="images/SFDP PNG 3.png" alt="SFDP Logo" class="logo-default"><img src="images/SFDP PNG 1.png" alt="SFDP Logo" class="logo-scrolled">
+      </a>
+      
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About Us</a>
+        <a href="mission.html" class="nav-link">Our Mission</a>
+        <a href="projects.html" class="nav-link">Projects</a>
+        <a href="editorials.html" class="nav-link">Editorials</a>
+        <a href="contact.html" class="nav-link">Contact Us</a>
+      </nav>
+      
+      <div class="nav-actions">
+        <a href="donate.html" class="btn btn-donate">
+          <i class="fas fa-heart"></i>
+          <span>Donate Now</span>
+        </a>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== Join Hero ==================== -->
+  <section class="join-hero">
+    <div class="join-hero-bg">
+      <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Volunteers helping community">
+    </div>
+    <div class="container" style="position: relative; z-index: 1;">
+      <div style="max-width: 600px;">
+        <span class="section-label" style="color: var(--accent-orange);">Make A Difference</span>
+        <h1 style="font-size: var(--text-5xl); color: white; margin-bottom: 1.5rem;">
+          Join Our <span class="text-highlight">Mission</span>
+        </h1>
+        <p style="font-size: var(--text-xl); opacity: 0.9; margin-bottom: 2rem;">
+          Become part of a dedicated team working to prevent disease and improve health outcomes in underserved communities worldwide.
+        </p>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <a href="#apply" class="btn btn-donate btn-lg">
+            <i class="fas fa-hand-holding-heart"></i>
+            <span>Volunteer Now</span>
+          </a>
+          <a href="#roles" class="btn btn-outline-white btn-lg">
+            <i class="fas fa-briefcase"></i>
+            <span>View Roles</span>
+          </a>
+        </div>
+        
+        <div style="display: flex; gap: 2rem; margin-top: 3rem; flex-wrap: wrap;">
+          <div>
+            <div style="font-size: var(--text-3xl); font-weight: 700; color: var(--accent-orange);">100+</div>
+            <div style="opacity: 0.8;">Active Volunteers</div>
+          </div>
+          <div>
+            <div style="font-size: var(--text-3xl); font-weight: 700; color: var(--accent-orange);">4</div>
+            <div style="opacity: 0.8;">Countries</div>
+          </div>
+          <div>
+            <div style="font-size: var(--text-3xl); font-weight: 700; color: var(--accent-orange);">100%</div>
+            <div style="opacity: 0.8;">Volunteer-Run</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== Why Volunteer ==================== -->
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-2" style="gap: 4rem; align-items: center;">
+        <div class="scroll-animate">
+          <span class="section-label">Why Join Us</span>
+          <h2>Make A <span class="text-highlight">Real Impact</span></h2>
+          <p class="text-gray mt-lg">
+            At SFDP, we're a 100% volunteer-run organization. Every member of our team contributes their time and skills because they believe in our mission to prevent disease and save lives.
+          </p>
+          <p class="text-gray mt-md">
+            Whether you have a few hours a week or can commit to regular involvement, your contribution makes a difference. Join a community of passionate individuals working together for global health.
+          </p>
+          
+          <ul style="margin-top: 2rem;">
+            <li style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+              <i class="fas fa-check" style="color: var(--accent-teal);"></i>
+              <span>Flexible remote and on-site opportunities</span>
+            </li>
+            <li style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+              <i class="fas fa-check" style="color: var(--accent-teal);"></i>
+              <span>Professional development and training</span>
+            </li>
+            <li style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+              <i class="fas fa-check" style="color: var(--accent-teal);"></i>
+              <span>Networking with healthcare professionals</span>
+            </li>
+            <li style="display: flex; align-items: center; gap: 0.75rem;">
+              <i class="fas fa-check" style="color: var(--accent-teal);"></i>
+              <span>Certificate of volunteer service</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="scroll-animate delay-1">
+          <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Volunteers" style="border-radius: var(--radius-xl); box-shadow: var(--shadow-2xl);">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== Volunteer Roles ==================== -->
+  <section class="section bg-light" id="roles">
+    <div class="container">
+      <div class="text-center mb-2xl">
+        <span class="section-label">Opportunities</span>
+        <h2>Volunteer <span class="text-highlight">Roles</span></h2>
+        <p class="text-gray mt-md" style="max-width: 600px; margin: 0 auto;">
+          We have various volunteer positions to match your skills and interests. Find the perfect role for you.
+        </p>
+      </div>
+      
+      <div class="grid grid-3" style="gap: 2rem;">
+        <div class="role-card scroll-animate">
+          <div class="role-icon">
+            <i class="fas fa-stethoscope"></i>
+          </div>
+          <h4 style="margin-bottom: 0.75rem;">Medical Volunteers</h4>
+          <p class="text-gray" style="font-size: var(--text-sm); margin-bottom: 1rem;">
+            Healthcare professionals providing screenings, consultations, and health education to communities.
+          </p>
+          <ul style="font-size: var(--text-sm); color: var(--gray-600);">
+            <li>Doctors & Nurses</li>
+            <li>Medical Students</li>
+            <li>Public Health Professionals</li>
+          </ul>
+        </div>
+        
+        <div class="role-card scroll-animate delay-1">
+          <div class="role-icon" style="color: var(--accent-orange);">
+            <i class="fas fa-bullhorn"></i>
+          </div>
+          <h4 style="margin-bottom: 0.75rem;">Outreach & Education</h4>
+          <p class="text-gray" style="font-size: var(--text-sm); margin-bottom: 1rem;">
+            Community educators spreading health awareness and disease prevention knowledge.
+          </p>
+          <ul style="font-size: var(--text-sm); color: var(--gray-600);">
+            <li>Health Educators</li>
+            <li>Community Liaisons</li>
+            <li>Workshop Facilitators</li>
+          </ul>
+        </div>
+        
+        <div class="role-card scroll-animate delay-2">
+          <div class="role-icon" style="color: var(--accent-teal);">
+            <i class="fas fa-laptop-code"></i>
+          </div>
+          <h4 style="margin-bottom: 0.75rem;">Digital & Tech</h4>
+          <p class="text-gray" style="font-size: var(--text-sm); margin-bottom: 1rem;">
+            Tech-savvy volunteers helping with our digital presence and technological needs.
+          </p>
+          <ul style="font-size: var(--text-sm); color: var(--gray-600);">
+            <li>Web Developers</li>
+            <li>Social Media Managers</li>
+            <li>Graphic Designers</li>
+          </ul>
+        </div>
+        
+        <div class="role-card scroll-animate">
+          <div class="role-icon" style="color: #6366f1;">
+            <i class="fas fa-pen-fancy"></i>
+          </div>
+          <h4 style="margin-bottom: 0.75rem;">Content & Communications</h4>
+          <p class="text-gray" style="font-size: var(--text-sm); margin-bottom: 1rem;">
+            Creative writers and communicators sharing our stories and impact with the world.
+          </p>
+          <ul style="font-size: var(--text-sm); color: var(--gray-600);">
+            <li>Content Writers</li>
+            <li>Video Editors</li>
+            <li>Newsletter Editors</li>
+          </ul>
+        </div>
+        
+        <div class="role-card scroll-animate delay-1">
+          <div class="role-icon" style="color: #ec4899;">
+            <i class="fas fa-hand-holding-usd"></i>
+          </div>
+          <h4 style="margin-bottom: 0.75rem;">Fundraising & Development</h4>
+          <p class="text-gray" style="font-size: var(--text-sm); margin-bottom: 1rem;">
+            Volunteers helping secure resources and build partnerships for our programs.
+          </p>
+          <ul style="font-size: var(--text-sm); color: var(--gray-600);">
+            <li>Grant Writers</li>
+            <li>Event Coordinators</li>
+            <li>Donor Relations</li>
+          </ul>
+        </div>
+        
+        <div class="role-card scroll-animate delay-2">
+          <div class="role-icon" style="color: #10b981;">
+            <i class="fas fa-tasks"></i>
+          </div>
+          <h4 style="margin-bottom: 0.75rem;">Administration & Operations</h4>
+          <p class="text-gray" style="font-size: var(--text-sm); margin-bottom: 1rem;">
+            Behind-the-scenes support keeping our organization running smoothly.
+          </p>
+          <ul style="font-size: var(--text-sm); color: var(--gray-600);">
+            <li>Data Entry</li>
+            <li>Administrative Support</li>
+            <li>Project Coordination</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== Benefits ==================== -->
+  <section class="section">
+    <div class="container">
+      <div class="text-center mb-2xl">
+        <span class="section-label">What You'll Gain</span>
+        <h2>Volunteer <span class="text-highlight">Benefits</span></h2>
+      </div>
+      
+      <div class="grid grid-2" style="gap: 1.5rem;">
+        <div class="benefit-item scroll-animate">
+          <div class="benefit-icon">
+            <i class="fas fa-globe"></i>
+          </div>
+          <div>
+            <h4 style="margin-bottom: 0.5rem;">Global Impact</h4>
+            <p class="text-gray" style="margin: 0; font-size: var(--text-sm);">Contribute to meaningful projects that improve health outcomes in communities worldwide.</p>
+          </div>
+        </div>
+        
+        <div class="benefit-item scroll-animate delay-1">
+          <div class="benefit-icon" style="background: var(--accent-teal);">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <div>
+            <h4 style="margin-bottom: 0.5rem;">Professional Development</h4>
+            <p class="text-gray" style="margin: 0; font-size: var(--text-sm);">Gain valuable experience and skills that enhance your resume and career prospects.</p>
+          </div>
+        </div>
+        
+        <div class="benefit-item scroll-animate">
+          <div class="benefit-icon" style="background: var(--primary-blue);">
+            <i class="fas fa-users"></i>
+          </div>
+          <div>
+            <h4 style="margin-bottom: 0.5rem;">Networking</h4>
+            <p class="text-gray" style="margin: 0; font-size: var(--text-sm);">Connect with healthcare professionals, public health experts, and like-minded individuals.</p>
+          </div>
+        </div>
+        
+        <div class="benefit-item scroll-animate delay-1">
+          <div class="benefit-icon" style="background: #6366f1;">
+            <i class="fas fa-certificate"></i>
+          </div>
+          <div>
+            <h4 style="margin-bottom: 0.5rem;">Recognition</h4>
+            <p class="text-gray" style="margin: 0; font-size: var(--text-sm);">Receive certificates, letters of recommendation, and acknowledgment for your contributions.</p>
+          </div>
+        </div>
+        
+        <div class="benefit-item scroll-animate">
+          <div class="benefit-icon" style="background: #ec4899;">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div>
+            <h4 style="margin-bottom: 0.5rem;">Flexibility</h4>
+            <p class="text-gray" style="margin: 0; font-size: var(--text-sm);">Choose from remote or on-site opportunities that fit your schedule and availability.</p>
+          </div>
+        </div>
+        
+        <div class="benefit-item scroll-animate delay-1">
+          <div class="benefit-icon" style="background: #10b981;">
+            <i class="fas fa-heart"></i>
+          </div>
+          <div>
+            <h4 style="margin-bottom: 0.5rem;">Purpose & Fulfillment</h4>
+            <p class="text-gray" style="margin: 0; font-size: var(--text-sm);">Experience the joy of knowing your work directly helps save lives and improve health.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== Testimonials ==================== -->
+  <section class="section bg-light">
+    <div class="container">
+      <div class="text-center mb-2xl">
+        <span class="section-label">Volunteer Stories</span>
+        <h2>Hear From Our <span class="text-highlight">Volunteers</span></h2>
+      </div>
+      
+      <div class="grid grid-3" style="gap: 2rem;">
+        <div class="testimonial-card scroll-animate">
+          <p style="font-size: var(--text-base); color: var(--gray-700); position: relative; z-index: 1;">
+            "Volunteering with SFDP has been one of the most rewarding experiences of my life. I've been able to use my medical training to help communities in need while learning so much from experienced public health professionals."
+          </p>
+          <div class="testimonial-author">
+            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Sarah">
+            <div>
+              <strong>Dr. Sarah M.</strong>
+              <div style="font-size: var(--text-sm); color: var(--gray-500);">Medical Volunteer</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-card scroll-animate delay-1">
+          <p style="font-size: var(--text-base); color: var(--gray-700); position: relative; z-index: 1;">
+            "As a graphic designer, I wasn't sure how I could contribute to healthcare. SFDP showed me that every skill matters. Creating educational materials that help prevent disease is incredibly fulfilling."
+          </p>
+          <div class="testimonial-author">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Michael">
+            <div>
+              <strong>Michael T.</strong>
+              <div style="font-size: var(--text-sm); color: var(--gray-500);">Design Volunteer</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-card scroll-animate delay-2">
+          <p style="font-size: var(--text-base); color: var(--gray-700); position: relative; z-index: 1;">
+            "The team at SFDP is like family. Everyone is passionate about the mission and supports each other. I've made lifelong friends while making a real difference in the world."
+          </p>
+          <div class="testimonial-author">
+            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Jennifer">
+            <div>
+              <strong>Jennifer K.</strong>
+              <div style="font-size: var(--text-sm); color: var(--gray-500);">Outreach Coordinator</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== Application Form ==================== -->
+  <section class="section" id="apply">
+    <div class="container">
+      <div class="grid grid-2" style="gap: 4rem; align-items: start;">
+        <div class="scroll-animate">
+          <span class="section-label">Get Started</span>
+          <h2>Apply To <span class="text-highlight">Volunteer</span></h2>
+          <p class="text-gray mt-lg">
+            Ready to make a difference? Fill out the application form and tell us about yourself. We'll match you with opportunities that fit your skills and interests.
+          </p>
+          
+          <div style="margin-top: 2rem;">
+            <h4 style="margin-bottom: 1rem;">What Happens Next?</h4>
+            <ol style="padding-left: 1.25rem; color: var(--gray-600);">
+              <li style="margin-bottom: 0.75rem;">Submit your application</li>
+              <li style="margin-bottom: 0.75rem;">Our team reviews your submission (1-2 weeks)</li>
+              <li style="margin-bottom: 0.75rem;">Schedule an introductory call</li>
+              <li style="margin-bottom: 0.75rem;">Complete volunteer orientation</li>
+              <li>Start making an impact!</li>
+            </ol>
+          </div>
+          
+          <div style="background: var(--gray-50); border-radius: var(--radius-lg); padding: 1.5rem; margin-top: 2rem;">
+            <h4 style="margin-bottom: 0.75rem;"><i class="fas fa-question-circle" style="color: var(--accent-orange); margin-right: 0.5rem;"></i>Questions?</h4>
+            <p class="text-gray" style="font-size: var(--text-sm); margin: 0;">
+              Contact our volunteer coordinator at <a href="mailto:volunteer@s-fdp.org" style="color: var(--primary-blue); font-weight: 500;">volunteer@s-fdp.org</a>
+            </p>
+          </div>
+        </div>
+        
+        <div class="application-form scroll-animate delay-1">
+          <h3 style="margin-bottom: 2rem;">Volunteer Application</h3>
+          
+          <form id="volunteerForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label>First Name <span>*</span></label>
+                <input type="text" name="firstName" required>
+              </div>
+              <div class="form-group">
+                <label>Last Name <span>*</span></label>
+                <input type="text" name="lastName" required>
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label>Email Address <span>*</span></label>
+                <input type="email" name="email" required>
+              </div>
+              <div class="form-group">
+                <label>Phone Number</label>
+                <input type="tel" name="phone">
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label>City, Country <span>*</span></label>
+              <input type="text" name="location" required placeholder="e.g., Manchester, PA, USA">
+            </div>
+            
+            <div class="form-group">
+              <label>Area of Interest <span>*</span></label>
+              <select name="interest" required>
+                <option value="">Select your area of interest</option>
+                <option value="medical">Medical Volunteering</option>
+                <option value="outreach">Outreach & Education</option>
+                <option value="digital">Digital & Tech</option>
+                <option value="content">Content & Communications</option>
+                <option value="fundraising">Fundraising & Development</option>
+                <option value="admin">Administration & Operations</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label>Skills & Experience</label>
+              <div class="checkbox-group">
+                <div class="checkbox-item">
+                  <input type="checkbox" id="skill1" name="skills" value="healthcare">
+                  <label for="skill1">Healthcare</label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="skill2" name="skills" value="design">
+                  <label for="skill2">Design</label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="skill3" name="skills" value="writing">
+                  <label for="skill3">Writing</label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="skill4" name="skills" value="tech">
+                  <label for="skill4">Technology</label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="skill5" name="skills" value="social">
+                  <label for="skill5">Social Media</label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="skill6" name="skills" value="events">
+                  <label for="skill6">Events</label>
+                </div>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label>Availability <span>*</span></label>
+              <select name="availability" required>
+                <option value="">Select your availability</option>
+                <option value="1-5">1-5 hours/week</option>
+                <option value="5-10">5-10 hours/week</option>
+                <option value="10-20">10-20 hours/week</option>
+                <option value="20+">20+ hours/week</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label>Tell Us About Yourself <span>*</span></label>
+              <textarea name="about" rows="4" required placeholder="Share why you want to volunteer with SFDP and any relevant experience..."></textarea>
+            </div>
+            
+            <div class="form-group">
+              <label>How did you hear about us?</label>
+              <select name="source">
+                <option value="">Select an option</option>
+                <option value="social">Social Media</option>
+                <option value="search">Google Search</option>
+                <option value="friend">Friend/Family</option>
+                <option value="event">Event</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <div class="checkbox-item">
+                <input type="checkbox" id="agree" name="agree" required>
+                <label for="agree">I agree to the volunteer terms and conditions <span>*</span></label>
+              </div>
+            </div>
+            
+            <button type="submit" class="btn btn-primary btn-lg w-full">
+              <i class="fas fa-paper-plane"></i>
+              <span>Submit Application</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CTA Section ==================== -->
+  <section class="cta-section">
+    <div class="cta-background">
+      <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Join us">
+    </div>
+    <div class="cta-overlay"></div>
+    
+    <div class="container">
+      <div class="cta-content scroll-animate">
+        <h2>Prefer To Support Financially?</h2>
+        <p>If you can't volunteer your time, your donation helps us continue our life-saving work.</p>
+        <div class="cta-buttons">
+          <a href="donate.html" class="btn btn-donate btn-lg">
+            <i class="fas fa-heart"></i>
+            <span>Donate Now</span>
+          </a>
+          <a href="contact.html" class="btn btn-outline-white btn-lg">
+            <i class="fas fa-envelope"></i>
+            <span>Contact Us</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== Footer ==================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <img src="images/SFDP PNG 3.png" alt="SFDP Logo" style="height: 60px;">
+          </a>
+          <p>
+            Society for Disease Prevention is a nonprofit organization committed to preventing public health crises and infectious disease outbreaks through education and community engagement.
+          </p>
+          <div class="footer-social">
+            <a href="https://web.facebook.com/societyfordiseaseprevention" target="_blank" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/societyfordiseaseprevention/" target="_blank" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://x.com/disease_society" target="_blank" aria-label="Twitter">
+              <i class="fab fa-x-twitter"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/society-for-disease-prevention-inc/" target="_blank" aria-label="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://www.tiktok.com/@society4diseasepreventio" target="_blank" aria-label="TikTok">
+              <i class="fab fa-tiktok"></i>
+            </a>
+            <a href="https://youtube.com/@societyfordiseasepreventioninc" target="_blank" aria-label="YouTube">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h4 class="footer-title">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="mission.html">Our Mission</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="editorials.html">Editorials</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4 class="footer-title">Get Involved</h4>
+          <ul class="footer-links">
+            <li><a href="donate.html">Donate Now</a></li>
+            <li><a href="join-us.html">Volunteer</a></li>
+            <li><a href="innovation-challenge.html">Innovation Challenge</a></li>
+            <li><a href="newsletter.html">Newsletter</a></li>
+            <li><a href="https://youtube.com/@societyfordiseasepreventioninc" target="_blank">YouTube Shorts</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4 class="footer-title">Contact Info</h4>
+          <ul class="footer-links">
+            <li>
+              <i class="fas fa-map-marker-alt" style="margin-right: 8px; color: var(--accent-orange);"></i>
+              90 Village Rd, Manchester, PA 17345
+            </li>
+            <li>
+              <i class="fas fa-phone" style="margin-right: 8px; color: var(--accent-orange);"></i>
+              +1 (800) 659-0506
+            </li>
+            <li>
+              <i class="fas fa-envelope" style="margin-right: 8px; color: var(--accent-orange);"></i>
+              <a href="mailto:info@s-fdp.org">info@s-fdp.org</a>
+            </li>
+          </ul>
+          
+          <a href="https://app.candid.org/profile/9895577" target="_blank" style="display: inline-block; margin-top: 1rem;">
+            <img src="https://widgets.guidestar.org/TransparencySeal/8935657" alt="Candid Seal" style="width: 80px;">
+          </a>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2019 - 2025 Society For Disease Prevention | All Rights Reserved</p>
+        <div class="footer-bottom-links">
+          <a href="whistleblower-policy.html">Whistleblower Policy</a>
+          <a href="conflict-of-interest.html">Conflict of Interest Policy</a>
+          <a href="privacy-policy.html">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">
+    <i class="fas fa-chevron-up"></i>
+  </a>
+
+  <!-- Main JavaScript -->
+  <script src="js/main.js"></script>
+  
+  <script>
+    // Form submission
+    document.getElementById('volunteerForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thank you for your application! We will review your submission and get back to you within 1-2 weeks.');
+      this.reset();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Read the latest news, articles, and editorials from the Society for Disease Prevention. Stay informed about global health issues and our initiatives.">
+  <meta name="keywords" content="SFDP news, health editorials, disease prevention articles, public health blog">
+  
+  <title>Editorials & News | Society for Disease Prevention</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/sfdp favicon.png">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+  
+  <style>
+    .blog-hero {
+      position: relative;
+      padding: calc(100px + var(--spacing-3xl)) 0 var(--spacing-3xl);
+      background: var(--primary-blue);
+      color: var(--white);
+      overflow: hidden;
+    }
+    
+    .blog-hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    
+    .blog-hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center right;
+    }
+    
+    .blog-hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to right,
+        var(--primary-blue) 0%,
+        var(--primary-blue) 40%,
+        rgba(30, 58, 95, 0.9) 55%,
+        rgba(30, 58, 95, 0.7) 70%,
+        rgba(30, 58, 95, 0.5) 85%,
+        rgba(30, 58, 95, 0.4) 100%
+      );
+    }
+    
+    .featured-post {
+      position: relative;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-2xl);
+    }
+    
+    .featured-post img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+    }
+    
+    .featured-post-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 3rem;
+      background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%);
+      color: var(--white);
+    }
+    
+    .post-category {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: var(--accent-orange);
+      color: var(--white);
+      border-radius: var(--radius-full);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+    
+    .post-meta {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      font-size: var(--text-sm);
+      color: var(--gray-400);
+    }
+    
+    .post-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    
+    @media (max-width: 992px) {
+      .blog-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .featured-post img {
+        height: 350px;
+      }
+    }
+    
+    .blog-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: all var(--transition-normal);
+    }
+    
+    .blog-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-xl);
+    }
+    
+    .blog-card-image {
+      height: 220px;
+      overflow: hidden;
+    }
+    
+    .blog-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--transition-slow);
+    }
+    
+    .blog-card:hover .blog-card-image img {
+      transform: scale(1.1);
+    }
+    
+    .blog-card-content {
+      padding: 1.5rem;
+    }
+    
+    .blog-card-title {
+      font-size: var(--text-lg);
+      font-weight: 600;
+      color: var(--gray-900);
+      margin-bottom: 0.75rem;
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    
+    .blog-card-excerpt {
+      font-size: var(--text-sm);
+      color: var(--gray-600);
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+    
+    .read-more-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      color: var(--primary-blue);
+      transition: all var(--transition-fast);
+    }
+    
+    .read-more-link:hover {
+      color: var(--accent-orange);
+      gap: 0.75rem;
+    }
+    
+    .blog-sidebar {
+      position: sticky;
+      top: 120px;
+    }
+    
+    .sidebar-widget {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-md);
+      margin-bottom: 2rem;
+    }
+    
+    .sidebar-title {
+      font-size: var(--text-lg);
+      font-weight: 600;
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--gray-100);
+    }
+    
+    .category-list {
+      list-style: none;
+    }
+    
+    .category-list li {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--gray-100);
+    }
+    
+    .category-list li:last-child {
+      border-bottom: none;
+    }
+    
+    .category-list a {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--gray-700);
+      transition: color var(--transition-fast);
+    }
+    
+    .category-list a:hover {
+      color: var(--primary-blue);
+    }
+    
+    .category-count {
+      background: var(--gray-100);
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-full);
+      font-size: var(--text-xs);
+      font-weight: 600;
+    }
+    
+    .recent-post {
+      display: flex;
+      gap: 1rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--gray-100);
+    }
+    
+    .recent-post:last-child {
+      border-bottom: none;
+    }
+    
+    .recent-post img {
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+      flex-shrink: 0;
+    }
+    
+    .recent-post-title {
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--gray-900);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-bottom: 0.25rem;
+    }
+    
+    .recent-post-date {
+      font-size: var(--text-xs);
+      color: var(--gray-500);
+    }
+    
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 3rem;
+    }
+    
+    .pagination a,
+    .pagination span {
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-md);
+      font-weight: 500;
+      transition: all var(--transition-fast);
+    }
+    
+    .pagination a {
+      background: var(--white);
+      color: var(--gray-700);
+      border: 1px solid var(--gray-200);
+    }
+    
+    .pagination a:hover {
+      background: var(--primary-blue);
+      color: var(--white);
+      border-color: var(--primary-blue);
+    }
+    
+    .pagination span.active {
+      background: var(--primary-blue);
+      color: var(--white);
+    }
+  </style>
+</head>
+<body>
+  <!-- ==================== Header ==================== -->
+  <header class="header" id="header">
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <img src="images/SFDP PNG 3.png" alt="SFDP Logo" class="logo-default"><img src="images/SFDP PNG 1.png" alt="SFDP Logo" class="logo-scrolled">
+      </a>
+      
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About Us</a>
+        <a href="mission.html" class="nav-link">Our Mission</a>
+        <a href="projects.html" class="nav-link">Projects</a>
+        <a href="editorials.html" class="nav-link active">Editorials</a>
+        <a href="contact.html" class="nav-link">Contact Us</a>
+      </nav>
+      
+      <div class="nav-actions">
+        <a href="donate.html" class="btn btn-donate">
+          <i class="fas fa-heart"></i>
+          <span>Donate Now</span>
+        </a>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== Blog Hero ==================== -->
+  <section class="blog-hero">
+    <div class="blog-hero-bg">
+      <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="News and stories">
+    </div>
+    <div class="container" style="position: relative; z-index: 1;">
+      <div class="text-center">
+        <span class="section-label" style="color: var(--accent-orange);">News & Stories</span>
+        <h1 style="font-size: var(--text-5xl); color: white; margin-bottom: 1rem;">Our <span class="text-highlight">Editorials</span></h1>
+        <p style="font-size: var(--text-lg); opacity: 0.9; max-width: 600px; margin: 0 auto;">
+          Stay informed with the latest news, health insights, and stories from our global initiatives.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== Featured Post ==================== -->
+  <section class="section">
+    <div class="container">
+      <a href="editorial-post.html" class="featured-post scroll-animate">
+        <img src="https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Featured post">
+        <div class="featured-post-content">
+          <span class="post-category">Health Innovation</span>
+          <h2 style="font-size: var(--text-3xl); margin-bottom: 1rem;">SFDP Launches Health Innovation Challenge 2025 for Students and Young Professionals</h2>
+          <p style="opacity: 0.9; margin-bottom: 1rem; max-width: 700px;">
+            We're excited to announce our annual Health Innovation Challenge, inviting young minds to develop solutions for pressing global health challenges.
+          </p>
+          <div class="post-meta" style="color: rgba(255,255,255,0.8);">
+            <span><i class="far fa-calendar"></i> January 15, 2025</span>
+            <span><i class="far fa-user"></i> Dr. Kennedy Alajemba</span>
+            <span><i class="far fa-clock"></i> 5 min read</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ==================== Blog Posts Grid ==================== -->
+  <section class="section bg-light">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1fr 300px; gap: 3rem;">
+        <!-- Main Content -->
+        <div>
+          <div class="blog-grid">
+            <!-- Post 1 -->
+            <article class="blog-card scroll-animate">
+              <a href="editorial-post.html" class="blog-card-image">
+                <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Medical screening">
+              </a>
+              <div class="blog-card-content">
+                <span class="post-category" style="font-size: 10px; padding: 0.35rem 0.75rem;">Health Screenings</span>
+                <h3 class="blog-card-title">Free Medical Screening Camp Reaches 500+ in Rural Pennsylvania</h3>
+                <p class="blog-card-excerpt">Our volunteer team conducted comprehensive health screenings including blood pressure, glucose, and vision tests for underserved communities.</p>
+                <div class="post-meta" style="margin-bottom: 1rem;">
+                  <span><i class="far fa-calendar"></i> Dec 28, 2024</span>
+                </div>
+                <a href="editorial-post.html" class="read-more-link">
+                  Read More <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </article>
+            
+            <!-- Post 2 -->
+            <article class="blog-card scroll-animate delay-1">
+              <a href="editorial-post.html" class="blog-card-image">
+                <img src="https://images.unsplash.com/photo-1541976590-713941681591?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Water project">
+              </a>
+              <div class="blog-card-content">
+                <span class="post-category" style="font-size: 10px; padding: 0.35rem 0.75rem; background: var(--accent-teal);">Water Supply</span>
+                <h3 class="blog-card-title">Clean Water Initiative Brings Hope to Three Nigerian Communities</h3>
+                <p class="blog-card-excerpt">Our water supply project has successfully provided clean drinking water access to over 2,000 families in need.</p>
+                <div class="post-meta" style="margin-bottom: 1rem;">
+                  <span><i class="far fa-calendar"></i> Dec 15, 2024</span>
+                </div>
+                <a href="editorial-post.html" class="read-more-link">
+                  Read More <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </article>
+            
+            <!-- Post 3 -->
+            <article class="blog-card scroll-animate delay-2">
+              <a href="editorial-post.html" class="blog-card-image">
+                <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Education">
+              </a>
+              <div class="blog-card-content">
+                <span class="post-category" style="font-size: 10px; padding: 0.35rem 0.75rem; background: var(--primary-blue);">Education</span>
+                <h3 class="blog-card-title">Aiducate Initiative: Empowering 100 Students Through Scholarships</h3>
+                <p class="blog-card-excerpt">Our education scholarship program continues to support brilliant minds who lack financial resources for their education.</p>
+                <div class="post-meta" style="margin-bottom: 1rem;">
+                  <span><i class="far fa-calendar"></i> Nov 30, 2024</span>
+                </div>
+                <a href="editorial-post.html" class="read-more-link">
+                  Read More <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </article>
+            
+            <!-- Post 4 -->
+            <article class="blog-card scroll-animate">
+              <a href="editorial-post.html" class="blog-card-image">
+                <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="COVID response">
+              </a>
+              <div class="blog-card-content">
+                <span class="post-category" style="font-size: 10px; padding: 0.35rem 0.75rem; background: #dc2626;">COVID-19</span>
+                <h3 class="blog-card-title">COVID-19 Relief: Supporting Families Through the Pandemic</h3>
+                <p class="blog-card-excerpt">A look back at our comprehensive COVID-19 response efforts that provided critical support to over 2,000 families.</p>
+                <div class="post-meta" style="margin-bottom: 1rem;">
+                  <span><i class="far fa-calendar"></i> Nov 15, 2024</span>
+                </div>
+                <a href="editorial-post.html" class="read-more-link">
+                  Read More <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </article>
+            
+            <!-- Post 5 -->
+            <article class="blog-card scroll-animate delay-1">
+              <a href="editorial-post.html" class="blog-card-image">
+                <img src="https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="HIV AIDS">
+              </a>
+              <div class="blog-card-content">
+                <span class="post-category" style="font-size: 10px; padding: 0.35rem 0.75rem; background: #9333ea;">AIDS Project</span>
+                <h3 class="blog-card-title">Africa AIDS Project: Raising Awareness and Providing Support</h3>
+                <p class="blog-card-excerpt">Our ongoing efforts to combat HIV/AIDS stigma and provide testing, education, and support services in Africa.</p>
+                <div class="post-meta" style="margin-bottom: 1rem;">
+                  <span><i class="far fa-calendar"></i> Oct 28, 2024</span>
+                </div>
+                <a href="editorial-post.html" class="read-more-link">
+                  Read More <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </article>
+            
+            <!-- Post 6 -->
+            <article class="blog-card scroll-animate delay-2">
+              <a href="editorial-post.html" class="blog-card-image">
+                <img src="https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Volunteers">
+              </a>
+              <div class="blog-card-content">
+                <span class="post-category" style="font-size: 10px; padding: 0.35rem 0.75rem; background: #059669;">Volunteers</span>
+                <h3 class="blog-card-title">Meet Our Incredible Volunteers: The Heart of SFDP</h3>
+                <p class="blog-card-excerpt">Celebrating the dedicated volunteers who make our work possible, giving their time and skills to serve communities.</p>
+                <div class="post-meta" style="margin-bottom: 1rem;">
+                  <span><i class="far fa-calendar"></i> Oct 10, 2024</span>
+                </div>
+                <a href="editorial-post.html" class="read-more-link">
+                  Read More <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </article>
+          </div>
+          
+          <!-- Pagination -->
+          <nav class="pagination">
+            <a href="#"><i class="fas fa-chevron-left"></i></a>
+            <span class="active">1</span>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#"><i class="fas fa-chevron-right"></i></a>
+          </nav>
+        </div>
+        
+        <!-- Sidebar -->
+        <aside class="blog-sidebar" style="display: none;" id="blogSidebar">
+          <!-- Search Widget -->
+          <div class="sidebar-widget">
+            <h4 class="sidebar-title">Search</h4>
+            <div style="position: relative;">
+              <input type="text" placeholder="Search articles..." style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--gray-200); border-radius: var(--radius-md); font-size: var(--text-sm);">
+              <button style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--gray-400); cursor: pointer;">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </div>
+          
+          <!-- Categories Widget -->
+          <div class="sidebar-widget">
+            <h4 class="sidebar-title">Categories</h4>
+            <ul class="category-list">
+              <li><a href="#">Health Screenings <span class="category-count">8</span></a></li>
+              <li><a href="#">Water Supply <span class="category-count">5</span></a></li>
+              <li><a href="#">Education <span class="category-count">12</span></a></li>
+              <li><a href="#">COVID-19 <span class="category-count">6</span></a></li>
+              <li><a href="#">AIDS Project <span class="category-count">4</span></a></li>
+              <li><a href="#">Volunteers <span class="category-count">7</span></a></li>
+            </ul>
+          </div>
+          
+          <!-- Recent Posts Widget -->
+          <div class="sidebar-widget">
+            <h4 class="sidebar-title">Recent Posts</h4>
+            <a href="editorial-post.html" class="recent-post">
+              <img src="https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="">
+              <div>
+                <h5 class="recent-post-title">Innovation Challenge 2025 Announced</h5>
+                <span class="recent-post-date">Jan 15, 2025</span>
+              </div>
+            </a>
+            <a href="editorial-post.html" class="recent-post">
+              <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="">
+              <div>
+                <h5 class="recent-post-title">Free Screening Camp Success</h5>
+                <span class="recent-post-date">Dec 28, 2024</span>
+              </div>
+            </a>
+            <a href="editorial-post.html" class="recent-post">
+              <img src="https://images.unsplash.com/photo-1541976590-713941681591?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="">
+              <div>
+                <h5 class="recent-post-title">Clean Water for Nigeria</h5>
+                <span class="recent-post-date">Dec 15, 2024</span>
+              </div>
+            </a>
+          </div>
+          
+          <!-- Newsletter Widget -->
+          <div class="sidebar-widget" style="background: var(--gradient-blue); color: white;">
+            <h4 class="sidebar-title" style="color: white; border-color: rgba(255,255,255,0.2);">Newsletter</h4>
+            <p style="font-size: var(--text-sm); opacity: 0.9; margin-bottom: 1rem;">Subscribe to get the latest news and updates.</p>
+            <input type="email" placeholder="Your email" style="width: 100%; padding: 0.75rem 1rem; border: none; border-radius: var(--radius-md); margin-bottom: 0.75rem; font-size: var(--text-sm);">
+            <button class="btn btn-donate w-full" style="font-size: var(--text-sm);">Subscribe</button>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CTA Section ==================== -->
+  <section class="cta-section">
+    <div class="cta-background">
+      <img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Make a difference">
+    </div>
+    <div class="cta-overlay"></div>
+    
+    <div class="container">
+      <div class="cta-content scroll-animate">
+        <h2>Want To Share Your Story?</h2>
+        <p>If you've been impacted by our work or have insights to share, we'd love to hear from you.</p>
+        <div class="cta-buttons">
+          <a href="contact.html" class="btn btn-donate btn-lg">
+            <i class="fas fa-pen"></i>
+            <span>Submit A Story</span>
+          </a>
+          <a href="newsletter.html" class="btn btn-outline-white btn-lg">
+            <i class="fas fa-envelope"></i>
+            <span>Subscribe to Newsletter</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== Footer ==================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <img src="images/SFDP PNG 3.png" alt="SFDP Logo" style="height: 60px;">
+          </a>
+          <p>
+            Society for Disease Prevention is a nonprofit organization committed to preventing public health crises and infectious disease outbreaks through education and community engagement.
+          </p>
+          <div class="footer-social">
+            <a href="https://web.facebook.com/societyfordiseaseprevention" target="_blank" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/societyfordiseaseprevention/" target="_blank" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://x.com/disease_society" target="_blank" aria-label="Twitter">
+              <i class="fab fa-x-twitter"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/society-for-disease-prevention-inc/" target="_blank" aria-label="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://www.tiktok.com/@society4diseasepreventio" target="_blank" aria-label="TikTok">
+              <i class="fab fa-tiktok"></i>
+            </a>
+            <a href="https://youtube.com/@societyfordiseasepreventioninc" target="_blank" aria-label="YouTube">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h4 class="footer-title">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="mission.html">Our Mission</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="editorials.html">Editorials</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4 class="footer-title">Get Involved</h4>
+          <ul class="footer-links">
+            <li><a href="donate.html">Donate Now</a></li>
+            <li><a href="join-us.html">Volunteer</a></li>
+            <li><a href="innovation-challenge.html">Innovation Challenge</a></li>
+            <li><a href="newsletter.html">Newsletter</a></li>
+            <li><a href="https://youtube.com/@societyfordiseasepreventioninc" target="_blank">YouTube Shorts</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4 class="footer-title">Contact Info</h4>
+          <ul class="footer-links">
+            <li>
+              <i class="fas fa-map-marker-alt" style="margin-right: 8px; color: var(--accent-orange);"></i>
+              90 Village Rd, Manchester, PA 17345
+            </li>
+            <li>
+              <i class="fas fa-phone" style="margin-right: 8px; color: var(--accent-orange);"></i>
+              +1 (800) 659-0506
+            </li>
+            <li>
+              <i class="fas fa-envelope" style="margin-right: 8px; color: var(--accent-orange);"></i>
+              <a href="mailto:info@s-fdp.org">info@s-fdp.org</a>
+            </li>
+          </ul>
+          
+          <a href="https://app.candid.org/profile/9895577" target="_blank" style="display: inline-block; margin-top: 1rem;">
+            <img src="https://widgets.guidestar.org/prod/v1/pdp/transparency-seal/9895577/svg" alt="Candid Seal" style="width: 80px;">
+          </a>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2019 - 2025 Society For Disease Prevention | All Rights Reserved</p>
+        <div class="footer-bottom-links">
+          <a href="whistleblower-policy.html">Whistleblower Policy</a>
+          <a href="conflict-of-interest.html">Conflict of Interest Policy</a>
+          <a href="privacy-policy.html">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">
+    <i class="fas fa-chevron-up"></i>
+  </a>
+
+  <!-- Main JavaScript -->
+  <script src="js/main.js"></script>
+  
+  <script>
+    // Show sidebar on desktop
+    function checkWidth() {
+      const sidebar = document.getElementById('blogSidebar');
+      if (window.innerWidth >= 1024) {
+        sidebar.style.display = 'block';
+      } else {
+        sidebar.style.display = 'none';
+      }
+    }
+    
+    checkWidth();
+    window.addEventListener('resize', checkWidth);
+  </script>
+</body>
+</html>

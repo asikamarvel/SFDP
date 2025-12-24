@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Subscribe to the SFDP newsletter and stay informed about our latest initiatives, health news, and community impact.">
+  <meta name="keywords" content="SFDP newsletter, health updates, disease prevention news">
+  
+  <title>Newsletter | Society for Disease Prevention</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/sfdp favicon.png">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+  
+  <style>
+    .newsletter-hero {
+      position: relative;
+      padding: calc(100px + var(--spacing-4xl)) 0 var(--spacing-4xl);
+      background: var(--primary-blue);
+      color: var(--white);
+      overflow: hidden;
+    }
+    
+    .newsletter-hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    
+    .newsletter-hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center right;
+    }
+    
+    .newsletter-hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to right,
+        var(--primary-blue) 0%,
+        var(--primary-blue) 40%,
+        rgba(30, 58, 95, 0.9) 55%,
+        rgba(30, 58, 95, 0.7) 70%,
+        rgba(30, 58, 95, 0.5) 85%,
+        rgba(30, 58, 95, 0.4) 100%
+      );
+    }
+    
+    .subscribe-card {
+      background: var(--white);
+      border-radius: var(--radius-xl);
+      padding: 3rem;
+      box-shadow: var(--shadow-2xl);
+      max-width: 500px;
+    }
+    
+    .topic-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      transition: all var(--transition-normal);
+    }
+    
+    .topic-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .topic-icon {
+      width: 50px;
+      height: 50px;
+      background: var(--gray-100);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      color: var(--primary-blue);
+      flex-shrink: 0;
+    }
+    
+    .past-issue {
+      display: flex;
+      gap: 1.5rem;
+      padding: 1.5rem;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      transition: all var(--transition-normal);
+    }
+    
+    .past-issue:hover {
+      transform: translateX(10px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .past-issue-image {
+      width: 120px;
+      height: 120px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    
+    .past-issue-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    @media (max-width: 768px) {
+      .past-issue {
+        flex-direction: column;
+      }
+      
+      .past-issue-image {
+        width: 100%;
+        height: 150px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- ==================== Header ==================== -->
+  <header class="header" id="header">
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <img src="images/SFDP PNG 3.png" alt="SFDP Logo" class="logo-default"><img src="images/SFDP PNG 1.png" alt="SFDP Logo" class="logo-scrolled">
+      </a>
+      
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About Us</a>
+        <a href="mission.html" class="nav-link">Our Mission</a>
+        <a href="projects.html" class="nav-link">Projects</a>
+        <a href="editorials.html" class="nav-link">Editorials</a>
+        <a href="contact.html" class="nav-link">Contact Us</a>
+      </nav>
+      
+      <div class="nav-actions">
+        <a href="donate.html" class="btn btn-donate">
+          <i class="fas fa-heart"></i>
+          <span>Donate Now</span>
+        </a>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== Newsletter Hero ==================== -->
+  <section class="newsletter-hero">
+    <div class="newsletter-hero-bg">
+      <img src="https://images.unsplash.com/photo-1586339949916-3e9457bef6d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Newsletter">
+    </div>
+    <div class="container" style="position: relative; z-index: 1;">
+      <div class="grid grid-2" style="gap: 4rem; align-items: center;">
+        <div>
+          <span class="section-label" style="color: var(--accent-orange);">Stay Connected</span>
+          <h1 style="font-size: var(--text-5xl); color: white; margin-bottom: 1.5rem;">
+            Subscribe To Our <span class="text-highlight">Newsletter</span>
+          </h1>
+          <p style="font-size: var(--text-lg); opacity: 0.9; margin-bottom: 2rem;">
+            Get the latest updates on our projects, health tips, success stories, and ways you can make a difference. Join our community of change-makers.
+          </p>
+          
+          <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <i class="fas fa-check-circle" style="color: var(--accent-orange);"></i>
+              <span>Monthly updates</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <i class="fas fa-check-circle" style="color: var(--accent-orange);"></i>
+              <span>Health tips</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <i class="fas fa-check-circle" style="color: var(--accent-orange);"></i>
+              <span>Impact stories</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="subscribe-card scroll-animate">
+          <h3 style="margin-bottom: 0.5rem; color: var(--gray-900);">Join 2,500+ Subscribers</h3>
+          <p class="text-gray" style="margin-bottom: 1.5rem; font-size: var(--text-sm);">
+            Sign up now and never miss an update from SFDP.
+          </p>
+          
+          <form id="newsletterForm">
+            <div style="margin-bottom: 1rem;">
+              <input type="text" placeholder="First Name" required style="width: 100%; padding: 1rem; border: 1px solid var(--gray-200); border-radius: var(--radius-md); font-size: var(--text-base);">
+            </div>
+            <div style="margin-bottom: 1rem;">
+              <input type="email" placeholder="Email Address" required style="width: 100%; padding: 1rem; border: 1px solid var(--gray-200); border-radius: var(--radius-md); font-size: var(--text-base);">
+            </div>
+            
+            <p style="font-size: var(--text-sm); color: var(--gray-500); margin-bottom: 1rem;">
+              Select topics you're interested in:
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.5rem;">
+              <label style="display: flex; align-items: center; gap: 0.5rem; font-size: var(--text-sm); cursor: pointer;">
+                <input type="checkbox" name="topics" value="projects" checked> Projects
+              </label>
+              <label style="display: flex; align-items: center; gap: 0.5rem; font-size: var(--text-sm); cursor: pointer;">
+                <input type="checkbox" name="topics" value="health"> Health Tips
+              </label>
+              <label style="display: flex; align-items: center; gap: 0.5rem; font-size: var(--text-sm); cursor: pointer;">
+                <input type="checkbox" name="topics" value="events"> Events
+              </label>
+              <label style="display: flex; align-items: center; gap: 0.5rem; font-size: var(--text-sm); cursor: pointer;">
+                <input type="checkbox" name="topics" value="volunteer"> Volunteer
+              </label>
+            </div>
+            
+            <button type="submit" class="btn btn-primary btn-lg w-full">
+              <i class="fas fa-envelope"></i>
+              <span>Subscribe Now</span>
+            </button>
+          </form>
+          
+          <p style="font-size: var(--text-xs); color: var(--gray-400); margin-top: 1rem; text-align: center;">
+            We respect your privacy. Unsubscribe at any time.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== What You'll Get ==================== -->
+  <section class="section">
+    <div class="container">
+      <div class="text-center mb-2xl">
+        <span class="section-label">Newsletter Content</span>
+        <h2>What You'll <span class="text-highlight">Receive</span></h2>
+      </div>
+      
+      <div class="grid grid-4" style="gap: 1.5rem;">
+        <div class="topic-card scroll-animate">
+          <div class="topic-icon">
+            <i class="fas fa-project-diagram"></i>
+          </div>
+          <div>
+            <h4 style="font-size: var(--text-base); margin-bottom: 0.25rem;">Project Updates</h4>
+            <p style="font-size: var(--text-sm); color: var(--gray-500); margin: 0;">Latest news from our initiatives</p>
+          </div>
+        </div>
+        
+        <div class="topic-card scroll-animate delay-1">
+          <div class="topic-icon" style="color: var(--accent-orange);">
+            <i class="fas fa-heartbeat"></i>
+          </div>
+          <div>
+            <h4 style="font-size: var(--text-base); margin-bottom: 0.25rem;">Health Tips</h4>
+            <p style="font-size: var(--text-sm); color: var(--gray-500); margin: 0;">Expert health advice & prevention</p>
+          </div>
+        </div>
+        
+        <div class="topic-card scroll-animate delay-2">
+          <div class="topic-icon" style="color: var(--accent-teal);">
+            <i class="fas fa-star"></i>
+          </div>
+          <div>
+            <h4 style="font-size: var(--text-base); margin-bottom: 0.25rem;">Impact Stories</h4>
+            <p style="font-size: var(--text-sm); color: var(--gray-500); margin: 0;">Real stories of change</p>
+          </div>
+        </div>
+        
+        <div class="topic-card scroll-animate delay-3">
+          <div class="topic-icon" style="color: #6366f1;">
+            <i class="fas fa-calendar-alt"></i>
+          </div>
+          <div>
+            <h4 style="font-size: var(--text-base); margin-bottom: 0.25rem;">Upcoming Events</h4>
+            <p style="font-size: var(--text-sm); color: var(--gray-500); margin: 0;">Ways to get involved</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== Past Issues ==================== -->
+  <section class="section bg-light">
+    <div class="container">
+      <div class="text-center mb-2xl">
+        <span class="section-label">Archives</span>
+        <h2>Past <span class="text-highlight">Issues</span></h2>
+        <p class="text-gray mt-md" style="max-width: 600px; margin: 0 auto;">
+          Missed an issue? Catch up on our previous newsletters.
+        </p>
+      </div>
+      
+      <div style="max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.5rem;">
+        <a href="#" class="past-issue scroll-animate">
+          <div class="past-issue-image">
+            <img src="https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="">
+          </div>
+          <div>
+            <span style="font-size: var(--text-sm); color: var(--accent-orange); font-weight: 600;">January 2025</span>
+            <h4 style="margin: 0.5rem 0;">Innovation Challenge Launch & 2024 Year in Review</h4>
+            <p class="text-gray" style="font-size: var(--text-sm); margin: 0;">A look back at our incredible 2024 achievements and the exciting launch of our Health Innovation Challenge.</p>
+          </div>
+        </a>
+        
+        <a href="#" class="past-issue scroll-animate">
+          <div class="past-issue-image">
+            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="">
+          </div>
+          <div>
+            <span style="font-size: var(--text-sm); color: var(--accent-orange); font-weight: 600;">December 2024</span>
+            <h4 style="margin: 0.5rem 0;">Holiday Health Tips & Community Celebrations</h4>
+            <p class="text-gray" style="font-size: var(--text-sm); margin: 0;">Staying healthy during the holidays and celebrating our volunteers' dedication throughout the year.</p>
+          </div>
+        </a>
+        
+        <a href="#" class="past-issue scroll-animate">
+          <div class="past-issue-image">
+            <img src="https://images.unsplash.com/photo-1541976590-713941681591?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="">
+          </div>
+          <div>
+            <span style="font-size: var(--text-sm); color: var(--accent-orange); font-weight: 600;">November 2024</span>
+            <h4 style="margin: 0.5rem 0;">Clean Water Success & Giving Tuesday Preview</h4>
+            <p class="text-gray" style="font-size: var(--text-sm); margin: 0;">Our water supply project milestones and how you can help during Giving Tuesday.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== Footer ==================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <img src="images/SFDP PNG 3.png" alt="SFDP Logo" style="height: 60px;">
+          </a>
+          <p>
+            Society for Disease Prevention is a nonprofit organization committed to preventing public health crises and infectious disease outbreaks through education and community engagement.
+          </p>
+          <div class="footer-social">
+            <a href="https://web.facebook.com/societyfordiseaseprevention" target="_blank" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/societyfordiseaseprevention/" target="_blank" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://x.com/disease_society" target="_blank" aria-label="Twitter">
+              <i class="fab fa-x-twitter"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/society-for-disease-prevention-inc/" target="_blank" aria-label="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://www.tiktok.com/@society4diseasepreventio" target="_blank" aria-label="TikTok">
+              <i class="fab fa-tiktok"></i>
+            </a>
+            <a href="https://youtube.com/@societyfordiseasepreventioninc" target="_blank" aria-label="YouTube">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h4 class="footer-title">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="mission.html">Our Mission</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="editorials.html">Editorials</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4 class="footer-title">Get Involved</h4>
+          <ul class="footer-links">
+            <li><a href="donate.html">Donate Now</a></li>
+            <li><a href="join-us.html">Volunteer</a></li>
+            <li><a href="innovation-challenge.html">Innovation Challenge</a></li>
+            <li><a href="newsletter.html">Newsletter</a></li>
+            <li><a href="https://youtube.com/@societyfordiseasepreventioninc" target="_blank">YouTube Shorts</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4 class="footer-title">Contact Info</h4>
+          <ul class="footer-links">
+            <li>
+              <i class="fas fa-map-marker-alt" style="margin-right: 8px; color: var(--accent-orange);"></i>
+              90 Village Rd, Manchester, PA 17345
+            </li>
+            <li>
+              <i class="fas fa-phone" style="margin-right: 8px; color: var(--accent-orange);"></i>
+              +1 (800) 659-0506
+            </li>
+            <li>
+              <i class="fas fa-envelope" style="margin-right: 8px; color: var(--accent-orange);"></i>
+              <a href="mailto:info@s-fdp.org">info@s-fdp.org</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2019 - 2025 Society For Disease Prevention | All Rights Reserved</p>
+        <div class="footer-bottom-links">
+          <a href="whistleblower-policy.html">Whistleblower Policy</a>
+          <a href="conflict-of-interest.html">Conflict of Interest Policy</a>
+          <a href="privacy-policy.html">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">
+    <i class="fas fa-chevron-up"></i>
+  </a>
+
+  <!-- Main JavaScript -->
+  <script src="js/main.js"></script>
+  
+  <script>
+    document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thank you for subscribing! You will receive our next newsletter soon.');
+      this.reset();
+    });
+  </script>
+</body>
+</html>

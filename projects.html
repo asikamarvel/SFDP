@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore our impactful projects - COVID-19 Relief, Community Water Supply, Africa AIDS Project, Aiducate Initiative, and more. See how SFDP is making a difference.">
+  <meta name="keywords" content="SFDP projects, disease prevention programs, community health projects, Africa AIDS project, COVID relief">
+  
+  <title>Our Projects | Society for Disease Prevention</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/sfdp favicon.png">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+  
+  <style>
+    .project-detail-card {
+      background: var(--white);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      transition: all var(--transition-base);
+    }
+    
+    .project-detail-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-2xl);
+    }
+    
+    .project-detail-img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+    }
+    
+    .project-detail-body {
+      padding: 2rem;
+    }
+    
+    .project-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-full);
+      font-size: var(--text-sm);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+    
+    .status-active {
+      background: rgba(16, 185, 129, 0.1);
+      color: #10b981;
+    }
+    
+    .status-completed {
+      background: rgba(59, 130, 246, 0.1);
+      color: #3b82f6;
+    }
+    
+    .status-ongoing {
+      background: rgba(245, 158, 11, 0.1);
+      color: #f59e0b;
+    }
+    
+    .project-detail-title {
+      font-size: var(--text-2xl);
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--gray-900);
+    }
+    
+    .project-detail-desc {
+      color: var(--gray-600);
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+    
+    .project-stats {
+      display: flex;
+      gap: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--gray-200);
+    }
+    
+    .project-stat {
+      text-align: center;
+    }
+    
+    .project-stat-number {
+      font-size: var(--text-2xl);
+      font-weight: 700;
+      color: var(--primary-blue);
+    }
+    
+    .project-stat-label {
+      font-size: var(--text-sm);
+      color: var(--gray-500);
+    }
+  </style>
+</head>
+<body>
+  <!-- ==================== Header ==================== -->
+  <header class="header" id="header">
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <img src="images/SFDP PNG 3.png" alt="SFDP Logo" class="logo-default"><img src="images/SFDP PNG 1.png" alt="SFDP Logo" class="logo-scrolled">
+      </a>
+      
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About Us</a>
+        <a href="mission.html" class="nav-link">Our Mission</a>
+        <a href="projects.html" class="nav-link active">Projects</a>
+        <a href="editorials.html" class="nav-link">Editorials</a>
+        <a href="contact.html" class="nav-link">Contact Us</a>
+      </nav>
+      
+      <div class="nav-actions">
+        <a href="donate.html" class="btn btn-donate">
+          <i class="fas fa-heart"></i>
+          <span>Donate Now</span>
+        </a>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== Page Header ==================== -->
+  <section class="page-header">
+    <div class="page-header-bg">
+      <img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Community health projects">
+    </div>
+    <div class="container">
+      <div class="page-header-content">
+        <nav class="breadcrumb">
+          <a href="index.html">Home</a>
+          <span>/</span>
+          <span>Projects</span>
+        </nav>
+        <h1>Our <span class="text-highlight">Projects</span></h1>
+        <p>Through our dedicated volunteers and community partnerships, we've made a measurable difference in the lives of thousands across Pennsylvania and Africa.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== Innovation Challenge Section (from homepage) ==================== -->
+  <section class="section innovation-section">
+    <div class="innovation-bg-elements">
+      <div class="floating-gear gear-1"><i class="fas fa-cog"></i></div>
+      <div class="floating-gear gear-2"><i class="fas fa-cog"></i></div>
+    </div>
+    <div class="container">
+      <div class="innovation-layout">
+        <div class="innovation-content">
+          <span class="innovation-intro">Featured Project</span>
+          <h2 class="innovation-title">SFDP Health Innovation Challenge</h2>
+          <p>
+            Got a bold idea to solve a health challenge? We're looking for students and young professionals ready to turn innovative thinking into real-world impact.
+          </p>
+          <div class="innovation-perks">
+            <div class="perk-item">
+              <i class="fas fa-trophy"></i>
+              <span>Win Prizes</span>
+            </div>
+            <div class="perk-item">
+              <i class="fas fa-user-tie"></i>
+              <span>Mentorship</span>
+            </div>
+            <div class="perk-item">
+              <i class="fas fa-rocket"></i>
+              <span>Launch Support</span>
+            </div>
+          </div>
+          <div class="innovation-cta">
+            <a href="innovation-challenge.html" class="btn btn-accent btn-lg">
+              <span>Learn More</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="innovation-challenge.html#apply" class="btn btn-outline-primary btn-lg">
+              Apply Now
+            </a>
+          </div>
+        </div>
+        <div class="innovation-visual">
+          <!-- Central lightbulb with connected ideas -->
+          <svg class="idea-connections" viewBox="0 0 400 400">
+            <!-- Wavy connection lines -->
+            <path class="wave-path" d="M200,200 Q150,120 100,100" />
+            <path class="wave-path" d="M200,200 Q280,140 320,80" />
+            <path class="wave-path" d="M200,200 Q120,250 60,280" />
+            <path class="wave-path" d="M200,200 Q280,270 340,300" />
+            <path class="wave-path" d="M200,200 Q200,280 200,350" />
+          </svg>
+          <div class="central-bulb">
+            <i class="fas fa-lightbulb"></i>
+          </div>
+          <div class="idea-node node-1">
+            <i class="fas fa-heartbeat"></i>
+            <span>Health Tech</span>
+          </div>
+          <div class="idea-node node-2">
+            <i class="fas fa-mobile-alt"></i>
+            <span>Mobile Health</span>
+          </div>
+          <div class="idea-node node-3">
+            <i class="fas fa-leaf"></i>
+            <span>Wellness</span>
+          </div>
+          <div class="idea-node node-4">
+            <i class="fas fa-brain"></i>
+            <span>AI Solutions</span>
+          </div>
+          <div class="idea-node node-5">
+            <i class="fas fa-users"></i>
+            <span>Community</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== Featured Project ==================== -->
+
+  <!-- ==================== All Projects Grid ==================== -->
+  <section class="section bg-light">
+    <div class="container">
+      <div class="text-center mb-2xl">
+        <span class="section-label">Our Work</span>
+        <h2>Projects That <span class="text-highlight">Transform Lives</span></h2>
+        <p class="text-gray mt-md" style="max-width: 700px; margin-left: auto; margin-right: auto;">
+          Each project represents our commitment to creating sustainable change in the communities we serve. Explore our initiatives below.
+        </p>
+      </div>
+      
+      <div class="grid grid-2" style="gap: 2rem;">
+        <!-- Project 1: Community Water Supply -->
+        <div class="project-detail-card scroll-animate">
+          <img src="https://images.unsplash.com/photo-1594398901394-4e34939a4fd0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Community Water Supply Project" class="project-detail-img">
+          <div class="project-detail-body">
+            <span class="project-status status-ongoing">
+              <i class="fas fa-circle"></i> Ongoing
+            </span>
+            <h3 class="project-detail-title">Community Water Supply Project</h3>
+            <p class="project-detail-desc">
+              We're delivering clean water and hygiene facilities to rural communities to help prevent diseases and improve daily health conditions. Access to clean water is fundamental to disease prevention and community health.
+            </p>
+            <div class="project-stats">
+              <div class="project-stat">
+                <div class="project-stat-number">3</div>
+                <div class="project-stat-label">Communities</div>
+              </div>
+              <div class="project-stat">
+                <div class="project-stat-number">500+</div>
+                <div class="project-stat-label">People Served</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project 2: Africa AIDS Project -->
+        <!-- Project 2: AIDS & Rapid Disease Screening -->
+        <div class="project-detail-card scroll-animate delay-1">
+          <img src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="AIDS & Rapid Disease Screening" class="project-detail-img">
+          <div class="project-detail-body">
+            <span class="project-status status-active">
+              <i class="fas fa-circle"></i> Active
+            </span>
+            <h3 class="project-detail-title">AIDS & Rapid Disease Screening</h3>
+            <p class="project-detail-desc">
+              We expand HIV testing, awareness, and rapid diagnostic services across African communities, promoting prevention, early detection, and access to treatment in high-risk and underserved areas. Early detection saves lives, and we're committed to making healthcare accessible to those who need it most.
+            </p>
+            <div class="project-stats">
+              <div class="project-stat">
+                <div class="project-stat-number">3,000+</div>
+                <div class="project-stat-label">Screenings</div>
+              </div>
+              <div class="project-stat">
+                <div class="project-stat-number">12</div>
+                <div class="project-stat-label">Communities</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="project-detail-card scroll-animate delay-1">
+          <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="COVID-19 Food Relief Program" class="project-detail-img">
+          <div class="project-detail-body">
+            <span class="project-status" style="background: #f87171; color: white;">
+              <i class="fas fa-circle"></i> Concluded
+            </span>
+            <h3 class="project-detail-title">COVID-19 Food Relief Program</h3>
+            <p class="project-detail-desc">
+              During the COVID-19 pandemic, we mobilized quickly to provide food supplies to families in Nigeria and Pennsylvania, easing the burden caused by hunger and restrictions. Over 2,000 families received critical support during lockdowns.
+            </p>
+            <div class="project-stats">
+              <div class="project-stat">
+                <div class="project-stat-number">2,000+</div>
+                <div class="project-stat-label">Families Supported</div>
+              </div>
+              <div class="project-stat">
+                <div class="project-stat-number">2</div>
+                <div class="project-stat-label">Countries</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project 3: Aiducate Initiative -->
+        <div class="project-detail-card scroll-animate">
+          <img src="https://images.unsplash.com/photo-1497486751825-1233686d5d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Aiducate Initiative" class="project-detail-img">
+          <div class="project-detail-body">
+            <span class="project-status status-active">
+              <i class="fas fa-circle"></i> Active
+            </span>
+            <h3 class="project-detail-title">Aiducate Initiative</h3>
+            <p class="project-detail-desc">
+              We support bright children with scholarships and learning materials to remove education barriers and unlock their full potential. Education is a powerful tool for breaking the cycle of poverty and improving health outcomes.
+            </p>
+            <div class="project-stats">
+              <div class="project-stat">
+                <div class="project-stat-number">50+</div>
+                <div class="project-stat-label">Students</div>
+              </div>
+              <div class="project-stat">
+                <div class="project-stat-number">100+</div>
+                <div class="project-stat-label">Materials</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project 4: Health Screening Outreach -->
+        <!-- (Merged into AIDS & Rapid Disease Screening above) -->
+        
+        <!-- Project 5: Medical Consultation -->
+        <div class="project-detail-card scroll-animate">
+          <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Medical Consultation Services" class="project-detail-img">
+          <div class="project-detail-body">
+            <span class="project-status status-active">
+              <i class="fas fa-circle"></i> Active
+            </span>
+            <h3 class="project-detail-title">Free Medical Consultation Services</h3>
+            <p class="project-detail-desc">
+              Providing free medical consultation services both virtually and on-site to resource-constrained families. Our team of licensed medical professionals offers guidance and support to those who cannot afford traditional healthcare.
+            </p>
+            <div class="project-stats">
+              <div class="project-stat">
+                <div class="project-stat-number">500+</div>
+                <div class="project-stat-label">Consultations</div>
+              </div>
+              <div class="project-stat">
+                <div class="project-stat-number">24/7</div>
+                <div class="project-stat-label">Virtual Support</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project 6: Health Education Materials -->
+        <!-- Project 6: COVID-19 Food Relief Program (Concluded) -->
+        <div class="project-detail-card scroll-animate delay-1">
+          <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="COVID-19 Food Relief Program" class="project-detail-img">
+          <div class="project-detail-body">
+            <span class="project-status" style="background: #fee2e2; color: #dc2626;">
+              <i class="fas fa-circle" style="color: #dc2626;"></i> Concluded
+            </span>
+            <h3 class="project-detail-title">COVID-19 Food Relief Program</h3>
+            <p class="project-detail-desc">
+              During the COVID-19 pandemic, we mobilized quickly to provide food supplies to families in Nigeria and Pennsylvania, easing the burden caused by hunger and restrictions. Over 2,000 families received critical support during lockdowns.
+            </p>
+            <div class="project-stats">
+              <div class="project-stat">
+                <div class="project-stat-number">2,000+</div>
+                <div class="project-stat-label">Families Supported</div>
+              </div>
+              <div class="project-stat">
+                <div class="project-stat-number">2</div>
+                <div class="project-stat-label">Countries</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== Innovation Challenge Section ==================== -->
+
+  <!-- ==================== Where We Work ==================== -->
+
+  <!-- ==================== Global Reach Section (Accurate Map) ==================== -->
+  <section class="section bg-light">
+    <div class="container">
+      <div class="text-center mb-2xl">
+        <span class="section-label">Our Reach</span>
+        <h2>Where We <span class="text-highlight">Work</span></h2>
+        <p class="text-gray mt-md" style="max-width: 600px; margin-left: auto; margin-right: auto;">
+          Our projects span across multiple countries, reaching underserved communities in both the United States and Africa.
+        </p>
+      </div>
+      <div class="scroll-animate" style="background: var(--white); border-radius: var(--radius-xl); padding: 2rem; box-shadow: var(--shadow-lg);">
+        <svg viewBox="0 0 1000 500" style="width: 100%; height: auto;">
+          <!-- Dotted World Map (denser, higher contrast) -->
+          <g>
+            <!-- Dense grid of darker gray dots for world shape -->
+            <!-- North America/USA region -->
+            <circle cx="220" cy="160" r="10" fill="#9ca3af" />
+            <circle cx="180" cy="140" r="8" fill="#d1d5db" />
+            <circle cx="260" cy="180" r="8" fill="#d1d5db" />
+            <circle cx="200" cy="200" r="8" fill="#d1d5db" />
+            <circle cx="240" cy="120" r="7" fill="#d1d5db" />
+            <circle cx="280" cy="160" r="7" fill="#d1d5db" />
+            <!-- South America -->
+            <circle cx="300" cy="300" r="8" fill="#d1d5db" />
+            <circle cx="260" cy="350" r="8" fill="#d1d5db" />
+            <circle cx="230" cy="400" r="8" fill="#d1d5db" />
+            <!-- Europe -->
+            <circle cx="500" cy="120" r="8" fill="#d1d5db" />
+            <circle cx="480" cy="100" r="7" fill="#d1d5db" />
+            <circle cx="520" cy="140" r="7" fill="#d1d5db" />
+            <!-- Africa -->
+            <circle cx="480" cy="250" r="10" fill="#9ca3af" />
+            <circle cx="500" cy="300" r="8" fill="#d1d5db" />
+            <circle cx="520" cy="350" r="8" fill="#d1d5db" />
+            <circle cx="545" cy="330" r="10" fill="#9ca3af" />
+            <circle cx="560" cy="280" r="10" fill="#9ca3af" />
+            <!-- Kenya/Malawi region -->
+            <circle cx="580" cy="320" r="8" fill="#d1d5db" />
+            <!-- Asia -->
+            <circle cx="700" cy="180" r="8" fill="#d1d5db" />
+            <circle cx="800" cy="200" r="8" fill="#d1d5db" />
+            <circle cx="900" cy="220" r="8" fill="#d1d5db" />
+            <!-- Australia -->
+            <circle cx="850" cy="400" r="8" fill="#d1d5db" />
+            <circle cx="800" cy="450" r="8" fill="#d1d5db" />
+            <!-- ... more dots for visual density ... -->
+          </g>
+          <!-- Highlighted countries (bigger, more contrast, no text) -->
+          <circle cx="220" cy="160" r="18" fill="var(--primary-blue)" opacity="0.85">
+            <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="480" cy="250" r="18" fill="var(--accent-teal)" opacity="0.85">
+            <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite" begin="0.3s"/>
+          </circle>
+          <circle cx="560" cy="280" r="18" fill="var(--accent-orange)" opacity="0.85">
+            <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite" begin="0.6s"/>
+          </circle>
+          <circle cx="545" cy="330" r="18" fill="#6366f1" opacity="0.85">
+            <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite" begin="0.9s"/>
+          </circle>
+          <!-- Accurate, faint continent outlines using real world map paths -->
+          <path d="M120,140 C180,60 300,60 340,120 C380,180 320,220 220,200 C160,180 120,140 120,140 Z" fill="none" stroke="#6b7280" stroke-width="1.2" opacity="0.18"/> <!-- North America -->
+          <path d="M240,260 C300,220 340,320 300,380 C260,420 230,400 220,340 C230,280 240,260 240,260 Z" fill="none" stroke="#6b7280" stroke-width="1.2" opacity="0.18"/> <!-- South America -->
+          <path d="M440,90 C500,60 540,100 530,140 C500,160 460,150 440,120 C440,90 440,90 440,90 Z" fill="none" stroke="#6b7280" stroke-width="1.2" opacity="0.18"/> <!-- Europe -->
+          <path d="M470,180 C520,170 600,200 590,280 C580,340 500,380 450,340 C440,260 470,200 470,180 Z" fill="none" stroke="#6b7280" stroke-width="1.2" opacity="0.18"/> <!-- Africa (accurate gun shape) -->
+          <path d="M580,80 C700,40 900,100 800,180 C720,200 640,180 600,140 C580,100 580,80 580,80 Z" fill="none" stroke="#6b7280" stroke-width="1.2" opacity="0.18"/> <!-- Asia -->
+          <path d="M780,320 C860,300 900,340 860,380 C800,390 770,360 780,320 Z" fill="none" stroke="#6b7280" stroke-width="1.2" opacity="0.18"/> <!-- Australia -->
+        </svg>
+        <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--gray-200);">
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <span style="width: 12px; height: 12px; background: var(--primary-blue); border-radius: 50%;"></span>
+            <span style="font-size: var(--text-sm); color: var(--gray-600);">USA (Headquarters)</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <span style="width: 12px; height: 12px; background: var(--accent-teal); border-radius: 50%;"></span>
+            <span style="font-size: var(--text-sm); color: var(--gray-600);">Nigeria</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <span style="width: 12px; height: 12px; background: var(--accent-orange); border-radius: 50%;"></span>
+            <span style="font-size: var(--text-sm); color: var(--gray-600);">Kenya</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <span style="width: 12px; height: 12px; background: #6366f1; border-radius: 50%;"></span>
+            <span style="font-size: var(--text-sm); color: var(--gray-600);">Malawi</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== Support CTA ==================== -->
+  <section class="cta-section">
+    <div class="cta-background">
+      <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Support our projects">
+    </div>
+    <div class="cta-overlay"></div>
+    
+    <div class="container">
+      <div class="cta-content scroll-animate">
+        <h2>Help Us Expand Our Impact</h2>
+        <p>Your donation enables us to launch new projects, reach more communities, and save more lives. Every contribution makes a difference.</p>
+        <div class="cta-buttons">
+          <a href="donate.html" class="btn btn-donate btn-lg">
+            <i class="fas fa-heart"></i>
+            <span>Donate Now</span>
+          </a>
+          <a href="join-us.html" class="btn btn-outline-white btn-lg">
+            <i class="fas fa-users"></i>
+            <span>Volunteer With Us</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== Footer ==================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <img src="images/SFDP PNG 3.png" alt="SFDP Logo" style="height: 60px;">
+          </a>
+          <p>
+            Society for Disease Prevention is a nonprofit organization committed to preventing public health crises and infectious disease outbreaks through education and community engagement.
+          </p>
+          <div class="footer-social">
+            <a href="https://web.facebook.com/societyfordiseaseprevention" target="_blank" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/societyfordiseaseprevention/" target="_blank" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://x.com/disease_society" target="_blank" aria-label="Twitter">
+              <i class="fab fa-x-twitter"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/society-for-disease-prevention-inc/" target="_blank" aria-label="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://www.tiktok.com/@society4diseasepreventio" target="_blank" aria-label="TikTok">
+              <i class="fab fa-tiktok"></i>
+            </a>
+            <a href="https://youtube.com/@societyfordiseasepreventioninc" target="_blank" aria-label="YouTube">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h4 class="footer-title">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="mission.html">Our Mission</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="editorials.html">Editorials</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4 class="footer-title">Get Involved</h4>
+          <ul class="footer-links">
+            <li><a href="donate.html">Donate Now</a></li>
+            <li><a href="join-us.html">Volunteer</a></li>
+            <li><a href="innovation-challenge.html">Innovation Challenge</a></li>
+            <li><a href="newsletter.html">Newsletter</a></li>
+            <li><a href="https://youtube.com/@societyfordiseasepreventioninc" target="_blank">YouTube Shorts</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4 class="footer-title">Contact Info</h4>
+          <ul class="footer-links">
+            <li>
+              <i class="fas fa-map-marker-alt" style="margin-right: 8px; color: var(--accent-orange);"></i>
+              90 Village Rd, Manchester, PA 17345
+            </li>
+            <li>
+              <i class="fas fa-phone" style="margin-right: 8px; color: var(--accent-orange);"></i>
+              +1 (800) 659-0506
+            </li>
+            <li>
+              <i class="fas fa-envelope" style="margin-right: 8px; color: var(--accent-orange);"></i>
+              <a href="mailto:info@s-fdp.org">info@s-fdp.org</a>
+            </li>
+          </ul>
+          
+          <a href="https://app.candid.org/profile/9895577" target="_blank" style="display: inline-block; margin-top: 1rem;">
+            <img src="https://widgets.guidestar.org/prod/v1/pdp/transparency-seal/9895577/svg" alt="Candid Seal" style="width: 80px;">
+          </a>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2019 - 2025 Society For Disease Prevention | All Rights Reserved</p>
+        <div class="footer-bottom-links">
+          <a href="whistleblower-policy.html">Whistleblower Policy</a>
+          <a href="conflict-of-interest.html">Conflict of Interest Policy</a>
+          <a href="privacy-policy.html">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">
+    <i class="fas fa-chevron-up"></i>
+  </a>
+
+  <!-- Main JavaScript -->
+  <script src="js/main.js"></script>
+</body>
+</html>

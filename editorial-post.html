@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Read our latest editorial on health innovation and community impact from the Society for Disease Prevention.">
+  <meta name="keywords" content="SFDP editorial, health news, disease prevention article">
+  
+  <title>SFDP Launches Health Innovation Challenge 2025 | Society for Disease Prevention</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/sfdp favicon.png">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+  
+  <style>
+    .post-hero {
+      position: relative;
+      height: 500px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+    
+    .post-hero-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .post-hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.4) 100%);
+    }
+    
+    .post-hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 3rem 0;
+      color: var(--white);
+      width: 100%;
+    }
+    
+    .post-header {
+      max-width: 800px;
+    }
+    
+    .post-category-tag {
+      display: inline-block;
+      padding: 0.5rem 1.25rem;
+      background: var(--accent-orange);
+      color: var(--white);
+      border-radius: var(--radius-full);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.5rem;
+    }
+    
+    .post-title {
+      font-size: var(--text-4xl);
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+    
+    .post-meta-info {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      font-size: var(--text-sm);
+      opacity: 0.9;
+    }
+    
+    .post-meta-info span {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .post-author {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .post-author img {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    
+    .article-container {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 4rem;
+      margin-top: -60px;
+      position: relative;
+      z-index: 10;
+    }
+    
+    @media (max-width: 1024px) {
+      .article-container {
+        grid-template-columns: 1fr;
+        margin-top: 0;
+      }
+    }
+    
+    .article-content {
+      background: var(--white);
+      border-radius: var(--radius-xl);
+      padding: 3rem;
+      box-shadow: var(--shadow-xl);
+    }
+    
+    .article-content h2 {
+      font-size: var(--text-2xl);
+      color: var(--gray-900);
+      margin: 2.5rem 0 1rem;
+    }
+    
+    .article-content h2:first-child {
+      margin-top: 0;
+    }
+    
+    .article-content p {
+      font-size: var(--text-base);
+      line-height: 1.9;
+      color: var(--gray-700);
+      margin-bottom: 1.5rem;
+    }
+    
+    .article-content ul,
+    .article-content ol {
+      margin-bottom: 1.5rem;
+      padding-left: 1.5rem;
+    }
+    
+    .article-content li {
+      margin-bottom: 0.75rem;
+      line-height: 1.7;
+      color: var(--gray-700);
+    }
+    
+    .article-content img {
+      width: 100%;
+      border-radius: var(--radius-lg);
+      margin: 2rem 0;
+    }
+    
+    .article-content blockquote {
+      margin: 2rem 0;
+      padding: 1.5rem 2rem;
+      background: var(--gray-50);
+      border-left: 4px solid var(--accent-orange);
+      font-style: italic;
+      color: var(--gray-700);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    }
+    
+    .article-content blockquote p {
+      margin-bottom: 0;
+    }
+    
+    .article-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--gray-200);
+    }
+    
+    .article-tag {
+      padding: 0.5rem 1rem;
+      background: var(--gray-100);
+      color: var(--gray-700);
+      border-radius: var(--radius-full);
+      font-size: var(--text-sm);
+      transition: all var(--transition-fast);
+    }
+    
+    .article-tag:hover {
+      background: var(--primary-blue);
+      color: var(--white);
+    }
+    
+    .share-buttons {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--gray-200);
+    }
+    
+    .share-buttons span {
+      font-weight: 600;
+      color: var(--gray-700);
+    }
+    
+    .share-btn {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      color: var(--white);
+      transition: all var(--transition-fast);
+    }
+    
+    .share-btn:hover {
+      transform: scale(1.1);
+    }
+    
+    .share-btn.facebook { background: #1877f2; }
+    .share-btn.twitter { background: #1da1f2; }
+    .share-btn.linkedin { background: #0a66c2; }
+    .share-btn.whatsapp { background: #25d366; }
+    
+    .author-box {
+      display: flex;
+      gap: 1.5rem;
+      padding: 2rem;
+      background: var(--gray-50);
+      border-radius: var(--radius-lg);
+      margin-top: 3rem;
+    }
+    
+    .author-box img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    
+    .author-box-info h4 {
+      margin-bottom: 0.5rem;
+    }
+    
+    .author-box-info p {
+      font-size: var(--text-sm);
+      color: var(--gray-600);
+      margin-bottom: 0.75rem;
+    }
+    
+    .sticky-sidebar {
+      position: sticky;
+      top: 120px;
+    }
+    
+    .toc-widget {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-md);
+      margin-bottom: 2rem;
+    }
+    
+    .toc-widget h4 {
+      font-size: var(--text-base);
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--gray-100);
+    }
+    
+    .toc-list {
+      list-style: none;
+    }
+    
+    .toc-list li {
+      margin-bottom: 0.5rem;
+    }
+    
+    .toc-list a {
+      display: block;
+      padding: 0.5rem 0;
+      color: var(--gray-600);
+      font-size: var(--text-sm);
+      border-left: 2px solid transparent;
+      padding-left: 1rem;
+      transition: all var(--transition-fast);
+    }
+    
+    .toc-list a:hover,
+    .toc-list a.active {
+      color: var(--primary-blue);
+      border-color: var(--primary-blue);
+      background: var(--gray-50);
+    }
+    
+    .related-posts {
+      background: var(--gray-50);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+    }
+    
+    .related-posts h4 {
+      font-size: var(--text-base);
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--gray-200);
+    }
+    
+    .related-post-item {
+      display: flex;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--gray-200);
+    }
+    
+    .related-post-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    
+    .related-post-item img {
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+      flex-shrink: 0;
+    }
+    
+    .related-post-item h5 {
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--gray-900);
+      margin-bottom: 0.25rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    
+    .related-post-item span {
+      font-size: var(--text-xs);
+      color: var(--gray-500);
+    }
+    
+    @media (max-width: 768px) {
+      .post-hero {
+        height: 400px;
+      }
+      
+      .post-title {
+        font-size: var(--text-2xl);
+      }
+      
+      .post-meta-info {
+        gap: 1rem;
+      }
+      
+      .article-content {
+        padding: 1.5rem;
+      }
+      
+      .author-box {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- ==================== Header ==================== -->
+  <header class="header" id="header">
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <img src="images/SFDP PNG 3.png" alt="SFDP Logo" class="logo-default"><img src="images/SFDP PNG 1.png" alt="SFDP Logo" class="logo-scrolled">
+      </a>
+      
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About Us</a>
+        <a href="mission.html" class="nav-link">Our Mission</a>
+        <a href="projects.html" class="nav-link">Projects</a>
+        <a href="editorials.html" class="nav-link active">Editorials</a>
+        <a href="contact.html" class="nav-link">Contact Us</a>
+      </nav>
+      
+      <div class="nav-actions">
+        <a href="donate.html" class="btn btn-donate">
+          <i class="fas fa-heart"></i>
+          <span>Donate Now</span>
+        </a>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== Post Hero ==================== -->
+  <section class="post-hero">
+    <img src="https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Innovation Challenge" class="post-hero-image">
+    <div class="post-hero-overlay"></div>
+    
+    <div class="container">
+      <div class="post-hero-content">
+        <div class="post-header">
+          <span class="post-category-tag">Health Innovation</span>
+          <h1 class="post-title">SFDP Launches Health Innovation Challenge 2025 for Students and Young Professionals</h1>
+          <div class="post-meta-info">
+            <div class="post-author">
+              <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Author">
+              <div>
+                <strong>Dr. Kennedy Alajemba</strong>
+                <div style="opacity: 0.8; font-size: 12px;">Founder & President</div>
+              </div>
+            </div>
+            <span><i class="far fa-calendar"></i> January 15, 2025</span>
+            <span><i class="far fa-clock"></i> 5 min read</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== Article Content ==================== -->
+  <section class="section">
+    <div class="container">
+      <div class="article-container">
+        <!-- Main Content -->
+        <article>
+          <div class="article-content">
+            <p style="font-size: var(--text-lg); font-weight: 500; color: var(--gray-800);">
+              The Society for Disease Prevention is thrilled to announce the launch of the SFDP Health Innovation Challenge 2025, a groundbreaking initiative designed to empower students and young professionals to develop innovative solutions for pressing global health challenges.
+            </p>
+            
+            <h2 id="about">About the Challenge</h2>
+            <p>
+              In an era where healthcare systems worldwide face unprecedented challenges, we believe that the next generation of innovators holds the key to transformative solutions. The SFDP Health Innovation Challenge invites creative minds from around the world to propose innovative ideas that address critical health issues affecting underserved communities.
+            </p>
+            <p>
+              This year's challenge focuses on three key areas: disease prevention technologies, community health education solutions, and accessible healthcare delivery models. Participants will have the opportunity to develop their ideas with mentorship from healthcare professionals and public health experts.
+            </p>
+            
+            <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Team collaboration">
+            
+            <h2 id="eligibility">Who Can Participate</h2>
+            <p>The Innovation Challenge is open to:</p>
+            <ul>
+              <li>Undergraduate and graduate students in any field of study</li>
+              <li>Young professionals (ages 18-35) working in healthcare, technology, or related sectors</li>
+              <li>Teams of up to 4 members with diverse backgrounds and expertise</li>
+              <li>Individuals from any country around the world</li>
+            </ul>
+            <p>
+              We particularly encourage participation from individuals in developing countries and those who have firsthand experience with the health challenges they aim to address.
+            </p>
+            
+            <blockquote>
+              <p>"Innovation doesn't require expensive labs or advanced degrees. Sometimes the most impactful solutions come from those closest to the problems they're solving. We're excited to see what young minds will bring to this challenge."</p>
+              <cite>— Dr. Kennedy Alajemba, SFDP Founder</cite>
+            </blockquote>
+            
+            <h2 id="prizes">Prizes and Opportunities</h2>
+            <p>
+              Winners will receive more than just recognition. The SFDP Health Innovation Challenge offers substantial support to help turn winning ideas into reality:
+            </p>
+            <ul>
+              <li><strong>First Place:</strong> $5,000 seed funding + mentorship program + opportunity to pilot the solution</li>
+              <li><strong>Second Place:</strong> $2,500 seed funding + mentorship program</li>
+              <li><strong>Third Place:</strong> $1,000 seed funding + mentorship program</li>
+              <li><strong>All Finalists:</strong> Certificate of recognition, SFDP network access, and potential internship opportunities</li>
+            </ul>
+            
+            <h2 id="timeline">Important Dates</h2>
+            <p>Mark your calendars for these key dates:</p>
+            <ul>
+              <li><strong>January 15, 2025:</strong> Application portal opens</li>
+              <li><strong>March 31, 2025:</strong> Application deadline</li>
+              <li><strong>April 15, 2025:</strong> Finalists announced</li>
+              <li><strong>May 1-15, 2025:</strong> Mentorship and refinement period</li>
+              <li><strong>May 30, 2025:</strong> Final presentations and winners announced</li>
+            </ul>
+            
+            <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Presentation">
+            
+            <h2 id="apply">How to Apply</h2>
+            <p>
+              Ready to make a difference? Applying is simple:
+            </p>
+            <ol>
+              <li>Visit our Innovation Challenge page and create an account</li>
+              <li>Complete the online application form with your personal information</li>
+              <li>Submit a brief proposal (max 1,500 words) outlining your innovative solution</li>
+              <li>Include a 3-minute video pitch explaining your idea and its potential impact</li>
+              <li>Provide any supporting materials or prototypes (optional)</li>
+            </ol>
+            <p>
+              Applications are reviewed by a panel of healthcare professionals, entrepreneurs, and public health experts who evaluate submissions based on innovation, feasibility, scalability, and potential impact.
+            </p>
+            
+            <h2 id="contact">Questions?</h2>
+            <p>
+              If you have any questions about the Innovation Challenge, please don't hesitate to reach out. Our team is here to help you through the application process.
+            </p>
+            <p>
+              Contact us at <a href="mailto:innovation@s-fdp.org" style="color: var(--primary-blue); font-weight: 500;">innovation@s-fdp.org</a> or visit our <a href="innovation-challenge.html" style="color: var(--primary-blue); font-weight: 500;">Innovation Challenge page</a> for more details.
+            </p>
+            
+            <div style="background: var(--gradient-blue); color: white; padding: 2rem; border-radius: var(--radius-lg); margin-top: 2rem; text-align: center;">
+              <h3 style="color: white; margin-bottom: 1rem;">Ready to Change the World?</h3>
+              <p style="opacity: 0.9; margin-bottom: 1.5rem;">Applications are now open. Don't miss this opportunity to make a real impact on global health.</p>
+              <a href="innovation-challenge.html" class="btn btn-donate">
+                <i class="fas fa-rocket"></i>
+                <span>Apply Now</span>
+              </a>
+            </div>
+            
+            <!-- Tags -->
+            <div class="article-tags">
+              <span style="font-weight: 600; color: var(--gray-700);">Tags:</span>
+              <a href="#" class="article-tag">Innovation</a>
+              <a href="#" class="article-tag">Health Challenge</a>
+              <a href="#" class="article-tag">Students</a>
+              <a href="#" class="article-tag">Young Professionals</a>
+              <a href="#" class="article-tag">Global Health</a>
+            </div>
+            
+            <!-- Share Buttons -->
+            <div class="share-buttons">
+              <span>Share:</span>
+              <a href="#" class="share-btn facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="share-btn twitter"><i class="fab fa-x-twitter"></i></a>
+              <a href="#" class="share-btn linkedin"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#" class="share-btn whatsapp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            
+            <!-- Author Box -->
+            <div class="author-box">
+              <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Dr. Kennedy Alajemba">
+              <div class="author-box-info">
+                <h4>Dr. Kennedy Alajemba</h4>
+                <p>Founder and President of the Society for Disease Prevention. Dr. Alajemba is a physician and public health advocate dedicated to improving healthcare access in underserved communities worldwide.</p>
+                <div style="display: flex; gap: 0.75rem;">
+                  <a href="#" style="color: var(--gray-500);"><i class="fab fa-twitter"></i></a>
+                  <a href="#" style="color: var(--gray-500);"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+        
+        <!-- Sidebar -->
+        <aside class="sticky-sidebar" style="display: none;" id="articleSidebar">
+          <!-- Table of Contents -->
+          <div class="toc-widget">
+            <h4>Table of Contents</h4>
+            <ul class="toc-list">
+              <li><a href="#about">About the Challenge</a></li>
+              <li><a href="#eligibility">Who Can Participate</a></li>
+              <li><a href="#prizes">Prizes and Opportunities</a></li>
+              <li><a href="#timeline">Important Dates</a></li>
+              <li><a href="#apply">How to Apply</a></li>
+              <li><a href="#contact">Questions</a></li>
+            </ul>
+          </div>
+          
+          <!-- Related Posts -->
+          <div class="related-posts">
+            <h4>Related Articles</h4>
+            <a href="editorial-post.html" class="related-post-item">
+              <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="">
+              <div>
+                <h5>Free Medical Screening Camp Success</h5>
+                <span>Dec 28, 2024</span>
+              </div>
+            </a>
+            <a href="editorial-post.html" class="related-post-item">
+              <img src="https://images.unsplash.com/photo-1541976590-713941681591?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="">
+              <div>
+                <h5>Clean Water Initiative Update</h5>
+                <span>Dec 15, 2024</span>
+              </div>
+            </a>
+            <a href="editorial-post.html" class="related-post-item">
+              <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="">
+              <div>
+                <h5>Aiducate Scholarship Program</h5>
+                <span>Nov 30, 2024</span>
+              </div>
+            </a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== More Articles ==================== -->
+  <section class="section bg-light">
+    <div class="container">
+      <div class="text-center mb-2xl">
+        <span class="section-label">Keep Reading</span>
+        <h2>More <span class="text-highlight">Articles</span></h2>
+      </div>
+      
+      <div class="grid grid-3" style="gap: 2rem;">
+        <article class="blog-card scroll-animate">
+          <a href="editorial-post.html" class="blog-card-image" style="display: block; height: 220px; overflow: hidden;">
+            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="" style="width: 100%; height: 100%; object-fit: cover;">
+          </a>
+          <div style="padding: 1.5rem;">
+            <span class="post-category" style="font-size: 10px; padding: 0.35rem 0.75rem;">Health Screenings</span>
+            <h3 style="font-size: var(--text-lg); margin: 0.75rem 0;">Free Medical Screening Camp Reaches 500+</h3>
+            <p style="color: var(--gray-600); font-size: var(--text-sm); margin-bottom: 1rem;">Our volunteer team conducted comprehensive health screenings for underserved communities.</p>
+            <a href="editorial-post.html" class="read-more-link">Read More <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </article>
+        
+        <article class="blog-card scroll-animate delay-1">
+          <a href="editorial-post.html" class="blog-card-image" style="display: block; height: 220px; overflow: hidden;">
+            <img src="https://images.unsplash.com/photo-1541976590-713941681591?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="" style="width: 100%; height: 100%; object-fit: cover;">
+          </a>
+          <div style="padding: 1.5rem;">
+            <span class="post-category" style="font-size: 10px; padding: 0.35rem 0.75rem; background: var(--accent-teal);">Water Supply</span>
+            <h3 style="font-size: var(--text-lg); margin: 0.75rem 0;">Clean Water Initiative Brings Hope</h3>
+            <p style="color: var(--gray-600); font-size: var(--text-sm); margin-bottom: 1rem;">Our water supply project has provided clean drinking water to over 2,000 families.</p>
+            <a href="editorial-post.html" class="read-more-link">Read More <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </article>
+        
+        <article class="blog-card scroll-animate delay-2">
+          <a href="editorial-post.html" class="blog-card-image" style="display: block; height: 220px; overflow: hidden;">
+            <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="" style="width: 100%; height: 100%; object-fit: cover;">
+          </a>
+          <div style="padding: 1.5rem;">
+            <span class="post-category" style="font-size: 10px; padding: 0.35rem 0.75rem; background: var(--primary-blue);">Education</span>
+            <h3 style="font-size: var(--text-lg); margin: 0.75rem 0;">Aiducate Initiative Empowers Students</h3>
+            <p style="color: var(--gray-600); font-size: var(--text-sm); margin-bottom: 1rem;">Our education scholarship program continues to support brilliant minds.</p>
+            <a href="editorial-post.html" class="read-more-link">Read More <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== Footer ==================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <img src="images/SFDP PNG 3.png" alt="SFDP Logo" style="height: 60px;">
+          </a>
+          <p>
+            Society for Disease Prevention is a nonprofit organization committed to preventing public health crises and infectious disease outbreaks through education and community engagement.
+          </p>
+          <div class="footer-social">
+            <a href="https://web.facebook.com/societyfordiseaseprevention" target="_blank" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/societyfordiseaseprevention/" target="_blank" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://x.com/disease_society" target="_blank" aria-label="Twitter">
+              <i class="fab fa-x-twitter"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/society-for-disease-prevention-inc/" target="_blank" aria-label="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://www.tiktok.com/@society4diseasepreventio" target="_blank" aria-label="TikTok">
+              <i class="fab fa-tiktok"></i>
+            </a>
+            <a href="https://youtube.com/@societyfordiseasepreventioninc" target="_blank" aria-label="YouTube">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h4 class="footer-title">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="mission.html">Our Mission</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="editorials.html">Editorials</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4 class="footer-title">Get Involved</h4>
+          <ul class="footer-links">
+            <li><a href="donate.html">Donate Now</a></li>
+            <li><a href="join-us.html">Volunteer</a></li>
+            <li><a href="innovation-challenge.html">Innovation Challenge</a></li>
+            <li><a href="newsletter.html">Newsletter</a></li>
+            <li><a href="https://youtube.com/@societyfordiseasepreventioninc" target="_blank">YouTube Shorts</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4 class="footer-title">Contact Info</h4>
+          <ul class="footer-links">
+            <li>
+              <i class="fas fa-map-marker-alt" style="margin-right: 8px; color: var(--accent-orange);"></i>
+              90 Village Rd, Manchester, PA 17345
+            </li>
+            <li>
+              <i class="fas fa-phone" style="margin-right: 8px; color: var(--accent-orange);"></i>
+              +1 (800) 659-0506
+            </li>
+            <li>
+              <i class="fas fa-envelope" style="margin-right: 8px; color: var(--accent-orange);"></i>
+              <a href="mailto:info@s-fdp.org">info@s-fdp.org</a>
+            </li>
+          </ul>
+          
+          <a href="https://app.candid.org/profile/9895577" target="_blank" style="display: inline-block; margin-top: 1rem;">
+            <img src="https://widgets.guidestar.org/TransparencySeal/8935657" alt="Candid Seal" style="width: 80px;">
+          </a>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2019 - 2025 Society For Disease Prevention | All Rights Reserved</p>
+        <div class="footer-bottom-links">
+          <a href="whistleblower-policy.html">Whistleblower Policy</a>
+          <a href="conflict-of-interest.html">Conflict of Interest Policy</a>
+          <a href="privacy-policy.html">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">
+    <i class="fas fa-chevron-up"></i>
+  </a>
+
+  <!-- Main JavaScript -->
+  <script src="js/main.js"></script>
+  
+  <script>
+    // Show sidebar on desktop
+    function checkWidth() {
+      const sidebar = document.getElementById('articleSidebar');
+      if (window.innerWidth >= 1024) {
+        sidebar.style.display = 'block';
+      } else {
+        sidebar.style.display = 'none';
+      }
+    }
+    
+    checkWidth();
+    window.addEventListener('resize', checkWidth);
+    
+    // Active TOC link
+    const tocLinks = document.querySelectorAll('.toc-list a');
+    const sections = document.querySelectorAll('h2[id]');
+    
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (scrollY >= sectionTop - 200) {
+          current = section.getAttribute('id');
+        }
+      });
+      
+      tocLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

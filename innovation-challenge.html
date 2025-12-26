@@ -467,9 +467,9 @@
     </div>
   </header>
 
-  <!-- ==================== Challenge Hero ==================== -->
-  <section class="challenge-hero">
-    <div class="challenge-hero-bg">
+  <!-- ==================== Challenge Hero (Standardized) ==================== -->
+  <section class="page-header">
+    <div class="page-header-bg">
       <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Health innovation">
     </div>
     <div class="hero-particles">
@@ -483,50 +483,34 @@
       <span style="left: 80%; animation-delay: 14s;"></span>
       <span style="left: 90%; animation-delay: 16s;"></span>
     </div>
-    
     <div class="container">
-      <div class="challenge-hero-content">
-        <div class="challenge-badge">
+      <div class="page-header-content text-center">
+        <div class="challenge-badge" style="margin-bottom:2rem;">
           <i class="fas fa-lightbulb"></i>
           <span>Applications Now Open</span>
         </div>
-        
-        <h1 class="challenge-title">
-          SFDP Health Innovation <span class="text-highlight">Challenge 2025</span>
-        </h1>
-        
-        <p class="challenge-subtitle">
-          Empowering students and young professionals to develop innovative solutions for global health challenges. $10,000+ in prizes!
+        <h1>SFDP Health Innovation <span class="text-highlight">Challenge 2025</span></h1>
+        <p style="font-size: var(--text-xl); opacity: 0.9; max-width: 700px; margin: 0 auto 2.5rem;">
+          Empowering students and young professionals to develop innovative solutions for global health challenges. Up to $1,000+ in prizes!
         </p>
-        
-        <div class="countdown-timer">
+        <!-- Countdown Timer -->
+        <div class="countdown-timer" id="countdown-timer">
           <div class="countdown-item">
-            <div class="countdown-number" id="days">00</div>
+            <div class="countdown-number" id="days">0</div>
             <div class="countdown-label">Days</div>
           </div>
           <div class="countdown-item">
-            <div class="countdown-number" id="hours">00</div>
+            <div class="countdown-number" id="hours">0</div>
             <div class="countdown-label">Hours</div>
           </div>
           <div class="countdown-item">
-            <div class="countdown-number" id="minutes">00</div>
+            <div class="countdown-number" id="minutes">0</div>
             <div class="countdown-label">Minutes</div>
           </div>
           <div class="countdown-item">
-            <div class="countdown-number" id="seconds">00</div>
+            <div class="countdown-number" id="seconds">0</div>
             <div class="countdown-label">Seconds</div>
           </div>
-        </div>
-        
-        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-          <a href="#apply" class="btn btn-donate btn-lg">
-            <i class="fas fa-rocket"></i>
-            <span>Apply Now</span>
-          </a>
-          <a href="#about" class="btn btn-outline-white btn-lg">
-            <i class="fas fa-info-circle"></i>
-            <span>Learn More</span>
-          </a>
         </div>
       </div>
     </div>

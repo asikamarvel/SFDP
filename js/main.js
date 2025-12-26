@@ -698,3 +698,28 @@ document.addEventListener('DOMContentLoaded', function() {
   initVideoPlayer();
   initNewsletterForm();
 });
+
+// Countdown Timer for Innovation Challenge
+(function() {
+  const timerSection = document.getElementById('countdown-timer');
+  if (!timerSection) return;
+  // Set target date: January 11, 2026 23:59:59
+  const targetDate = new Date('2026-01-11T23:59:59');
+  function updateCountdown() {
+    const now = new Date();
+    let diff = Math.max(0, targetDate - now);
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    diff -= days * (1000 * 60 * 60 * 24);
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    diff -= hours * (1000 * 60 * 60);
+    const minutes = Math.floor(diff / (1000 * 60));
+    diff -= minutes * (1000 * 60);
+    const seconds = Math.floor(diff / 1000);
+    document.getElementById('days').textContent = days;
+    document.getElementById('hours').textContent = hours;
+    document.getElementById('minutes').textContent = minutes;
+    document.getElementById('seconds').textContent = seconds;
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+})();

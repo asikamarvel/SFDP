@@ -8,7 +8,7 @@
   .hero-content {
     padding-top: 0;
     padding-bottom: 0;
-    margin-top: -1.2rem; /* Push label higher, closer to header */
+    margin-top: -1.6rem; /* Push label higher, closer to header */
   }
   .hero-title {
     font-size: 0.95rem; /* Slightly smaller title size */
@@ -49,6 +49,7 @@
   .hero-content {
     padding-top: 2px;
     padding-bottom: 2px;
+    margin-top: -1.6rem !important; /* Ensure it stays pushed up */
   }
   .hero-title {
     font-size: 1.05rem;
@@ -74,6 +75,7 @@
   .hero-content {
     padding-top: 8px;
     padding-bottom: 8px;
+    margin-top: -1.6rem !important; /* Ensure it stays pushed up */
   }
   .hero-title {
     font-size: 1.3rem;

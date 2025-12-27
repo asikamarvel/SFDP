@@ -1,3 +1,25 @@
+@media (max-width: 600px) {
+  .hero {
+    min-height: 50vh;
+    padding-bottom: 0;
+  }
+  .hero-content {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+  .hero-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
+  .hero-text {
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+  }
+  .hero-label {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+  }
+}
 @media (max-width: 768px) {
   .hero {
     min-height: 70vh;

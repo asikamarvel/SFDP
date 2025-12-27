@@ -1,3 +1,22 @@
+/* Make hero buttons visible at a glance on mobile */
+@media (max-width: 768px) {
+  .hero-content {
+    padding-top: 60px;
+    padding-bottom: 32px;
+  }
+  .hero-title {
+    font-size: 2rem;
+  }
+  .hero-text {
+    font-size: 1rem;
+    max-width: 95vw;
+  }
+  .hero-buttons {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+}
 /* Prevent prize card from overstretching on desktop */
 @media (min-width: 769px) {
   #prizes .prize-card.featured {

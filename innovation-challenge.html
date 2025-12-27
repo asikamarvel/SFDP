@@ -972,11 +972,11 @@ const timer = setInterval(updateCountdown, 1000);
   
   <script>
     // Countdown Timer
-    const deadline = new Date('March 31, 2025 23:59:59').getTime();
+    let deadlineTime = new Date('March 31, 2025 23:59:59').getTime();
     
     function updateCountdown() {
       const now = new Date().getTime();
-      const distance = deadline - now;
+      const distance = deadlineTime - now;
       
       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
       const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));

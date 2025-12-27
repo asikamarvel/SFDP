@@ -35,6 +35,9 @@
   }
   .hero-buttons {
     margin-top: 0;
+    flex-direction: row !important;
+    gap: 0.4rem;
+    flex-wrap: wrap;
   }
   .hero-buttons .btn-lg {
     padding: 0.6rem 1.5rem;
@@ -65,6 +68,9 @@
   }
   .hero-buttons {
     margin-top: 0.25rem;
+    flex-direction: row !important;
+    gap: 0.4rem;
+    flex-wrap: wrap;
   }
 }
 @media (max-width: 600px) {
@@ -113,9 +119,10 @@
     max-width: 95vw;
   }
   .hero-buttons {
-    flex-direction: column;
-    gap: 1rem;
-    align-items: stretch;
+    flex-direction: row !important;
+    gap: 0.8rem;
+    align-items: center;
+    flex-wrap: wrap;
   }
 }
 /* Prevent prize card from overstretching on desktop */

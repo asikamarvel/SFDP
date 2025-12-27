@@ -184,6 +184,12 @@
   }
 }
 /* Innovation Challenge About Section Responsive Fix */
+@media (min-width: 769px) {
+  #about .grid-2 {
+    gap: 4rem;
+  }
+}
+
 @media (max-width: 768px) {
   #about .container {
     padding-left: 0;

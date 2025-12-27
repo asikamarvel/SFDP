@@ -425,8 +425,35 @@
     }
     
     @media (max-width: 768px) {
+      .challenge-hero {
+        min-height: auto;
+        padding: 60px 0 !important;
+      }
+
+      .challenge-hero-content {
+        padding-top: 20px !important;
+        padding-bottom: 20px !important;
+      }
+
+      .challenge-badge {
+        padding: 0.5rem 1rem;
+        margin-bottom: 1rem;
+        font-size: var(--text-sm);
+      }
+
+      .challenge-title {
+        font-size: clamp(1.8rem, 4vw, 2.5rem) !important;
+        margin-bottom: 1rem;
+      }
+
+      .challenge-subtitle {
+        font-size: var(--text-base);
+        margin-bottom: 1.5rem;
+      }
+
       .countdown-timer {
         gap: 0.75rem;
+        margin: 1.5rem 0;
       }
       
       .countdown-number {

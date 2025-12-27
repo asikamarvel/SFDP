@@ -1,5 +1,24 @@
 @media (max-width: 600px) {
   .hero {
+    min-height: 22vh; /* Reduce the overall height */
+    padding-top: 0.5rem; /* Close the gap from the header */
+  }
+  .hero-label {
+    margin-bottom: 0.05rem;
+    font-size: 0.75rem;
+    flex-wrap: nowrap !important;
+    white-space: nowrap !important;
+    gap: 0.2rem;
+  }
+  .hero-label-sub {
+    padding-left: 0.3rem;
+    border-left: 1px solid rgba(255,255,255,0.3);
+    font-size: 0.65rem; /* Further reduce font size */
+    white-space: nowrap !important;
+  }
+}
+@media (max-width: 600px) {
+  .hero {
     min-height: 24vh;
     padding-bottom: 0;
     display: flex;
@@ -11,28 +30,26 @@
     margin-top: 0;
   }
   .hero-title {
-     padding-top: 0.2rem;
-     padding-bottom: 0;
-     margin-top: -0.3rem;
+    font-size: 1.02rem;
+    margin-bottom: 0.05rem;
+    line-height: 1.05;
   }
   .hero-text {
-     font-size: 0.62rem;
-     letter-spacing: -0.01em;
+    font-size: 0.8rem;
+    margin-bottom: 0.02rem;
+    line-height: 1.1;
   }
   .hero-label {
-     font-size: 0.95rem;
+    margin-bottom: 0.05rem;
     font-size: 0.75rem;
     flex-wrap: nowrap !important;
-     line-height: 1.35;
+    white-space: nowrap !important;
+    gap: 0.2rem;
+  }
   .hero-label-sub {
     padding-left: 0.3rem;
     border-left: 1px solid rgba(255,255,255,0.3);
-    }
-    .hero-buttons .btn-lg {
-     padding: 0.65rem 1.2rem;
-     font-size: 0.92rem;
-    }
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     white-space: nowrap !important;
   }
   .hero-buttons {

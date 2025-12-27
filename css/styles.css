@@ -1,24 +1,5 @@
 @media (max-width: 600px) {
   .hero {
-    min-height: 22vh; /* Reduce the overall height */
-    padding-top: 0.5rem; /* Close the gap from the header */
-  }
-  .hero-label {
-    margin-bottom: 0.05rem;
-    font-size: 0.75rem;
-    flex-wrap: nowrap !important;
-    white-space: nowrap !important;
-    gap: 0.2rem;
-  }
-  .hero-label-sub {
-    padding-left: 0.3rem;
-    border-left: 1px solid rgba(255,255,255,0.3);
-    font-size: 0.65rem; /* Further reduce font size */
-    white-space: nowrap !important;
-  }
-}
-@media (max-width: 600px) {
-  .hero {
     min-height: 24vh;
     padding-bottom: 0;
     display: flex;
@@ -27,7 +8,7 @@
   .hero-content {
     padding-top: 0;
     padding-bottom: 0;
-    margin-top: 0;
+    margin-top: -0.5rem; /* Reduce gap between header and hero label */
   }
   .hero-title {
     font-size: 1.02rem;
@@ -49,7 +30,7 @@
   .hero-label-sub {
     padding-left: 0.3rem;
     border-left: 1px solid rgba(255,255,255,0.3);
-    font-size: 0.65rem;
+    font-size: 0.7rem;
     white-space: nowrap !important;
   }
   .hero-buttons {

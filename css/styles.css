@@ -1,3 +1,79 @@
+/* Prevent prize card from overstretching on desktop */
+@media (min-width: 769px) {
+  #prizes .prize-card.featured {
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+/* About the Challenge Mobile: Reverse Stack (Image Under Text) */
+@media (max-width: 768px) {
+  #about .grid-2 {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  #about .grid-2 > div:first-child {
+    order: 1;
+    padding-right: 1.5rem;
+    padding-left: 0;
+    max-width: 95vw;
+    width: 100%;
+    margin: 0 auto;
+  }
+  #about .grid-2 > div:last-child {
+    order: 2;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+  }
+  #about .grid-2 > div:first-child > * {
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+/* Further improve About section mobile layout: image below text, restrict text width */
+@media (max-width: 768px) {
+  #about .grid-2 {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  #about .scroll-animate:first-child {
+    padding-right: 1.5rem;
+    padding-left: 0;
+    order: 1;
+    max-width: 95vw;
+    width: 100%;
+    margin: 0 auto;
+  }
+  #about .scroll-animate:last-child {
+    order: 2;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+  }
+  #about .scroll-animate:first-child > * {
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+/* Innovation Challenge About Section Responsive Fix */
+@media (max-width: 768px) {
+  #about .grid-2 {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  #about .scroll-animate:first-child {
+    padding-right: 1.5rem;
+    padding-left: 0;
+    order: 2;
+  }
+  #about .scroll-animate:last-child {
+    order: 1;
+    margin-bottom: 2rem;
+  }
+}
 /* Bulletproof YouTube embed styles */
 #youtube-wrapper, .youtube-embed-wrapper {
   width: 100%;

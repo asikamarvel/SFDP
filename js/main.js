@@ -703,8 +703,8 @@ document.addEventListener('DOMContentLoaded', function() {
 (function() {
   const timerSection = document.getElementById('countdown-timer');
   if (!timerSection) return;
-  // Set target date: January 11, 2026 23:59:59
-  const targetDate = new Date('2026-01-11T23:59:59');
+  // Set target date: January 18, 2026 23:59:59
+  const targetDate = new Date('2026-01-18T23:59:59');
   const daysEl = document.getElementById('days');
   const hoursEl = document.getElementById('hours');
   const minutesEl = document.getElementById('minutes');

@@ -8,7 +8,7 @@
   .hero-content {
     padding-top: 0;
     padding-bottom: 0;
-    margin-top: -0.5rem; /* Reduce gap between header and hero label */
+    margin-top: -0.10rem; /* Adjust gap between header and hero label */
   }
   .hero-title {
     font-size: 0.95rem; /* Slightly smaller title size */
@@ -18,7 +18,7 @@
   .hero-text {
     font-size: 0.8rem;
     margin-bottom: 0.02rem;
-    line-height: 1.1;
+    line-height: 1.25; /* Add small space for better readability */
   }
   .hero-label {
     margin-bottom: 0.05rem;
@@ -35,6 +35,10 @@
   }
   .hero-buttons {
     margin-top: 0;
+  }
+  .hero-buttons .btn-lg {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.75rem;
   }
 }
 @media (max-width: 600px) {

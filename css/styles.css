@@ -1447,7 +1447,11 @@ p {
   
   .photo-collage {
     max-width: 420px;
-    order: -1;
+    order: 2;
+  }
+  
+  .what-we-do-content {
+    order: 1;
   }
 }
 
@@ -1840,7 +1844,12 @@ p {
     gap: var(--spacing-2xl);
   }
   
+  .about-image-wrapper {
+    order: 2;
+  }
+  
   .about-content {
+    order: 1;
     padding-left: 0;
   }
 }
@@ -1904,6 +1913,7 @@ p {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 30%;
 }
 
 .cta-overlay {

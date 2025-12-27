@@ -8,7 +8,7 @@
   .hero-content {
     padding-top: 0;
     padding-bottom: 0;
-    margin-top: -2.2rem; /* Push label higher, closer to header */
+    margin-top: -2.6rem; /* Push label higher, closer to header */
   }
   .hero-title {
     font-size: 0.95rem; /* Slightly smaller title size */
@@ -16,7 +16,7 @@
     line-height: 1.02; /* Slightly reduced line spacing */
   }
   .hero-text {
-    font-size: 0.7rem; /* Further reduced text size on mobile */
+    font-size: 0.5rem; /* Further reduced text size on mobile */
     margin-bottom: 0.02rem;
     line-height: 1.25; /* Add small space for better readability */
   }
@@ -49,7 +49,7 @@
   .hero-content {
     padding-top: 2px;
     padding-bottom: 2px;
-    margin-top: -2.2rem !important; /* Ensure it stays pushed up */
+    margin-top: -2.6rem !important; /* Ensure it stays pushed up */
   }
   .hero-title {
     font-size: 1.05rem;
@@ -75,7 +75,7 @@
   .hero-content {
     padding-top: 8px;
     padding-bottom: 8px;
-    margin-top: -2.2rem !important; /* Ensure it stays pushed up */
+    margin-top: -2.6rem !important; /* Ensure it stays pushed up */
   }
   .hero-title {
     font-size: 1.3rem;

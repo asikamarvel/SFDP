@@ -2621,3 +2621,63 @@ p {
   background: var(--accent-orange);
   transform: translateY(-5px);
 }
+
+/* ==================== Partners Grid ==================== */
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  align-items: center;
+  justify-items: center;
+}
+
+.partner-item {
+  width: 160px;
+  height: 100px;
+  background: var(--gray-50);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.partner-item img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Tablet: 2 columns */
+@media (max-width: 768px) {
+  .partners-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    max-width: 600px;
+  }
+  
+  .partner-item {
+    width: 140px;
+    height: 90px;
+  }
+}
+
+/* Mobile: 1 column */
+@media (max-width: 480px) {
+  .partners-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    max-width: 100%;
+  }
+  
+  .partner-item {
+    width: 100%;
+    max-width: 180px;
+    height: 80px;
+  }
+}

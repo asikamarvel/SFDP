@@ -197,7 +197,8 @@
   }
   #about .scroll-animate:last-child {
     order: 1;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
+    margin-top: 0;
   }
 }
 /* Bulletproof YouTube embed styles */

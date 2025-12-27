@@ -11,9 +11,9 @@
     margin-top: -0.5rem; /* Reduce gap between header and hero label */
   }
   .hero-title {
-    font-size: 1.02rem;
+    font-size: 0.95rem; /* Slightly smaller title size */
     margin-bottom: 0.05rem;
-    line-height: 1.05;
+    line-height: 1.02; /* Slightly reduced line spacing */
   }
   .hero-text {
     font-size: 0.8rem;

@@ -189,6 +189,7 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 2.5rem;
+    align-items: start;
   }
   #about .scroll-animate:first-child {
     padding-right: 1.5rem;
@@ -199,6 +200,8 @@
     order: 1;
     margin-bottom: 3rem;
     margin-top: 0;
+    width: 100%;
+    max-width: 100%;
   }
 }
 /* Bulletproof YouTube embed styles */

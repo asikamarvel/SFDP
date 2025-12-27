@@ -240,8 +240,8 @@
     }
     
     .prize-rank {
-      width: 60px;
-      height: 60px;
+      width: 80px;
+      height: 80px;
       background: var(--gradient-blue);
       border-radius: 50%;
       display: flex;
@@ -249,8 +249,13 @@
       justify-content: center;
       margin: 0 auto 1.5rem;
       color: white;
-      font-size: var(--text-xl);
+      font-size: 1.05rem;
       font-weight: 700;
+      text-align: center;
+      line-height: 1.15;
+      padding: 0 6px;
+      word-break: break-word;
+      flex-direction: column;
     }
     
     .prize-card.featured .prize-rank {
@@ -496,22 +501,52 @@
         <!-- Countdown Timer -->
         <div class="countdown-timer" id="countdown-timer">
           <div class="countdown-item">
-            <div class="countdown-number" id="days">0</div>
+            <div class="countdown-number" id="days">00</div>
             <div class="countdown-label">Days</div>
           </div>
           <div class="countdown-item">
-            <div class="countdown-number" id="hours">0</div>
+            <div class="countdown-number" id="hours">00</div>
             <div class="countdown-label">Hours</div>
           </div>
           <div class="countdown-item">
-            <div class="countdown-number" id="minutes">0</div>
+            <div class="countdown-number" id="minutes">00</div>
             <div class="countdown-label">Minutes</div>
           </div>
           <div class="countdown-item">
-            <div class="countdown-number" id="seconds">0</div>
+            <div class="countdown-number" id="seconds">00</div>
             <div class="countdown-label">Seconds</div>
           </div>
         </div>
+        <script>
+// Countdown Timer — Dec 26 → Jan 11
+const deadline = new Date(2026, 0, 11, 23, 59, 59).getTime();
+
+function updateCountdown() {
+  const now = Date.now();
+  const distance = deadline - now;
+
+  if (distance <= 0) {
+    ['days','hours','minutes','seconds'].forEach(id => {
+      document.getElementById(id).textContent = '00';
+    });
+    clearInterval(timer);
+    return;
+  }
+
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((distance / (1000 * 60)) % 60);
+  const seconds = Math.floor((distance / 1000) % 60);
+
+  document.getElementById('days').textContent = String(days).padStart(2, '0');
+  document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+  document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+  document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+}
+
+updateCountdown();
+const timer = setInterval(updateCountdown, 1000);
+        </script>
       </div>
     </div>
   </section>
@@ -522,26 +557,29 @@
       <div class="grid grid-2" style="gap: 4rem; align-items: center;">
         <div class="scroll-animate">
           <span class="section-label">About The Challenge</span>
-          <h2>Innovate For <span class="text-highlight">Global Health</span></h2>
+          <h2>Innovate for <span class="text-highlight">Public Health Impact</span></h2>
           <p class="text-gray mt-lg">
-            The SFDP Health Innovation Challenge is a global competition that invites creative minds to develop solutions for pressing health challenges affecting underserved communities worldwide.
+            The SFDP Health Innovation Challenge supports early-stage, community-level public health ideas developed by students and young professionals.
           </p>
           <p class="text-gray mt-md">
-            Whether you're a student, recent graduate, or young professional, this is your opportunity to make a real impact. We're looking for innovative ideas that can prevent diseases, improve healthcare access, and educate communities.
+            It is a small-scale implementation challenge focused on action, learning, and community engagement around real public health problems in Nigeria.
+          </p>
+          <p class="text-gray mt-md">
+            Selected teams will receive seed funding and support to implement their ideas within a short timeframe and demonstrate measurable impact.
           </p>
           
           <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem;">
             <div style="text-align: center; padding: 1.5rem; background: var(--gray-50); border-radius: var(--radius-lg);">
-              <div style="font-size: var(--text-3xl); font-weight: 700; color: var(--primary-blue);">50+</div>
-              <div style="font-size: var(--text-sm); color: var(--gray-600);">Countries</div>
+              <div style="font-size: var(--text-3xl); font-weight: 700; color: var(--primary-blue);">3</div>
+              <div style="font-size: var(--text-sm); color: var(--gray-600);">winning teams</div>
             </div>
             <div style="text-align: center; padding: 1.5rem; background: var(--gray-50); border-radius: var(--radius-lg);">
-              <div style="font-size: var(--text-3xl); font-weight: 700; color: var(--accent-orange);">$10K+</div>
-              <div style="font-size: var(--text-sm); color: var(--gray-600);">In Prizes</div>
+              <div style="font-size: var(--text-3xl); font-weight: 700; color: var(--accent-orange);">$300</div>
+              <div style="font-size: var(--text-sm); color: var(--gray-600);">Implementation grant</div>
             </div>
             <div style="text-align: center; padding: 1.5rem; background: var(--gray-50); border-radius: var(--radius-lg);">
               <div style="font-size: var(--text-3xl); font-weight: 700; color: var(--accent-teal);">100%</div>
-              <div style="font-size: var(--text-sm); color: var(--gray-600);">Virtual</div>
+              <div style="font-size: var(--text-sm); color: var(--gray-600);">Youth-led</div>
             </div>
           </div>
         </div>
@@ -559,9 +597,10 @@
       <div class="text-center mb-2xl">
         <span class="section-label">Challenge Tracks</span>
         <h2>Choose Your <span class="text-highlight">Focus Area</span></h2>
-        <p class="text-gray mt-md" style="max-width: 600px; margin: 0 auto;">
-          Select one of three tracks that align with your expertise and passion. Each track addresses critical global health challenges.
-        </p>
+          <p class="text-gray mt-md" style="max-width: 600px; margin: 0 auto;">
+            Teams may submit proposals in one or more of the following focus areas:<br>
+            <em>(Proposals outside these areas may be considered if clearly feasible and impactful.)</em>
+          </p>
       </div>
       
       <div class="grid grid-3" style="gap: 2rem;">
@@ -569,15 +608,15 @@
           <div class="track-icon">
             <i class="fas fa-microscope"></i>
           </div>
-          <h3 style="margin-bottom: 1rem;">Disease Prevention Technology</h3>
+          <h3 style="margin-bottom: 1rem;">Infectious Disease Prevention</h3>
           <p class="text-gray">
-            Develop innovative technologies, tools, or systems that help prevent the spread of infectious diseases in communities.
+            Low-cost, community-based interventions addressing diseases such as malaria, Lassa fever, TB, and hepatitis.
           </p>
           <ul style="text-align: left; margin-top: 1.5rem; font-size: var(--text-sm);">
-            <li>Early warning systems</li>
-            <li>Diagnostic tools</li>
-            <li>Sanitation solutions</li>
-            <li>Vaccination tracking</li>
+            <li>Community prevention models</li>
+            <li>Early detection or referral</li>
+            <li>Awareness and behaviour change</li>
+            <li>Environmental risk reduction</li>
           </ul>
         </div>
         
@@ -585,15 +624,15 @@
           <div class="track-icon" style="color: var(--accent-orange);">
             <i class="fas fa-chalkboard-teacher"></i>
           </div>
-          <h3 style="margin-bottom: 1rem;">Community Health Education</h3>
+          <h3 style="margin-bottom: 1rem;">Health Education & Digital Health</h3>
           <p class="text-gray">
-            Create engaging educational resources, platforms, or programs that effectively communicate health information to diverse communities.
+            Simple digital or offline tools that improve health education, screening, referral, or monitoring.
           </p>
           <ul style="text-align: left; margin-top: 1.5rem; font-size: var(--text-sm);">
-            <li>Mobile apps</li>
-            <li>Interactive content</li>
-            <li>Awareness campaigns</li>
-            <li>Training programs</li>
+            <li>Health education platforms</li>
+            <li>Screening or referral tools</li>
+            <li>Digital follow-up systems</li>
+            <li>Community information campaigns</li>
           </ul>
         </div>
         
@@ -601,15 +640,17 @@
           <div class="track-icon" style="color: var(--accent-teal);">
             <i class="fas fa-hospital-user"></i>
           </div>
-          <h3 style="margin-bottom: 1rem;">Healthcare Access Models</h3>
+          <h3 style="margin-bottom: 1rem;">Equity-Focused Public Health Interventions</h3>
           <p class="text-gray">
-            Design innovative service delivery models that improve healthcare access for underserved and remote populations.
+            Projects addressing populations disproportionately affected by health inequities.
           </p>
           <ul style="text-align: left; margin-top: 1.5rem; font-size: var(--text-sm);">
-            <li>Telemedicine solutions</li>
-            <li>Mobile clinics</li>
-            <li>Community health workers</li>
-            <li>Supply chain innovation</li>
+            <li>Vaccine uptake & hesitancy</li>
+            <li>WASH interventions</li>
+            <li>Maternal, newborn & child health</li>
+            <li>Mental health peer-support models</li>
+            <li>AMR awareness & stewardship</li>
+            <li>Community surveillance & CHW support</li>
           </ul>
         </div>
       </div>
@@ -623,52 +664,24 @@
         <span class="section-label">Rewards</span>
         <h2>Prizes & <span class="text-highlight">Opportunities</span></h2>
         <p class="text-gray mt-md" style="max-width: 600px; margin: 0 auto;">
-          Winners receive funding, mentorship, and support to turn their ideas into reality.
+          3 winning teams receive funding, mentorship, and support to turn their ideas into reality.
         </p>
       </div>
       
-      <div class="grid grid-3" style="gap: 2rem; align-items: center;">
-        <div class="prize-card scroll-animate">
-          <div class="prize-rank">2nd</div>
-          <div class="prize-amount">$2,500</div>
-          <h4 style="margin-bottom: 1rem;">Second Place</h4>
+      <div class="grid" style="gap: 2rem; align-items: center; grid-template-columns: 1fr;">
+        <div class="prize-card featured scroll-animate">
+          <div class="prize-rank">1st – 3rd Place</div>
+          <div class="prize-amount">$300 <span style='font-size: var(--text-base); font-weight: 400;'>per team</span></div>
+          <h4 style="margin-bottom: 1rem;">Top 3 Teams</h4>
           <ul style="text-align: left; font-size: var(--text-sm); color: var(--gray-600);">
-            <li style="margin-bottom: 0.5rem;">✓ Seed funding</li>
-            <li style="margin-bottom: 0.5rem;">✓ 3-month mentorship</li>
-            <li style="margin-bottom: 0.5rem;">✓ SFDP network access</li>
-            <li>✓ Certificate of recognition</li>
-          </ul>
-        </div>
-        
-        <div class="prize-card featured scroll-animate delay-1">
-          <div class="prize-rank">1st</div>
-          <div class="prize-amount">$5,000</div>
-          <h4 style="margin-bottom: 1rem;">Grand Prize</h4>
-          <ul style="text-align: left; font-size: var(--text-sm); color: var(--gray-600);">
-            <li style="margin-bottom: 0.5rem;">✓ Seed funding</li>
-            <li style="margin-bottom: 0.5rem;">✓ 6-month mentorship</li>
-            <li style="margin-bottom: 0.5rem;">✓ Pilot program opportunity</li>
-            <li style="margin-bottom: 0.5rem;">✓ SFDP network access</li>
-            <li style="margin-bottom: 0.5rem;">✓ Media feature</li>
-            <li>✓ Certificate of recognition</li>
-          </ul>
-        </div>
-        
-        <div class="prize-card scroll-animate delay-2">
-          <div class="prize-rank">3rd</div>
-          <div class="prize-amount">$1,000</div>
-          <h4 style="margin-bottom: 1rem;">Third Place</h4>
-          <ul style="text-align: left; font-size: var(--text-sm); color: var(--gray-600);">
-            <li style="margin-bottom: 0.5rem;">✓ Seed funding</li>
-            <li style="margin-bottom: 0.5rem;">✓ 3-month mentorship</li>
-            <li style="margin-bottom: 0.5rem;">✓ SFDP network access</li>
-            <li>✓ Certificate of recognition</li>
+            <li style="margin-bottom: 0.5rem;">✓ Implementation grant</li>
+            <li style="margin-bottom: 0.5rem;">✓ SFDP recognition & visibility</li>
+            <li style="margin-bottom: 0.5rem;">✓ Project documentation & reporting support</li>
           </ul>
         </div>
       </div>
-      
       <div class="text-center mt-2xl">
-        <p class="text-gray"><strong>All Finalists</strong> receive certificates, SFDP network access, and potential internship opportunities.</p>
+        <p class="text-gray">All shortlisted teams gain experience, exposure, and the opportunity to remain engaged with SFDP beyond the competition.</p>
       </div>
     </div>
   </section>
@@ -684,33 +697,39 @@
       <div style="max-width: 700px; margin: 0 auto;">
         <div class="timeline-container">
           <div class="timeline-item completed scroll-animate">
-            <span class="timeline-date">January 15, 2025</span>
-            <h4 style="margin-bottom: 0.5rem;">Applications Open</h4>
-            <p class="text-gray" style="margin: 0; font-size: var(--text-sm);">Registration portal opens. Start preparing your innovative idea!</p>
+            <span class="timeline-date">Dec 28, 2025</span>
+            <h4 style="margin-bottom: 0.5rem;">Call for One-Page Proposals Opens</h4>
+            <p class="text-gray" style="margin: 0; font-size: var(--text-sm);">Submissions open for teams to send in a one-page project proposal, CVs, and short team profiles.</p>
           </div>
-          
-          <div class="timeline-item active scroll-animate">
-            <span class="timeline-date">March 31, 2025</span>
-            <h4 style="margin-bottom: 0.5rem;">Application Deadline</h4>
-            <p class="text-gray" style="margin: 0; font-size: var(--text-sm);">Submit your proposal and video pitch by 11:59 PM EST.</p>
-          </div>
-          
           <div class="timeline-item scroll-animate">
-            <span class="timeline-date">April 15, 2025</span>
-            <h4 style="margin-bottom: 0.5rem;">Finalists Announced</h4>
-            <p class="text-gray" style="margin: 0; font-size: var(--text-sm);">Top 10 finalists will be selected and notified via email.</p>
+            <span class="timeline-date">Jan 18, 2026 (23:59 GMT+1)</span>
+            <h4 style="margin-bottom: 0.5rem;">Proposal Submission Deadline</h4>
+            <p class="text-gray" style="margin: 0; font-size: var(--text-sm);">All proposals must be submitted before the deadline. Late submissions will not be considered.</p>
           </div>
-          
           <div class="timeline-item scroll-animate">
-            <span class="timeline-date">May 1-15, 2025</span>
-            <h4 style="margin-bottom: 0.5rem;">Mentorship Period</h4>
-            <p class="text-gray" style="margin: 0; font-size: var(--text-sm);">Finalists work with mentors to refine their proposals.</p>
+            <span class="timeline-date">Jan 19 – Jan 25, 2026</span>
+            <h4 style="margin-bottom: 0.5rem;">Screening & Shortlisting of Top 10 Teams</h4>
+            <p class="text-gray" style="margin: 0; font-size: var(--text-sm);">Proposals are reviewed based on relevance, feasibility, innovation, and team capacity.</p>
           </div>
-          
           <div class="timeline-item scroll-animate">
-            <span class="timeline-date">May 30, 2025</span>
-            <h4 style="margin-bottom: 0.5rem;">Final Presentations</h4>
-            <p class="text-gray" style="margin: 0; font-size: var(--text-sm);">Virtual presentations to judges. Winners announced!</p>
+            <span class="timeline-date">Jan 26 – Feb 08, 2026</span>
+            <h4 style="margin-bottom: 0.5rem;">Video Pitch Submission (30–60 seconds)</h4>
+            <p class="text-gray" style="margin: 0; font-size: var(--text-sm);">Shortlisted teams submit a brief video pitch introducing their idea and intended impact.</p>
+          </div>
+          <div class="timeline-item scroll-animate">
+            <span class="timeline-date">Feb 09 – Feb 15, 2026</span>
+            <h4 style="margin-bottom: 0.5rem;">Public Voting Period</h4>
+            <p class="text-gray" style="margin: 0; font-size: var(--text-sm);">Video pitches are published across SFDP platforms and open to public engagement and voting.</p>
+          </div>
+          <div class="timeline-item scroll-animate">
+            <span class="timeline-date">Feb 16, 2026</span>
+            <h4 style="margin-bottom: 0.5rem;">Announcement of Top 3 Winning Teams</h4>
+            <p class="text-gray" style="margin: 0; font-size: var(--text-sm);">Final results are announced following verification of public engagement metrics.</p>
+          </div>
+          <div class="timeline-item scroll-animate">
+            <span class="timeline-date">Feb 17 – Feb 22, 2026</span>
+            <h4 style="margin-bottom: 0.5rem;">Prize Disbursement & Project Launch</h4>
+            <p class="text-gray" style="margin: 0; font-size: var(--text-sm);">Winning teams receive funding and begin implementation of their approved project ideas.</p>
           </div>
         </div>
       </div>
@@ -729,9 +748,8 @@
           <span class="section-label">Who Can Apply</span>
           <h2>Eligibility <span class="text-highlight">Requirements</span></h2>
           <p class="text-gray mt-lg">
-            The Innovation Challenge is open to passionate individuals who want to make a difference in global health.
+            The challenge is open to teams of students and young professionals committed to public health action.
           </p>
-          
           <ul style="margin-top: 2rem;">
             <li style="display: flex; gap: 1rem; margin-bottom: 1.25rem;">
               <i class="fas fa-check-circle" style="color: var(--accent-teal); font-size: 1.25rem; margin-top: 3px;"></i>
@@ -744,21 +762,32 @@
               <i class="fas fa-check-circle" style="color: var(--accent-teal); font-size: 1.25rem; margin-top: 3px;"></i>
               <div>
                 <strong>Young Professionals</strong>
-                <p style="margin: 0; font-size: var(--text-sm); color: var(--gray-600);">Ages 18-35 working in healthcare, tech, or related fields</p>
+                <p style="margin: 0; font-size: var(--text-sm); color: var(--gray-600);">Ages 18-28 working in healthcare, tech, or related fields</p>
               </div>
             </li>
             <li style="display: flex; gap: 1rem; margin-bottom: 1.25rem;">
               <i class="fas fa-check-circle" style="color: var(--accent-teal); font-size: 1.25rem; margin-top: 3px;"></i>
               <div>
-                <strong>Teams Welcome</strong>
-                <p style="margin: 0; font-size: var(--text-sm); color: var(--gray-600);">Teams of up to 4 members with diverse backgrounds</p>
+                <strong>Teams composition</strong>
+                <p style="margin: 0; font-size: var(--text-sm); color: var(--gray-600);">Teams of up to 3-5 members with diverse backgrounds. At least one team member must have a health-related background or work.</p>
               </div>
             </li>
             <li style="display: flex; gap: 1rem; margin-bottom: 1.25rem;">
               <i class="fas fa-check-circle" style="color: var(--accent-teal); font-size: 1.25rem; margin-top: 3px;"></i>
               <div>
-                <strong>Global Participation</strong>
-                <p style="margin: 0; font-size: var(--text-sm); color: var(--gray-600);">Open to individuals from any country worldwide</p>
+                <strong>Nigeria</strong>
+                <p style="margin: 0; font-size: var(--text-sm); color: var(--gray-600);">Open to individuals based in the 36 states and the FCT</p>
+              </div>
+            </li>
+          </ul>
+          <div style="margin-top:2.5rem; background:var(--gray-50); border-radius:var(--radius-lg); padding:1.5rem 1.5rem 1.5rem 2.5rem; border-left:4px solid var(--accent-teal);">
+            <strong style="display:block; margin-bottom:0.5rem; color:var(--accent-teal);">Project Requirements</strong>
+            <ul style="margin:0; padding-left:1.2em; font-size:var(--text-sm); color:var(--gray-700);">
+              <li>Ethical and non-commercial</li>
+              <li>Low-cost and feasible within 2 months</li>
+              <li>Suitable for small-scale implementation</li>
+            </ul>
+          </div>
               </div>
             </li>
           </ul>
@@ -779,61 +808,47 @@
         <div class="faq-accordion">
           <div class="faq-item">
             <button class="faq-question">
-              <span>How do I submit my application?</span>
+              <span>How do we apply?</span>
               <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
             </button>
             <div class="faq-answer">
-              <p>Applications are submitted through our online portal. You'll need to create an account, fill out the application form, submit a written proposal (max 1,500 words), and upload a 3-minute video pitch explaining your idea.</p>
+              <p>Teams submit a one-page proposal, CVs, and short bios for each team member using the provided template.</p>
             </div>
           </div>
-          
           <div class="faq-item">
             <button class="faq-question">
-              <span>Can I apply as an individual or do I need a team?</span>
+              <span>Do we need a prototype?</span>
               <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
             </button>
             <div class="faq-answer">
-              <p>Both individuals and teams can apply. Teams can have up to 4 members. We encourage diverse teams with complementary skills, but solo applicants are equally welcome.</p>
+              <p>No. Only a clear, feasible idea suitable for small-scale implementation.</p>
             </div>
           </div>
-          
           <div class="faq-item">
             <button class="faq-question">
               <span>Is there an application fee?</span>
               <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
             </button>
             <div class="faq-answer">
-              <p>No, there is no application fee. The SFDP Health Innovation Challenge is completely free to enter.</p>
+              <p>No. The challenge is completely free to enter.</p>
             </div>
           </div>
-          
           <div class="faq-item">
             <button class="faq-question">
-              <span>Do I need a working prototype?</span>
+              <span>How are proposals assessed?</span>
               <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
             </button>
             <div class="faq-answer">
-              <p>No, a working prototype is not required for the initial application. We're looking for innovative ideas with strong potential. Finalists will have the opportunity to develop their concepts further during the mentorship period.</p>
+              <p>Proposals are screened based on relevance, feasibility, innovation, impact, and team capacity.</p>
             </div>
           </div>
-          
           <div class="faq-item">
             <button class="faq-question">
-              <span>How are submissions evaluated?</span>
+              <span>What happens after winning?</span>
               <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
             </button>
             <div class="faq-answer">
-              <p>Submissions are evaluated based on: Innovation (30%), Feasibility (25%), Scalability (20%), Potential Impact (20%), and Presentation Quality (5%). Our panel includes healthcare professionals, entrepreneurs, and public health experts.</p>
-            </div>
-          </div>
-          
-          <div class="faq-item">
-            <button class="faq-question">
-              <span>What happens after I win?</span>
-              <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
-            </button>
-            <div class="faq-answer">
-              <p>Winners receive their prize money, begin the mentorship program, and may have the opportunity to pilot their solution through SFDP's programs. We're committed to helping turn winning ideas into reality.</p>
+              <p>Winning teams receive structured mentorship on refining ideas as required, and funding to implement their project within two months. This is followed by submission of a short final report with photos and/or videos.</p>
             </div>
           </div>
         </div>
@@ -846,24 +861,14 @@
     <div class="container">
       <div class="text-center scroll-animate">
         <span class="section-label" style="color: var(--accent-orange);">Ready To Get Started?</span>
-        <h2 style="color: white; margin-bottom: 1.5rem;">Apply Now & Make A <span class="text-highlight">Difference</span></h2>
+        <h2 style="color: white; margin-bottom: 1.5rem;">Apply Now &amp; Take <span class="text-highlight">Action</span></h2>
         <p style="opacity: 0.9; max-width: 600px; margin: 0 auto 2.5rem;">
-          Don't miss this opportunity to turn your innovative idea into a real-world solution that can save lives and improve health outcomes for communities worldwide.
+          This is an opportunity to move from ideas to implementation.<br>
+          If you have a practical public health idea, this challenge is for you.
         </p>
         
         <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: var(--radius-xl); padding: 3rem; max-width: 600px; margin: 0 auto;">
           <form>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
-              <input type="text" placeholder="First Name" style="padding: 1rem; border: none; border-radius: var(--radius-md); font-size: var(--text-base);">
-              <input type="text" placeholder="Last Name" style="padding: 1rem; border: none; border-radius: var(--radius-md); font-size: var(--text-base);">
-            </div>
-            <input type="email" placeholder="Email Address" style="width: 100%; padding: 1rem; border: none; border-radius: var(--radius-md); font-size: var(--text-base); margin-bottom: 1rem;">
-            <select style="width: 100%; padding: 1rem; border: none; border-radius: var(--radius-md); font-size: var(--text-base); margin-bottom: 1.5rem; color: var(--gray-500);">
-              <option value="">Select Track</option>
-              <option value="prevention">Disease Prevention Technology</option>
-              <option value="education">Community Health Education</option>
-              <option value="access">Healthcare Access Models</option>
-            </select>
             <button type="submit" class="btn btn-donate btn-lg w-full">
               <i class="fas fa-rocket"></i>
               <span>Start Application</span>

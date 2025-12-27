@@ -705,20 +705,45 @@ document.addEventListener('DOMContentLoaded', function() {
   if (!timerSection) return;
   // Set target date: January 11, 2026 23:59:59
   const targetDate = new Date('2026-01-11T23:59:59');
+  const daysEl = document.getElementById('days');
+  const hoursEl = document.getElementById('hours');
+  const minutesEl = document.getElementById('minutes');
+  const secondsEl = document.getElementById('seconds');
   function updateCountdown() {
     const now = new Date();
-    let diff = Math.max(0, targetDate - now);
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    diff -= days * (1000 * 60 * 60 * 24);
-    const hours = Math.floor(diff / (1000 * 60 * 60));
-    diff -= hours * (1000 * 60 * 60);
-    const minutes = Math.floor(diff / (1000 * 60));
-    diff -= minutes * (1000 * 60);
-    const seconds = Math.floor(diff / 1000);
-    document.getElementById('days').textContent = days;
-    document.getElementById('hours').textContent = hours;
-    document.getElementById('minutes').textContent = minutes;
-    document.getElementById('seconds').textContent = seconds;
+    let diff = targetDate - now;
+    if (diff <= 0) {
+      if (daysEl) daysEl.textContent = 0;
+      if (hoursEl) hoursEl.textContent = 0;
+      if (minutesEl) minutesEl.textContent = 0;
+      if (secondsEl) secondsEl.textContent = 0;
+      // Show event ended message if desired
+      if (!document.getElementById('countdown-ended')) {
+        const endedMsg = document.createElement('div');
+        endedMsg.id = 'countdown-ended';
+        endedMsg.textContent = 'Event Ended';
+        endedMsg.style.fontSize = '1.5rem';
+        endedMsg.style.color = '#ef4444';
+        endedMsg.style.marginTop = '1rem';
+        timerSection.appendChild(endedMsg);
+      }
+      return;
+    }
+    let remaining = diff;
+    const days = Math.floor(remaining / (1000 * 60 * 60 * 24));
+    remaining -= days * (1000 * 60 * 60 * 24);
+    const hours = Math.floor(remaining / (1000 * 60 * 60));
+    remaining -= hours * (1000 * 60 * 60);
+    const minutes = Math.floor(remaining / (1000 * 60));
+    remaining -= minutes * (1000 * 60);
+    const seconds = Math.floor(remaining / 1000);
+    if (daysEl) daysEl.textContent = days;
+    if (hoursEl) hoursEl.textContent = hours;
+    if (minutesEl) minutesEl.textContent = minutes;
+    if (secondsEl) secondsEl.textContent = seconds;
+    // Remove event ended message if present
+    const endedMsg = document.getElementById('countdown-ended');
+    if (endedMsg) endedMsg.remove();
   }
   updateCountdown();
   setInterval(updateCountdown, 1000);

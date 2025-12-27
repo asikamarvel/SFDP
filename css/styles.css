@@ -186,6 +186,7 @@
 /* Innovation Challenge About Section Responsive Fix */
 @media (max-width: 768px) {
   #about .grid-2 {
+    display: grid;
     grid-template-columns: 1fr;
     gap: 2.5rem;
   }

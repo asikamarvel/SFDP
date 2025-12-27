@@ -2696,3 +2696,25 @@ p {
     height: 80px;
   }
 }
+
+/* Page Header Content Normalization - Fix stacked margins */
+.page-header-content {
+  padding-top: 0;
+}
+
+.page-header-content .challenge-badge {
+  margin-bottom: 0.75rem !important;
+}
+
+.page-header-content h1 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+.page-header-content p {
+  margin-top: 0;
+}
+
+.page-header-content .challenge-subtitle {
+  margin-bottom: 1.5rem;
+}

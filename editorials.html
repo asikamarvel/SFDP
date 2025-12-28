@@ -28,25 +28,49 @@
   <style>
     .featured-post {
       position: relative;
-      border-radius: var(--radius-xl);
+      height: 500px;
+      display: flex;
+      align-items: flex-end;
       overflow: hidden;
-      box-shadow: var(--shadow-2xl);
+      background: var(--primary-blue);
+      color: var(--white);
+      border-radius: var(--radius-xl);
+      text-decoration: none;
     }
     
-    .featured-post img {
+    .featured-post-image {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
-      height: 500px;
+      height: 100%;
       object-fit: cover;
+      object-position: center right;
+    }
+    
+    .featured-post-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        to right,
+        var(--primary-blue) 0%,
+        var(--primary-blue) 40%,
+        rgba(30, 58, 95, 0.9) 55%,
+        rgba(30, 58, 95, 0.7) 70%,
+        rgba(30, 58, 95, 0.5) 85%,
+        rgba(30, 58, 95, 0.4) 100%
+      );
+      z-index: 1;
     }
     
     .featured-post-content {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
+      position: relative;
+      z-index: 2;
       padding: 3rem;
-      background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%);
-      color: var(--white);
+      width: 100%;
     }
     
     .post-category {
@@ -93,8 +117,16 @@
         grid-template-columns: 1fr;
       }
       
-      .featured-post img {
+      .featured-post {
         height: 350px;
+      }
+      
+      .featured-post-content {
+        padding: 1.5rem;
+      }
+      
+      .featured-post-content h2 {
+        font-size: var(--text-2xl) !important;
       }
     }
     
@@ -350,16 +382,17 @@
   <section class="section">
     <div class="container">
       <a href="editorial-post.html" class="featured-post scroll-animate">
-        <img src="https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Featured post">
+        <img src="img/SFDP Grant.png" alt="Featured post" class="featured-post-image">
+        <div class="featured-post-overlay"></div>
         <div class="featured-post-content">
           <span class="post-category">Health Innovation</span>
-          <h2 style="font-size: var(--text-3xl); margin-bottom: 1rem;">SFDP Launches Health Innovation Challenge 2026 for Students and Young Professionals</h2>
+          <h2 style="font-size: var(--text-3xl); margin-bottom: 1rem; color: var(--white); line-height: 1.2;">SFDP Launches Health Innovation Challenge 2026 for Students and Young Professionals</h2>
           <p style="opacity: 0.9; margin-bottom: 1rem; max-width: 700px;">
             We're excited to announce our annual Health Innovation Challenge, inviting young minds to develop solutions for pressing global health challenges.
           </p>
           <div class="post-meta" style="color: rgba(255,255,255,0.8);">
             <span><i class="far fa-calendar"></i> January 15, 2025</span>
-            <span><i class="far fa-user"></i> Dr. Kennedy Alajemba</span>
+            <span><i class="far fa-user"></i> Society for Disease Prevention</span>
             <span><i class="far fa-clock"></i> 5 min read</span>
           </div>
         </div>

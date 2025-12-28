@@ -424,6 +424,9 @@
     @media (max-width: 768px) {
       .article-container {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin: 0;
+        padding: 0 0.75rem;
       }
       
       .sticky-sidebar {
@@ -443,6 +446,24 @@
       .author-box {
         flex-direction: column;
         text-align: left;
+      }
+      
+      .article-content {
+        padding: 1.5rem;
+      }
+      
+      .article-content img {
+        max-height: 350px;
+        margin: 1.5rem 0;
+      }
+      
+      .article-content h2 {
+        font-size: var(--text-xl);
+        margin: 1.5rem 0 1rem;
+      }
+      
+      .article-content p {
+        font-size: var(--text-sm);
       }
     }
   </style>

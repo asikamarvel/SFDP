@@ -1078,6 +1078,9 @@ p {
 
 /* ==================== Donate Hero Mobile Fixes ==================== */
 @media (max-width: 768px) {
+  .hero-background img {
+    transform: translateX(150px);
+  }
   .donate-hero {
     padding-top: var(--header-offset);
   }

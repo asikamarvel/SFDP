@@ -422,27 +422,129 @@
     }
 
     @media (max-width: 768px) {
+      .post-hero {
+        height: 350px;
+      }
+      
+      .post-hero-content {
+        padding: 2rem 0;
+      }
+      
+      .post-title {
+        font-size: var(--text-2xl) !important;
+        margin-bottom: 1rem;
+      }
+      
+      .post-category-tag {
+        padding: 0.5rem 1rem;
+        font-size: var(--text-xs);
+      }
+      
+      .post-meta-info {
+        flex-direction: column;
+        gap: 0.75rem;
+        align-items: flex-start;
+        font-size: var(--text-xs);
+      }
+      
       .article-container {
         grid-template-columns: 1fr;
+        gap: 2rem;
+        max-width: 100%;
+        padding: 0 1rem;
+        margin: 0 auto;
       }
       
       .sticky-sidebar {
         display: none;
       }
       
-      .post-title {
-        font-size: var(--text-2xl);
+      .article-content {
+        padding: 0;
       }
       
-      .post-meta-info {
-        flex-direction: column;
-        gap: 1rem;
-        align-items: flex-start;
+      .article-content h2 {
+        font-size: var(--text-xl) !important;
+        margin: 1.5rem 0 1rem;
+      }
+      
+      .article-content h3 {
+        font-size: var(--text-lg);
+        margin: 1.25rem 0 0.75rem;
+      }
+      
+      .article-content p {
+        font-size: var(--text-sm);
+        line-height: 1.6;
+        margin-bottom: 1rem;
+      }
+      
+      .article-content ul, .article-content ol {
+        margin: 1rem 0 1rem 1.5rem;
+        font-size: var(--text-sm);
+      }
+      
+      .article-content li {
+        margin-bottom: 0.5rem;
+      }
+      
+      .article-content img {
+        max-height: 300px;
+        margin: 1.5rem 0;
+      }
+      
+      .article-content blockquote {
+        padding: 1rem;
+        margin: 1.5rem 0;
+        font-size: var(--text-base);
       }
       
       .author-box {
         flex-direction: column;
         text-align: left;
+        padding: 1.5rem;
+        font-size: var(--text-sm);
+      }
+      
+      .share-buttons {
+        gap: 0.5rem;
+      }
+      
+      .share-buttons a {
+        width: 40px;
+        height: 40px;
+        font-size: 0.875rem;
+      }
+      
+      .tags-section {
+        margin: 1.5rem 0;
+      }
+      
+      .tag {
+        font-size: var(--text-xs);
+        padding: 0.5rem 0.75rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .post-hero {
+        height: 280px;
+      }
+      
+      .post-title {
+        font-size: 1.5rem !important;
+      }
+      
+      .article-container {
+        padding: 0 0.75rem;
+      }
+      
+      .article-content h2 {
+        font-size: var(--text-lg) !important;
+      }
+      
+      .article-content ul, .article-content ol {
+        margin-left: 1rem;
       }
     }
   </style>

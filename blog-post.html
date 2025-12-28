@@ -426,8 +426,9 @@
         grid-template-columns: 1fr;
         gap: 1.5rem;
         margin: 0;
-        max-width: 100%;
-        padding: 0 1rem;
+        max-width: none;
+        width: 100%;
+        padding: 0;
       }
       
       .sticky-sidebar {
@@ -454,12 +455,15 @@
         background: transparent;
         box-shadow: none;
         border-radius: 0;
+        width: 100%;
+        margin: 0;
       }
       
       .article-content img {
         max-height: 350px;
         margin: 1.5rem 0;
         padding: 0 1rem;
+        width: calc(100% - 2rem);
       }
       
       .article-content h2 {
@@ -479,7 +483,8 @@
       
       .article-content ul, .article-content ol {
         margin-left: 2.5rem;
-        padding: 0 1rem;
+        margin-right: 1rem;
+        padding: 0;
       }
       
       .article-content blockquote {

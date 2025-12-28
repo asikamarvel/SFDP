@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SFDP Health Innovation Challenge 2026 - Empowering students and young professionals to develop innovative solutions for global health challenges.">
+  <meta name="keywords" content="health innovation challenge, SFDP challenge, student competition, global health, disease prevention">
+  
+  <title>Health Innovation Challenge 2026 | Society for Disease Prevention</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../img/sfdp favicon.png">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="../css/styles.css">
+  
+  <style>
+    .challenge-hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: var(--primary-blue);
+    }
+    
+    .challenge-hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    
+    .challenge-hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    
+    .challenge-hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(21, 42, 69, 0.9) 0%,
+        rgba(30, 58, 95, 0.75) 50%,
+        rgba(13, 148, 136, 0.6) 100%
+      );
+    }
+    
+    .challenge-hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(to top, var(--white), transparent);
+      z-index: 1;
+    }
+    
+    .hero-particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    
+    .hero-particles span {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 50%;
+      animation: float 15s infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+    }
+    
+    .challenge-hero-content {
+      position: relative;
+      z-index: 10;
+      color: var(--white);
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+      padding-top: 100px;
+    }
+    
+    .challenge-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: var(--radius-full);
+      font-weight: 500;
+      margin-bottom: 2rem;
+    }
+    
+    .challenge-title {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+    }
+    
+    .challenge-subtitle {
+      font-size: var(--text-xl);
+      opacity: 0.9;
+      margin-bottom: 2.5rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .countdown-timer {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 3rem 0;
+    }
+    
+    .countdown-item {
+      text-align: center;
+    }
+    
+    .countdown-number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 80px;
+      height: 80px;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      border-radius: var(--radius-lg);
+      font-size: var(--text-3xl);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    
+    .countdown-label {
+      font-size: var(--text-sm);
+      opacity: 0.8;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    
+    .track-card {
+      background: var(--white);
+      border-radius: var(--radius-xl);
+      padding: 2.5rem;
+      text-align: center;
+      box-shadow: var(--shadow-lg);
+      transition: all var(--transition-normal);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .track-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--gradient-blue);
+    }
+    
+    .track-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-2xl);
+    }
+    
+    .track-icon {
+      width: 80px;
+      height: 80px;
+      background: var(--gray-50);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-size: 2rem;
+      color: var(--primary-blue);
+      transition: all var(--transition-normal);
+    }
+    
+    .track-card:hover .track-icon {
+      background: var(--primary-blue);
+      color: var(--white);
+      transform: scale(1.1);
+    }
+    
+    .prize-card {
+      background: var(--white);
+      border-radius: var(--radius-xl);
+      padding: 2.5rem;
+      text-align: center;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .prize-card.featured {
+      transform: scale(1.05);
+      border: 3px solid var(--accent-orange);
+    }
+    
+    .prize-card.featured::before {
+      content: 'Grand Prize';
+      position: absolute;
+      top: 20px;
+      right: -30px;
+      background: var(--accent-orange);
+      color: white;
+      padding: 0.25rem 2rem;
+      font-size: var(--text-xs);
+      font-weight: 600;
+      transform: rotate(45deg);
+      text-transform: uppercase;
+    }
+    
+    .prize-rank {
+      width: 80px;
+      height: 80px;
+      background: var(--gradient-blue);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      color: white;
+      font-size: 1.05rem;
+      font-weight: 700;
+      text-align: center;
+      line-height: 1.15;
+      padding: 0 6px;
+      word-break: break-word;
+      flex-direction: column;
+    }
+    
+    .prize-card.featured .prize-rank {
+      background: linear-gradient(135deg, var(--accent-orange) 0%, #fbbf24 100%);
+    }
+    
+    .prize-amount {
+      font-size: var(--text-4xl);
+      font-weight: 800;
+      color: var(--primary-blue);
+      margin-bottom: 0.5rem;
+    }
+    
+    .prize-card.featured .prize-amount {
+      color: var(--accent-orange);
+    }
+    
+    .timeline-container {
+      position: relative;
+      padding-left: 2rem;
+    }
+    
+    .timeline-container::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: var(--gray-200);
+      border-radius: 2px;
+    }
+    
+    .timeline-item {
+      position: relative;
+      padding: 2rem;
+      padding-left: 3rem;
+      margin-bottom: 1rem;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -2rem;
+      top: 2.5rem;
+      width: 20px;
+      height: 20px;
+      background: var(--primary-blue);
+      border: 4px solid var(--white);
+      border-radius: 50%;
+      box-shadow: var(--shadow-md);
+      transform: translateX(-50%);
+    }
+    
+    .timeline-item.completed::before {
+      background: var(--accent-teal);
+    }
+    
+    .timeline-item.active::before {
+      background: var(--accent-orange);
+      animation: pulse 2s infinite;
+    }
+    
+    .timeline-date {
+      display: inline-block;
+      padding: 0.25rem 1rem;
+      background: var(--gray-100);
+      border-radius: var(--radius-full);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--primary-blue);
+      margin-bottom: 0.75rem;
+    }
+    
+    .judge-card {
+      background: var(--white);
+      border-radius: var(--radius-xl);
+      padding: 2rem;
+      text-align: center;
+      box-shadow: var(--shadow-lg);
+      transition: all var(--transition-normal);
+    }
+    
+    .judge-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-xl);
+    }
+    
+    .judge-image {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 1.5rem;
+      border: 4px solid var(--gray-100);
+    }
+    
+    .faq-accordion {
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    
+    .faq-item {
+      border-bottom: 1px solid var(--gray-200);
+    }
+    
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+    
+    .faq-question {
+      width: 100%;
+      padding: 1.5rem;
+      background: var(--white);
+      border: none;
+      text-align: left;
+      font-size: var(--text-base);
+      font-weight: 600;
+      color: var(--gray-800);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all var(--transition-fast);
+    }
+    
+    .faq-question:hover {
+      background: var(--gray-50);
+    }
+    
+    .faq-question.active {
+      background: var(--primary-blue);
+      color: var(--white);
+    }
+    
+    .faq-icon {
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: var(--gray-100);
+      transition: all var(--transition-fast);
+    }
+    
+    .faq-question.active .faq-icon {
+      background: var(--white);
+      color: var(--primary-blue);
+      transform: rotate(180deg);
+    }
+    
+    .faq-answer {
+      padding: 0 1.5rem;
+      max-height: 0;
+      overflow: hidden;
+      transition: all var(--transition-normal);
+    }
+    
+    .faq-answer.active {
+      padding: 1.5rem;
+      max-height: 500px;
+    }
+    
+    @media (max-width: 768px) {
+      .challenge-hero {
+        min-height: auto;
+        padding: 20px 0 !important;
+      }
+
+      .challenge-hero-content {
+        padding-top: 8px !important;
+        padding-bottom: 20px !important;
+      }
+
+      .challenge-badge {
+        padding: 0.5rem 1rem;
+        margin-bottom: 0;
+        margin-top: 0;
+        font-size: var(--text-sm);
+      }
+
+      .challenge-title {
+        font-size: 1.5rem !important;
+        margin-bottom: 0.5rem;
+        line-height: 1.2;
+      }
+
+      .challenge-subtitle {
+        font-size: 0.95rem;
+        margin-bottom: 1rem;
+      }
+
+      .countdown-timer {
+        gap: 0.5rem;
+        margin: 1rem 0;
+      }
+      
+      .countdown-number {
+        width: 50px;
+        height: 50px;
+        font-size: var(--text-base);
+      }
+
+      .countdown-label {
+        font-size: 0.7rem;
+      }
+      
+      .prize-card.featured {
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- ==================== Header ==================== -->
+  <header class="header" id="header">
+    <div class="header-container">
+      <a href="../index.html" class="logo">
+        <img src="../img/SFDP PNG 3.png" alt="SFDP Logo" class="logo-default"><img src="../img/SFDP PNG 1.png" alt="SFDP Logo" class="logo-scrolled">
+      </a>
+      
+      <nav class="nav-menu" id="navMenu">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="../about.html" class="nav-link">About Us</a>
+        <a href="../mission.html" class="nav-link">Our Mission</a>
+        <a href="../projects.html" class="nav-link">Projects</a>
+        <a href="../editorials.html" class="nav-link">Editorials</a>
+        <a href="../contact.html" class="nav-link">Contact Us</a>
+      </nav>
+      
+      <div class="nav-actions">
+        <a href="../donate.html" class="btn btn-donate">
+          <i class="fas fa-heart"></i>
+          <span>Donate Now</span>
+        </a>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== Challenge Hero (Standardized) ==================== -->
+  <section class="page-header">
+    <div class="page-header-bg">
+      <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Health innovation">
+    </div>
+    <!-- Removed hero-particles row of circles -->
+    <div class="container">
+      <div class="page-header-content text-center">
+        <div class="challenge-badge" style="margin-bottom:0;">
+          <i class="fas fa-lightbulb"></i>
+          <span>Applications Now Open</span>
+        </div>
+        <h1>SFDP Health Innovation <span class="text-highlight">Challenge 2026</span></h1>
+        <p class="challenge-subtitle" style="font-size: var(--text-xl); opacity: 0.9; max-width: 700px;">
+          Empowering students and young professionals to develop innovative solutions for global health challenges. Up to $1,000+ in prizes!
+        </p>
+        <!-- Countdown Timer -->
+        <div class="countdown-timer" id="countdown-timer">
+          <div class="countdown-item">
+            <div class="countdown-number" id="days">00</div>
+            <div class="countdown-label">Days</div>
+          </div>
+          <div class="countdown-item">
+            <div class="countdown-number" id="hours">00</div>
+            <div class="countdown-label">Hours</div>
+          </div>
+          <div class="countdown-item">
+            <div class="countdown-number" id="minutes">00</div>
+            <div class="countdown-label">Minutes</div>
+          </div>
+          <div class="countdown-item">
+            <div class="countdown-number" id="seconds">00</div>
+            <div class="countdown-label">Seconds</div>
+          </div>
+        </div>
+        <script>
+// Countdown Timer — Dec 26 → Jan 11
+const deadline = new Date(2026, 0, 11, 23, 59, 59).getTime();
+
+function updateCountdown() {
+  const now = Date.now();
+  const distance = deadline - now;
+
+  if (distance <= 0) {
+    ['days','hours','minutes','seconds'].forEach(id => {
+      document.getElementById(id).textContent = '00';
+    });
+    clearInterval(timer);
+    return;
+  }
+
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((distance / (1000 * 60)) % 60);
+  const seconds = Math.floor((distance / 1000) % 60);
+
+  document.getElementById('days').textContent = String(days).padStart(2, '0');
+  document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+  document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+  document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+}
+
+updateCountdown();
+const timer = setInterval(updateCountdown, 1000);
+        </script>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== About the Challenge ==================== -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="grid grid-2" style="gap: 4rem; align-items: center;">
+        <div class="scroll-animate">
+          <span class="section-label">About The Challenge</span>
+          <h2>Innovate for <span class="text-highlight">Public Health Impact</span></h2>
+          <p class="text-gray mt-lg">
+            The SFDP Health Innovation Challenge supports early-stage, community-level public health ideas developed by students and young professionals.
+          </p>
+          <p class="text-gray mt-md">
+            It is a small-scale implementation challenge focused on action, learning, and community engagement around real public health problems in Nigeria.
+          </p>
+          <p class="text-gray mt-md">
+            Selected teams will receive seed funding and support to implement their ideas within a short timeframe and demonstrate measurable impact.
+          </p>
+          
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.1rem; margin-top: 2rem;">
+            <div style="text-align: center; padding: 1.5rem; background: var(--gray-50); border-radius: var(--radius-lg);">
+              <div style="font-size: var(--text-3xl); font-weight: 700; color: var(--primary-blue);">3</div>
+              <div style="font-size: var(--text-sm); color: var(--gray-600);">winning teams</div>
+            </div>
+            <div style="text-align: center; padding: 1.5rem; background: var(--gray-50); border-radius: var(--radius-lg);">
+              <div style="font-size: var(--text-3xl); font-weight: 700; color: var(--accent-orange);">$300</div>
+              <div style="font-size: var(--text-sm); color: var(--gray-600);">Implementation grant</div>
+            </div>
+            <div style="text-align: center; padding: 1.5rem; background: var(--gray-50); border-radius: var(--radius-lg);">
+              <div style="font-size: var(--text-3xl); font-weight: 700; color: var(--accent-teal);">100%</div>
+              <div style="font-size: var(--text-sm); color: var(--gray-600);">Youth-led</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="scroll-animate delay-1">
+          <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: var(--radius-xl); box-shadow: var(--shadow-2xl);">
+            <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: var(--radius-xl);" src="https://www.youtube.com/embed/s_jvX4Hyons" title="SFDP Innovation Challenge Video" allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== Challenge Tracks ==================== -->
+  <section class="section bg-light" id="tracks">
+    <div class="container">
+      <div class="text-center mb-2xl">
+        <span class="section-label">Challenge Tracks</span>
+        <h2>Choose Your <span class="text-highlight">Focus Area</span></h2>
+          <p class="text-gray mt-md" style="max-width: 600px; margin: 0 auto;">
+            Teams may submit proposals in one or more of the following focus areas:<br>
+            <em>(Proposals outside these areas may be considered if clearly feasible and impactful.)</em>
+          </p>
+      </div>
+      
+      <div class="grid grid-3" style="gap: 2rem;">
+        <div class="track-card scroll-animate">
+          <div class="track-icon">
+            <i class="fas fa-microscope"></i>
+          </div>
+          <h3 style="margin-bottom: 1rem;">Infectious Disease Prevention</h3>
+          <p class="text-gray">
+            Low-cost, community-based interventions addressing diseases such as malaria, Lassa fever, TB, and hepatitis.
+          </p>
+          <ul style="text-align: left; margin-top: 1.5rem; font-size: var(--text-sm);">
+            <li>Community prevention models</li>
+            <li>Early detection or referral</li>
+            <li>Awareness and behaviour change</li>
+            <li>Environmental risk reduction</li>
+          </ul>
+        </div>
+        
+        <div class="track-card scroll-animate delay-1">
+          <div class="track-icon" style="color: var(--accent-orange);">
+            <i class="fas fa-chalkboard-teacher"></i>
+          </div>
+          <h3 style="margin-bottom: 1rem;">Health Education & Digital Health</h3>
+          <p class="text-gray">
+            Simple digital or offline tools that improve health education, screening, referral, or monitoring.
+          </p>
+          <ul style="text-align: left; margin-top: 1.5rem; font-size: var(--text-sm);">
+            <li>Health education platforms</li>
+            <li>Screening or referral tools</li>
+            <li>Digital follow-up systems</li>
+            <li>Community information campaigns</li>
+          </ul>
+        </div>
+        
+        <div class="track-card scroll-animate delay-2">
+          <div class="track-icon" style="color: var(--accent-teal);">
+            <i class="fas fa-hospital-user"></i>
+          </div>
+          <h3 style="margin-bottom: 1rem;">Equity-Focused Public Health Interventions</h3>
+          <p class="text-gray">
+            Projects addressing populations disproportionately affected by health inequities.
+          </p>
+          <ul style="text-align: left; margin-top: 1.5rem; font-size: var(--text-sm);">
+            <li>Vaccine uptake & hesitancy</li>
+            <li>WASH interventions</li>
+            <li>Maternal, newborn & child health</li>
+            <li>Mental health peer-support models</li>
+            <li>AMR awareness & stewardship</li>
+            <li>Community surveillance & CHW support</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== Prizes ==================== -->
+  <section class="section" id="prizes">
+    <div class="container">
+      <div class="text-center mb-2xl">
+        <span class="section-label">Rewards</span>
+        <h2>Prizes & <span class="text-highlight">Opportunities</span></h2>
+        <p class="text-gray mt-md" style="max-width: 600px; margin: 0 auto;">
+          3 winning teams receive funding, mentorship, and support to turn their ideas into reality.
+        </p>
+      </div>
+      
+      <div class="grid" style="gap: 2rem; align-items: center; grid-template-columns: 1fr;">
+        <div class="prize-card featured scroll-animate">
+          <div class="prize-rank">1st - 3rd Place</div>
+          <div class="prize-amount">$300 <span style='font-size: var(--text-base); font-weight: 400;'>per team</span></div>
+          <h4 style="margin-bottom: 1rem;">Top 3 Teams</h4>
+          <ul style="text-align: left; font-size: var(--text-sm); color: var(--gray-600);">
+            <li style="margin-bottom: 0.5rem;">✓ Implementation grant</li>
+            <li style="margin-bottom: 0.5rem;">✓ SFDP recognition & visibility</li>
+            <li style="margin-bottom: 0.5rem;">✓ Project documentation & reporting support</li>
+          </ul>
+        </div>
+      </div>
+      <div class="text-center mt-2xl">
+        <p class="text-gray">All shortlisted teams gain experience, exposure, and the opportunity to remain engaged with SFDP beyond the competition.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== Timeline ==================== -->
+  <section class="section bg-light" id="timeline">
+    <div class="container">
+      <div class="text-center mb-2xl">
+        <span class="section-label">Important Dates</span>
+        <h2>Challenge <span class="text-highlight">Timeline</span></h2>
+      </div>
+      
+      <div style="max-width: 700px; margin: 0 auto;">
+        <div class="timeline-container">
+          <div class="timeline-item completed scroll-animate">
+            <span class="timeline-date">Dec 28, 2025</span>
+            <h4 style="margin-bottom: 0.5rem;">Call for One-Page Proposals Opens</h4>
+            <p class="text-gray" style="margin: 0; font-size: var(--text-sm);">Submissions open for teams to send in a one-page project proposal, CVs, and short team profiles.</p>
+          </div>
+          <div class="timeline-item scroll-animate">
+            <span class="timeline-date">Jan 18, 2026 (23:59 GMT+1)</span>
+            <h4 style="margin-bottom: 0.5rem;">Proposal Submission Deadline</h4>
+            <p class="text-gray" style="margin: 0; font-size: var(--text-sm);">All proposals must be submitted before the deadline. Late submissions will not be considered.</p>
+          </div>
+          <div class="timeline-item scroll-animate">
+            <span class="timeline-date">Jan 19 - Jan 25, 2026</span>
+            <h4 style="margin-bottom: 0.5rem;">Screening & Shortlisting of Top 10 Teams</h4>
+            <p class="text-gray" style="margin: 0; font-size: var(--text-sm);">Proposals are reviewed based on relevance, feasibility, innovation, and team capacity.</p>
+          </div>
+          <div class="timeline-item scroll-animate">
+            <span class="timeline-date">Jan 26 - Feb 08, 2026</span>
+            <h4 style="margin-bottom: 0.5rem;">Video Pitch Submission (30-60 seconds)</h4>
+            <p class="text-gray" style="margin: 0; font-size: var(--text-sm);">Shortlisted teams submit a brief video pitch introducing their idea and intended impact.</p>
+          </div>
+          <div class="timeline-item scroll-animate">
+            <span class="timeline-date">Feb 09 - Feb 15, 2026</span>
+            <h4 style="margin-bottom: 0.5rem;">Public Voting Period</h4>
+            <p class="text-gray" style="margin: 0; font-size: var(--text-sm);">Video pitches are published across SFDP platforms and open to public engagement and voting.</p>
+          </div>
+          <div class="timeline-item scroll-animate">
+            <span class="timeline-date">Feb 16, 2026</span>
+            <h4 style="margin-bottom: 0.5rem;">Announcement of Top 3 Winning Teams</h4>
+            <p class="text-gray" style="margin: 0; font-size: var(--text-sm);">Final results are announced following verification of public engagement metrics.</p>
+          </div>
+          <div class="timeline-item scroll-animate">
+            <span class="timeline-date">Feb 17 - Feb 22, 2026</span>
+            <h4 style="margin-bottom: 0.5rem;">Prize Disbursement & Project Launch</h4>
+            <p class="text-gray" style="margin: 0; font-size: var(--text-sm);">Winning teams receive funding and begin implementation of their approved project ideas.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== Eligibility ==================== -->
+  <section class="section" id="eligibility">
+    <div class="container">
+      <div class="grid grid-2" style="gap: 4rem; align-items: center;">
+        <div class="scroll-animate">
+          <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Team" style="border-radius: var(--radius-xl); box-shadow: var(--shadow-2xl);">
+        </div>
+        
+        <div class="scroll-animate delay-1">
+          <span class="section-label">Who Can Apply</span>
+          <h2>Eligibility <span class="text-highlight">Requirements</span></h2>
+          <p class="text-gray mt-lg">
+            The challenge is open to teams of students and young professionals committed to public health action.
+          </p>
+          <ul style="margin-top: 2rem;">
+            <li style="display: flex; gap: 1rem; margin-bottom: 1.25rem;">
+              <i class="fas fa-check-circle" style="color: var(--accent-teal); font-size: 1.25rem; margin-top: 3px;"></i>
+              <div>
+                <strong>Students</strong>
+                <p style="margin: 0; font-size: var(--text-sm); color: var(--gray-600);">Undergraduate or graduate students in any field of study</p>
+              </div>
+            </li>
+            <li style="display: flex; gap: 1rem; margin-bottom: 1.25rem;">
+              <i class="fas fa-check-circle" style="color: var(--accent-teal); font-size: 1.25rem; margin-top: 3px;"></i>
+              <div>
+                <strong>Young Professionals</strong>
+                <p style="margin: 0; font-size: var(--text-sm); color: var(--gray-600);">Ages 18-28 working in healthcare, tech, or related fields</p>
+              </div>
+            </li>
+            <li style="display: flex; gap: 1rem; margin-bottom: 1.25rem;">
+              <i class="fas fa-check-circle" style="color: var(--accent-teal); font-size: 1.25rem; margin-top: 3px;"></i>
+              <div>
+                <strong>Teams composition</strong>
+                <p style="margin: 0; font-size: var(--text-sm); color: var(--gray-600);">Teams of up to 3-5 members with diverse backgrounds. At least one team member must have a health-related background or work.</p>
+              </div>
+            </li>
+            <li style="display: flex; gap: 1rem; margin-bottom: 1.25rem;">
+              <i class="fas fa-check-circle" style="color: var(--accent-teal); font-size: 1.25rem; margin-top: 3px;"></i>
+              <div>
+                <strong>Nigeria</strong>
+                <p style="margin: 0; font-size: var(--text-sm); color: var(--gray-600);">Open to individuals based in the 36 states and the FCT</p>
+              </div>
+            </li>
+          </ul>
+          <div style="margin-top:2.5rem; background:var(--gray-50); border-radius:var(--radius-lg); padding:1.5rem 1.5rem 1.5rem 2.5rem; border-left:4px solid var(--accent-teal);">
+            <strong style="display:block; margin-bottom:0.5rem; color:var(--accent-teal);">Project Requirements</strong>
+            <ul style="margin:0; padding-left:1.2em; font-size:var(--text-sm); color:var(--gray-700);">
+              <li>Ethical and non-commercial</li>
+              <li>Low-cost and feasible within 2 months</li>
+              <li>Suitable for small-scale implementation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FAQ ==================== -->
+  <section class="section bg-light" id="faq">
+    <div class="container">
+      <div class="text-center mb-2xl">
+        <span class="section-label">Got Questions?</span>
+        <h2>Frequently Asked <span class="text-highlight">Questions</span></h2>
+      </div>
+      
+      <div style="max-width: 800px; margin: 0 auto;">
+        <div class="faq-accordion">
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>How do we apply?</span>
+              <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+            </button>
+            <div class="faq-answer">
+              <p>Teams submit a one-page proposal, CVs, and short bios for each team member using the provided template.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Do we need a prototype?</span>
+              <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+            </button>
+            <div class="faq-answer">
+              <p>No. Only a clear, feasible idea suitable for small-scale implementation.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Is there an application fee?</span>
+              <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+            </button>
+            <div class="faq-answer">
+              <p>No. The challenge is completely free to enter.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>How are proposals assessed?</span>
+              <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+            </button>
+            <div class="faq-answer">
+              <p>Proposals are screened based on relevance, feasibility, innovation, impact, and team capacity.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>What happens after winning?</span>
+              <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+            </button>
+            <div class="faq-answer">
+              <p>Winning teams receive structured mentorship on refining ideas as required, and funding to implement their project within two months. This is followed by submission of a short final report with photos and/or videos.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== Apply CTA ==================== -->
+  <section class="section" id="apply" style="background: var(--gradient-blue); color: white;">
+    <div class="container">
+      <div class="text-center scroll-animate">
+        <span class="section-label" style="color: var(--accent-orange);">Ready To Get Started?</span>
+        <h2 style="color: white; margin-bottom: 1.5rem;">Apply Now &amp; Take <span class="text-highlight">Action</span></h2>
+        <p style="opacity: 0.9; max-width: 600px; margin: 0 auto 2.5rem;">
+          This is an opportunity to move from ideas to implementation.<br>
+          If you have a practical public health idea, this challenge is for you.
+        </p>
+        
+        <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: var(--radius-xl); padding: 3rem; max-width: 600px; margin: 0 auto;">
+          <form>
+            <button type="submit" class="btn btn-donate btn-lg w-full">
+              <i class="fas fa-rocket"></i>
+              <span>Start Application</span>
+            </button>
+          </form>
+          <p style="font-size: var(--text-sm); opacity: 0.8; margin-top: 1rem;">
+            By applying, you agree to our terms and conditions.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== Footer ==================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="logo">
+            <img src="../img/SFDP PNG 3.png" alt="SFDP Logo" style="height: 60px;">
+          </a>
+          <p>
+            Society for Disease Prevention is a nonprofit organization committed to preventing public health crises and infectious disease outbreaks through education and community engagement.
+          </p>
+          <div class="footer-social">
+            <a href="https://web.facebook.com/societyfordiseaseprevention" target="_blank" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/societyfordiseaseprevention/" target="_blank" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://x.com/disease_society" target="_blank" aria-label="Twitter">
+              <i class="fab fa-x-twitter"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/society-for-disease-prevention-inc/" target="_blank" aria-label="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://www.tiktok.com/@society4diseasepreventio" target="_blank" aria-label="TikTok">
+              <i class="fab fa-tiktok"></i>
+            </a>
+            <a href="https://youtube.com/@societyfordiseasepreventioninc" target="_blank" aria-label="YouTube">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h4 class="footer-title">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../about.html">About Us</a></li>
+            <li><a href="../mission.html">Our Mission</a></li>
+            <li><a href="../projects.html">Projects</a></li>
+            <li><a href="../editorials.html">Editorials</a></li>
+            <li><a href="../contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4 class="footer-title">Get Involved</h4>
+          <ul class="footer-links">
+            <li><a href="../donate.html">Donate Now</a></li>
+            <li><a href="../join-us.html">Volunteer</a></li>
+            <li><a href="../innovation-challenge/">Innovation Challenge</a></li>
+            <li><a href="../newsletter.html">Newsletter</a></li>
+            <li><a href="https://youtube.com/@societyfordiseasepreventioninc" target="_blank">YouTube Shorts</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4 class="footer-title">Contact Info</h4>
+          <ul class="footer-links">
+            <li>
+              <i class="fas fa-map-marker-alt" style="margin-right: 8px; color: var(--accent-orange);"></i>
+              90 Village Rd, Manchester, PA 17345
+            </li>
+            <li>
+              <i class="fas fa-phone" style="margin-right: 8px; color: var(--accent-orange);"></i>
+              +1 (800) 659-0506
+            </li>
+            <li>
+              <i class="fas fa-envelope" style="margin-right: 8px; color: var(--accent-orange);"></i>
+              <a href="mailto:info@s-fdp.org">info@s-fdp.org</a>
+            </li>
+          </ul>
+          
+          <a href="https://app.candid.org/profile/9895577" target="_blank" style="display: inline-block; margin-top: 1rem;">
+            <img src="https://widgets.guidestar.org/prod/v1/pdp/transparency-seal/9895577/svg" alt="Candid Seal" style="width: 80px;">
+          </a>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2018 - 2025 Society For Disease Prevention | All Rights Reserved</p>
+        <div class="footer-bottom-links">
+          <a href="../whistleblower-policy.html">Whistleblower Policy</a>
+          <a href="../conflict-of-interest.html">Conflict of Interest Policy</a>
+          <a href="../privacy-policy.html">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">
+    <i class="fas fa-chevron-up"></i>
+  </a>
+
+  <!-- Main JavaScript -->
+  <script src="../js/main.js"></script>
+  
+  <script>
+    // Countdown Timer
+    const deadline = new Date('March 31, 2025 23:59:59').getTime();
+    
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = deadline - now;
+      
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      
+      document.getElementById('days').textContent = days.toString().padStart(2, '0');
+      document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+      document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+      document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+    }
+    
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+    
+    // FAQ Accordion
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        const answer = question.nextElementSibling;
+        const isActive = question.classList.contains('active');
+        
+        // Close all
+        document.querySelectorAll('.faq-question').forEach(q => q.classList.remove('active'));
+        document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('active'));
+        
+        // Open clicked if not already active
+        if (!isActive) {
+          question.classList.add('active');
+          answer.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

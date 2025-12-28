@@ -422,33 +422,38 @@
     }
 
     @media (max-width: 768px) {
-      body, html {
+      html, body {
         overflow-x: hidden;
         width: 100%;
+        max-width: 100%;
       }
       
       .section {
         padding: 0;
         overflow-x: hidden;
         width: 100%;
+        max-width: 100%;
       }
       
       .section .container {
         width: 100%;
         max-width: 100%;
-        padding: 0;
+        padding: 0 1rem;
         margin: 0;
         box-sizing: border-box;
+        overflow-x: hidden;
       }
       
       .article-container {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: 1rem;
         margin: 0;
         width: 100%;
-        padding: 0 1rem;
+        max-width: 100%;
+        padding: 0;
         text-align: left;
         box-sizing: border-box;
+        overflow-x: hidden;
       }
       
       .sticky-sidebar {
@@ -456,20 +461,30 @@
       }
       
       .post-title {
-        font-size: var(--text-2xl);
+        font-size: 1.25rem;
         text-align: left;
+        line-height: 1.3;
+        word-wrap: break-word;
       }
       
       .post-meta-info {
         flex-direction: column;
-        gap: 1rem;
+        gap: 0.75rem;
         align-items: flex-start;
         text-align: left;
+        font-size: 0.8rem;
       }
       
       .author-box {
         flex-direction: column;
         text-align: left;
+        padding: 1rem;
+        gap: 1rem;
+      }
+      
+      .author-box img {
+        width: 60px;
+        height: 60px;
       }
       
       .article-content {
@@ -478,77 +493,113 @@
         box-shadow: none;
         border-radius: 0;
         width: 100%;
+        max-width: 100%;
         margin: 0;
         text-align: left;
         box-sizing: border-box;
         overflow-x: hidden;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
       }
       
       .article-content img {
-        max-height: 350px;
-        margin: 1.5rem 0;
+        max-height: 250px;
+        margin: 1rem 0;
         padding: 0;
         width: 100%;
+        max-width: 100%;
         display: block;
         box-sizing: border-box;
+        object-fit: cover;
       }
       
       .article-content h2 {
-        font-size: var(--text-xl);
-        margin: 1.5rem 0 1rem;
+        font-size: 1.1rem;
+        margin: 1.25rem 0 0.75rem;
         padding: 0;
         text-align: left;
         box-sizing: border-box;
+        line-height: 1.3;
+        word-wrap: break-word;
       }
       
       .article-content h3 {
+        font-size: 1rem;
         padding: 0;
         text-align: left;
         box-sizing: border-box;
+        line-height: 1.3;
+        word-wrap: break-word;
       }
       
       .article-content p {
-        font-size: var(--text-sm);
+        font-size: 0.875rem;
+        line-height: 1.7;
         padding: 0;
+        margin-bottom: 1rem;
         text-align: left;
         box-sizing: border-box;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
       }
       
       .article-content ul, .article-content ol {
-        margin-left: 2.5rem;
+        margin-left: 1.25rem;
         margin-right: 0;
         padding: 0;
         text-align: left;
         box-sizing: border-box;
+        font-size: 0.875rem;
+      }
+      
+      .article-content li {
+        margin-bottom: 0.5rem;
+        line-height: 1.6;
       }
       
       .article-content blockquote {
-        margin: 1.5rem 0;
-        padding: 1.5rem;
+        margin: 1rem 0;
+        padding: 1rem;
         text-align: left;
         box-sizing: border-box;
+        font-size: 0.875rem;
       }
       
       .back-to-blog {
-        padding: 2rem 0 1.5rem 0;
+        padding: 1.5rem 0 1rem 0;
         display: block;
-        margin-bottom: 1rem;
-        margin-top: 2rem;
+        margin-bottom: 0.5rem;
+        margin-top: 1rem;
         box-sizing: border-box;
+        font-size: 0.875rem;
       }
       
       .article-tags {
-        padding: 1.5rem 0;
+        padding: 1rem 0;
         flex-wrap: wrap;
-        gap: 0.75rem;
+        gap: 0.5rem;
         box-sizing: border-box;
+      }
+      
+      .article-tags .tag {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.5rem;
       }
       
       .share-buttons {
         flex-wrap: wrap;
-        gap: 1rem;
-        padding: 1.5rem 0;
+        gap: 0.75rem;
+        padding: 1rem 0;
         box-sizing: border-box;
+      }
+      
+      .share-buttons span {
+        font-size: 0.875rem;
+      }
+      
+      .share-btn {
+        width: 36px;
+        height: 36px;
       }
     }
   </style>

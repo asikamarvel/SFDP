@@ -142,50 +142,63 @@
         font-size: var(--text-xs);
       }
       
-      .blog-card {
-        margin: 0;
-        padding: 0;
-      }
-      
-      .blog-card-content {
-        padding: 0.75rem;
-      }
-      
-      .section.bg-light {
-        padding: 1.5rem 0 !important;
-      }
-      
-      .section.bg-light .container {
-        padding: 0 0.5rem !important;
-      }
-      
       .blog-grid {
         gap: 0.75rem !important;
         grid-template-columns: 1fr !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        overflow: hidden !important;
+      }
+      
+      .blog-card {
+        margin: 0 !important;
+        padding: 0 !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        overflow: hidden !important;
+      }
+      
+      .blog-card-content {
+        padding: 0.5rem !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
       }
       
       .blog-card-image {
-        height: 120px !important;
+        height: 100px !important;
+        width: 100% !important;
       }
       
       .blog-card-title {
-        font-size: var(--text-sm) !important;
-        margin-bottom: 0.5rem !important;
+        font-size: 0.75rem !important;
+        margin-bottom: 0.25rem !important;
+        word-break: break-word !important;
       }
       
       .blog-card-excerpt {
-        font-size: var(--text-xs) !important;
-        -webkit-line-clamp: 2 !important;
-        line-clamp: 2 !important;
+        font-size: 0.65rem !important;
+        -webkit-line-clamp: 1 !important;
+        line-clamp: 1 !important;
       }
       
       .read-more-link {
-        font-size: var(--text-xs) !important;
+        font-size: 0.65rem !important;
+      }
+      
+      .section.bg-light {
+        padding: 1rem 0 !important;
+        overflow-x: hidden !important;
+      }
+      
+      .section.bg-light .container {
+        padding: 0 0.25rem !important;
+        max-width: 100% !important;
+        overflow: hidden !important;
       }
       
       #loadMoreBtn {
-        padding: 0.5rem 1.5rem !important;
-        font-size: 14px !important;
+        padding: 0.5rem 1rem !important;
+        font-size: 12px !important;
       }
     }
     

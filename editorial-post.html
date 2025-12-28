@@ -9,7 +9,7 @@
   <title>SFDP Launches Health Innovation Challenge 2026 | Society for Disease Prevention</title>
   
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="img/SFDP logo.png">
+  <link rel="icon" type="image/png" href="img/sfdp favicon.png">
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,6 +29,8 @@
       display: flex;
       align-items: flex-end;
       overflow: hidden;
+      background: var(--primary-blue);
+      color: var(--white);
     }
     
     .post-hero-image {
@@ -38,6 +40,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center right;
     }
     
     .post-hero-overlay {
@@ -46,7 +49,15 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.4) 100%);
+      background: linear-gradient(
+        to right,
+        var(--primary-blue) 0%,
+        var(--primary-blue) 40%,
+        rgba(30, 58, 95, 0.9) 55%,
+        rgba(30, 58, 95, 0.7) 70%,
+        rgba(30, 58, 95, 0.5) 85%,
+        rgba(30, 58, 95, 0.4) 100%
+      );
     }
     
     .post-hero-content {
@@ -79,6 +90,7 @@
       font-weight: 700;
       margin-bottom: 1.5rem;
       line-height: 1.2;
+      color: var(--white);
     }
     
     .post-meta-info {
@@ -417,7 +429,7 @@
 
   <!-- ==================== Post Hero ==================== -->
   <section class="post-hero">
-    <img src="https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Innovation Challenge" class="post-hero-image">
+    <img src="img/SFDP Grant.png" alt="Innovation Challenge" class="post-hero-image">
     <div class="post-hero-overlay"></div>
     
     <div class="container">
@@ -427,10 +439,10 @@
           <h1 class="post-title">SFDP Launches Health Innovation Challenge 2026 for Students and Young Professionals</h1>
           <div class="post-meta-info">
             <div class="post-author">
-              <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Author">
+              <img src="img/sfdp favicon.png" alt="Author" style="background: white; padding: 4px; border-radius: 50%;">
               <div>
-                <strong>Dr. Kennedy Alajemba</strong>
-                <div style="opacity: 0.8; font-size: 12px;">Founder & President</div>
+                <strong>Society for Disease Prevention</strong>
+                <div style="opacity: 0.8; font-size: 12px;">Editorial Team</div>
               </div>
             </div>
             <span><i class="far fa-calendar"></i> January 15, 2025</span>
@@ -449,85 +461,91 @@
         <article>
           <div class="article-content">
             <p style="font-size: var(--text-lg); font-weight: 500; color: var(--gray-800);">
-              The Society for Disease Prevention is thrilled to announce the launch of the SFDP Health Innovation Challenge 2026, a groundbreaking initiative designed to empower students and young professionals to develop innovative solutions for pressing global health challenges.
+              The SFDP Health Innovation Challenge supports early-stage, community-level public health ideas developed by students and young professionals. It is a small-scale implementation challenge focused on action, learning, and community engagement around real public health problems in Nigeria.
             </p>
             
             <h2 id="about">About the Challenge</h2>
             <p>
-              In an era where healthcare systems worldwide face unprecedented challenges, we believe that the next generation of innovators holds the key to transformative solutions. The SFDP Health Innovation Challenge invites creative minds from around the world to propose innovative ideas that address critical health issues affecting underserved communities.
+              The SFDP Health Innovation Challenge is designed to support students and young professionals in developing innovative solutions for global health challenges. Selected teams will receive seed funding and support to implement their ideas within a short timeframe and demonstrate measurable impact.
             </p>
             <p>
-              This year's challenge focuses on three key areas: disease prevention technologies, community health education solutions, and accessible healthcare delivery models. Participants will have the opportunity to develop their ideas with mentorship from healthcare professionals and public health experts.
+              This challenge focuses on early-stage, community-level public health ideas that are practical, feasible, and can be implemented at a small scale. The goal is to move from ideas to implementation - turning your vision into action.
             </p>
             
-            <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Team collaboration">
+            <h2 id="tracks">Challenge Tracks</h2>
+            <p>Teams may submit proposals in one or more of the following focus areas:</p>
+            <ul>
+              <li><strong>Infectious Disease Prevention:</strong> Low-cost, community-based interventions addressing diseases such as malaria, Lassa fever, TB, and hepatitis. This includes community prevention models, early detection or referral, awareness and behaviour change, and environmental risk reduction.</li>
+              <li><strong>Health Education & Digital Health:</strong> Simple digital or offline tools that improve health education, screening, referral, or monitoring. Examples include health education platforms, screening or referral tools, digital follow-up systems, and community information campaigns.</li>
+              <li><strong>Equity-Focused Public Health Interventions:</strong> Projects addressing populations disproportionately affected by health inequities. These may include vaccine uptake initiatives, WASH interventions, maternal and newborn health programs, mental health peer-support models, antimicrobial resistance awareness, and community surveillance support.</li>
+            </ul>
+            <p><em>Proposals outside these areas may be considered if clearly feasible and impactful.</em></p>
             
             <h2 id="eligibility">Who Can Participate</h2>
             <p>The Innovation Challenge is open to:</p>
             <ul>
-              <li>Undergraduate and graduate students in any field of study</li>
-              <li>Young professionals (ages 18-35) working in healthcare, technology, or related sectors</li>
-              <li>Teams of up to 4 members with diverse backgrounds and expertise</li>
-              <li>Individuals from any country around the world</li>
+              <li><strong>Students:</strong> Undergraduate or graduate students in any field of study</li>
+              <li><strong>Young Professionals:</strong> Ages 18-28 working in healthcare, tech, or related fields</li>
+              <li><strong>Teams composition:</strong> Teams of up to 3-5 members with diverse backgrounds. At least one team member must have a health-related background or work experience.</li>
+              <li><strong>Location:</strong> Open to individuals based in the 36 states and the FCT of Nigeria</li>
             </ul>
-            <p>
-              We particularly encourage participation from individuals in developing countries and those who have firsthand experience with the health challenges they aim to address.
-            </p>
-            
-            <blockquote>
-              <p>"Innovation doesn't require expensive labs or advanced degrees. Sometimes the most impactful solutions come from those closest to the problems they're solving. We're excited to see what young minds will bring to this challenge."</p>
-              <cite>— Dr. Kennedy Alajemba, SFDP Founder</cite>
-            </blockquote>
+            <p><strong>Project Requirements:</strong></p>
+            <ul>
+              <li>Ethical and non-commercial</li>
+              <li>Low-cost and feasible within 2 months</li>
+              <li>Suitable for small-scale implementation</li>
+            </ul>
             
             <h2 id="prizes">Prizes and Opportunities</h2>
             <p>
-              Winners will receive more than just recognition. The SFDP Health Innovation Challenge offers substantial support to help turn winning ideas into reality:
+              3 winning teams receive funding, mentorship, and support to turn their ideas into reality.
             </p>
             <ul>
-              <li><strong>First Place:</strong> $5,000 seed funding + mentorship program + opportunity to pilot the solution</li>
-              <li><strong>Second Place:</strong> $2,500 seed funding + mentorship program</li>
-              <li><strong>Third Place:</strong> $1,000 seed funding + mentorship program</li>
-              <li><strong>All Finalists:</strong> Certificate of recognition, SFDP network access, and potential internship opportunities</li>
+              <li><strong>1st – 3rd Place:</strong> $300 per team as an implementation grant</li>
+              <li><strong>All winning teams:</strong> SFDP recognition & visibility, project documentation & reporting support</li>
             </ul>
+            <p>
+              All shortlisted teams gain experience, exposure, and the opportunity to remain engaged with SFDP beyond the competition.
+            </p>
             
-            <h2 id="timeline">Important Dates</h2>
-            <p>Mark your calendars for these key dates:</p>
+            <h2 id="timeline">Important Dates & Timeline</h2>
             <ul>
-              <li><strong>January 15, 2025:</strong> Application portal opens</li>
-              <li><strong>March 31, 2025:</strong> Application deadline</li>
-              <li><strong>April 15, 2025:</strong> Finalists announced</li>
-              <li><strong>May 1-15, 2025:</strong> Mentorship and refinement period</li>
-              <li><strong>May 30, 2025:</strong> Final presentations and winners announced</li>
+              <li><strong>December 28, 2025:</strong> Call for One-Page Proposals Opens – Submissions open for teams to send in a one-page project proposal, CVs, and short team profiles.</li>
+              <li><strong>January 18, 2026 (23:59 GMT+1):</strong> Proposal Submission Deadline – All proposals must be submitted before the deadline. Late submissions will not be considered.</li>
+              <li><strong>January 19 – 25, 2026:</strong> Screening & Shortlisting of Top 10 Teams – Proposals are reviewed based on relevance, feasibility, innovation, and team capacity.</li>
+              <li><strong>January 26 – February 08, 2026:</strong> Video Pitch Submission (30–60 seconds) – Shortlisted teams submit a brief video pitch introducing their idea and intended impact.</li>
+              <li><strong>February 09 – 15, 2026:</strong> Public Voting Period – Video pitches are published across SFDP platforms and open to public engagement and voting.</li>
+              <li><strong>February 16, 2026:</strong> Announcement of Top 3 Winning Teams – Final results are announced following verification of public engagement metrics.</li>
+              <li><strong>February 17 – 22, 2026:</strong> Prize Disbursement & Project Launch – Winning teams receive funding and begin implementation of their approved project ideas.</li>
             </ul>
-            
-            <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Presentation">
             
             <h2 id="apply">How to Apply</h2>
             <p>
-              Ready to make a difference? Applying is simple:
+              Ready to make a difference? Applying is straightforward:
             </p>
             <ol>
-              <li>Visit our Innovation Challenge page and create an account</li>
-              <li>Complete the online application form with your personal information</li>
-              <li>Submit a brief proposal (max 1,500 words) outlining your innovative solution</li>
-              <li>Include a 3-minute video pitch explaining your idea and its potential impact</li>
-              <li>Provide any supporting materials or prototypes (optional)</li>
+              <li>Visit our Innovation Challenge page</li>
+              <li>Submit a one-page proposal, CVs, and short bios for each team member using the provided template</li>
+              <li>If shortlisted, prepare a 30–60 second video pitch of your idea</li>
             </ol>
             <p>
-              Applications are reviewed by a panel of healthcare professionals, entrepreneurs, and public health experts who evaluate submissions based on innovation, feasibility, scalability, and potential impact.
+              Proposals are screened based on relevance, feasibility, innovation, impact, and team capacity. There is no application fee - the challenge is completely free to enter.
             </p>
             
-            <h2 id="contact">Questions?</h2>
-            <p>
-              If you have any questions about the Innovation Challenge, please don't hesitate to reach out. Our team is here to help you through the application process.
-            </p>
-            <p>
-              Contact us at <a href="mailto:innovation@s-fdp.org" style="color: var(--primary-blue); font-weight: 500;">innovation@s-fdp.org</a> or visit our <a href="innovation-challenge.html" style="color: var(--primary-blue); font-weight: 500;">Innovation Challenge page</a> for more details.
-            </p>
+            <blockquote>
+              <p>"Innovation doesn't always require expensive resources or advanced degrees. The most impactful solutions often come from those closest to the problems they're solving. We're excited to see what young minds will bring to this challenge."</p>
+              <cite>- Dr. Kennedy Alajemba, SFDP Founder</cite>
+            </blockquote>
             
-            <div style="background: var(--gradient-blue); color: white; padding: 2rem; border-radius: var(--radius-lg); margin-top: 2rem; text-align: center;">
-              <h3 style="color: white; margin-bottom: 1rem;">Ready to Change the World?</h3>
-              <p style="opacity: 0.9; margin-bottom: 1.5rem;">Applications are now open. Don't miss this opportunity to make a real impact on global health.</p>
+            <h2 id="faq">Frequently Asked Questions</h2>
+            <p><strong>Do we need a prototype?</strong> No. Only a clear, feasible idea suitable for small-scale implementation.</p>
+            <p><strong>Is there an application fee?</strong> No. The challenge is completely free to enter.</p>
+            <p><strong>What happens after winning?</strong> Winning teams receive structured mentorship and funding to implement their project within two months. This is followed by submission of a short final report with photos and/or videos.</p>
+            
+            <p style="margin-top: 2rem;">
+              Applications are now open. Don't miss this opportunity to make a real impact on global health.
+            </p>
+            <div style="margin-top: 1.5rem;">
               <a href="innovation-challenge.html" class="btn btn-donate">
                 <i class="fas fa-rocket"></i>
                 <span>Apply Now</span>
@@ -554,109 +572,26 @@
             </div>
             
             <!-- Author Box -->
-            <div class="author-box">
-              <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Dr. Kennedy Alajemba">
-              <div class="author-box-info">
-                <h4>Dr. Kennedy Alajemba</h4>
-                <p>Founder and President of the Society for Disease Prevention. Dr. Alajemba is a physician and public health advocate dedicated to improving healthcare access in underserved communities worldwide.</p>
-                <div style="display: flex; gap: 0.75rem;">
-                  <a href="#" style="color: var(--gray-500);"><i class="fab fa-twitter"></i></a>
-                  <a href="#" style="color: var(--gray-500);"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-              </div>
-            </div>
+            <!-- Removed -->
           </div>
         </article>
         
         <!-- Sidebar -->
-        <aside class="sticky-sidebar" style="display: none;" id="articleSidebar">
+        <aside class="sticky-sidebar" id="articleSidebar">
           <!-- Table of Contents -->
           <div class="toc-widget">
             <h4>Table of Contents</h4>
             <ul class="toc-list">
               <li><a href="#about">About the Challenge</a></li>
+              <li><a href="#tracks">Challenge Tracks</a></li>
               <li><a href="#eligibility">Who Can Participate</a></li>
               <li><a href="#prizes">Prizes and Opportunities</a></li>
-              <li><a href="#timeline">Important Dates</a></li>
+              <li><a href="#timeline">Important Dates & Timeline</a></li>
               <li><a href="#apply">How to Apply</a></li>
-              <li><a href="#contact">Questions</a></li>
+              <li><a href="#faq">Frequently Asked Questions</a></li>
             </ul>
           </div>
-          
-          <!-- Related Posts -->
-          <div class="related-posts">
-            <h4>Related Articles</h4>
-            <a href="editorial-post.html" class="related-post-item">
-              <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="">
-              <div>
-                <h5>Free Medical Screening Camp Success</h5>
-                <span>Dec 28, 2024</span>
-              </div>
-            </a>
-            <a href="editorial-post.html" class="related-post-item">
-              <img src="https://images.unsplash.com/photo-1541976590-713941681591?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="">
-              <div>
-                <h5>Clean Water Initiative Update</h5>
-                <span>Dec 15, 2024</span>
-              </div>
-            </a>
-            <a href="editorial-post.html" class="related-post-item">
-              <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="">
-              <div>
-                <h5>Aiducate Scholarship Program</h5>
-                <span>Nov 30, 2024</span>
-              </div>
-            </a>
-          </div>
         </aside>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== More Articles ==================== -->
-  <section class="section bg-light">
-    <div class="container">
-      <div class="text-center mb-2xl">
-        <span class="section-label">Keep Reading</span>
-        <h2>More <span class="text-highlight">Articles</span></h2>
-      </div>
-      
-      <div class="grid grid-3" style="gap: 2rem;">
-        <article class="blog-card scroll-animate">
-          <a href="editorial-post.html" class="blog-card-image" style="display: block; height: 220px; overflow: hidden;">
-            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="" style="width: 100%; height: 100%; object-fit: cover;">
-          </a>
-          <div style="padding: 1.5rem;">
-            <span class="post-category" style="font-size: 10px; padding: 0.35rem 0.75rem;">Health Screenings</span>
-            <h3 style="font-size: var(--text-lg); margin: 0.75rem 0;">Free Medical Screening Camp Reaches 500+</h3>
-            <p style="color: var(--gray-600); font-size: var(--text-sm); margin-bottom: 1rem;">Our volunteer team conducted comprehensive health screenings for underserved communities.</p>
-            <a href="editorial-post.html" class="read-more-link">Read More <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </article>
-        
-        <article class="blog-card scroll-animate delay-1">
-          <a href="editorial-post.html" class="blog-card-image" style="display: block; height: 220px; overflow: hidden;">
-            <img src="https://images.unsplash.com/photo-1541976590-713941681591?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="" style="width: 100%; height: 100%; object-fit: cover;">
-          </a>
-          <div style="padding: 1.5rem;">
-            <span class="post-category" style="font-size: 10px; padding: 0.35rem 0.75rem; background: var(--accent-teal);">Water Supply</span>
-            <h3 style="font-size: var(--text-lg); margin: 0.75rem 0;">Clean Water Initiative Brings Hope</h3>
-            <p style="color: var(--gray-600); font-size: var(--text-sm); margin-bottom: 1rem;">Our water supply project has provided clean drinking water to over 2,000 families.</p>
-            <a href="editorial-post.html" class="read-more-link">Read More <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </article>
-        
-        <article class="blog-card scroll-animate delay-2">
-          <a href="editorial-post.html" class="blog-card-image" style="display: block; height: 220px; overflow: hidden;">
-            <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="" style="width: 100%; height: 100%; object-fit: cover;">
-          </a>
-          <div style="padding: 1.5rem;">
-            <span class="post-category" style="font-size: 10px; padding: 0.35rem 0.75rem; background: var(--primary-blue);">Education</span>
-            <h3 style="font-size: var(--text-lg); margin: 0.75rem 0;">Aiducate Initiative Empowers Students</h3>
-            <p style="color: var(--gray-600); font-size: var(--text-sm); margin-bottom: 1rem;">Our education scholarship program continues to support brilliant minds.</p>
-            <a href="editorial-post.html" class="read-more-link">Read More <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </article>
       </div>
     </div>
   </section>
@@ -735,7 +670,7 @@
           </ul>
           
           <a href="https://app.candid.org/profile/9895577" target="_blank" style="display: inline-block; margin-top: 1rem;">
-            <img src="https://widgets.guidestar.org/TransparencySeal/8935657" alt="Candid Seal" style="width: 80px;">
+            <img src="https://widgets.guidestar.org/prod/v1/pdp/transparency-seal/9895577/svg" alt="Candid Seal" style="width: 80px;">
           </a>
         </div>
       </div>

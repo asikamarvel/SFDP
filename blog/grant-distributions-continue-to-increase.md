@@ -20,7 +20,7 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
 
 <figure>
 
-![](https://startertemplatecloud.com/g16/wp-content/uploads/sites/42/2021/07/thiago-cerqueira-Wr3HGvx_RSM-unsplash-1024x683.jpg)
+![](img/blog/thiago-cerqueira-Wr3HGvx_RSM-unsplash-1024x683.jpg)
 
 <figcaption>
 
@@ -30,9 +30,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 </figure>
 
-![](https://startertemplatecloud.com/g16/wp-content/uploads/sites/42/2021/07/victor-nnakwe-AE2uBSYnCVM-unsplash-1024x682.jpg)
+![](img/blog/victor-nnakwe-AE2uBSYnCVM-unsplash-1024x682.jpg)
 
-![](https://startertemplatecloud.com/g16/wp-content/uploads/sites/42/2021/07/joel-muniz-A4A1x1ApccfA-unsplash-1024x683.jpg)
+![](img/blog/joel-muniz-A4A1x1ApccfA-unsplash-1024x683.jpg)
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
@@ -42,11 +42,11 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
 
-![](https://startertemplatecloud.com/g16/wp-content/uploads/sites/42/2021/07/anna-earl-5DHsuDZBK7w-unsplash-1024x682.jpg)
+![](img/blog/anna-earl-5DHsuDZBK7w-unsplash-1024x682.jpg)
 
-![](https://startertemplatecloud.com/g16/wp-content/uploads/sites/42/2021/07/larm-rmah-AEaTUnvneik-unsplash-1024x683.jpg)
+![](img/blog/larm-rmah-AEaTUnvneik-unsplash-1024x683.jpg)
 
-![](https://startertemplatecloud.com/g16/wp-content/uploads/sites/42/2021/07/charlein-gracia-Ux5mdMJNEA-unsplash-1024x685.jpg)
+![](img/blog/charlein-gracia-Ux5mdMJNEA-unsplash-1024x685.jpg)
 
 ## Meet Our Volunteers
 

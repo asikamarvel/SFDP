@@ -2,11 +2,21 @@
    Blog System - Load and Display Blog Posts
    ================================================ */
 
+console.log('Blog.js file loaded');
+
 // Load blog index from JSON
 async function loadBlogIndex() {
   try {
+    console.log('Fetching blog-index.json...');
     const response = await fetch('blog/blog-index.json');
+    console.log('Response status:', response.status);
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
     const blogIndex = await response.json();
+    console.log('Blog index fetched successfully, count:', blogIndex.length);
     return blogIndex.sort((a, b) => new Date(b.date) - new Date(a.date)); // Sort by date, newest first
   } catch (error) {
     console.error('Error loading blog index:', error);
@@ -23,11 +33,17 @@ function formatDate(dateString) {
 // Render blog cards on editorials page
 async function renderBlogCards(containerId) {
   const container = document.getElementById(containerId);
-  if (!container) return;
+  if (!container) {
+    console.error('Blog container not found');
+    return;
+  }
 
+  console.log('Loading blog index...');
   const blogs = await loadBlogIndex();
+  console.log('Blogs loaded:', blogs);
   
   if (blogs.length === 0) {
+    console.warn('No blog posts found in index');
     container.innerHTML = '<p>No blog posts found.</p>';
     return;
   }
@@ -136,10 +152,37 @@ function markdownToHtml(markdown) {
 }
 
 // Initialize blog system on page load
-document.addEventListener('DOMContentLoaded', function() {
+console.log('Setting up blog system initialization...');
+
+// Try to initialize immediately
+if (document.readyState === 'loading') {
+  console.log('Document still loading, adding DOMContentLoaded listener');
+  document.addEventListener('DOMContentLoaded', initBlogSystem);
+} else {
+  console.log('Document already loaded, initializing now');
+  // If DOMContentLoaded has already fired
+  initBlogSystem();
+}
+
+// Also add a timeout as fallback
+setTimeout(function() {
+  console.log('Timeout fallback: checking blog grid...');
+  const container = document.getElementById('blog-grid');
+  if (container && container.innerHTML === '') {
+    console.log('Blog grid is empty, running init');
+    initBlogSystem();
+  }
+}, 500);
+
+function initBlogSystem() {
+  console.log('Initializing blog system...');
+  
   // Check if we're on editorials page
   const blogContainer = document.getElementById('blog-grid');
+  console.log('Blog container found:', blogContainer);
+  
   if (blogContainer) {
+    console.log('Rendering blog cards...');
     renderBlogCards('blog-grid');
   }
   

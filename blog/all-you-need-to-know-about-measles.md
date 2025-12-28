@@ -13,7 +13,7 @@ The disease is also called “Rubeola” because it is caused by the Rubeola Vir
 
 <figure>
 
-![](https://sfdporg.wordpress.com/wp-content/uploads/2021/10/measels2.jpg?w=789)
+![](/img/blog/measels2.jpg)
 
 <figcaption>
 

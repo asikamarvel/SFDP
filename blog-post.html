@@ -9,7 +9,7 @@
   <title>Blog Post | Society for Disease Prevention</title>
   
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="img/SFDP logo.png">
+  <link rel="icon" type="image/png" href="img/sfdp favicon.png">
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,59 +26,384 @@
   <link rel="stylesheet" href="css/blog.css">
   
   <style>
-    .blog-post-hero {
+    .post-hero {
       position: relative;
-      padding: calc(100px + var(--spacing-3xl)) 0 var(--spacing-3xl);
+      height: 500px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
       background: var(--primary-blue);
       color: var(--white);
-      overflow: hidden;
     }
     
-    .blog-post-hero-bg {
+    .post-hero-bg {
       position: absolute;
       inset: 0;
       z-index: 0;
     }
     
-    .blog-post-hero-bg::after {
+    .post-hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center right;
+    }
+    
+    .post-hero-bg::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: rgba(0, 0, 0, 0.4);
-      z-index: 1;
+      background: linear-gradient(
+        to right,
+        var(--primary-blue) 0%,
+        var(--primary-blue) 40%,
+        rgba(30, 58, 95, 0.9) 55%,
+        rgba(30, 58, 95, 0.7) 70%,
+        rgba(30, 58, 95, 0.5) 85%,
+        rgba(30, 58, 95, 0.4) 100%
+      );
     }
     
-    .blog-post-hero-content {
+    .post-hero-content {
       position: relative;
       z-index: 2;
+      padding: 3rem 0;
+      color: var(--white);
+      width: 100%;
+    }
+    
+    .post-header {
       max-width: 800px;
-      margin: 0 auto;
     }
     
-    .blog-post-hero-content h1 {
-      font-size: var(--text-5xl);
+    .post-category-tag {
+      display: inline-block;
+      padding: 0.5rem 1.25rem;
+      background: var(--accent-orange);
+      color: var(--white);
+      border-radius: var(--radius-full);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
       margin-bottom: 1.5rem;
-      font-weight: 700;
     }
     
-    .blog-post-meta {
+    .post-title {
+      font-size: var(--text-4xl);
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+      color: var(--white);
+    }
+    
+    .post-meta-info {
       display: flex;
       align-items: center;
+      flex-wrap: wrap;
       gap: 2rem;
-      font-size: var(--text-base);
-      opacity: 0.95;
+      font-size: var(--text-sm);
+      opacity: 0.9;
     }
     
-    .blog-post-meta-item {
+    .post-meta-info span {
       display: flex;
       align-items: center;
       gap: 0.5rem;
     }
     
-    .blog-post-container {
-      max-width: 800px;
+    .post-author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    
+    .post-author img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    
+    .post-author-info {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .post-author-info strong {
+      font-weight: 600;
+      font-size: 13px;
+    }
+    
+    .post-author-info small {
+      font-size: 11px;
+      opacity: 0.8;
+    }
+    
+    .article-container {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 3rem;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: var(--spacing-3xl) var(--spacing-lg);
+    }
+    
+    .article-content {
+      line-height: 1.8;
+      color: var(--text-primary);
+    }
+    
+    .article-content h2 {
+      font-size: var(--text-2xl);
+      font-weight: 700;
+      color: var(--primary-blue);
+      margin: 2.5rem 0 1.5rem;
+      line-height: 1.3;
+    }
+    
+    .article-content h3 {
+      font-size: var(--text-xl);
+      font-weight: 600;
+      color: var(--text-primary);
+      margin: 2rem 0 1rem;
+    }
+    
+    .article-content p {
+      font-size: var(--text-base);
+      margin-bottom: 1.5rem;
+    }
+    
+    .article-content ul, .article-content ol {
+      margin: 1.5rem 0 1.5rem 2rem;
+      font-size: var(--text-base);
+    }
+    
+    .article-content li {
+      margin-bottom: 0.75rem;
+    }
+    
+    .article-content img {
+      width: 100%;
+      max-height: 500px;
+      object-fit: cover;
+      border-radius: var(--radius-lg);
+      margin: 2rem 0;
+    }
+    
+    .article-content blockquote {
+      border-left: 4px solid var(--accent-orange);
+      padding: 1.5rem;
+      background: var(--gray-50);
+      border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+      margin: 2rem 0;
+      font-size: var(--text-lg);
+      font-style: italic;
+      color: var(--text-secondary);
+    }
+    
+    .article-content blockquote p {
+      margin-bottom: 0.5rem;
+    }
+    
+    .article-content blockquote cite {
+      display: block;
+      font-style: normal;
+      font-size: var(--text-sm);
+      margin-top: 1rem;
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+    
+    .article-tags {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--gray-200);
+      flex-wrap: wrap;
+    }
+    
+    .article-tag {
+      display: inline-block;
+      padding: 0.4rem 0.9rem;
+      background: var(--gray-100);
+      color: var(--primary-blue);
+      border-radius: var(--radius-full);
+      font-size: var(--text-sm);
+      text-decoration: none;
+      transition: all var(--transition-fast);
+    }
+    
+    .article-tag:hover {
+      background: var(--primary-blue);
+      color: var(--white);
+    }
+    
+    .share-buttons {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--gray-200);
+    }
+    
+    .share-buttons span {
+      font-weight: 600;
+      color: var(--gray-700);
+    }
+    
+    .share-btn {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      color: var(--white);
+      transition: all var(--transition-fast);
+      text-decoration: none;
+    }
+    
+    .share-btn:hover {
+      transform: scale(1.1);
+    }
+    
+    .share-btn.facebook { background: #1877f2; }
+    .share-btn.twitter { background: #1da1f2; }
+    .share-btn.linkedin { background: #0a66c2; }
+    .share-btn.whatsapp { background: #25d366; }
+    
+    .author-box {
+      display: flex;
+      gap: 1.5rem;
+      padding: 2rem;
+      background: var(--gray-50);
+      border-radius: var(--radius-lg);
+      margin-top: 3rem;
+    }
+    
+    .author-box img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    
+    .author-box-info h4 {
+      margin-bottom: 0.5rem;
+      color: var(--primary-blue);
+    }
+    
+    .author-box-info p {
+      font-size: var(--text-sm);
+      color: var(--gray-600);
+      margin-bottom: 0.75rem;
+    }
+    
+    .sticky-sidebar {
+      position: sticky;
+      top: 120px;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    
+    .toc-widget {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-md);
+    }
+    
+    .toc-widget h4 {
+      font-size: var(--text-base);
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--gray-100);
+      color: var(--primary-blue);
+    }
+    
+    .toc-list {
+      list-style: none;
+    }
+    
+    .toc-list li {
+      margin-bottom: 0.5rem;
+    }
+    
+    .toc-list a {
+      display: block;
+      padding: 0.5rem 0;
+      color: var(--gray-600);
+      font-size: var(--text-sm);
+      text-decoration: none;
+      transition: all var(--transition-fast);
+      border-left: 3px solid transparent;
+      padding-left: 0.75rem;
+    }
+    
+    .toc-list a:hover {
+      color: var(--primary-blue);
+      border-left-color: var(--primary-blue);
+    }
+    
+    .related-posts {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-md);
+    }
+    
+    .related-posts h4 {
+      font-size: var(--text-base);
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--gray-100);
+      color: var(--primary-blue);
+    }
+    
+    .related-post-item {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      text-decoration: none;
+      border-radius: var(--radius-md);
+      padding: 0.75rem;
+      transition: all var(--transition-fast);
+    }
+    
+    .related-post-item:hover {
+      background: var(--gray-50);
+    }
+    
+    .related-post-item img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+      flex-shrink: 0;
+    }
+    
+    .related-post-item div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .related-post-item h5 {
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.25rem;
+      line-height: 1.3;
+    }
+    
+    .related-post-item span {
+      font-size: 11px;
+      color: var(--gray-500);
     }
     
     .back-to-blog {
@@ -95,101 +420,158 @@
     .back-to-blog:hover {
       gap: 1rem;
     }
-    
-    .back-to-blog i {
-      transition: transform 0.3s ease;
-    }
-    
-    .back-to-blog:hover i {
-      transform: translateX(-4px);
-    }
 
     @media (max-width: 768px) {
-      .blog-post-hero-content h1 {
-        font-size: var(--text-3xl);
+      .article-container {
+        grid-template-columns: 1fr;
       }
       
-      .blog-post-meta {
+      .sticky-sidebar {
+        display: none;
+      }
+      
+      .post-title {
+        font-size: var(--text-2xl);
+      }
+      
+      .post-meta-info {
         flex-direction: column;
-        gap: 0.75rem;
+        gap: 1rem;
         align-items: flex-start;
       }
       
-      .blog-post-container {
-        padding: var(--spacing-2xl) var(--spacing-md);
+      .author-box {
+        flex-direction: column;
+        text-align: left;
       }
     }
   </style>
 </head>
 <body>
-  <!-- ==================== Navigation ==================== -->
-  <nav class="navbar" id="navbar">
-    <div class="container">
-      <div class="nav-wrapper">
-        <a href="index.html" class="logo">
-          <img src="img/SFDP PNG 3.png" alt="SFDP Logo">
+  <!-- ==================== Header ==================== -->
+  <header class="header" id="header">
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <img src="img/SFDP PNG 3.png" alt="SFDP Logo" class="logo-default"><img src="img/SFDP PNG 1.png" alt="SFDP Logo" class="logo-scrolled">
+      </a>
+      
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About Us</a>
+        <a href="mission.html" class="nav-link">Our Mission</a>
+        <a href="projects.html" class="nav-link">Projects</a>
+        <a href="editorials.html" class="nav-link active">Editorials</a>
+        <a href="contact.html" class="nav-link">Contact Us</a>
+      </nav>
+      
+      <div class="nav-actions">
+        <a href="donate.html" class="btn btn-donate">
+          <i class="fas fa-heart"></i>
+          <span>Donate Now</span>
         </a>
-        
-        <div class="nav-menu" id="navMenu">
-          <a href="index.html" class="nav-link">Home</a>
-          <a href="about.html" class="nav-link">About</a>
-          <a href="projects.html" class="nav-link">Projects</a>
-          <a href="editorials.html" class="nav-link active">Blog</a>
-          <a href="donate.html" class="nav-link">Donate</a>
-          <a href="contact.html" class="nav-link">Contact</a>
-        </div>
-        
-        <button class="hamburger" id="hamburger">
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
           <span></span>
           <span></span>
           <span></span>
         </button>
       </div>
     </div>
-  </nav>
+  </header>
 
-  <!-- ==================== Blog Post Hero ==================== -->
-  <section class="blog-post-hero">
-    <div class="blog-post-hero-bg">
-      <div style="width: 100%; height: 100%; background: linear-gradient(135deg, var(--primary-blue) 0%, #1e5a96 100%);"></div>
+  <!-- ==================== Post Hero ==================== -->
+  <section class="post-hero">
+    <div class="post-hero-bg">
+      <img id="post-hero-image" src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Article">
     </div>
     
     <div class="container">
-      <div class="blog-post-hero-content">
-        <h1 id="post-title">Loading...</h1>
-        <div class="blog-post-meta">
-          <div class="blog-post-meta-item">
-            <i class="far fa-calendar"></i>
-            <span id="post-date">Loading...</span>
-          </div>
-          <div class="blog-post-meta-item">
-            <i class="fas fa-clock"></i>
-            <span id="read-time">5 min read</span>
+      <div class="post-hero-content">
+        <div class="post-header">
+          <span class="post-category-tag" id="post-category">Health</span>
+          <h1 class="post-title" id="post-title">Loading...</h1>
+          <div class="post-meta-info">
+            <div class="post-author">
+              <img src="img/sfdp favicon.png" alt="Author" id="post-author-image" style="background: white; padding: 4px; border-radius: 50%;">
+              <div class="post-author-info">
+                <strong id="post-author-name">Society for Disease Prevention</strong>
+                <small id="post-author-title">Editorial Team</small>
+              </div>
+            </div>
+            <span><i class="far fa-calendar"></i> <span id="post-date">Loading...</span></span>
+            <span><i class="far fa-clock"></i> <span id="read-time">5 min read</span></span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ==================== Blog Post Content ==================== -->
+  <!-- ==================== Article Content ==================== -->
   <section class="section">
-    <div class="blog-post-container">
-      <a href="editorials.html" class="back-to-blog">
-        <i class="fas fa-arrow-left"></i>
-        <span>Back to Articles</span>
-      </a>
-      
-      <div id="blog-post-content" style="line-height: 1.8; color: var(--text-primary);">
-        <p style="text-align: center; color: var(--text-secondary);">Loading article...</p>
+    <div class="container">
+      <div class="article-container">
+        <!-- Main Content -->
+        <article>
+          <a href="editorials.html" class="back-to-blog">
+            <i class="fas fa-arrow-left"></i>
+            <span>Back to Articles</span>
+          </a>
+          <div class="article-content" id="blog-post-content">
+            <p style="text-align: center; color: var(--text-secondary);">Loading article...</p>
+          </div>
+          
+          <!-- Tags -->
+          <div class="article-tags" id="article-tags-container">
+            <span style="font-weight: 600; color: var(--gray-700);">Tags:</span>
+          </div>
+          
+          <!-- Share Buttons -->
+          <div class="share-buttons">
+            <span>Share:</span>
+            <a href="#" class="share-btn facebook" onclick="return false;"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="share-btn twitter" onclick="return false;"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" class="share-btn linkedin" onclick="return false;"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="share-btn whatsapp" onclick="return false;"><i class="fab fa-whatsapp"></i></a>
+          </div>
+          
+          <!-- Author Box -->
+          <div class="author-box">
+            <img src="img/sfdp favicon.png" alt="Author" id="author-box-image" style="background: white; padding: 8px; border-radius: 50%;">
+            <div class="author-box-info">
+              <h4 id="author-box-name">Society for Disease Prevention</h4>
+              <p id="author-box-bio">Committed to preventing public health crises and infectious disease outbreaks through education and community engagement.</p>
+              <div style="display: flex; gap: 0.75rem;">
+                <a href="https://x.com/disease_society" target="_blank" style="color: var(--gray-500);"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.linkedin.com/company/society-for-disease-prevention-inc/" target="_blank" style="color: var(--gray-500);"><i class="fab fa-linkedin-in"></i></a>
+              </div>
+            </div>
+          </div>
+        </article>
+        
+        <!-- Sidebar -->
+        <aside class="sticky-sidebar" id="articleSidebar">
+          <!-- Table of Contents -->
+          <div class="toc-widget" id="toc-widget" style="display: none;">
+            <h4>Table of Contents</h4>
+            <ul class="toc-list" id="toc-list">
+            </ul>
+          </div>
+          
+          <!-- Related Posts -->
+          <div class="related-posts" id="related-posts-widget" style="display: none;">
+            <h4>Related Articles</h4>
+            <div id="related-posts-list">
+            </div>
+          </div>
+        </aside>
       </div>
     </div>
   </section>
 
-  <!-- ==================== Related Articles ==================== -->
+  <!-- ==================== More Articles ==================== -->
   <section class="section bg-light">
     <div class="container">
-      <h2 style="font-size: var(--text-3xl); margin-bottom: 2rem; text-align: center;">Related Articles</h2>
-      <div id="related-posts" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+      <h2 style="font-size: var(--text-3xl); margin-bottom: 2rem; text-align: center; color: var(--primary-blue);">Keep Reading</h2>
+      <div id="more-articles" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
         <!-- Will be populated by JavaScript -->
       </div>
     </div>
@@ -292,14 +674,31 @@
   <!-- Main JavaScript -->
   <script src="js/main.js"></script>
   
-  <!-- Blog System JavaScript -->
-  <script src="js/blog.js"></script>
-  
   <!-- Blog Post Page Script -->
   <script>
-    // Get the slug from URL parameter
+    const categoryColors = {
+      'Health': '#10b981',
+      'Disease': '#dc2626',
+      'Vaccine': '#f59e0b',
+      'Charity': '#f59e0b',
+      'Prevention': '#2563eb',
+      'Mental Health': '#9333ea',
+      'Virus': '#dc2626',
+      'Innovation': '#8b5cf6',
+      'News': '#6b7280'
+    };
+
+    const allBlogPosts = [
+      { slug: 'what-is-rhesus-rh-incompatibility-what-it-means-for-your-baby', title: 'What Is Rhesus (Rh) Incompatibility? What It Means For Your Baby.', date: '2025-12-23', category: 'Health' },
+      { slug: 'the-10-deadliest-cancers-in-the-world-and-what-you-should-know', title: 'THE 10 DEADLIEST CANCERS IN THE WORLD AND WHAT YOU SHOULD KNOW', date: '2025-12-04', category: 'Disease' },
+      { slug: 'the-first-1000-days-why-nutrition-matters-for-your-babys-health', title: 'The First 1,000 Days: Why Nutrition Matters for Your Baby\'s Health', date: '2025-09-06', category: 'Health' },
+      { slug: 'herpes-simplex-all-you-need-to-know', title: 'HERPES SIMPLEX: ALL YOU NEED TO KNOW', date: '2022-09-26', category: 'Disease' },
+      { slug: 'lassa-fever-the-rodent-epidemic', title: 'LASSA FEVER: THE RODENT EPIDEMIC', date: '2022-08-15', category: 'Disease' },
+      { slug: 'monkeypox-understanding-the-disease', title: 'MONKEYPOX: UNDERSTANDING THE DISEASE', date: '2022-07-24', category: 'Disease' },
+    ];
+
     const urlParams = new URLSearchParams(window.location.search);
-    const slug = urlParams.get('slug');
+    const slug = urlParams.get('post');
 
     document.addEventListener('DOMContentLoaded', async function() {
       if (!slug) {
@@ -308,64 +707,176 @@
       }
 
       try {
-        // Load the blog post
-        const post = await loadBlogPost(slug);
-        if (!post) {
-          document.getElementById('blog-post-content').innerHTML = '<p style="color: var(--text-secondary);">Article not found. <a href="editorials.html">Return to articles</a></p>';
-          return;
+        const response = await fetch(`posts/${slug}/index.md`);
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
         }
-
-        // Update page title
-        document.title = post.title + ' | Society for Disease Prevention';
-
-        // Update meta description
-        const metaDesc = document.querySelector('meta[name="description"]');
-        if (metaDesc) {
-          metaDesc.setAttribute('content', post.title);
+        
+        const markdown = await response.text();
+        
+        const frontmatterMatch = markdown.match(/^---\n([\s\S]*?)\n---\n/);
+        if (!frontmatterMatch) {
+          throw new Error('Invalid markdown format - no frontmatter found');
         }
-
-        // Update hero content
-        document.getElementById('post-title').textContent = post.title;
-        document.getElementById('post-date').textContent = formatDate(post.date);
-
-        // Calculate and display read time
-        const wordCount = post.content.split(/\s+/).length;
+        
+        const frontmatterText = frontmatterMatch[1];
+        const titleMatch = frontmatterText.match(/title:\s*"(.+?)"/);
+        const dateMatch = frontmatterText.match(/date:\s*(\d{4}-\d{2}-\d{2})/);
+        const categoryMatch = frontmatterText.match(/category:\s*"(.+?)"/);
+        const coverImageMatch = frontmatterText.match(/coverImage:\s*"(.+?)"/);
+        
+        const title = titleMatch ? titleMatch[1] : slug;
+        const date = dateMatch ? dateMatch[1] : new Date().toISOString().split('T')[0];
+        const category = categoryMatch ? categoryMatch[1] : 'Health';
+        const coverImage = coverImageMatch ? coverImageMatch[1] : null;
+        
+        // Construct featured image URL
+        let featuredImageUrl = 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80';
+        if (coverImage) {
+          featuredImageUrl = `posts/${slug}/images/${coverImage}`;
+        }
+        document.getElementById('post-hero-image').src = featuredImageUrl;
+        
+        const content = markdown.replace(/^---\n[\s\S]*?\n---\n/, '');
+        const html = markdownToHtml(content, slug);
+        
+        document.title = title + ' | Society for Disease Prevention';
+        document.getElementById('post-title').textContent = title;
+        document.getElementById('post-date').textContent = formatDate(date);
+        document.getElementById('post-category').textContent = category;
+        document.getElementById('post-category').style.background = categoryColors[category] || '#3b82f6';
+        
+        const wordCount = content.split(/\s+/).length;
         const readTime = Math.ceil(wordCount / 200);
         document.getElementById('read-time').textContent = readTime + ' min read';
-
-        // Display the blog post content
-        document.getElementById('blog-post-content').innerHTML = post.content;
-
-        // Load related posts
-        loadRelatedPosts(slug);
+        
+        document.getElementById('blog-post-content').innerHTML = html;
+        
+        generateTableOfContents();
+        generateRelatedPosts(slug, category);
+        generateMoreArticles(slug);
+        
       } catch (error) {
         console.error('Error loading blog post:', error);
-        document.getElementById('blog-post-content').innerHTML = '<p style="color: var(--text-secondary);">Error loading article. <a href="editorials.html">Return to articles</a></p>';
+        document.getElementById('blog-post-content').innerHTML = `<p style="color: var(--text-secondary);">Error loading article: ${error.message}. <a href="editorials.html">Return to articles</a></p>`;
       }
     });
 
-    async function loadRelatedPosts(currentSlug) {
-      try {
-        const posts = await loadBlogIndex();
-        const related = posts.filter(p => p.slug !== currentSlug).slice(0, 3);
+    function formatDate(dateString) {
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      return new Date(dateString + 'T00:00:00Z').toLocaleDateString('en-US', options);
+    }
 
-        const container = document.getElementById('related-posts');
-        container.innerHTML = related.map(post => `
-          <div class="blog-card">
-            <div class="blog-card-content">
-              <h3 class="blog-card-title">${post.title}</h3>
-              <div class="post-meta" style="margin-bottom: 1rem;">
-                <span><i class="far fa-calendar"></i> ${formatDate(post.date)}</span>
-              </div>
-              <a href="blog-post.html?slug=${post.slug}" class="blog-link">
-                Read Article <i class="fas fa-arrow-right"></i>
-              </a>
-            </div>
-          </div>
-        `).join('');
-      } catch (error) {
-        console.error('Error loading related posts:', error);
+    function markdownToHtml(markdown, slug) {
+      let html = markdown;
+      
+      html = html.replace(/^### (.*?)$/gm, '<h3>$1</h3>');
+      html = html.replace(/^## (.*?)$/gm, '<h2>$1</h2>');
+      html = html.replace(/^# (.*?)$/gm, '<h1>$1</h1>');
+      
+      html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+      html = html.replace(/__( .*?)__/g, '<strong>$1</strong>');
+      
+      html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
+      
+      html = html.replace(/^\> (.*?)$/gm, '<blockquote><p>$1</p></blockquote>');
+      
+      html = html.replace(/!\[\]\(images\/([^)]+)\)/g, `<img src="posts/${slug}/images/$1" alt="Blog image" />`);
+      html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" />');
+      
+      html = html.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2">$1</a>');
+      
+      html = html.split('\n\n').map(para => {
+        if (para.trim()) {
+          if (para.startsWith('<h') || para.startsWith('<ul') || para.startsWith('<ol') || para.startsWith('<blockquote') || para.startsWith('<img') || para.startsWith('<a href')) {
+            return para;
+          }
+          return `<p>${para.trim()}</p>`;
+        }
+        return '';
+      }).join('\n');
+      
+      return html;
+    }
+
+    function generateTableOfContents() {
+      const content = document.getElementById('blog-post-content');
+      const headers = content.querySelectorAll('h2, h3');
+      
+      if (headers.length === 0) return;
+      
+      const tocList = document.getElementById('toc-list');
+      tocList.innerHTML = '';
+      
+      headers.forEach((header, index) => {
+        const id = 'section-' + index;
+        header.id = id;
+        
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = '#' + id;
+        a.textContent = header.textContent;
+        li.appendChild(a);
+        tocList.appendChild(li);
+      });
+      
+      if (tocList.children.length > 0) {
+        document.getElementById('toc-widget').style.display = 'block';
       }
+    }
+
+    function generateRelatedPosts(currentSlug, category) {
+      const relatedPostsList = document.getElementById('related-posts-list');
+      const related = allBlogPosts
+        .filter(post => post.slug !== currentSlug && post.category === category)
+        .slice(0, 3);
+      
+      if (related.length === 0) return;
+      
+      relatedPostsList.innerHTML = '';
+      related.forEach(post => {
+        const item = document.createElement('a');
+        item.href = `blog-post.html?post=${post.slug}`;
+        item.className = 'related-post-item';
+        item.innerHTML = `
+          <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="">
+          <div>
+            <h5>${post.title}</h5>
+            <span>${formatDate(post.date)}</span>
+          </div>
+        `;
+        relatedPostsList.appendChild(item);
+      });
+      
+      document.getElementById('related-posts-widget').style.display = 'block';
+    }
+
+    function generateMoreArticles(currentSlug) {
+      const moreArticlesContainer = document.getElementById('more-articles');
+      const otherPosts = allBlogPosts
+        .filter(post => post.slug !== currentSlug)
+        .slice(0, 3);
+      
+      moreArticlesContainer.innerHTML = '';
+      otherPosts.forEach(post => {
+        const card = document.createElement('a');
+        card.href = `blog-post.html?post=${post.slug}`;
+        card.style.textDecoration = 'none';
+        card.innerHTML = `
+          <article class="blog-card" style="transition: all 0.3s ease;">
+            <div class="blog-card-content">
+              <span class="post-category" style="font-size: 11px; padding: 0.4rem 0.8rem; background: ${categoryColors[post.category]}; color: white; border-radius: 4px; display: inline-block; margin-bottom: 0.75rem; font-weight: 600;">${post.category}</span>
+              <h3 class="blog-title" style="color: var(--primary-blue); font-size: 16px; font-weight: 600; margin-bottom: 0.75rem; line-height: 1.4;">${post.title}</h3>
+              <div class="blog-meta" style="margin-bottom: 1rem;">
+                <span style="color: var(--gray-600); font-size: 14px;"><i class="far fa-calendar"></i> ${formatDate(post.date)}</span>
+              </div>
+              <span style="color: var(--accent-orange); font-weight: 600; font-size: 14px;">Read More <i class="fas fa-arrow-right"></i></span>
+            </div>
+          </article>
+        `;
+        moreArticlesContainer.appendChild(card);
+      });
     }
   </script>
 </body>

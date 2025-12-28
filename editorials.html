@@ -9,7 +9,7 @@
   <title>Editorials & News | Society for Disease Prevention</title>
   
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="img/SFDP logo.png">
+  <link rel="icon" type="image/png" href="img/sfdp favicon.png">
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,42 +26,6 @@
   <link rel="stylesheet" href="css/blog.css">
   
   <style>
-    .blog-hero {
-      position: relative;
-      padding: calc(100px + var(--spacing-3xl)) 0 var(--spacing-3xl);
-      background: var(--primary-blue);
-      color: var(--white);
-      overflow: hidden;
-    }
-    
-    .blog-hero-bg {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-    }
-    
-    .blog-hero-bg img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center right;
-    }
-    
-    .blog-hero-bg::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to right,
-        var(--primary-blue) 0%,
-        var(--primary-blue) 40%,
-        rgba(30, 58, 95, 0.9) 55%,
-        rgba(30, 58, 95, 0.7) 70%,
-        rgba(30, 58, 95, 0.5) 85%,
-        rgba(30, 58, 95, 0.4) 100%
-      );
-    }
-    
     .featured-post {
       position: relative;
       border-radius: var(--radius-xl);
@@ -364,19 +328,20 @@
     </div>
   </header>
 
-  <!-- ==================== Blog Hero ==================== -->
-  <section class="hero blog-hero" id="blog-hero">
-    <div class="hero-background blog-hero-bg">
+  <!-- ==================== Page Header ==================== -->
+  <section class="page-header">
+    <div class="page-header-bg">
       <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="News and stories">
     </div>
-    <div class="hero-overlay"></div>
-    <div class="container" style="position: relative; z-index: 1;">
-      <div class="hero-content text-center">
-        <span class="section-label" style="color: var(--accent-orange);">News & Stories</span>
-        <h1 style="font-size: var(--text-5xl); color: white; margin-bottom: 1rem;">Our <span class="text-highlight">Editorials</span></h1>
-        <p style="font-size: var(--text-lg); opacity: 0.9; max-width: 600px; margin: 0 auto;">
-          Stay informed with the latest news, health insights, and stories from our global initiatives.
-        </p>
+    <div class="container">
+      <div class="page-header-content">
+        <nav class="breadcrumb">
+          <a href="index.html">Home</a>
+          <span>/</span>
+          <span>Editorials</span>
+        </nav>
+        <h1>Our <span class="text-highlight">Editorials</span></h1>
+        <p>Stay informed with the latest news, health insights, and stories from our global initiatives.</p>
       </div>
     </div>
   </section>
@@ -409,11 +374,178 @@
         <h2 style="font-size: var(--text-3xl); margin-bottom: 1rem;">Latest Articles</h2>
         <p style="color: var(--text-secondary); font-size: var(--text-lg);">Explore our collection of health articles and research</p>
       </div>
-      <!-- Dynamic Blog Grid Container -->
-      <div id="blog-grid"></div>
+      <!-- Blog Grid -->
+      <div class="blog-grid" id="blogGrid"></div>
+      
+      <!-- Load More Button - BUTTON NOT ANCHOR -->
+      <div style="text-align: center; margin-top: 3rem;">
+        <button type="button" id="loadMoreBtn" style="background: var(--primary-blue); color: white; padding: 0.75rem 2rem; border: none; cursor: pointer; border-radius: var(--radius-md); font-weight: 600; transition: all var(--transition-fast); font-size: 16px;">
+          Load More Articles
+        </button>
+      </div>
     </div>
   </section>
-  </section>
+
+  <script>
+    // All blog posts sorted by date (newest first)
+    const allPosts = [
+      { slug: 'what-is-rhesus-rh-incompatibility-what-it-means-for-your-baby', title: 'What Is Rhesus (Rh) Incompatibility? What It Means For Your Baby.', date: '2025-12-23', category: 'Health' },
+      { slug: 'the-10-deadliest-cancers-in-the-world-and-what-you-should-know', title: 'THE 10 DEADLIEST CANCERS IN THE WORLD AND WHAT YOU SHOULD KNOW', date: '2025-12-04', category: 'Disease' },
+      { slug: 'the-first-1000-days-why-nutrition-matters-for-your-babys-health', title: 'The First 1,000 Days: Why Nutrition Matters for Your Baby\'s Health', date: '2025-09-06', category: 'Health' },
+      { slug: 'the-hidden-triggers-uncovering-why-some-people-are-prone-to-addiction-than-others', title: 'THE HIDDEN TRIGGERS: UNCOVERING WHY SOME PEOPLE ARE PRONE TO ADDICTION THAN OTHERS', date: '2025-06-16', category: 'Mental Health' },
+      { slug: 'vaccines-are-not-just-for-kids-why-adult-vaccination-matters-more-than-you-think', title: 'VACCINES ARE NOT JUST FOR KIDS: WHY ADULT VACCINATION MATTERS MORE THAN YOU THINK', date: '2025-06-07', category: 'Vaccine' },
+      { slug: 'how-does-gut-bacteria-affect-my-brain-body', title: 'HOW DOES GUT BACTERIA AFFECT MY BRAIN & BODY', date: '2025-05-31', category: 'Health' },
+      { slug: 'hidden-health-threats-disease-conditions-that-can-sneak-up-on-you', title: 'Hidden Health Threats: Disease Conditions that Can Sneak Up on You', date: '2025-05-21', category: 'Disease' },
+      { slug: 'the-germiest-places-you-visit-daily-and-how-to-stay-safe', title: 'THE GERMIEST PLACES YOU VISIT DAILY AND HOW TO STAY SAFE', date: '2025-05-15', category: 'Prevention' },
+      { slug: 'the-global-push-for-hiv-prevention-highlights-from-hivr4p-2024', title: 'THE GLOBAL PUSH FOR HIV PREVENTION: HIGHLIGHTS FROM HIVR4P 2024', date: '2025-01-20', category: 'Disease' },
+      { slug: 'understanding-pre-exposure-prophylaxis-an-overview-of-previous-and-current-approaches-for-hiv-prevention', title: 'UNDERSTANDING PRE-EXPOSURE PROPHYLAXIS: AN OVERVIEW OF PREVIOUS AND CURRENT APPROACHES FOR HIV PREVENTION', date: '2025-01-20', category: 'Prevention' },
+      { slug: 'pentazocine-abuse-among-sickle-cell-patients-in-nigeria', title: 'PENTAZOCINE ABUSE AMONG SICKLE CELL PATIENTS IN NIGERIA', date: '2024-01-14', category: 'Health' },
+      { slug: 'herpes-simplex-all-you-need-to-know', title: 'HERPES SIMPLEX: ALL YOU NEED TO KNOW', date: '2022-09-26', category: 'Disease' },
+      { slug: 'lassa-fever-the-rodent-epidemic', title: 'LASSA FEVER: THE RODENT EPIDEMIC', date: '2022-08-15', category: 'Disease' },
+      { slug: 'monkeypox-understanding-the-disease', title: 'MONKEYPOX: UNDERSTANDING THE DISEASE', date: '2022-07-24', category: 'Disease' },
+      { slug: 'poliomyelitis-a-tale-of-disability', title: 'POLIOMYELITIS: A TALE OF DISABILITY', date: '2022-07-04', category: 'Disease' },
+      { slug: 'telemedicine-in-africa-a-dificult-but-possible-reality', title: 'TELEMEDICINE IN AFRICA: A DIFICULT BUT POSSIBLE REALITY', date: '2022-06-01', category: 'Innovation' },
+      { slug: 'syphilis-what-you-need-to-know', title: 'SYPHILIS: WHAT YOU NEED TO KNOW', date: '2022-01-23', category: 'Disease' },
+      { slug: 'gonorrhoea-the-adverse-effects-on-health', title: 'GONORRHOEA: THE ADVERSE EFFECTS ON HEALTH', date: '2022-01-07', category: 'Disease' },
+      { slug: 'hiv-aids-effects-on-health-and-lifestyle', title: 'HIV/AIDS: EFFECTS ON HEALTH AND LIFESTYLE', date: '2021-11-07', category: 'Disease' },
+      { slug: 'how-the-new-coronavirus-compares-with-the-influenza-virus', title: 'How the new Coronavirus Compares with the Influenza Virus', date: '2021-11-07', category: 'Virus' },
+      { slug: 'what-you-need-to-know-about-hepatitis', title: 'WHAT YOU NEED TO KNOW ABOUT HEPATITIS', date: '2021-11-07', category: 'Disease' },
+      { slug: 'example-post-3', title: 'THE DISEASE CALLED DIPHTHERIA', date: '2021-10-21', category: 'Disease' },
+      { slug: 'hello-world', title: 'Hello world!', date: '2021-10-15', category: 'News' },
+      { slug: 'dengue-fever-the-vector-borne-disease', title: 'DENGUE FEVER: THE VECTOR-BORNE DISEASE', date: '2021-10-05', category: 'Disease' },
+      { slug: 'what-you-need-to-know-about-the-covid-19-vaccine', title: 'WHAT YOU NEED TO KNOW ABOUT THE COVID-19 VACCINE', date: '2021-09-22', category: 'Vaccine' },
+      { slug: 'alzheimers-disease-a-burden-among-the-elderly', title: 'ALZHEIMER\'S DISEASE: A BURDEN AMONG THE ELDERLY', date: '2021-09-09', category: 'Health' },
+      { slug: 'the-disease-called-pneumonia', title: 'THE DISEASE CALLED PNEUMONIA', date: '2021-08-27', category: 'Disease' },
+      { slug: 'all-about-meningitis', title: 'ALL ABOUT MENINGITIS', date: '2021-08-08', category: 'Disease' },
+      { slug: 'all-you-need-to-know-about-measles', title: 'ALL YOU NEED TO KNOW ABOUT MEASLES', date: '2021-07-29', category: 'Disease' },
+      { slug: '17-signs-you-work-with-donation', title: '17 Signs You Work With Donation', date: '2021-07-15', category: 'Charity' },
+      { slug: 'charity-expectations-vs-reality', title: 'Charity: Expectations vs. Reality', date: '2021-07-15', category: 'Charity' },
+      { slug: 'grant-distributions-continue-to-increase', title: 'Grant Distributions Continue to Increase', date: '2021-07-15', category: 'Charity' },
+      { slug: 'how-to-sell-charity-to-a-skeptic', title: 'How to Sell Charity to a Skeptic', date: '2021-07-15', category: 'Charity' },
+      { slug: 'non-profit-explained-in-fewer', title: 'Non-profit Explained in Fewer', date: '2021-07-15', category: 'Charity' },
+      { slug: 'so-youve-bought-donation-now-what', title: 'So You\'ve Bought Donation – Now What?', date: '2021-07-15', category: 'Charity' },
+      { slug: 'the-history-of-donation-told', title: 'The History of Donation Told', date: '2021-07-15', category: 'Charity' },
+      { slug: 'the-next-big-thing-in-fundrising', title: 'The Next Big Thing in Fundraising', date: '2021-07-15', category: 'Charity' },
+      { slug: 'will-charity-ever-rule-the-world', title: 'Will Charity Ever Rule the World?', date: '2021-07-15', category: 'Charity' },
+      { slug: 'will-donation-ever-rule-the-world', title: 'Will Donation Ever Rule the World?', date: '2021-07-15', category: 'Charity' },
+      { slug: 'gingivitis-a-dental-menace', title: 'GINGIVITIS: A DENTAL MENACE', date: '2021-07-07', category: 'Health' },
+      { slug: 'antimicrobial-resistance-a-global-threat', title: 'ANTIMICROBIAL RESISTANCE: A GLOBAL THREAT', date: '2021-05-27', category: 'Prevention' },
+      { slug: 'demystifying-yellow-fever-and-its-vaccine', title: 'DEMYSTIFYING YELLOW FEVER AND ITS VACCINE', date: '2021-05-04', category: 'Disease' },
+      { slug: 'tuberculosis-a-major-public-health-threat', title: 'TUBERCULOSIS: A MAJOR PUBLIC HEALTH THREAT', date: '2021-05-04', category: 'Disease' },
+      { slug: 'cholera-a-burden-in-africa', title: 'CHOLERA: A BURDEN IN AFRICA', date: '2021-04-29', category: 'Disease' },
+      { slug: 'tetanus-the-puncture-wound-disease', title: 'TETANUS: THE PUNCTURE WOUND DISEASE', date: '2021-04-29', category: 'Disease' },
+      { slug: 'covid-19-vaccination-hesitancies', title: 'COVID-19 Vaccination Hesitancies', date: '2021-04-15', category: 'Vaccine' },
+      { slug: 'the-relationship-between-obesity-diabetes-and-covid-19', title: 'THE RELATIONSHIP BETWEEN OBESITY, DIABETES AND COVID-19', date: '2021-04-01', category: 'Health' },
+      { slug: 'covid-19-vaccine-skepticism-among-racial-minorities', title: 'COVID-19 Vaccine Skepticism among Racial Minorities', date: '2021-03-26', category: 'Vaccine' },
+      { slug: 'mental-health-conditions-the-african-perspective', title: 'Mental Health Conditions: The African Perspective', date: '2021-03-26', category: 'Health' },
+      { slug: 'vaccine-hesitancy-the-misconceptions-dangers-and-solution', title: 'Vaccine Hesitancy: The Misconceptions, Dangers and Solution', date: '2021-03-02', category: 'Vaccine' },
+      { slug: 'hypertension-among-african-americans-african-canadians', title: 'HYPERTENSION AMONG AFRICAN AMERICANS & AFRICAN CANADIANS', date: '2021-02-26', category: 'Health' },
+      { slug: 'mental-health-conditions-in-nigeria-tackling-the-culture-of-neglection', title: 'Mental Health Conditions in Nigeria: Tackling the Culture of Neglection', date: '2021-02-24', category: 'Health' },
+      { slug: 'covid-19-and-its-impact-on-childrens-health-and-wellbeing', title: 'COVID-19 AND ITS IMPACT ON CHILDREN\'S HEALTH AND WELLBEING', date: '2021-02-19', category: 'Disease' },
+      { slug: 'protecting-the-psychological-health-of-children-through-effective-communication-about-covid-19', title: 'Protecting the Psychological Health of Children through Effective Communication about COVID-19', date: '2021-02-10', category: 'Health' },
+      { slug: 'coronavirus-smoking-and-vaping-what-you-should-know', title: 'Coronavirus, Smoking and Vaping: What You Should Know', date: '2021-02-02', category: 'Virus' },
+      { slug: 'easy-to-understand-covid-19-vaccines-fact-sheets-pfizer-biontech-and-moderna-vaccines', title: 'Easy-to-Understand COVID-19 Vaccines Fact Sheets: Pfizer/BioNTech and Moderna Vaccines', date: '2021-01-20', category: 'Vaccine' },
+      { slug: 'covid-19-and-flu-what-are-the-differences', title: 'COVID-19 and Flu: What are the Differences?', date: '2020-12-07', category: 'Disease' },
+      { slug: 'will-a-vaccine-be-enough-to-end-the-covid-19-pandemic', title: 'Will a vaccine be enough to end the COVID-19 pandemic?', date: '2020-11-11', category: 'Vaccine' },
+      { slug: 'covid-19-where-are-we-today', title: 'COVID-19: WHERE ARE WE TODAY?', date: '2021-03-22', category: 'Disease' },
+      { slug: 'corona-virus', title: 'Corona Virus', date: '2020-03-03', category: 'Virus' }
+    ];
+    
+    const postsPerPage = 12;
+    let currentPage = 1;
+    
+    const categoryColors = {
+      'Health': '#10b981',
+      'Disease': '#dc2626',
+      'Vaccine': '#f59e0b',
+      'Charity': '#f59e0b',
+      'Prevention': '#2563eb',
+      'Mental Health': '#9333ea',
+      'Virus': '#dc2626',
+      'Innovation': '#8b5cf6',
+      'News': '#6b7280'
+    };
+    
+    function formatDate(dateStr) {
+      const dateObj = new Date(dateStr);
+      return dateObj.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+    }
+    
+    function createPostHTML(post, index) {
+      const color = categoryColors[post.category] || '#3b82f6';
+      
+      return `
+        <article class="blog-card">
+          <div class="blog-card-content">
+            <span class="post-category" style="font-size: 11px; padding: 0.4rem 0.8rem; background: ${color}; color: white; border-radius: 4px; display: inline-block; margin-bottom: 0.75rem; font-weight: 600;">${post.category}</span>
+            <h3 class="blog-title">${post.title}</h3>
+            <div class="blog-meta" style="margin-bottom: 1rem;">
+              <span><i class="far fa-calendar"></i> ${formatDate(post.date)}</span>
+            </div>
+            <a href="blog-post.html?post=${post.slug}" class="blog-link">
+              Read More <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </article>
+      `;
+    }
+    
+    function renderBlogCards(page) {
+      const start = (page - 1) * postsPerPage;
+      const end = start + postsPerPage;
+      const postsToShow = allPosts.slice(start, end);
+      
+      const grid = document.getElementById('blogGrid');
+      const loadMoreBtn = document.getElementById('loadMoreBtn');
+      
+      if (!grid || !loadMoreBtn) return;
+      
+      if (page === 1) {
+        // First page - clear and fill
+        grid.innerHTML = '';
+        postsToShow.forEach((post, index) => {
+          grid.insertAdjacentHTML('beforeend', createPostHTML(post, index));
+        });
+      } else {
+        // Subsequent pages - append
+        postsToShow.forEach((post, index) => {
+          grid.insertAdjacentHTML('beforeend', createPostHTML(post, index));
+        });
+      }
+      
+      // Update button
+      if (end >= allPosts.length) {
+        loadMoreBtn.style.display = 'none';
+      } else {
+        loadMoreBtn.style.display = 'inline-block';
+      }
+    }
+    
+    // Initial render
+    renderBlogCards(1);
+    
+    // Setup load more button
+    document.getElementById('loadMoreBtn').addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      console.log('Load More clicked! Current page:', currentPage);
+      currentPage++;
+      console.log('New page:', currentPage);
+      renderBlogCards(currentPage);
+      console.log('Posts after render. Grid HTML length:', document.getElementById('blogGrid').innerHTML.length);
+      
+      // Scroll to new posts
+      setTimeout(() => {
+        const cards = document.querySelectorAll('.blog-card');
+        console.log('Total cards on page:', cards.length);
+        const targetIndex = (currentPage - 2) * postsPerPage;
+        if (cards[targetIndex]) {
+          cards[targetIndex].scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    });
+  </script>
+  </script>
 
   <!-- ==================== CTA Section ==================== -->
   <section class="cta-section">
@@ -540,9 +672,6 @@
   
   <!-- Main JavaScript -->
   <script src="js/main.js"></script>
-  
-  <!-- Blog System JavaScript -->
-  <script src="js/blog.js"></script>
   
   <script>
     // Show sidebar on desktop

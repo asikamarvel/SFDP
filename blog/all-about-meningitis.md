@@ -29,7 +29,7 @@ Treatment of meningitis depends on the type of infection. Bacterial meningitis r
 
 <figure>
 
-![](https://sfdporg.wordpress.com/wp-content/uploads/2021/10/meningitis2.jpg?w=768)
+![](/img/blog/meningitis2.jpg)
 
 <figcaption>
 

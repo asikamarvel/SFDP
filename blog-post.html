@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Read health articles and editorials from the Society for Disease Prevention.">
+  <meta name="keywords" content="health, disease prevention, articles, blog">
+  
+  <title>Blog Post | Society for Disease Prevention</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="img/SFDP logo.png">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+  
+  <!-- Blog Stylesheet -->
+  <link rel="stylesheet" href="css/blog.css">
+  
+  <style>
+    .blog-post-hero {
+      position: relative;
+      padding: calc(100px + var(--spacing-3xl)) 0 var(--spacing-3xl);
+      background: var(--primary-blue);
+      color: var(--white);
+      overflow: hidden;
+    }
+    
+    .blog-post-hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    
+    .blog-post-hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+    }
+    
+    .blog-post-hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .blog-post-hero-content h1 {
+      font-size: var(--text-5xl);
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+    }
+    
+    .blog-post-meta {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      font-size: var(--text-base);
+      opacity: 0.95;
+    }
+    
+    .blog-post-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .blog-post-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: var(--spacing-3xl) var(--spacing-lg);
+    }
+    
+    .back-to-blog {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--primary-blue);
+      text-decoration: none;
+      font-weight: 500;
+      margin-bottom: 2rem;
+      transition: all 0.3s ease;
+    }
+    
+    .back-to-blog:hover {
+      gap: 1rem;
+    }
+    
+    .back-to-blog i {
+      transition: transform 0.3s ease;
+    }
+    
+    .back-to-blog:hover i {
+      transform: translateX(-4px);
+    }
+
+    @media (max-width: 768px) {
+      .blog-post-hero-content h1 {
+        font-size: var(--text-3xl);
+      }
+      
+      .blog-post-meta {
+        flex-direction: column;
+        gap: 0.75rem;
+        align-items: flex-start;
+      }
+      
+      .blog-post-container {
+        padding: var(--spacing-2xl) var(--spacing-md);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- ==================== Navigation ==================== -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <div class="nav-wrapper">
+        <a href="index.html" class="logo">
+          <img src="img/SFDP PNG 3.png" alt="SFDP Logo">
+        </a>
+        
+        <div class="nav-menu" id="navMenu">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="projects.html" class="nav-link">Projects</a>
+          <a href="editorials.html" class="nav-link active">Blog</a>
+          <a href="donate.html" class="nav-link">Donate</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+        
+        <button class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==================== Blog Post Hero ==================== -->
+  <section class="blog-post-hero">
+    <div class="blog-post-hero-bg">
+      <div style="width: 100%; height: 100%; background: linear-gradient(135deg, var(--primary-blue) 0%, #1e5a96 100%);"></div>
+    </div>
+    
+    <div class="container">
+      <div class="blog-post-hero-content">
+        <h1 id="post-title">Loading...</h1>
+        <div class="blog-post-meta">
+          <div class="blog-post-meta-item">
+            <i class="far fa-calendar"></i>
+            <span id="post-date">Loading...</span>
+          </div>
+          <div class="blog-post-meta-item">
+            <i class="fas fa-clock"></i>
+            <span id="read-time">5 min read</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== Blog Post Content ==================== -->
+  <section class="section">
+    <div class="blog-post-container">
+      <a href="editorials.html" class="back-to-blog">
+        <i class="fas fa-arrow-left"></i>
+        <span>Back to Articles</span>
+      </a>
+      
+      <div id="blog-post-content" style="line-height: 1.8; color: var(--text-primary);">
+        <p style="text-align: center; color: var(--text-secondary);">Loading article...</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== Related Articles ==================== -->
+  <section class="section bg-light">
+    <div class="container">
+      <h2 style="font-size: var(--text-3xl); margin-bottom: 2rem; text-align: center;">Related Articles</h2>
+      <div id="related-posts" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+        <!-- Will be populated by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CTA Section ==================== -->
+  <section class="cta-section">
+    <div class="cta-background">
+      <img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Make a difference">
+    </div>
+    <div class="cta-overlay"></div>
+    
+    <div class="container">
+      <div class="cta-content scroll-animate">
+        <h2>Want To Share Your Story?</h2>
+        <p>If you've been impacted by our work or have insights to share, we'd love to hear from you.</p>
+        <div class="cta-buttons">
+          <a href="contact.html" class="btn btn-donate btn-lg">
+            <i class="fas fa-pen"></i>
+            <span>Submit A Story</span>
+          </a>
+          <a href="newsletter.html" class="btn btn-outline-white btn-lg">
+            <i class="fas fa-envelope"></i>
+            <span>Subscribe to Newsletter</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== Footer ==================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <img src="img/SFDP PNG 3.png" alt="SFDP Logo" style="height: 60px;">
+          </a>
+          <p>
+            Society for Disease Prevention is a nonprofit organization committed to preventing public health crises and infectious disease outbreaks through education and community engagement.
+          </p>
+          <div class="footer-social">
+            <a href="https://web.facebook.com/societyfordiseaseprevention" target="_blank" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/societyfordiseaseprevention/" target="_blank" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://x.com/disease_society" target="_blank" aria-label="Twitter">
+              <i class="fab fa-x-twitter"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/society-for-disease-prevention-inc/" target="_blank" aria-label="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://www.tiktok.com/@society4diseasepreventio" target="_blank" aria-label="TikTok">
+              <i class="fab fa-tiktok"></i>
+            </a>
+            <a href="https://youtube.com/@societyfordiseasepreventioninc" target="_blank" aria-label="YouTube">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h4>Organization</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="mission.html">Our Mission</a></li>
+            <li><a href="projects.html">Our Projects</a></li>
+            <li><a href="join-us.html">Join Us</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="editorials.html">Blog</a></li>
+            <li><a href="newsletter.html">Newsletter</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="donate.html">Donate</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="conflict-of-interest.html">Conflict of Interest</a></li>
+            <li><a href="whistleblower-policy.html">Whistleblower Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2024 Society for Disease Prevention. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Main JavaScript -->
+  <script src="js/main.js"></script>
+  
+  <!-- Blog System JavaScript -->
+  <script src="js/blog.js"></script>
+  
+  <!-- Blog Post Page Script -->
+  <script>
+    // Get the slug from URL parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const slug = urlParams.get('slug');
+
+    document.addEventListener('DOMContentLoaded', async function() {
+      if (!slug) {
+        document.getElementById('blog-post-content').innerHTML = '<p style="color: var(--text-secondary);">No article found. <a href="editorials.html">Return to articles</a></p>';
+        return;
+      }
+
+      try {
+        // Load the blog post
+        const post = await loadBlogPost(slug);
+        if (!post) {
+          document.getElementById('blog-post-content').innerHTML = '<p style="color: var(--text-secondary);">Article not found. <a href="editorials.html">Return to articles</a></p>';
+          return;
+        }
+
+        // Update page title
+        document.title = post.title + ' | Society for Disease Prevention';
+
+        // Update meta description
+        const metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) {
+          metaDesc.setAttribute('content', post.title);
+        }
+
+        // Update hero content
+        document.getElementById('post-title').textContent = post.title;
+        document.getElementById('post-date').textContent = formatDate(post.date);
+
+        // Calculate and display read time
+        const wordCount = post.content.split(/\s+/).length;
+        const readTime = Math.ceil(wordCount / 200);
+        document.getElementById('read-time').textContent = readTime + ' min read';
+
+        // Display the blog post content
+        document.getElementById('blog-post-content').innerHTML = post.content;
+
+        // Load related posts
+        loadRelatedPosts(slug);
+      } catch (error) {
+        console.error('Error loading blog post:', error);
+        document.getElementById('blog-post-content').innerHTML = '<p style="color: var(--text-secondary);">Error loading article. <a href="editorials.html">Return to articles</a></p>';
+      }
+    });
+
+    async function loadRelatedPosts(currentSlug) {
+      try {
+        const posts = await loadBlogIndex();
+        const related = posts.filter(p => p.slug !== currentSlug).slice(0, 3);
+
+        const container = document.getElementById('related-posts');
+        container.innerHTML = related.map(post => `
+          <div class="blog-card">
+            <div class="blog-card-content">
+              <h3 class="blog-card-title">${post.title}</h3>
+              <div class="post-meta" style="margin-bottom: 1rem;">
+                <span><i class="far fa-calendar"></i> ${formatDate(post.date)}</span>
+              </div>
+              <a href="blog-post.html?slug=${post.slug}" class="blog-link">
+                Read Article <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        `).join('');
+      } catch (error) {
+        console.error('Error loading related posts:', error);
+      }
+    }
+  </script>
+</body>
+</html>

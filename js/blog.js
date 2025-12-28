@@ -5,7 +5,7 @@
 // Load blog index from JSON
 async function loadBlogIndex() {
   try {
-    const response = await fetch('/blog/blog-index.json');
+    const response = await fetch('blog/blog-index.json');
     const blogIndex = await response.json();
     return blogIndex.sort((a, b) => new Date(b.date) - new Date(a.date)); // Sort by date, newest first
   } catch (error) {
@@ -68,7 +68,7 @@ async function loadBlogPost(slug) {
     const blogIndex = await loadBlogIndex();
     const blogMeta = blogIndex.find(b => b.slug === slug);
     
-    const response = await fetch(`/blog/${slug}.md`);
+    const response = await fetch(`blog/${slug}.md`);
     const content = await response.text();
     
     // Remove frontmatter and extract it

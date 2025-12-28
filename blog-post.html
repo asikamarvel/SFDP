@@ -426,7 +426,8 @@
         grid-template-columns: 1fr;
         gap: 1.5rem;
         margin: 0;
-        padding: 0 0.75rem;
+        max-width: 100%;
+        padding: 0 1rem;
       }
       
       .sticky-sidebar {
@@ -449,21 +450,40 @@
       }
       
       .article-content {
-        padding: 1.5rem;
+        padding: 0;
+        background: transparent;
+        box-shadow: none;
+        border-radius: 0;
       }
       
       .article-content img {
         max-height: 350px;
         margin: 1.5rem 0;
+        padding: 0 1rem;
       }
       
       .article-content h2 {
         font-size: var(--text-xl);
         margin: 1.5rem 0 1rem;
+        padding: 0 1rem;
+      }
+      
+      .article-content h3 {
+        padding: 0 1rem;
       }
       
       .article-content p {
         font-size: var(--text-sm);
+        padding: 0 1rem;
+      }
+      
+      .article-content ul, .article-content ol {
+        margin-left: 2.5rem;
+        padding: 0 1rem;
+      }
+      
+      .article-content blockquote {
+        margin: 1.5rem 1rem;
       }
     }
   </style>

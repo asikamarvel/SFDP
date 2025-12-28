@@ -422,24 +422,19 @@
     }
 
     @media (max-width: 768px) {
-      .section {
-        padding: 0;
-      }
-      
-      .container {
-        max-width: 100%;
-        padding: 0;
-        margin: 0;
-      }
-      
       .article-container {
         grid-template-columns: 1fr;
         gap: 1.5rem;
         margin: 0;
         max-width: none;
-        width: 100%;
+        width: 100vw;
         padding: 0;
         text-align: left;
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
       }
       
       .sticky-sidebar {
@@ -508,6 +503,10 @@
       .article-content blockquote {
         margin: 1.5rem 1rem;
         text-align: left;
+      }
+      
+      .back-to-blog {
+        padding: 0 1rem;
       }
     }
   </style>

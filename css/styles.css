@@ -918,7 +918,6 @@ p {
     opacity: 0;
     transition: all var(--transition-base);
     box-shadow: var(--shadow-lg);
-    z-index: 1000;
   }
   
   /* Reset nav colors in mobile dropdown */
@@ -933,10 +932,6 @@ p {
   
   .mobile-menu-toggle {
     display: flex;
-    z-index: 1001;
-    cursor: pointer;
-    background: none;
-    border: none;
   }
   
   .nav-actions .btn {

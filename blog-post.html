@@ -149,6 +149,10 @@
     }
     
     .article-content {
+      background: var(--white);
+      border-radius: var(--radius-xl);
+      padding: 3rem;
+      box-shadow: var(--shadow-xl);
       line-height: 1.8;
       color: var(--text-primary);
     }
@@ -443,13 +447,17 @@
         padding: 1.5rem;
       }
       
+      .author-box {
+        flex-direction: column;
+        text-align: center;
+      }
+      
       .sticky-sidebar {
         display: none;
       }
       
-      .author-box {
-        flex-direction: column;
-        text-align: center;
+      .back-to-blog {
+        margin-top: 1.5rem;
       }
     }
   </style>

@@ -1,0 +1,11 @@
+# Folders to ignore
+WP Backup/
+Unused images/
+posts/
+
+# Common ignores
+node_modules/
+.DS_Store
+*.log
+.env
+.env.local

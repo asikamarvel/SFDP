@@ -1,12 +1,2 @@
 {
-  "redirects": [
-    {
-      "source": "/(.*)",
-      "has": [
-        { "type": "host", "value": "s-fdp.org" }
-      ],
-      "destination": "https://www.s-fdp.org/$1",
-      "permanent": true
-    }
-  ]
 }

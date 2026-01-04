@@ -644,7 +644,10 @@
         <div class="application-form scroll-animate delay-1">
           <h3 style="margin-bottom: 2rem;">Volunteer Application</h3>
           
-          <form id="volunteerForm">
+          <form id="volunteerForm" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="c835a742-a484-4082-a5af-2872de4a2b3e">
+            <input type="hidden" name="subject" value="New Volunteer Application - SFDP">
+            <input type="text" name="botcheck" id="botcheck" style="display: none;" tabindex="-1" autocomplete="off">
             <div class="form-row">
               <div class="form-group">
                 <label>First Name <span>*</span></label>
@@ -749,11 +752,17 @@
                 <label for="agree">I agree to the volunteer terms and conditions <span>*</span></label>
               </div>
             </div>
+
+            <div class="form-group">
+              <label>Simple Check: What is 3 + 4? <span>*</span></label>
+              <input type="text" id="botAnswer" name="botAnswer" required inputmode="numeric" pattern="7" placeholder="Enter the number">
+            </div>
             
             <button type="submit" class="btn btn-primary btn-lg w-full">
               <i class="fas fa-paper-plane"></i>
               <span>Submit Application</span>
             </button>
+            <p id="formStatus" role="status" style="margin-top: 0.75rem; color: var(--gray-600); font-size: var(--text-sm);"></p>
           </form>
         </div>
       </div>
@@ -885,11 +894,53 @@
   <script src="js/main.js"></script>
   
   <script>
-    // Form submission
-    document.getElementById('volunteerForm').addEventListener('submit', function(e) {
+    // Form submission -> Web3Forms
+    const volunteerForm = document.getElementById('volunteerForm');
+    const formStatus = document.getElementById('formStatus');
+    const botAnswer = document.getElementById('botAnswer');
+    const botcheck = document.getElementById('botcheck');
+
+    volunteerForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      alert('Thank you for your application! We will review your submission and get back to you within 1-2 weeks.');
-      this.reset();
+      formStatus.style.color = 'var(--gray-600)';
+      formStatus.textContent = 'Submitting...';
+
+      // Simple bot check
+      const answer = (botAnswer.value || '').trim();
+      if (answer !== '7') {
+        formStatus.style.color = '#dc2626';
+        formStatus.textContent = 'Please answer the simple check correctly to submit.';
+        return;
+      }
+
+      // Honeypot should stay empty
+      if (botcheck.value) {
+        formStatus.style.color = '#dc2626';
+        formStatus.textContent = 'Submission blocked.';
+        return;
+      }
+
+      const formData = new FormData(volunteerForm);
+
+      try {
+        const response = await fetch(volunteerForm.action, {
+          method: 'POST',
+          body: formData
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          formStatus.style.color = 'var(--accent-teal)';
+          formStatus.textContent = 'Thank you for your application! We will review your submission and get back to you within 1-2 weeks.';
+          volunteerForm.reset();
+        } else {
+          throw new Error(result.message || 'Unable to submit form. Please try again.');
+        }
+      } catch (error) {
+        formStatus.style.color = '#dc2626';
+        formStatus.textContent = error.message || 'There was an error submitting the form. Please try again later.';
+      }
     });
   </script>
 </body>

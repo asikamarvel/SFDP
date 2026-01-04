@@ -932,7 +932,7 @@
 
         if (result.success) {
           formStatus.style.color = 'var(--accent-teal)';
-          formStatus.textContent = 'Thank you for your application! We will review your submission and get back to you within 1-2 weeks.';
+          formStatus.textContent = 'Thank you for your application!';
           volunteerForm.reset();
         } else {
           throw new Error(result.message || 'Unable to submit form. Please try again.');

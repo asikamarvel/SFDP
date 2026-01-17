@@ -711,6 +711,9 @@ def update_blog_index(slug, title, date, category):
     
     # Also update editorials.html
     update_editorials_page(slug, title, date, category)
+    
+    # Also update homepage with latest 3 posts
+    update_homepage(slug, title, date, category)
 
 
 def update_editorials_page(slug, title, date, category):
@@ -755,6 +758,107 @@ def update_editorials_page(slug, title, date, category):
     
     except Exception as e:
         print(f"   Warning: Could not update editorials.html: {e}")
+
+
+def update_homepage(slug, title, date, category, excerpt=""):
+    """Update the index.html homepage with the latest 3 blog posts."""
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    index_path = os.path.join(script_dir, "index.html")
+    blog_index_path = os.path.join(script_dir, "blog", "blog-index.json")
+    
+    try:
+        if not os.path.exists(index_path):
+            print(f"   Warning: index.html not found")
+            return
+        
+        # Load blog index to get latest 3 posts
+        posts = []
+        if os.path.exists(blog_index_path):
+            with open(blog_index_path, 'r', encoding='utf-8') as f:
+                posts = json.load(f)
+        
+        # Get top 3 posts (already sorted by date, newest first)
+        latest_posts = posts[:3] if len(posts) >= 3 else posts
+        
+        if not latest_posts:
+            print(f"   Warning: No posts found in blog-index.json")
+            return
+        
+        with open(index_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+        
+        # Find the posts-grid section for editorials
+        start_marker = '<div class="posts-grid">'
+        end_marker = '</div>\n    </div>\n  </section>\n\n  <!-- ==================== CTA Section ==================== -->'
+        
+        start_pos = content.find(start_marker)
+        end_pos = content.find(end_marker)
+        
+        if start_pos == -1 or end_pos == -1:
+            print(f"   Warning: Could not find editorials section in index.html")
+            return
+        
+        # Build the new HTML for the 3 cards
+        cards_html = f'      {start_marker}\n'
+        
+        for i, post in enumerate(latest_posts):
+            post_slug = post['slug']
+            post_title = post['title']
+            post_date = post['date']
+            post_category = post['category']
+            
+            # Format date nicely
+            try:
+                date_obj = datetime.strptime(post_date, '%Y-%m-%d')
+                formatted_date = date_obj.strftime('%B %d, %Y')
+            except:
+                formatted_date = post_date
+            
+            # Generate placeholder image based on category
+            category_images = {
+                'Health': 'https://images.unsplash.com/photo-1559757175-5700dde675bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'Disease': 'https://images.unsplash.com/photo-1584515933487-779824d29309?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'Vaccine': 'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'Prevention': 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'Mental Health': 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'Nutrition': 'https://images.unsplash.com/photo-1492725764893-90b379c2b6e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'Cancer Awareness': 'https://images.unsplash.com/photo-1579154204601-01588f351e67?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+            }
+            image_url = category_images.get(post_category, 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')
+            
+            # Create excerpt from title or use provided excerpt
+            excerpt_text = post_title[:120] + "..." if len(post_title) > 120 else post_title
+            
+            delay_class = f' delay-{i}' if i > 0 else ''
+            
+            cards_html += f'''        <article class="card blog-card scroll-animate{delay_class}">
+          <img src="{image_url}" alt="{post_title[:50]}" class="card-img">
+          <div class="card-body">
+            <span class="blog-category">{post_category}</span>
+            <h3 class="card-title">
+              <a href="blog-post.html?post={post_slug}">{post_title}</a>
+            </h3>
+            <p class="card-text">{excerpt_text}</p>
+            <div class="card-meta">
+              <i class="far fa-calendar-alt"></i> {formatted_date}
+            </div>
+          </div>
+        </article>
+        
+'''
+        
+        cards_html += '      </div>'
+        
+        # Replace the section
+        content = content[:start_pos] + cards_html + content[end_pos:]
+        
+        with open(index_path, 'w', encoding='utf-8') as f:
+            f.write(content)
+        
+        print(f"   Updated index.html with latest 3 posts")
+        
+    except Exception as e:
+        print(f"   Warning: Could not update index.html: {e}")
 
 
 def analyze_document(docx_path):

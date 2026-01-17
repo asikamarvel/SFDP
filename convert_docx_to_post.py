@@ -697,14 +697,17 @@ def update_blog_index(slug, title, date, category):
             "category": category
         }
         
-        # Insert at beginning (newest first)
-        index.insert(0, new_post)
+        # Add the new post
+        index.append(new_post)
+        
+        # Sort by date (newest first)
+        index.sort(key=lambda x: x.get('date', '0000-00-00'), reverse=True)
         
         # Save updated index (always use utf-8 without BOM)
         with open(index_path, 'w', encoding='utf-8') as f:
             json.dump(index, f, indent=2, ensure_ascii=False)
         
-        print(f"   Updated blog-index.json")
+        print(f"   Updated blog-index.json (sorted by date)")
         
     except Exception as e:
         print(f"   Warning: Could not update blog-index.json: {e}")
@@ -777,7 +780,10 @@ def update_homepage(slug, title, date, category, excerpt=""):
             with open(blog_index_path, 'r', encoding='utf-8') as f:
                 posts = json.load(f)
         
-        # Get top 3 posts (already sorted by date, newest first)
+        # Sort by date to ensure latest first
+        posts.sort(key=lambda x: x.get('date', '0000-00-00'), reverse=True)
+        
+        # Get top 3 posts
         latest_posts = posts[:3] if len(posts) >= 3 else posts
         
         if not latest_posts:

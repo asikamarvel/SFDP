@@ -436,12 +436,65 @@
   <!-- ==================== Blog Posts Grid ==================== -->
   <section class="section bg-light">
     <div class="container">
-      <div class="section-header" style="text-align: center; margin-bottom: 3rem;">
+      <div class="section-header" style="text-align: center; margin-bottom: 2rem;">
         <h2 style="font-size: var(--text-3xl); margin-bottom: 1rem;">Latest Articles</h2>
         <p style="color: var(--text-secondary); font-size: var(--text-lg);">Explore our collection of health articles and research</p>
       </div>
+      
+      <!-- Search Box -->
+      <div style="max-width: 500px; margin: 0 auto 2.5rem auto;">
+        <div style="position: relative;">
+          <input 
+            type="text" 
+            id="articleSearch" 
+            placeholder="Search articles..." 
+            style="
+              width: 100%;
+              padding: 1rem 1rem 1rem 3rem;
+              border: 2px solid var(--gray-200);
+              border-radius: var(--radius-full);
+              font-size: var(--text-base);
+              transition: all var(--transition-fast);
+              background: var(--white);
+              outline: none;
+            "
+            onfocus="this.style.borderColor='var(--primary-blue)'; this.style.boxShadow='0 0 0 3px rgba(30, 58, 95, 0.1)';"
+            onblur="this.style.borderColor='var(--gray-200)'; this.style.boxShadow='none';"
+          >
+          <i class="fas fa-search" style="position: absolute; left: 1.1rem; top: 50%; transform: translateY(-50%); color: var(--gray-400); font-size: 1rem;"></i>
+          <button 
+            type="button" 
+            id="clearSearch" 
+            style="
+              position: absolute; 
+              right: 0.75rem; 
+              top: 50%; 
+              transform: translateY(-50%); 
+              background: none; 
+              border: none; 
+              color: var(--gray-400); 
+              cursor: pointer; 
+              padding: 0.5rem;
+              display: none;
+              font-size: 1rem;
+            "
+            onclick="clearSearchField()"
+          >
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <p id="searchResults" style="text-align: center; margin-top: 0.75rem; color: var(--gray-500); font-size: var(--text-sm); display: none;"></p>
+      </div>
+      
       <!-- Blog Grid -->
       <div class="blog-grid" id="blogGrid"></div>
+      
+      <!-- No Results Message -->
+      <div id="noResults" style="display: none; text-align: center; padding: 3rem; color: var(--gray-500);">
+        <i class="fas fa-search" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.3;"></i>
+        <p style="font-size: var(--text-lg);">No articles found matching your search.</p>
+        <p style="font-size: var(--text-sm);">Try different keywords or browse all articles.</p>
+      </div>
       
       <!-- Load More Button - BUTTON NOT ANCHOR -->
       <div style="text-align: center; margin-top: 3rem;">
@@ -455,6 +508,7 @@
   <script>
     // All blog posts sorted by date (newest first)
     const allPosts = [
+      { slug: 'understanding-blood-pressure-what-the-numbers-really-mean', title: 'Understanding Blood Pressure: What the Numbers Really Mean', date: '2026-01-17', category: 'Prevention' },
       { slug: 'what-is-rhesus-rh-incompatibility-what-it-means-for-your-baby', title: 'What Is Rhesus (Rh) Incompatibility? What It Means For Your Baby.', date: '2025-12-23', category: 'Health' },
       { slug: 'the-10-deadliest-cancers-in-the-world-and-what-you-should-know', title: 'THE 10 DEADLIEST CANCERS IN THE WORLD AND WHAT YOU SHOULD KNOW', date: '2025-12-04', category: 'Disease' },
       { slug: 'the-first-1000-days-why-nutrition-matters-for-your-babys-health', title: 'The First 1,000 Days: Why Nutrition Matters for Your Baby\'s Health', date: '2025-09-06', category: 'Health' },
@@ -610,7 +664,85 @@
         }
       }, 100);
     });
-  </script>
+    
+    // Search functionality
+    let filteredPosts = [...allPosts];
+    const searchInput = document.getElementById('articleSearch');
+    const clearBtn = document.getElementById('clearSearch');
+    const searchResultsText = document.getElementById('searchResults');
+    const noResultsDiv = document.getElementById('noResults');
+    
+    function clearSearchField() {
+      searchInput.value = '';
+      clearBtn.style.display = 'none';
+      searchResultsText.style.display = 'none';
+      noResultsDiv.style.display = 'none';
+      filteredPosts = [...allPosts];
+      currentPage = 1;
+      renderFilteredPosts();
+      document.getElementById('loadMoreBtn').style.display = 'inline-block';
+    }
+    
+    function renderFilteredPosts() {
+      const grid = document.getElementById('blogGrid');
+      const loadMoreBtn = document.getElementById('loadMoreBtn');
+      
+      grid.innerHTML = '';
+      
+      if (filteredPosts.length === 0) {
+        noResultsDiv.style.display = 'block';
+        loadMoreBtn.style.display = 'none';
+        return;
+      }
+      
+      noResultsDiv.style.display = 'none';
+      
+      const end = currentPage * postsPerPage;
+      const postsToShow = filteredPosts.slice(0, end);
+      
+      postsToShow.forEach((post, index) => {
+        grid.insertAdjacentHTML('beforeend', createPostHTML(post, index));
+      });
+      
+      if (end >= filteredPosts.length) {
+        loadMoreBtn.style.display = 'none';
+      } else {
+        loadMoreBtn.style.display = 'inline-block';
+      }
+    }
+    
+    searchInput.addEventListener('input', function(e) {
+      const query = e.target.value.toLowerCase().trim();
+      
+      // Show/hide clear button
+      clearBtn.style.display = query ? 'block' : 'none';
+      
+      if (!query) {
+        clearSearchField();
+        return;
+      }
+      
+      // Filter posts by title or category
+      filteredPosts = allPosts.filter(post => 
+        post.title.toLowerCase().includes(query) || 
+        post.category.toLowerCase().includes(query)
+      );
+      
+      // Show results count
+      searchResultsText.textContent = `Found ${filteredPosts.length} article${filteredPosts.length !== 1 ? 's' : ''}`;
+      searchResultsText.style.display = 'block';
+      
+      // Reset to page 1 and render
+      currentPage = 1;
+      renderFilteredPosts();
+    });
+    
+    // Handle Enter key in search
+    searchInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        clearSearchField();
+      }
+    });
   </script>
 
   <!-- ==================== CTA Section ==================== -->

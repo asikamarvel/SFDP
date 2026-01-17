@@ -795,7 +795,7 @@ def update_homepage(slug, title, date, category, excerpt=""):
         
         # Find the posts-grid section for editorials
         start_marker = '<div class="posts-grid">'
-        end_marker = '</div>\n    </div>\n  </section>\n\n  <!-- ==================== CTA Section ==================== -->'
+        end_marker = '\n    </div>\n  </section>\n\n  <!-- ==================== CTA Section ==================== -->'
         
         start_pos = content.find(start_marker)
         end_pos = content.find(end_marker)
@@ -805,7 +805,7 @@ def update_homepage(slug, title, date, category, excerpt=""):
             return
         
         # Build the new HTML for the 3 cards
-        cards_html = '<div class="posts-grid">\n'
+        cards_html = f'      {start_marker}\n'
         
         for i, post in enumerate(latest_posts):
             post_slug = post['slug']

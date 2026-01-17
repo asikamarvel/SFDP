@@ -795,7 +795,7 @@ def update_homepage(slug, title, date, category, excerpt=""):
         
         # Find the posts-grid section for editorials
         start_marker = '<div class="posts-grid">'
-        end_marker = '\n    </div>\n  </section>\n\n  <!-- ==================== CTA Section ==================== -->'
+        end_marker = '</div>\n    </div>\n  </section>\n\n  <!-- ==================== CTA Section ==================== -->'
         
         start_pos = content.find(start_marker)
         end_pos = content.find(end_marker)

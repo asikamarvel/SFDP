@@ -805,7 +805,7 @@ def update_homepage(slug, title, date, category, excerpt=""):
             return
         
         # Build the new HTML for the 3 cards
-        cards_html = f'      {start_marker}\n'
+        cards_html = '<div class="posts-grid">\n'
         
         for i, post in enumerate(latest_posts):
             post_slug = post['slug']

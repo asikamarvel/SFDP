@@ -850,12 +850,13 @@ def update_homepage(slug, title, date, category, excerpt=""):
             </div>
           </div>
         </article>
+        
 '''
         
-        cards_html += '      </div>\n    </div>\n  </section>\n\n  <!-- ==================== CTA Section ==================== -->'
+        cards_html += '      </div>'
         
         # Replace the section
-        content = content[:start_pos] + cards_html + content[end_pos + len(end_marker):]
+        content = content[:start_pos] + cards_html + content[end_pos:]
         
         with open(index_path, 'w', encoding='utf-8') as f:
             f.write(content)

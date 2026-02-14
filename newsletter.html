@@ -21,6 +21,13 @@
   
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="css/styles.css">
+
+  <!-- MailerLite Universal -->
+  <script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);},l=d.createElement(e),l.async=1,l.src=u,n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})(window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '2114024');
+  </script>
+  <!-- End MailerLite Universal -->
   
   <style>
     .newsletter-hero {
@@ -124,6 +131,33 @@
       height: 100%;
       object-fit: cover;
     }
+
+    /* MailerLite embed overrides to keep layout */
+    .ml-embedded form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .ml-embedded input[type="text"],
+    .ml-embedded input[type="email"],
+    .ml-embedded select,
+    .ml-embedded button {
+      width: 100%;
+      padding: 1rem;
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-md);
+      font-size: var(--text-base);
+    }
+    .ml-embedded button {
+      border: none;
+      background: var(--primary-blue);
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity var(--transition-fast);
+    }
+    .ml-embedded button:hover { opacity: 0.9; }
+    .ml-form-successBody { text-align: center; font-size: var(--text-base); color: var(--gray-700); }
     
     @media (max-width: 768px) {
       .past-issue {
@@ -206,41 +240,7 @@
             Sign up now and never miss an update from SFDP.
           </p>
           
-          <form id="newsletterForm">
-            <div style="margin-bottom: 1rem;">
-              <input type="text" placeholder="First Name" required style="width: 100%; padding: 1rem; border: 1px solid var(--gray-200); border-radius: var(--radius-md); font-size: var(--text-base);">
-            </div>
-            <div style="margin-bottom: 1rem;">
-              <input type="email" placeholder="Email Address" required style="width: 100%; padding: 1rem; border: 1px solid var(--gray-200); border-radius: var(--radius-md); font-size: var(--text-base);">
-            </div>
-            
-            <p style="font-size: var(--text-sm); color: var(--gray-500); margin-bottom: 1rem;">
-              Select topics you're interested in:
-            </p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.5rem;">
-              <label style="display: flex; align-items: center; gap: 0.5rem; font-size: var(--text-sm); cursor: pointer;">
-                <input type="checkbox" name="topics" value="projects" checked> Projects
-              </label>
-              <label style="display: flex; align-items: center; gap: 0.5rem; font-size: var(--text-sm); cursor: pointer;">
-                <input type="checkbox" name="topics" value="health"> Health Tips
-              </label>
-              <label style="display: flex; align-items: center; gap: 0.5rem; font-size: var(--text-sm); cursor: pointer;">
-                <input type="checkbox" name="topics" value="events"> Events
-              </label>
-              <label style="display: flex; align-items: center; gap: 0.5rem; font-size: var(--text-sm); cursor: pointer;">
-                <input type="checkbox" name="topics" value="volunteer"> Volunteer
-              </label>
-            </div>
-            
-            <button type="submit" class="btn btn-primary btn-lg w-full">
-              <i class="fas fa-envelope"></i>
-              <span>Subscribe Now</span>
-            </button>
-          </form>
-          
-          <p style="font-size: var(--text-xs); color: var(--gray-400); margin-top: 1rem; text-align: center;">
-            We respect your privacy. Unsubscribe at any time.
-          </p>
+          <div class="ml-embedded" data-form="PufUUh"></div>
         </div>
       </div>
     </div>
@@ -440,13 +440,5 @@
 
   <!-- Main JavaScript -->
   <script src="js/main.js"></script>
-  
-  <script>
-    document.getElementById('newsletterForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      alert('Thank you for subscribing! You will receive our next newsletter soon.');
-      this.reset();
-    });
-  </script>
 </body>
 </html>

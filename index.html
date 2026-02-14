@@ -34,6 +34,44 @@
   
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="css/styles.css">
+
+  <!-- MailerLite Universal -->
+  <script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);},l=d.createElement(e),l.async=1,l.src=u,n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})(window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '2114024');
+  </script>
+  <!-- End MailerLite Universal -->
+  <style>
+    /* MailerLite embed overrides for homepage newsletter block */
+    .newsletter-section .ml-embedded form {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .newsletter-section .ml-embedded input[type="email"],
+    .newsletter-section .ml-embedded input[type="text"],
+    .newsletter-section .ml-embedded select {
+      flex: 1 1 240px;
+      min-width: 220px;
+      padding: 0.9rem 1rem;
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-md);
+      font-size: var(--text-base);
+    }
+    .newsletter-section .ml-embedded button {
+      padding: 0.9rem 1.5rem;
+      border: none;
+      background: var(--primary-blue);
+      color: #fff;
+      font-weight: 600;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: opacity var(--transition-fast);
+      flex: 0 0 auto;
+    }
+    .newsletter-section .ml-embedded button:hover { opacity: 0.9; }
+    .newsletter-section .ml-form-successBody { color: var(--gray-700); }
+  </style>
   
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-M1N5T9NZ2K"></script>
@@ -542,10 +580,9 @@
           <h3>Stay Updated</h3>
           <p>Subscribe to our newsletter for the latest health tips, news, and updates on our projects.</p>
         </div>
-        <form class="newsletter-form" data-validate>
-          <input type="email" placeholder="Enter your email address" required>
-          <button type="submit" class="btn btn-primary">Subscribe</button>
-        </form>
+        <div class="newsletter-form" style="width:100%;">
+          <div class="ml-embedded" data-form="PufUUh"></div>
+        </div>
       </div>
     </div>
   </section>

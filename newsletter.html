@@ -132,32 +132,61 @@
       object-fit: cover;
     }
 
-    /* MailerLite embed overrides to keep layout */
-    .ml-embedded form {
+    /* MailerLite embed overrides to mirror original card styling */
+    .subscribe-card .ml-embedded { width: 100%; }
+    .subscribe-card .ml-embedded form {
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
+      gap: 1rem;
+      font-family: 'Poppins', 'Inter', sans-serif;
     }
-    .ml-embedded input[type="text"],
-    .ml-embedded input[type="email"],
-    .ml-embedded select,
-    .ml-embedded button {
+    .subscribe-card .ml-embedded label {
+      color: var(--gray-700);
+      font-size: var(--text-sm);
+      font-weight: 500;
+    }
+    .subscribe-card .ml-embedded input[type="text"],
+    .subscribe-card .ml-embedded input[type="email"],
+    .subscribe-card .ml-embedded select,
+    .subscribe-card .ml-embedded textarea {
       width: 100%;
       padding: 1rem;
       border: 1px solid var(--gray-200);
       border-radius: var(--radius-md);
       font-size: var(--text-base);
+      background: var(--white);
+      transition: box-shadow var(--transition-fast), border-color var(--transition-fast);
     }
-    .ml-embedded button {
+    .subscribe-card .ml-embedded input:focus,
+    .subscribe-card .ml-embedded select:focus,
+    .subscribe-card .ml-embedded textarea:focus {
+      outline: none;
+      border-color: var(--primary-blue);
+      box-shadow: 0 0 0 3px rgba(30, 58, 95, 0.1);
+    }
+    .subscribe-card .ml-embedded button[type="submit"] {
+      width: 100%;
+      padding: 1rem;
       border: none;
+      border-radius: var(--radius-md);
       background: var(--primary-blue);
       color: #fff;
       font-weight: 600;
+      font-size: var(--text-base);
       cursor: pointer;
-      transition: opacity var(--transition-fast);
+      transition: opacity var(--transition-fast), transform var(--transition-fast);
+      box-shadow: var(--shadow-sm);
     }
-    .ml-embedded button:hover { opacity: 0.9; }
-    .ml-form-successBody { text-align: center; font-size: var(--text-base); color: var(--gray-700); }
+    .subscribe-card .ml-embedded button[type="submit"]:hover { opacity: 0.92; transform: translateY(-1px); }
+    .subscribe-card .ml-embedded button[type="submit"]:active { transform: translateY(0); }
+    .subscribe-card .ml-form-successBody {
+      text-align: center;
+      font-size: var(--text-base);
+      color: var(--gray-700);
+      line-height: 1.5;
+      padding: 0.5rem 0;
+    }
+    .subscribe-card .ml-form-embedContainer { max-width: 100%; }
     
     @media (max-width: 768px) {
       .past-issue {

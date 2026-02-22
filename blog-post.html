@@ -21,6 +21,7 @@
   
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/blog.css">
   
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-M1N5T9NZ2K"></script>
@@ -539,7 +540,7 @@
               <img src="img/sfdp favicon.png" alt="Author" id="post-author-image" style="background: white; padding: 4px; border-radius: 50%;">
               <div>
                 <strong id="post-author-name">Society for Disease Prevention</strong>
-                <div style="opacity: 0.8; font-size: 12px;" id="post-author-title">Editorial Team</div>
+                <div style="opacity: 0.8; font-size: 12px;" id="post-author-title">Marvellous Asika</div>
               </div>
             </div>
             <span><i class="far fa-calendar"></i> <span id="post-date">Loading...</span></span>
@@ -752,7 +753,12 @@
         // Construct featured image URL
         let featuredImageUrl = 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80';
         if (coverImage) {
-          featuredImageUrl = `posts/${slug}/images/${coverImage}`;
+          // If path starts with img/ or http, use as-is; otherwise prepend posts/{slug}/images/
+          if (coverImage.startsWith('img/') || coverImage.startsWith('http')) {
+            featuredImageUrl = coverImage;
+          } else {
+            featuredImageUrl = `posts/${slug}/images/${coverImage}`;
+          }
         }
         document.getElementById('post-hero-image').src = featuredImageUrl;
         
@@ -897,7 +903,9 @@
           // Don't wrap if already wrapped in a block element
           if (para.startsWith('<h') || para.startsWith('<ul') || para.startsWith('<ol') || 
               para.startsWith('<blockquote') || para.startsWith('<img') || para.startsWith('<hr') ||
-              para.includes('<li>') || para.includes('</ul>') || para.includes('</ol>')) {
+              para.startsWith('<div') || para.startsWith('</div') ||
+              para.includes('<li>') || para.includes('</ul>') || para.includes('</ol>') ||
+              para.includes('callout-box') || para.includes('quote-callout')) {
             return para;
           }
           return `<p>${para.trim()}</p>`;
@@ -918,14 +926,16 @@
 
     function generateTableOfContents() {
       const content = document.getElementById('blog-post-content');
-      const headers = content.querySelectorAll('h2, h3');
+      // Only select h1 and h2 that are NOT inside callout boxes
+      const headers = content.querySelectorAll('h1, h2');
+      const filteredHeaders = Array.from(headers).filter(h => !h.closest('.callout-box') && !h.closest('.quote-callout'));
       
-      if (headers.length === 0) return;
+      if (filteredHeaders.length === 0) return;
       
       const tocList = document.getElementById('toc-list');
       tocList.innerHTML = '';
       
-      headers.forEach((header, index) => {
+      filteredHeaders.forEach((header, index) => {
         const id = 'section-' + index;
         header.id = id;
         

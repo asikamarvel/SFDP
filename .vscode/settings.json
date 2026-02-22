@@ -1,3 +1,9 @@
 {
-    "liveServer.settings.port": 5503
+    "liveServer.settings.port": 5503,
+    "chat.tools.terminal.autoApprove": {
+        "/^cd \"C:\\\\Users\\\\Marvellous Asika\\\\Desktop\\\\SFDP last\\\\posts\\\\among-the-next-generation-my-journey-as-an-ias-2025-young-leader-in-kigali\"; Select-String -Path index\\.md -Pattern 'src=\"' \\| ForEach-Object \\{ \\$_\\.Line \\} \\| Sort-Object \\| Get-Unique$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
 }

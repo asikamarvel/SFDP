@@ -191,6 +191,7 @@ def extract_paragraph_text_with_formatting(paragraph):
             run_text = ""
             is_bold = False
             is_italic = False
+            footnote_ref = None
             
             # Check formatting
             rPr = child.find(qn('w:rPr'))
@@ -199,6 +200,15 @@ def extract_paragraph_text_with_formatting(paragraph):
                     is_bold = True
                 if rPr.find(qn('w:i')) is not None:
                     is_italic = True
+            
+            # Check for footnote/endnote reference
+            footnoteRef = child.find(qn('w:footnoteReference'))
+            if footnoteRef is not None:
+                footnote_ref = footnoteRef.get(qn('w:id'))
+            
+            endnoteRef = child.find(qn('w:endnoteReference'))
+            if endnoteRef is not None:
+                footnote_ref = endnoteRef.get(qn('w:id'))
             
             # Get text
             for text_elem in child.findall(qn('w:t')):
@@ -214,6 +224,10 @@ def extract_paragraph_text_with_formatting(paragraph):
                 elif is_italic:
                     run_text = f"*{run_text}*"
                 markdown_text += run_text
+            
+            # Add footnote reference marker
+            if footnote_ref:
+                markdown_text += f"[^{footnote_ref}]"
     
     return markdown_text
 
@@ -288,6 +302,135 @@ def is_reference_section(text):
         if text_lower == header or text_lower.startswith(header + ':'):
             return True
     return False
+
+
+def format_callout(textbox_content):
+    """Format a textbox as a styled callout box."""
+    # Clean up excessive spaces
+    textbox_content = re.sub(r'\s+', ' ', textbox_content)
+    textbox_content = textbox_content.replace(' \n', '\n')
+    
+    lines = textbox_content.split('\n')
+    
+    # Check if it's a quote (starts with quote mark)
+    if textbox_content.strip().startswith('"') or textbox_content.strip().startswith('"'):
+        # Format as quote callout
+        quote_text = textbox_content.strip().strip('"').strip('"').strip()
+        return f'\n<div class="quote-callout">\n{quote_text}\n</div>\n'
+    
+    # Otherwise, format as regular callout box
+    if lines:
+        title = lines[0].strip()
+        content_lines = lines[1:] if len(lines) > 1 else []
+        content = '\n'.join(content_lines).strip()
+        
+        # Skip video placeholders
+        if '[Featured' in title or 'video' in title.lower():
+            return ''
+        
+        html = '\n<div class="callout-box">\n'
+        html += f'<h3>{title}</h3>\n'
+        if content:
+            # Split into paragraphs
+            paragraphs = content.split('\n')
+            for p in paragraphs:
+                if p.strip():
+                    html += f'<p>{p.strip()}</p>\n'
+        html += '</div>\n'
+        return html
+    
+    return ''
+
+
+def extract_textboxes_with_positions(doc):
+    """Extract text from text boxes/shapes with their positions in the document."""
+    textboxes = []
+    seen_content = set()  # Track seen content to avoid duplicates
+    
+    try:
+        body = doc._element.body
+        para_count = 0
+        
+        for elem in body:
+            if elem.tag.endswith('}p'):  # Paragraph
+                para_count += 1
+            
+            # Look for textboxes in this element
+            for txbx in elem.findall('.//w:txbxContent', 
+                namespaces={'w': 'http://schemas.openxmlformats.org/wordprocessingml/2006/main'}):
+                text_parts = []
+                
+                # Extract all paragraphs in the textbox
+                for para in txbx.findall('.//w:p',
+                    namespaces={'w': 'http://schemas.openxmlformats.org/wordprocessingml/2006/main'}):
+                    para_text = []
+                    for t_elem in para.findall('.//w:t',
+                        namespaces={'w': 'http://schemas.openxmlformats.org/wordprocessingml/2006/main'}):
+                        if t_elem.text:
+                            para_text.append(t_elem.text)
+                    if para_text:
+                        text_parts.append(' '.join(para_text))
+                
+                if text_parts:
+                    textbox_content = '\n'.join(text_parts).strip()
+                    # Check if we've seen this content before (avoid duplicates)
+                    if textbox_content and textbox_content not in seen_content:
+                        seen_content.add(textbox_content)
+                        textboxes.append({
+                            'position': para_count,
+                            'content': textbox_content
+                        })
+    
+    except Exception as e:
+        pass  # No textboxes or error accessing them
+    
+    return textboxes
+
+
+def extract_footnotes_from_docx(doc):
+    """Extract footnotes and endnotes from the document."""
+    footnotes = {}
+    
+    try:
+        # Try to access footnotes
+        if hasattr(doc, '_part') and hasattr(doc._part, 'footnotes_part'):
+            footnotes_part = doc._part.footnotes_part
+            if footnotes_part:
+                for footnote in footnotes_part.element.findall('.//w:footnote', 
+                    namespaces={'w': 'http://schemas.openxmlformats.org/wordprocessingml/2006/main'}):
+                    footnote_id = footnote.get(qn('w:id'))
+                    if footnote_id and footnote_id not in ['0', '-1']:  # Skip separator and continuation footnotes
+                        # Extract text from footnote
+                        text_parts = []
+                        for t_elem in footnote.findall('.//w:t', 
+                            namespaces={'w': 'http://schemas.openxmlformats.org/wordprocessingml/2006/main'}):
+                            if t_elem.text:
+                                text_parts.append(t_elem.text)
+                        if text_parts:
+                            footnotes[footnote_id] = ' '.join(text_parts).strip()
+    except Exception as e:
+        pass  # No footnotes or error accessing them
+    
+    # Try to access endnotes
+    try:
+        if hasattr(doc, '_part') and hasattr(doc._part, 'endnotes_part'):
+            endnotes_part = doc._part.endnotes_part
+            if endnotes_part:
+                for endnote in endnotes_part.element.findall('.//w:endnote',
+                    namespaces={'w': 'http://schemas.openxmlformats.org/wordprocessingml/2006/main'}):
+                    endnote_id = endnote.get(qn('w:id'))
+                    if endnote_id and endnote_id not in ['0', '-1']:
+                        text_parts = []
+                        for t_elem in endnote.findall('.//w:t',
+                            namespaces={'w': 'http://schemas.openxmlformats.org/wordprocessingml/2006/main'}):
+                            if t_elem.text:
+                                text_parts.append(t_elem.text)
+                        if text_parts:
+                            footnotes[endnote_id] = ' '.join(text_parts).strip()
+    except Exception as e:
+        pass  # No endnotes or error accessing them
+    
+    return footnotes
 
 
 def extract_images_from_docx(doc, output_folder):
@@ -531,6 +674,19 @@ def convert_docx_to_markdown(docx_path, title=None, category=None, date=None):
     images = extract_images_from_docx(doc, images_dir)
     print(f"  Found {len(images)} images")
     
+    # Extract footnotes
+    print("Extracting footnotes...")
+    footnotes = extract_footnotes_from_docx(doc)
+    print(f"  Found {len(footnotes)} footnotes/endnotes")
+    
+    # Extract textboxes/sidebars with positions
+    print("Extracting textboxes/sidebars...")
+    textboxes_with_pos = extract_textboxes_with_positions(doc)
+    print(f"  Found {len(textboxes_with_pos)} textboxes/sidebars")
+    
+    # Create a map of textboxes by position
+    textbox_map = {tb['position']: tb['content'] for tb in textboxes_with_pos}
+    
     # Convert document to markdown
     print("Converting content to markdown...")
     markdown_content = []
@@ -540,14 +696,22 @@ def convert_docx_to_markdown(docx_path, title=None, category=None, date=None):
     in_list = False  # Track if we're in a list
     list_counter = 0  # For numbered lists
     in_references = False  # Track if we're in references section
+    para_index = 0  # Track paragraph position for textbox insertion
     
     for para in doc.paragraphs:
+        para_index += 1
+        
         # Skip empty paragraphs
         if not para.text.strip() and not find_image_in_paragraph(para, images):
             # End list if we hit an empty paragraph
             if in_list:
                 in_list = False
                 list_counter = 0
+            # Check if there's a textbox after this position
+            if para_index in textbox_map:
+                textbox_content = textbox_map[para_index]
+                formatted_callout = format_callout(textbox_content)
+                markdown_content.append(formatted_callout)
             continue
         
         # Check for images in paragraph
@@ -620,6 +784,13 @@ def convert_docx_to_markdown(docx_path, title=None, category=None, date=None):
                 list_counter = 0
                 markdown_content.append("")
             markdown_content.append(f"\n{text.strip()}\n")
+        
+        # Check if there's a textbox after this paragraph
+        if para_index in textbox_map:
+            textbox_content = textbox_map[para_index]
+            formatted_callout = format_callout(textbox_content)
+            if formatted_callout:
+                markdown_content.append(formatted_callout)
     
     # If no cover image found, check if there are any images
     if cover_image is None and images:
@@ -639,6 +810,12 @@ category: "{category}"'''
     # Combine frontmatter and content
     full_content = frontmatter + "\n".join(markdown_content)
     
+    # Add footnotes at the end if any exist
+    if footnotes:
+        full_content += "\n\n---\n\n## Footnotes\n\n"
+        for footnote_id in sorted(footnotes.keys(), key=lambda x: int(x) if x.isdigit() else 0):
+            full_content += f"[^{footnote_id}]: {footnotes[footnote_id]}\n\n"
+    
     # Clean up multiple blank lines
     full_content = re.sub(r'\n{3,}', '\n\n', full_content)
     
@@ -651,6 +828,10 @@ category: "{category}"'''
     print(f"   Location: {post_dir}")
     print(f"   Markdown: {md_path}")
     print(f"   Images: {len(images)} files in {images_dir}")
+    if footnotes:
+        print(f"   Footnotes: {len(footnotes)} preserved")
+    if textboxes_with_pos:
+        print(f"   Sidebars: {len(textboxes_with_pos)} inserted contextually")
     print(f"\n📝 Post URL will be: blog-post.html?post={slug}")
     
     # Update blog index (optional)

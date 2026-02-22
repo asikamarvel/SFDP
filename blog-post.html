@@ -540,7 +540,7 @@
               <img src="img/sfdp favicon.png" alt="Author" id="post-author-image" style="background: white; padding: 4px; border-radius: 50%;">
               <div>
                 <strong id="post-author-name">Society for Disease Prevention</strong>
-                <div style="opacity: 0.8; font-size: 12px;" id="post-author-title">Marvellous Asika</div>
+                <div style="opacity: 0.8; font-size: 12px;" id="post-author-title">Editorial Team</div>
               </div>
             </div>
             <span><i class="far fa-calendar"></i> <span id="post-date">Loading...</span></span>
@@ -965,8 +965,19 @@
         const item = document.createElement('a');
         item.href = `blog-post.html?post=${post.slug}`;
         item.className = 'related-post-item';
+        // Determine the cover image
+        let coverImg = 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80';
+        if (post.coverImage) {
+          if (post.coverImage.startsWith('http')) {
+            coverImg = post.coverImage;
+          } else if (post.coverImage.startsWith('img/')) {
+            coverImg = post.coverImage;
+          } else {
+            coverImg = `posts/${post.slug}/images/${post.coverImage}`;
+          }
+        }
         item.innerHTML = `
-          <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="">
+          <img src="${coverImg}" alt="">
           <div>
             <h5>${post.title}</h5>
             <span>${formatDate(post.date)}</span>
@@ -982,6 +993,7 @@
       const moreArticlesContainer = document.getElementById('more-articles');
       const otherPosts = allBlogPosts
         .filter(post => post.slug !== currentSlug)
+        .sort((a, b) => new Date(b.date) - new Date(a.date))
         .slice(0, 3);
       
       moreArticlesContainer.innerHTML = '';

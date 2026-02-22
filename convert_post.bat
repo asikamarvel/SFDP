@@ -5,9 +5,14 @@ REM ============================================
 REM SFDP Blog Post Converter - Auto Mode
 REM ============================================
 
+REM Change to the directory where this script is located
+cd /d "%~dp0"
+
 echo ============================================
 echo    SFDP Blog Post Converter
 echo ============================================
+echo.
+echo Working directory: %CD%
 echo.
 
 REM Check if a file was dragged onto the script
@@ -21,31 +26,49 @@ if "%~1"=="" (
     exit /b 1
 )
 
-REM Get the file path
-set "DOCX_FILE=%~1"
+REM Get the full file path with proper quoting
+set "DOCX_FILE=%~f1"
+
+echo Received file: "%DOCX_FILE%"
+echo.
 
 REM Check if file exists
 if not exist "%DOCX_FILE%" (
-    echo ERROR: File not found: %DOCX_FILE%
+    echo ERROR: File not found: "%DOCX_FILE%"
     echo.
     pause
     exit /b 1
 )
 
-echo File: %DOCX_FILE%
+echo File found!
 echo.
 
-REM Get the directory where this script is located
-set "SCRIPT_DIR=%~dp0"
+REM Check Python is available
+python --version >nul 2>&1
+if errorlevel 1 (
+    echo ERROR: Python is not installed or not in PATH
+    echo.
+    pause
+    exit /b 1
+)
 
 echo Analyzing document...
 echo.
 
-REM Analyze the document to get suggested title and category
-for /f "tokens=1,* delims=:" %%a in ('python "%SCRIPT_DIR%convert_docx_to_post.py" "%DOCX_FILE%" --analyze 2^>nul') do (
+REM Create a temp file for analysis output
+set "TEMP_FILE=%TEMP%\docx_analysis_%RANDOM%.txt"
+python convert_docx_to_post.py "%DOCX_FILE%" --analyze > "%TEMP_FILE%" 2>&1
+
+REM Read the analysis results
+set "AUTO_TITLE="
+set "AUTO_CATEGORY="
+
+for /f "usebackq tokens=1,* delims=:" %%a in ("%TEMP_FILE%") do (
     if "%%a"=="TITLE" set "AUTO_TITLE=%%b"
     if "%%a"=="CATEGORY" set "AUTO_CATEGORY=%%b"
 )
+
+del "%TEMP_FILE%" 2>nul
 
 REM Check if analysis worked
 if not defined AUTO_TITLE (
@@ -56,8 +79,8 @@ if not defined AUTO_TITLE (
     echo    DETECTED INFORMATION
     echo ============================================
     echo.
-    echo Title:    %AUTO_TITLE%
-    echo Category: %AUTO_CATEGORY%
+    echo Title:    !AUTO_TITLE!
+    echo Category: !AUTO_CATEGORY!
     echo.
     echo ============================================
     echo.
@@ -76,7 +99,7 @@ REM Ask for category confirmation
 if defined AUTO_CATEGORY (
     echo.
     echo Categories: Health, Disease, Vaccine, Prevention, Mental Health, Virus, Innovation, News, Charity
-    set /p "CAT_CONFIRM=Press ENTER to accept [%AUTO_CATEGORY%], or type a new one: "
+    set /p "CAT_CONFIRM=Press ENTER to accept [!AUTO_CATEGORY!], or type a new one: "
     
     if "!CAT_CONFIRM!"=="" (
         set "FINAL_CATEGORY=!AUTO_CATEGORY!"
@@ -93,13 +116,13 @@ if defined AUTO_CATEGORY (
 echo.
 echo ============================================
 echo Converting with:
-echo   Title:    %FINAL_TITLE%
-echo   Category: %FINAL_CATEGORY%
+echo   Title:    !FINAL_TITLE!
+echo   Category: !FINAL_CATEGORY!
 echo ============================================
 echo.
 
 REM Run the Python script with confirmed values
-python "%SCRIPT_DIR%convert_docx_to_post.py" "%DOCX_FILE%" --title "%FINAL_TITLE%" --category "%FINAL_CATEGORY%"
+python convert_docx_to_post.py "%DOCX_FILE%" --title "!FINAL_TITLE!" --category "!FINAL_CATEGORY!"
 
 if errorlevel 1 (
     echo.

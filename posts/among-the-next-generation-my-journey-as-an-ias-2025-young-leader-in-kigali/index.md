@@ -133,7 +133,7 @@ Similarly, my friendship with Hatangimana, a community activist from Rwanda work
 
 By the end of the programme, we had established multiple WhatsApp groups, shared email lists, and collaborative document folders. But more than that, we had created a support network of peers who understood the unique challenges and opportunities of being young professionals in global HIV response. This network has already proven invaluable as we navigate our careers and seek to implement the innovations and partnerships we developed together.
 
-<div class="image-with-caption">
+<div class="image-with-caption" style="max-width: 500px; margin: 2rem auto;">
 <img src="posts/among-the-next-generation-my-journey-as-an-ias-2025-young-leader-in-kigali/images/IMG_2154.jpg" alt="Networking with fellow Young Leaders">
 <div class="caption">Building lasting connections with fellow Young Leaders from around the world</div>
 </div>

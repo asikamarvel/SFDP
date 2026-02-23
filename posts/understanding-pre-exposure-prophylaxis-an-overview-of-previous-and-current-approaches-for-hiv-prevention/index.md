@@ -6,7 +6,7 @@ categories:
 coverImage: "HIV-pic.png"
 ---
 
-**Emmanuel Elebesunu**
+**Article by: Emmanuel Elebesunu**
 *Editorial Supervisor,*
 *Society for Disease Prevention, Inc.*
 

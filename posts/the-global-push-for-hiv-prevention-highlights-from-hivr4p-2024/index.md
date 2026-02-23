@@ -6,7 +6,7 @@ categories:
 coverImage: "HIVR4p-panel.jpg"
 ---
 
-**Emmanuel Elebesunu**
+**Article by: Emmanuel Elebesunu**
 *Editorial Supervisor,*
 *Society for Disease Prevention, Inc.*
 

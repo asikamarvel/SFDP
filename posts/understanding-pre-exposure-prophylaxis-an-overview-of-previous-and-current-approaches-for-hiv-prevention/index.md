@@ -14,11 +14,11 @@ The approval of Truvada came as a result of its remarkable efficacy in clinical 
 
 Despite the availability of daily oral PrEP, some challenges, especially adherence and accompanying stigma, have limited its ease of use. This warranted further research into developing alternative PrEP options that will be more convenient and easier to adhere to. These relatively new options include long-acting injectable Cabotegravir, the Dapivirine vaginal ring, and the more recent injectable, Lenacapavir.
 
-## **_Long-Acting Cabotegravir (CAB-LA)_**
+## **Long-Acting Cabotegravir (CAB-LA)**
 
-[Cabotegravir](https://www.who.int/news/item/28-07-2022-who-recommends-long-acting-cabotegravir-for-hiv-prevention), a long-acting injectable PrEP [approved by the FDA in 2021](https://www.who.int/news/item/21-12-2021-fda-approved-cabotegravir-extended-release#:~:text=pre%2Dexposure%20prophylaxis-,US%20FDA%20approved%20cabotegravir%20extended%2Drelease%20%E2%80%93%20the%20first%20long%2D,for%20HIV%20pre%2Dexposure%20prophylaxis&text=Cabotegravir%20extended%2Drelease%20suspension%2C%20a,FDA\)%20on%2020%20December%202021.), has been useful in HIV prevention. It is administered every two months, and is a great alternative for individuals who struggle with adhering to daily PrEP pills. Clinical trials like [HPTN 083](https://pmc.ncbi.nlm.nih.gov/articles/PMC8599849/) and [HPTN 084](https://www.thelancet.com/journals/lancet/article/PIIS0140-6736\(22\)00538-4/fulltext) demonstrated its superior efficacy compared to Truvada, reducing HIV acquisition by 66% and 89%, respectively. The introduction of injectable PrEP is important because it significantly reduces the adherence problem of using daily oral regimen, and also reduces stigma, as injections are discreet and eliminate the need for carrying pills
+[Cabotegravir](https://www.who.int/news/item/28-07-2022-who-recommends-long-acting-cabotegravir-for-hiv-prevention), a long-acting injectable PrEP approved by the FDA in 2021, has been useful in HIV prevention. It is administered every two months, and is a great alternative for individuals who struggle with adhering to daily PrEP pills. Clinical trials like HPTN 083 and HPTN 084 demonstrated its superior efficacy compared to Truvada, reducing HIV acquisition by 66% and 89%, respectively. The introduction of injectable PrEP is important because it significantly reduces the adherence problem of using daily oral regimen, and also reduces stigma, as injections are discreet and eliminate the need for carrying pills
 
-**_Dapivirine Vaginal Ring (DVR)_**
+## **Dapivirine Vaginal Ring (DVR)**
 
 A more discreet PrEP option – the [dapivirine vaginal ring](https://www.who.int/news/item/26-01-2021-who-recommends-the-dapivirine-vaginal-ring-as-a-new-choice-for-hiv-prevention-for-women-at-substantial-risk-of-hiv-infection), has been [approved for use](https://www.ema.europa.eu/en/opinion-medicine-use-outside-EU/human/dapivirine-vaginal-ring-25-mg) in several African countries. When inserted into the vagina, the silicone ring slowly releases the antiretroviral drug [dapivirine](https://clinicalinfo.hiv.gov/en/drugs/dapivirine/patient#:~:text=What%20is%20dapivirine%3F-,What%20is%20dapivirine%3F,prevent%20sexual%20transmission%20of%20HIV.&text=Dapivirine%20belongs%20to%20a%20class,reverse%20transcriptase%20inhibitors%20\(NNRTIs\).), providing localized protection against HIV infection within a month period. According to reports from two separate clinical trials, the [Ring Study](https://www.prepwatch.org/resources/prep-ring-research-summary/) demonstrated an HIV reduction of 35% among women using DVR, while the [ASPIRE study](https://www.who.int/news/item/26-01-2021-who-recommends-the-dapivirine-vaginal-ring-as-a-new-choice-for-hiv-prevention-for-women-at-substantial-risk-of-hiv-infection) recorded a 27% reduction in risk. Further [open-label extension of the trials](https://www.thelancet.com/journals/lanhiv/article/PIIS2352-3018\(20\)30300-3/fulltext) showed greater risk reduction by over 50% among women who consistently used the ring, implying a commendable level of efficacy.
 
@@ -26,23 +26,17 @@ The acceptance of the ring has been tested in the [CATALYST study](https://www.u
 
 Furthermore, a [three-month version](https://popcouncil.org/project/the-three-month-dapivirine-vaginal-ring-for-hiv-prevention/) of the ring has been developed to offer greater convenience and cost-effectiveness. The results from a [phase 1 clinical trial](https://pmc.ncbi.nlm.nih.gov/articles/PMC9299526/) showed that 72% of women preferred the 3-month ring over the one-month version, although some expressed concern about the hygiene and safety of the 3-month ring despite its increased convenience. As stated by [Jeremy Nuttall](https://popcouncil.org/staff/jeremy-nuttall/), Senior Director of Preclinical Sciences for the Population Council, “It is quite clear that research in the field of HIV prevention is increasingly focused on expanding choice for women, and on long-acting prevention tools. In fact, the dapivirine vaginal ring was the first long-acting PrEP tool to receive a positive regulatory assessment.” He further stated that the three-month ring offered more benefits as it reduced the number of rings and packaging materials required per year (four rings a year instead of 12), and its estimated cost is about $16 US dollars, representing a 60% reduction in yearly cost compared to the one-month ring.
 
-**_Twice-Yearly Lenacapavir_**
+## **Twice-Yearly Lenacapavir**
 
 [Lenacapavir](https://clinicalinfo.hiv.gov/en/drugs/lenacapavir/patient), a subcutaneous injectable currently under regulatory review, has demonstrated exceptional promise in trials like [PURPOSE 1 and 2](https://www.purposestudies.com/). This drug, administered every six months, achieved HIV prevention rates of 96% to 100% in diverse populations, including cisgender women and men who have sex with men. Its long-acting nature makes it an important PrEP alternative in resource-limited settings where frequent healthcare visits are challenging. To make lenacapavir more accessible, the company [Gilead Sciences](https://www.businesswire.com/news/home/20241006981896/en/Gilead-Presents-Additional-Efficacy-Safety-and-Demographic-Data-From-PURPOSE-2-Trial-at-5th-HIV-Research-for-Prevention-Conference) has announced agreements with specific pharmaceutical companies for the production and distribution of the drug across low and middle-income countries to enable them obtain affordable versions of the drug once it is approved.
 
-<figure>
+<div class="image-with-caption">
 
-![Media briefing session at HIVR4P 2024 with Carl Dieffenbach, Director of the Division of AIDS at the U.S. National Institute of Allergy and Infectious Diseases (NIAID).](images/HIVR4p-conversation-1024x595.jpg)
+![Media briefing session at HIVR4P 2024 with Carl Dieffenbach, Director of the Division of AIDS at the U.S. National Institute of Allergy and Infectious Diseases (NIAID).](posts/understanding-pre-exposure-prophylaxis-an-overview-of-previous-and-current-approaches-for-hiv-prevention/images/HIVR4p-conversation-1024x595.jpg)
 
-<figcaption>
+</div>
 
-_Media briefing session at_ [_HIVR4P 2024_](https://www.iasociety.org/conferences/hivr4p2024) _with_ [_Carl Dieffenbach_](https://www.niaid.nih.gov/about/carl-w-dieffenbach-phd) _Director of the Division of AIDS at the U.S. National Institute of Allergy and Infectious Diseases (NIAID)._
-
-</figcaption>
-
-</figure>
-
-**The Impact of PrEP and Future Directions**
+## **The Impact of PrEP and Future Directions**
 
 PrEP has already made a significant impact in reducing HIV incidence in many high-income countries. For instance, in the United States, PrEP has contributed to a [73% decline in new HIV diagnoses](https://www.aidsmap.com/news/jul-2018/prep-use-linked-fewer-new-hiv-infections-us-states) among MSM in major cities like San Francisco and New York. Similar trends have been observed in several other developed nations, and the consistent use of PrEP has been instrumental to the [global decline in new HIV infections](https://www.hiv.gov/hiv-basics/overview/data-and-trends/global-statistics) by 39% since 2010, and a 60% decline since the peak in 1995. In sub-Saharan Africa, where two-thirds of new HIV infections occur, PrEP rollout has been slower but is gaining momentum. Programs like the [DREAMS initiative](https://2012-2017.usaid.gov/what-we-do/global-health/hiv-and-aids/technical-areas/dreams), which targets adolescent girls and young women, have helped integrate PrEP into broader HIV prevention strategies at a progressive rate.
 

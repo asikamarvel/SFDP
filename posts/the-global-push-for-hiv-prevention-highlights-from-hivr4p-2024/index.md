@@ -24,17 +24,11 @@ To address concerns about the cost of accessing the drug, [Gilead Sciences](http
 
 In addition, the official press conference brought attention to a [drug-agnostic, refillable subdermal implant](https://www.sciencedirect.com/science/article/pii/S0168365923008155) that can provide ultra-long-acting delivery of antiretroviral medications for HIV prevention. This device is implanted under the skin, and is designed to deliver different antiretroviral medications, depending on which drug is best suited for the patient, rather than being compatible with only one particular drug. Such innovative approach could pave the way for even longer-lasting prevention options, reducing the need for frequent interventions and making HIV prevention more accessible.
 
-<figure>
+<div class="image-with-caption">
 
-![SFDP Media Representative, Emmanuel Elebesunu, during Journalism Fellowship session at HIVR4P 2024.](images/E.-Elebesunu-HIVR4P-presentation-1024x635.jpg)
+![SFDP Media Representative, Emmanuel Elebesunu, during Journalism Fellowship session at HIVR4P 2024.](posts/the-global-push-for-hiv-prevention-highlights-from-hivr4p-2024/images/E.-Elebesunu-HIVR4P-presentation-1024x635.jpg)
 
-<figcaption>
-
-_SFDP Media Representative,_ [_Emmanuel Elebesunu_](https://www.linkedin.com/in/emmanuelelebesunu/) _during Journalism Fellowship session at HIVR4P 2024._
-
-</figcaption>
-
-</figure>
+</div>
 
 ## **Addressing Key Knowledge Gaps: HIV Vaccines and Combination Therapies**
 

@@ -781,14 +781,6 @@
         const contentDiv = document.getElementById('blog-post-content');
         contentDiv.innerHTML = html;
         
-        // Style the first paragraph with intro styling like editorial-post.html
-        const firstParagraph = contentDiv.querySelector('p');
-        if (firstParagraph) {
-          firstParagraph.style.fontSize = 'var(--text-lg)';
-          firstParagraph.style.fontWeight = '500';
-          firstParagraph.style.color = 'var(--gray-800)';
-        }
-        
         // Add tags section
         const tagsHtml = document.createElement('div');
         tagsHtml.className = 'article-tags';

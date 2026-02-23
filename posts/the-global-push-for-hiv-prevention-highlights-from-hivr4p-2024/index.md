@@ -6,6 +6,8 @@ categories:
 coverImage: "HIVR4p-panel.jpg"
 ---
 
+*Written by Emmanuel Elebesunu*
+
 The [HIV Research for Prevention (HIVR4P) Conference](https://www.iasociety.org/conferences/hivr4p2024), organized by the [International AIDS Society (IAS)](https://www.iasociety.org/), is the only global scientific conference focused exclusively on the challenging and fast-growing field of HIV prevention research. The conference serves as an avenue for knowledge exchange on Pre-Exposure Prophylaxis (PrEP), HIV vaccines, microbicides, and biomedical interventions, as well as their social and behavioural implications.
 
 The [5th HIVR4P conference](https://www.iasociety.org/conferences/hivr4p2024) took place in the city of Lima, Peru, from October 6th to 10th, 2024. The conference brought together over 1,300 participants from 58 countries, 40 professions and 180 organizations, including 203 scholarship recipients, 108 abstract presenters, 350 abstracts presented, and 21 journalist fellows. Featured in the conference were the latest evidence and emerging tools from HIV prevention research in over 60 sessions – including plenary presentations, invited-speaker symposia, oral abstract sessions and satellites.

@@ -6,7 +6,9 @@ categories:
 coverImage: "HIVR4p-panel.jpg"
 ---
 
-*Written by Emmanuel Elebesunu*
+**Emmanuel Elebesunu**
+*Editorial Supervisor,*
+*Society for Disease Prevention, Inc.*
 
 The [HIV Research for Prevention (HIVR4P) Conference](https://www.iasociety.org/conferences/hivr4p2024), organized by the [International AIDS Society (IAS)](https://www.iasociety.org/), is the only global scientific conference focused exclusively on the challenging and fast-growing field of HIV prevention research. The conference serves as an avenue for knowledge exchange on Pre-Exposure Prophylaxis (PrEP), HIV vaccines, microbicides, and biomedical interventions, as well as their social and behavioural implications.
 

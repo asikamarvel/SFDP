@@ -6,7 +6,9 @@ categories:
 coverImage: "HIV-pic.png"
 ---
 
-*Written by Emmanuel Elebesunu*
+**Emmanuel Elebesunu**
+*Editorial Supervisor,*
+*Society for Disease Prevention, Inc.*
 
 For decades, the global fight against HIV has remained persistent and filled with scientific breakthroughs amidst various challenges. Among these breakthroughs, the rollout of [Pre-Exposure Prophylaxis (PrEP)](https://www.aidsmap.com/about-hiv/pre-exposure-prophylaxis-prep) has been a major milestone in the prevention of HIV, giving hope to millions of people at risk of contracting the virus. PrEP was conceptualized in the early 2000s as a means to prevent HIV transmission among high-risk populations. It involves the use of antiretroviral medications by persons without HIV to prevent the virus from establishing an infection in the body. In 2012, the U.S. Food and Drug Administration (FDA) [approved the first PrEP regimen, Truvada](https://www.bmj.com/content/345/bmj.e4879) (tenofovir disoproxil fumarate/emtricitabine), which marked a key moment in HIV prevention science.
 

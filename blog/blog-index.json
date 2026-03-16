@@ -3,35 +3,36 @@
     "slug": "food-for-thought-knowing-the-causes-of-food-poisoning-and-how-to-prevent-it",
     "title": "Food for Thought: Knowing the Causes of Food Poisoning and How to Prevent It",
     "date": "2026-03-16",
-    "category": "Prevention"
-  },
-  {
-    "slug": "enter",
-    "title": "Enter",
-    "date": "2026-02-22",
-    "category": "Disease"
+    "category": "Prevention",
+    "image": "posts/food-for-thought-knowing-the-causes-of-food-poisoning-and-how-to-prevent-it/images/image_002.jpg"
   },
   {
     "slug": "what-is-trichophyton-mentagrophytes-genotype-vii-tmvii-understanding-the-first-sexually-transmitted-fungal-infection",
     "title": "What Is Trichophyton mentagrophytes Genotype VII (TMVII)? Understanding the First Sexually Transmitted Fungal Infection",
     "date": "2026-02-22",
-    "category": "Disease"
+    "category": "Disease",
+    "image": "posts/what-is-trichophyton-mentagrophytes-genotype-vii-tmvii-understanding-the-first-sexually-transmitted-fungal-infection/images/image_001.jpg"
   },
   {
     "slug": "understanding-blood-pressure-what-the-numbers-really-mean",
     "title": "Understanding Blood Pressure: What the Numbers Really Mean",
     "date": "2026-01-17",
-    "category": "Prevention"
+    "category": "Prevention",
+    "image": "posts/understanding-blood-pressure-what-the-numbers-really-mean/images/image_002.jpg"
   },
   {
     "date": "2025-12-23",
     "title": "What Is Rhesus (Rh) Incompatibility? What It Means For Your Baby.",
-    "slug": "what-is-rhesus-rh-incompatibility-what-it-means-for-your-baby"
+    "slug": "what-is-rhesus-rh-incompatibility-what-it-means-for-your-baby",
+    "category": "Health",
+    "image": "https://i0.wp.com/s-fdp.org/wp-content/uploads/2025/12/20251223_165925_0000.png?fit=1024%2C576&ssl=1"
   },
   {
     "date": "2025-12-04",
     "title": "THE 10 DEADLIEST CANCERS IN THE WORLD AND WHAT YOU SHOULD KNOW",
-    "slug": "the-10-deadliest-cancers-in-the-world-and-what-you-should-know"
+    "slug": "the-10-deadliest-cancers-in-the-world-and-what-you-should-know",
+    "category": "Disease",
+    "image": "https://s-fdp.org/wp-content/uploads/2025/12/20251202_132950_0000-1024x576.png"
   },
   {
     "slug": "among-the-next-generation-my-journey-as-an-ias-2025-young-leader-in-kigali",
@@ -47,32 +48,44 @@
   {
     "date": "2025-06-16",
     "title": "THE HIDDEN TRIGGERS: UNCOVERING WHY SOME PEOPLE ARE PRONE TO ADDICTION THAN OTHERS",
-    "slug": "the-hidden-triggers-uncovering-why-some-people-are-prone-to-addiction-than-others"
+    "slug": "the-hidden-triggers-uncovering-why-some-people-are-prone-to-addiction-than-others",
+    "category": "Mental Health",
+    "image": "https://s-fdp.org/wp-content/uploads/2025/06/Whisk_993861f318-1024x559.jpg"
   },
   {
     "date": "2025-06-07",
     "title": "VACCINES ARE NOT JUST FOR KIDS: WHY ADULT VACCINATION MATTERS MORE THAN YOU THINK",
-    "slug": "vaccines-are-not-just-for-kids-why-adult-vaccination-matters-more-than-you-think"
+    "slug": "vaccines-are-not-just-for-kids-why-adult-vaccination-matters-more-than-you-think",
+    "category": "Vaccine",
+    "image": "https://s-fdp.org/wp-content/uploads/2025/06/WhatsApp-Image-2025-06-07-at-06.28.09-1024x576.jpeg"
   },
   {
     "date": "2025-05-31",
     "title": "HOW DOES GUT BACTERIA AFFECT MY BRAIN &amp; BODY",
-    "slug": "how-does-gut-bacteria-affect-my-brain-body"
+    "slug": "how-does-gut-bacteria-affect-my-brain-body",
+    "category": "Health",
+    "image": "https://s-fdp.org/wp-content/uploads/2025/05/6f097821-310d-4785-ba43-6c671dccc4ef.jpg"
   },
   {
     "date": "2025-05-21",
     "title": "Hidden Health Threats: Disease Conditions that Can Sneak Up on You",
-    "slug": "hidden-health-threats-disease-conditions-that-can-sneak-up-on-you"
+    "slug": "hidden-health-threats-disease-conditions-that-can-sneak-up-on-you",
+    "category": "Disease",
+    "image": "https://s-fdp.org/wp-content/uploads/2025/05/type-2-diabetes-4e1449.jpg"
   },
   {
     "date": "2025-05-15",
     "title": "THE GERMIEST PLACES YOU VISIT DAILY AND HOW TO STAY SAFE",
-    "slug": "the-germiest-places-you-visit-daily-and-how-to-stay-safe"
+    "slug": "the-germiest-places-you-visit-daily-and-how-to-stay-safe",
+    "category": "Prevention",
+    "image": "https://s-fdp.org/wp-content/uploads/2025/05/pexels-photo-4098759.jpeg"
   },
   {
     "date": "2025-01-20",
     "title": "THE GLOBAL PUSH FOR HIV PREVENTION: HIGHLIGHTS FROM HIVR4P 2024",
-    "slug": "the-global-push-for-hiv-prevention-highlights-from-hivr4p-2024"
+    "slug": "the-global-push-for-hiv-prevention-highlights-from-hivr4p-2024",
+    "category": "Disease",
+    "image": "https://s-fdp.org/wp-content/uploads/2025/01/E.-Elebesunu-HIVR4P-presentation-1024x635.jpg"
   },
   {
     "date": "2025-01-20",

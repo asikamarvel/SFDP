@@ -509,84 +509,82 @@
           <i class="fas fa-arrow-right"></i>
         </a>
       </div>
-      <div class="posts-grid" id="recentPostsGrid"></div>
+      
+                  <div class="posts-grid" id="recentPostsGrid">
+        <!-- Recent posts will be loaded dynamically from blog-index.json -->
+      </div>
     </div>
-  </section>
 
-  <script>
-    (function() {
-      const grid = document.getElementById('recentPostsGrid');
-      if (!grid) return;
+    <script>
+      // Load and display 3 most recent articles from blog-index.json
+      (async function loadRecentPosts() {
+        const grid = document.getElementById('recentPostsGrid');
+        if (!grid) return;
 
-      const fallbackImages = [
-        'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=1200&q=80',
-        'https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&w=1200&q=80',
-        'https://images.unsplash.com/photo-1582719478145-bb71ca45dbba?auto=format&fit=crop&w=1200&q=80'
-      ];
+        // Category-based images
+        const categoryImages = {
+          'Prevention': 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+          'Health': 'https://images.unsplash.com/photo-1559757175-5700dde675bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+          'Disease': 'https://images.unsplash.com/photo-1579154204601-01588f351e67?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+          'Vaccine': 'https://images.unsplash.com/photo-1615631648086-325025c9e51e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+          'Mental Health': 'https://images.unsplash.com/photo-1493836512294-502baa1986e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+          'Innovation': 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+          'Virus': 'https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+          'default': 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+        };
 
-      function formatDate(dateStr) {
-        const parsed = new Date(dateStr);
-        return parsed.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-      }
+        function formatDate(dateStr) {
+          const d = new Date(dateStr + 'T00:00:00Z');
+          return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+        }
 
-      function createCard(post, index) {
-        const imageSrc = post.coverImage || fallbackImages[index % fallbackImages.length];
-        const category = post.category || 'Editorial';
-        return `
-          <article class="card blog-card scroll-animate${index === 1 ? ' delay-1' : index === 2 ? ' delay-2' : ''}">
-            <img src="${imageSrc}" alt="${post.title}" class="card-img">
-            <div class="card-body">
-              <span class="blog-category">${category}</span>
-              <h3 class="card-title">
-                <a href="blog-post.html?post=${post.slug}">${post.title}</a>
-              </h3>
-              <p class="card-text">Read more about ${post.title}.</p>
-              <div class="card-meta">
-                <i class="far fa-calendar-alt"></i> ${formatDate(post.date)}
-              </div>
-            </div>
-          </article>
-        `;
-      }
-
-      function normalizePosts(data) {
-        return data
-          .filter(post => post.slug && post.title && post.date && post.slug !== 'enter')
-          .map(post => ({
-            ...post,
-            category: post.category || 'Editorial',
-            coverImage: post.coverImage ? `posts/${post.slug}/images/${post.coverImage}` : null
-          }))
-          .filter(post => !Number.isNaN(new Date(post.date).getTime()))
-          .sort((a, b) => new Date(b.date) - new Date(a.date));
-      }
-
-      async function loadRecentPosts() {
-        grid.innerHTML = '<p style="text-align:center; color: var(--gray-500);">Loading latest articles...</p>';
         try {
           const response = await fetch('blog/blog-index.json');
-          if (!response.ok) throw new Error('Failed to fetch blog index');
-          const data = await response.json();
-          const posts = normalizePosts(data).slice(0, 3);
+          if (!response.ok) throw new Error('Failed to load blog index');
 
-          if (!posts.length) {
-            grid.innerHTML = '<p style="text-align:center; color: var(--gray-500);">No articles available right now.</p>';
-            return;
+          let posts = await response.json();
+
+          // Filter out placeholder/test posts and sort by date
+          posts = posts
+            .filter(p => p.slug && p.title && p.slug !== 'enter' && p.slug !== 'hello-world' && !p.title.toLowerCase().includes('hello world'))
+            .sort((a, b) => new Date(b.date) - new Date(a.date))
+            .slice(0, 3);
+
+          const delays = ['', 'delay-1', 'delay-2'];
+
+          grid.innerHTML = posts.map((post, i) => {
+            const category = post.category || 'Health';
+            const image = post.image || categoryImages[category] || categoryImages['default'];
+            const excerpt = post.title.substring(0, 80) + (post.title.length > 80 ? '...' : '');
+
+            return `
+              <article class="card blog-card scroll-animate ${delays[i]}">
+                <img src="${image}" alt="${post.title.substring(0, 50)}" class="card-img">
+                <div class="card-body">
+                  <span class="blog-category">${category}</span>
+                  <h3 class="card-title">
+                    <a href="blog-post.html?post=${post.slug}">${post.title}</a>
+                  </h3>
+                  <p class="card-text">${excerpt}...</p>
+                  <div class="card-meta">
+                    <i class="far fa-calendar-alt"></i> ${formatDate(post.date)}
+                  </div>
+                </div>
+              </article>
+            `;
+          }).join('');
+
+          // Re-trigger scroll animations if available
+          if (typeof initScrollAnimations === 'function') {
+            initScrollAnimations();
           }
-
-          grid.innerHTML = '';
-          posts.forEach((post, index) => {
-            grid.insertAdjacentHTML('beforeend', createCard(post, index));
-          });
         } catch (error) {
           console.error('Error loading recent posts:', error);
-          grid.innerHTML = '<p style="text-align:center; color: var(--gray-500);">Unable to load recent articles at the moment.</p>';
+          grid.innerHTML = '<p style="text-align:center;color:var(--gray-500);">Unable to load recent articles.</p>';
         }
-      }
-
-      loadRecentPosts();
-    })();
-  </script>
+      })();
+    </script>
+  </section>
 
   <!-- ==================== CTA Section ==================== -->
   <section class="cta-section">

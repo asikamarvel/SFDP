@@ -506,20 +506,77 @@
   </section>
 
   <script>
+    // All blog posts sorted by date (newest first)
+    const allPosts = [
+      { slug: 'food-for-thought-knowing-the-causes-of-food-poisoning-and-how-to-prevent-it', title: 'Food for Thought: Knowing the Causes of Food Poisoning and How to Prevent It', date: '2026-03-16', category: 'Prevention' },
+      { slug: 'what-is-trichophyton-mentagrophytes-genotype-vii-tmvii-understanding-the-first-sexually-transmitted-fungal-infection', title: 'What Is Trichophyton mentagrophytes Genotype VII (TMVII)? Understanding the First Sexually Transmitted Fungal Infection', date: '2026-02-22', category: 'Disease' },
+      { slug: 'understanding-blood-pressure-what-the-numbers-really-mean', title: 'Understanding Blood Pressure: What the Numbers Really Mean', date: '2026-01-17', category: 'Prevention' },
+      { slug: 'what-is-rhesus-rh-incompatibility-what-it-means-for-your-baby', title: 'What Is Rhesus (Rh) Incompatibility? What It Means For Your Baby.', date: '2025-12-23', category: 'Health' },
+      { slug: 'the-10-deadliest-cancers-in-the-world-and-what-you-should-know', title: 'THE 10 DEADLIEST CANCERS IN THE WORLD AND WHAT YOU SHOULD KNOW', date: '2025-12-04', category: 'Disease' },
+      { slug: 'among-the-next-generation-my-journey-as-an-ias-2025-young-leader-in-kigali', title: 'Among the Next Generation: My Journey as an IAS 2025 Young Leader in Kigali', date: '2025-09-15', category: 'Innovation' },
+      { slug: 'the-first-1000-days-why-nutrition-matters-for-your-babys-health', title: 'The First 1,000 Days: Why Nutrition Matters for Your Baby\'s Health', date: '2025-09-06', category: 'Health' },
+      { slug: 'the-hidden-triggers-uncovering-why-some-people-are-prone-to-addiction-than-others', title: 'THE HIDDEN TRIGGERS: UNCOVERING WHY SOME PEOPLE ARE PRONE TO ADDICTION THAN OTHERS', date: '2025-06-16', category: 'Mental Health' },
+      { slug: 'vaccines-are-not-just-for-kids-why-adult-vaccination-matters-more-than-you-think', title: 'VACCINES ARE NOT JUST FOR KIDS: WHY ADULT VACCINATION MATTERS MORE THAN YOU THINK', date: '2025-06-07', category: 'Vaccine' },
+      { slug: 'how-does-gut-bacteria-affect-my-brain-body', title: 'HOW DOES GUT BACTERIA AFFECT MY BRAIN & BODY', date: '2025-05-31', category: 'Health' },
+      { slug: 'hidden-health-threats-disease-conditions-that-can-sneak-up-on-you', title: 'Hidden Health Threats: Disease Conditions that Can Sneak Up on You', date: '2025-05-21', category: 'Disease' },
+      { slug: 'the-germiest-places-you-visit-daily-and-how-to-stay-safe', title: 'THE GERMIEST PLACES YOU VISIT DAILY AND HOW TO STAY SAFE', date: '2025-05-15', category: 'Prevention' },
+      { slug: 'the-global-push-for-hiv-prevention-highlights-from-hivr4p-2024', title: 'THE GLOBAL PUSH FOR HIV PREVENTION: HIGHLIGHTS FROM HIVR4P 2024', date: '2025-01-20', category: 'Disease' },
+      { slug: 'understanding-pre-exposure-prophylaxis-an-overview-of-previous-and-current-approaches-for-hiv-prevention', title: 'UNDERSTANDING PRE-EXPOSURE PROPHYLAXIS: AN OVERVIEW OF PREVIOUS AND CURRENT APPROACHES FOR HIV PREVENTION', date: '2025-01-20', category: 'Prevention' },
+      { slug: 'pentazocine-abuse-among-sickle-cell-patients-in-nigeria', title: 'PENTAZOCINE ABUSE AMONG SICKLE CELL PATIENTS IN NIGERIA', date: '2024-01-14', category: 'Health' },
+      { slug: 'herpes-simplex-all-you-need-to-know', title: 'HERPES SIMPLEX: ALL YOU NEED TO KNOW', date: '2022-09-26', category: 'Disease' },
+      { slug: 'lassa-fever-the-rodent-epidemic', title: 'LASSA FEVER: THE RODENT EPIDEMIC', date: '2022-08-15', category: 'Disease' },
+      { slug: 'monkeypox-understanding-the-disease', title: 'MONKEYPOX: UNDERSTANDING THE DISEASE', date: '2022-07-24', category: 'Disease' },
+      { slug: 'poliomyelitis-a-tale-of-disability', title: 'POLIOMYELITIS: A TALE OF DISABILITY', date: '2022-07-04', category: 'Disease' },
+      { slug: 'telemedicine-in-africa-a-dificult-but-possible-reality', title: 'TELEMEDICINE IN AFRICA: A DIFICULT BUT POSSIBLE REALITY', date: '2022-06-01', category: 'Innovation' },
+      { slug: 'syphilis-what-you-need-to-know', title: 'SYPHILIS: WHAT YOU NEED TO KNOW', date: '2022-01-23', category: 'Disease' },
+      { slug: 'gonorrhoea-the-adverse-effects-on-health', title: 'GONORRHOEA: THE ADVERSE EFFECTS ON HEALTH', date: '2022-01-07', category: 'Disease' },
+      { slug: 'hiv-aids-effects-on-health-and-lifestyle', title: 'HIV/AIDS: EFFECTS ON HEALTH AND LIFESTYLE', date: '2021-11-07', category: 'Disease' },
+      { slug: 'how-the-new-coronavirus-compares-with-the-influenza-virus', title: 'How the new Coronavirus Compares with the Influenza Virus', date: '2021-11-07', category: 'Virus' },
+      { slug: 'what-you-need-to-know-about-hepatitis', title: 'WHAT YOU NEED TO KNOW ABOUT HEPATITIS', date: '2021-11-07', category: 'Disease' },
+      { slug: 'example-post-3', title: 'THE DISEASE CALLED DIPHTHERIA', date: '2021-10-21', category: 'Disease' },
+      { slug: 'hello-world', title: 'Hello world!', date: '2021-10-15', category: 'News' },
+      { slug: 'dengue-fever-the-vector-borne-disease', title: 'DENGUE FEVER: THE VECTOR-BORNE DISEASE', date: '2021-10-05', category: 'Disease' },
+      { slug: 'what-you-need-to-know-about-the-covid-19-vaccine', title: 'WHAT YOU NEED TO KNOW ABOUT THE COVID-19 VACCINE', date: '2021-09-22', category: 'Vaccine' },
+      { slug: 'alzheimers-disease-a-burden-among-the-elderly', title: 'ALZHEIMER\'S DISEASE: A BURDEN AMONG THE ELDERLY', date: '2021-09-09', category: 'Health' },
+      { slug: 'the-disease-called-pneumonia', title: 'THE DISEASE CALLED PNEUMONIA', date: '2021-08-27', category: 'Disease' },
+      { slug: 'all-about-meningitis', title: 'ALL ABOUT MENINGITIS', date: '2021-08-08', category: 'Disease' },
+      { slug: 'all-you-need-to-know-about-measles', title: 'ALL YOU NEED TO KNOW ABOUT MEASLES', date: '2021-07-29', category: 'Disease' },
+      { slug: '17-signs-you-work-with-donation', title: '17 Signs You Work With Donation', date: '2021-07-15', category: 'Charity' },
+      { slug: 'charity-expectations-vs-reality', title: 'Charity: Expectations vs. Reality', date: '2021-07-15', category: 'Charity' },
+      { slug: 'grant-distributions-continue-to-increase', title: 'Grant Distributions Continue to Increase', date: '2021-07-15', category: 'Charity' },
+      { slug: 'how-to-sell-charity-to-a-skeptic', title: 'How to Sell Charity to a Skeptic', date: '2021-07-15', category: 'Charity' },
+      { slug: 'non-profit-explained-in-fewer', title: 'Non-profit Explained in Fewer', date: '2021-07-15', category: 'Charity' },
+      { slug: 'so-youve-bought-donation-now-what', title: 'So You\'ve Bought Donation – Now What?', date: '2021-07-15', category: 'Charity' },
+      { slug: 'the-history-of-donation-told', title: 'The History of Donation Told', date: '2021-07-15', category: 'Charity' },
+      { slug: 'the-next-big-thing-in-fundrising', title: 'The Next Big Thing in Fundraising', date: '2021-07-15', category: 'Charity' },
+      { slug: 'will-charity-ever-rule-the-world', title: 'Will Charity Ever Rule the World?', date: '2021-07-15', category: 'Charity' },
+      { slug: 'will-donation-ever-rule-the-world', title: 'Will Donation Ever Rule the World?', date: '2021-07-15', category: 'Charity' },
+      { slug: 'gingivitis-a-dental-menace', title: 'GINGIVITIS: A DENTAL MENACE', date: '2021-07-07', category: 'Health' },
+      { slug: 'antimicrobial-resistance-a-global-threat', title: 'ANTIMICROBIAL RESISTANCE: A GLOBAL THREAT', date: '2021-05-27', category: 'Prevention' },
+      { slug: 'demystifying-yellow-fever-and-its-vaccine', title: 'DEMYSTIFYING YELLOW FEVER AND ITS VACCINE', date: '2021-05-04', category: 'Disease' },
+      { slug: 'tuberculosis-a-major-public-health-threat', title: 'TUBERCULOSIS: A MAJOR PUBLIC HEALTH THREAT', date: '2021-05-04', category: 'Disease' },
+      { slug: 'cholera-a-burden-in-africa', title: 'CHOLERA: A BURDEN IN AFRICA', date: '2021-04-29', category: 'Disease' },
+      { slug: 'tetanus-the-puncture-wound-disease', title: 'TETANUS: THE PUNCTURE WOUND DISEASE', date: '2021-04-29', category: 'Disease' },
+      { slug: 'covid-19-vaccination-hesitancies', title: 'COVID-19 Vaccination Hesitancies', date: '2021-04-15', category: 'Vaccine' },
+      { slug: 'the-relationship-between-obesity-diabetes-and-covid-19', title: 'THE RELATIONSHIP BETWEEN OBESITY, DIABETES AND COVID-19', date: '2021-04-01', category: 'Health' },
+      { slug: 'covid-19-vaccine-skepticism-among-racial-minorities', title: 'COVID-19 Vaccine Skepticism among Racial Minorities', date: '2021-03-26', category: 'Vaccine' },
+      { slug: 'mental-health-conditions-the-african-perspective', title: 'Mental Health Conditions: The African Perspective', date: '2021-03-26', category: 'Health' },
+      { slug: 'vaccine-hesitancy-the-misconceptions-dangers-and-solution', title: 'Vaccine Hesitancy: The Misconceptions, Dangers and Solution', date: '2021-03-02', category: 'Vaccine' },
+      { slug: 'hypertension-among-african-americans-african-canadians', title: 'HYPERTENSION AMONG AFRICAN AMERICANS & AFRICAN CANADIANS', date: '2021-02-26', category: 'Health' },
+      { slug: 'mental-health-conditions-in-nigeria-tackling-the-culture-of-neglection', title: 'Mental Health Conditions in Nigeria: Tackling the Culture of Neglection', date: '2021-02-24', category: 'Health' },
+      { slug: 'covid-19-and-its-impact-on-childrens-health-and-wellbeing', title: 'COVID-19 AND ITS IMPACT ON CHILDREN\'S HEALTH AND WELLBEING', date: '2021-02-19', category: 'Disease' },
+      { slug: 'protecting-the-psychological-health-of-children-through-effective-communication-about-covid-19', title: 'Protecting the Psychological Health of Children through Effective Communication about COVID-19', date: '2021-02-10', category: 'Health' },
+      { slug: 'coronavirus-smoking-and-vaping-what-you-should-know', title: 'Coronavirus, Smoking and Vaping: What You Should Know', date: '2021-02-02', category: 'Virus' },
+      { slug: 'easy-to-understand-covid-19-vaccines-fact-sheets-pfizer-biontech-and-moderna-vaccines', title: 'Easy-to-Understand COVID-19 Vaccines Fact Sheets: Pfizer/BioNTech and Moderna Vaccines', date: '2021-01-20', category: 'Vaccine' },
+      { slug: 'covid-19-and-flu-what-are-the-differences', title: 'COVID-19 and Flu: What are the Differences?', date: '2020-12-07', category: 'Disease' },
+      { slug: 'will-a-vaccine-be-enough-to-end-the-covid-19-pandemic', title: 'Will a vaccine be enough to end the COVID-19 pandemic?', date: '2020-11-11', category: 'Vaccine' },
+      { slug: 'covid-19-where-are-we-today', title: 'COVID-19: WHERE ARE WE TODAY?', date: '2021-03-22', category: 'Disease' },
+      { slug: 'corona-virus', title: 'Corona Virus', date: '2020-03-03', category: 'Virus' }
+    ];
+    
     const postsPerPage = 12;
-    let allPosts = [];
-    let filteredPosts = [];
     let currentPage = 1;
-
-    const dom = {
-      grid: document.getElementById('blogGrid'),
-      searchInput: document.getElementById('articleSearch'),
-      clearBtn: document.getElementById('clearSearch'),
-      searchResults: document.getElementById('searchResults'),
-      noResults: document.getElementById('noResults'),
-      loadMoreBtn: document.getElementById('loadMoreBtn')
-    };
-
+    
     const categoryColors = {
       'Health': '#10b981',
       'Disease': '#dc2626',
@@ -529,18 +586,17 @@
       'Mental Health': '#9333ea',
       'Virus': '#dc2626',
       'Innovation': '#8b5cf6',
-      'News': '#6b7280',
-      'Editorial': '#3b82f6'
+      'News': '#6b7280'
     };
-
+    
     function formatDate(dateStr) {
-      const parsed = new Date(dateStr);
-      return parsed.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+      const dateObj = new Date(dateStr);
+      return dateObj.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
     }
-
-    function createPostHTML(post) {
-      const color = categoryColors[post.category] || categoryColors.Editorial;
-
+    
+    function createPostHTML(post, index) {
+      const color = categoryColors[post.category] || '#3b82f6';
+      
       return `
         <article class="blog-card">
           <div class="blog-card-content">
@@ -556,130 +612,140 @@
         </article>
       `;
     }
-
-    function renderBlogCards(page, reset = false) {
-      if (!dom.grid || !dom.loadMoreBtn || !dom.noResults) return;
-
+    
+    function renderBlogCards(page) {
       const start = (page - 1) * postsPerPage;
       const end = start + postsPerPage;
-      const postsToShow = filteredPosts.slice(start, end);
-
-      if (reset) {
-        dom.grid.innerHTML = '';
+      const postsToShow = allPosts.slice(start, end);
+      
+      const grid = document.getElementById('blogGrid');
+      const loadMoreBtn = document.getElementById('loadMoreBtn');
+      
+      if (!grid || !loadMoreBtn) return;
+      
+      if (page === 1) {
+        // First page - clear and fill
+        grid.innerHTML = '';
+        postsToShow.forEach((post, index) => {
+          grid.insertAdjacentHTML('beforeend', createPostHTML(post, index));
+        });
+      } else {
+        // Subsequent pages - append
+        postsToShow.forEach((post, index) => {
+          grid.insertAdjacentHTML('beforeend', createPostHTML(post, index));
+        });
       }
-
-      if (postsToShow.length === 0) {
-        dom.noResults.style.display = 'block';
-        dom.loadMoreBtn.style.display = 'none';
-        return;
+      
+      // Update button
+      if (end >= allPosts.length) {
+        loadMoreBtn.style.display = 'none';
+      } else {
+        loadMoreBtn.style.display = 'inline-block';
       }
-
-      dom.noResults.style.display = 'none';
-
-      postsToShow.forEach(post => {
-        dom.grid.insertAdjacentHTML('beforeend', createPostHTML(post));
-      });
-
-      dom.loadMoreBtn.style.display = end >= filteredPosts.length ? 'none' : 'inline-block';
     }
-
+    
+    // Initial render
+    renderBlogCards(1);
+    
+    // Setup load more button
+    document.getElementById('loadMoreBtn').addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      console.log('Load More clicked! Current page:', currentPage);
+      currentPage++;
+      console.log('New page:', currentPage);
+      renderBlogCards(currentPage);
+      console.log('Posts after render. Grid HTML length:', document.getElementById('blogGrid').innerHTML.length);
+      
+      // Scroll to new posts
+      setTimeout(() => {
+        const cards = document.querySelectorAll('.blog-card');
+        console.log('Total cards on page:', cards.length);
+        const targetIndex = (currentPage - 2) * postsPerPage;
+        if (cards[targetIndex]) {
+          cards[targetIndex].scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    });
+    
+    // Search functionality
+    let filteredPosts = [...allPosts];
+    const searchInput = document.getElementById('articleSearch');
+    const clearBtn = document.getElementById('clearSearch');
+    const searchResultsText = document.getElementById('searchResults');
+    const noResultsDiv = document.getElementById('noResults');
+    
     function clearSearchField() {
-      if (!dom.searchInput) return;
-      dom.searchInput.value = '';
-      if (dom.clearBtn) dom.clearBtn.style.display = 'none';
-      if (dom.searchResults) dom.searchResults.style.display = 'none';
-      if (dom.noResults) dom.noResults.style.display = 'none';
+      searchInput.value = '';
+      clearBtn.style.display = 'none';
+      searchResultsText.style.display = 'none';
+      noResultsDiv.style.display = 'none';
       filteredPosts = [...allPosts];
       currentPage = 1;
-      renderBlogCards(currentPage, true);
+      renderFilteredPosts();
+      document.getElementById('loadMoreBtn').style.display = 'inline-block';
     }
-
-    async function loadPosts() {
-      if (dom.grid) {
-        dom.grid.innerHTML = '<p style="text-align:center; color: var(--gray-500);">Loading articles...</p>';
+    
+    function renderFilteredPosts() {
+      const grid = document.getElementById('blogGrid');
+      const loadMoreBtn = document.getElementById('loadMoreBtn');
+      
+      grid.innerHTML = '';
+      
+      if (filteredPosts.length === 0) {
+        noResultsDiv.style.display = 'block';
+        loadMoreBtn.style.display = 'none';
+        return;
       }
-
-      try {
-        const response = await fetch('blog/blog-index.json');
-        if (!response.ok) throw new Error('Failed to fetch blog index');
-        const data = await response.json();
-
-        allPosts = data
-          .filter(post => post.slug && post.title && post.date && post.slug !== 'enter')
-          .filter(post => !Number.isNaN(new Date(post.date).getTime()))
-          .map(post => ({
-            ...post,
-            category: post.category || 'Editorial'
-          }))
-          .sort((a, b) => new Date(b.date) - new Date(a.date));
-
-        filteredPosts = [...allPosts];
-        currentPage = 1;
-        renderBlogCards(currentPage, true);
-
-        if (dom.loadMoreBtn) {
-          dom.loadMoreBtn.style.display = filteredPosts.length > postsPerPage ? 'inline-block' : 'none';
-        }
-
-        if (dom.noResults) {
-          dom.noResults.style.display = filteredPosts.length ? 'none' : 'block';
-        }
-      } catch (error) {
-        console.error('Error loading articles:', error);
-        if (dom.grid) {
-          dom.grid.innerHTML = '<p style="text-align:center; color: var(--gray-500);">Unable to load articles right now.</p>';
-        }
-        if (dom.loadMoreBtn) dom.loadMoreBtn.style.display = 'none';
-        if (dom.noResults) dom.noResults.style.display = 'block';
+      
+      noResultsDiv.style.display = 'none';
+      
+      const end = currentPage * postsPerPage;
+      const postsToShow = filteredPosts.slice(0, end);
+      
+      postsToShow.forEach((post, index) => {
+        grid.insertAdjacentHTML('beforeend', createPostHTML(post, index));
+      });
+      
+      if (end >= filteredPosts.length) {
+        loadMoreBtn.style.display = 'none';
+      } else {
+        loadMoreBtn.style.display = 'inline-block';
       }
     }
-
-    if (dom.loadMoreBtn) {
-      dom.loadMoreBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        currentPage++;
-        renderBlogCards(currentPage, false);
-      });
-    }
-
-    if (dom.searchInput) {
-      dom.searchInput.addEventListener('input', function(e) {
-        const query = e.target.value.toLowerCase().trim();
-
-        if (dom.clearBtn) dom.clearBtn.style.display = query ? 'block' : 'none';
-
-        if (!query) {
-          clearSearchField();
-          return;
-        }
-
-        filteredPosts = allPosts.filter(post =>
-          post.title.toLowerCase().includes(query) ||
-          (post.category && post.category.toLowerCase().includes(query))
-        );
-
-        if (dom.searchResults) {
-          dom.searchResults.textContent = `Found ${filteredPosts.length} article${filteredPosts.length !== 1 ? 's' : ''}`;
-          dom.searchResults.style.display = 'block';
-        }
-
-        currentPage = 1;
-        renderBlogCards(currentPage, true);
-      });
-
-      dom.searchInput.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-          clearSearchField();
-        }
-      });
-    }
-
-    if (dom.clearBtn) {
-      dom.clearBtn.addEventListener('click', clearSearchField);
-    }
-
-    loadPosts();
+    
+    searchInput.addEventListener('input', function(e) {
+      const query = e.target.value.toLowerCase().trim();
+      
+      // Show/hide clear button
+      clearBtn.style.display = query ? 'block' : 'none';
+      
+      if (!query) {
+        clearSearchField();
+        return;
+      }
+      
+      // Filter posts by title or category
+      filteredPosts = allPosts.filter(post => 
+        post.title.toLowerCase().includes(query) || 
+        post.category.toLowerCase().includes(query)
+      );
+      
+      // Show results count
+      searchResultsText.textContent = `Found ${filteredPosts.length} article${filteredPosts.length !== 1 ? 's' : ''}`;
+      searchResultsText.style.display = 'block';
+      
+      // Reset to page 1 and render
+      currentPage = 1;
+      renderFilteredPosts();
+    });
+    
+    // Handle Enter key in search
+    searchInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        clearSearchField();
+      }
+    });
   </script>
 
   <!-- ==================== CTA Section ==================== -->

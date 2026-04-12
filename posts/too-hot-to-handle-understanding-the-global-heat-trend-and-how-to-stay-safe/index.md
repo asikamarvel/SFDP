@@ -11,7 +11,7 @@ As we move further into 2026, the world is witnessing a startling climatic shift
 
 **Why is it getting Hot?**
 
-The current rise in global temperatures is mainly linked to the increased [greenhouse effect](https://science.nasa.gov/climate-change/faq/what-is-the-greenhouse-effect/), in which human activities, especially the burning of fossil fuels such as coal, oil, and gas, have raised atmospheric CO2 levels to over 425 ppm. This buildup of heat-trapping gases is worsened by deforestation, which removes the planet's natural carbon sinks, and methane emissions from industry and agriculture. According to the [Intergovernmental Panel on Climate Change (IPCC)](https://www.ipcc.ch/report/ar6/syr/resources/spm-headline-statements/), this human-driven increase in the atmosphere's heat-trapping capacity has led to a warming rate that is unprecedented in at least the past 2,000 years.
+The current rise in global temperatures is mainly linked to the increased [greenhouse effect](https://science.nasa.gov/climate-change/faq/what-is-the-greenhouse-effect/), in which human activities, especially the burning of fossil fuels such as coal, oil, and gas, have raised atmospheric CO2 levels to over 425 Parts Per Million. This buildup of heat-trapping gases is worsened by deforestation, which removes the planet's natural carbon sinks, and methane emissions from industry and agriculture. According to the [Intergovernmental Panel on Climate Change (IPCC)](https://www.ipcc.ch/report/ar6/syr/resources/spm-headline-statements/), this human-driven increase in the atmosphere's heat-trapping capacity has led to a warming rate that is unprecedented in at least the past 2,000 years.
 
 **How Extreme Heat Affects Your Health**
 

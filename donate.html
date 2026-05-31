@@ -688,7 +688,27 @@
   <!-- reCAPTCHA verification for Stripe links -->
   <script>
     const RECAPTCHA_SITE_KEY = '6LdL_4wrAAAAABntKK0gm7QCW1KfKivGXshEz4E7';
-    const BOT_SCORE_THRESHOLD = 0.5; // Score below this is flagged as bot
+    let recaptchaReady = false;
+    
+    // Wait for reCAPTCHA to be ready
+    function waitForRecaptcha(callback, maxAttempts = 50) {
+      let attempts = 0;
+      const checkInterval = setInterval(() => {
+        attempts++;
+        if (typeof grecaptcha !== 'undefined' && grecaptcha.ready) {
+          clearInterval(checkInterval);
+          recaptchaReady = true;
+          grecaptcha.ready(() => {
+            callback();
+          });
+        } else if (attempts >= maxAttempts) {
+          clearInterval(checkInterval);
+          // reCAPTCHA didn't load, but continue anyway
+          console.warn('reCAPTCHA failed to load, continuing without protection');
+          callback();
+        }
+      }, 100);
+    }
     
     // Add reCAPTCHA verification to all Stripe links
     function initRecaptchaProtection() {
@@ -697,26 +717,24 @@
         link.addEventListener('click', async (e) => {
           e.preventDefault();
           try {
-            const token = await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'donate' });
-            // Send token to a verification endpoint
-            // For now, we'll allow the link if we can get a token
-            // In production, verify the token server-side
-            window.open(link.href, link.target || '_blank');
+            if (typeof grecaptcha !== 'undefined') {
+              const token = await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'donate' });
+              window.open(link.href, link.target || '_blank');
+            } else {
+              // Fallback: allow the link if reCAPTCHA isn't available
+              window.open(link.href, link.target || '_blank');
+            }
           } catch (error) {
             console.error('reCAPTCHA error:', error);
-            // Show fallback message
-            alert('Security verification failed. Please try again.');
+            // Fallback: allow the link anyway to not block donors
+            window.open(link.href, link.target || '_blank');
           }
         });
       });
     }
     
-    // Initialize when DOM is ready
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initRecaptchaProtection);
-    } else {
-      initRecaptchaProtection();
-    }
+    // Initialize when reCAPTCHA is ready
+    waitForRecaptcha(initRecaptchaProtection);
   </script>
   
   <script>

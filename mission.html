@@ -30,6 +30,9 @@
     gtag('js', new Date());
     gtag('config', 'G-M1N5T9NZ2K');
   </script>
+  
+  <!-- Google reCAPTCHA v3 -->
+  <script src="https://www.google.com/recaptcha/api.js?render=6LdL_4wrAAAAABntKK0gm7QCW1KfKivGXshEz4E7"></script>
 </head>
 <body>
   <!-- ==================== Header ==================== -->
@@ -451,6 +454,40 @@
 
   <!-- Main JavaScript -->
   <script src="js/main.js"></script>
+  
+  <!-- reCAPTCHA verification for Stripe links -->
+  <script>
+    const RECAPTCHA_SITE_KEY = '6LdL_4wrAAAAABntKK0gm7QCW1KfKivGXshEz4E7';
+    const BOT_SCORE_THRESHOLD = 0.5; // Score below this is flagged as bot
+    
+    // Add reCAPTCHA verification to all Stripe links
+    function initRecaptchaProtection() {
+      const stripeLinks = document.querySelectorAll('a[href*="buy.stripe.com"]');
+      stripeLinks.forEach(link => {
+        link.addEventListener('click', async (e) => {
+          e.preventDefault();
+          try {
+            const token = await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'donate' });
+            // Send token to a verification endpoint
+            // For now, we'll allow the link if we can get a token
+            // In production, verify the token server-side
+            window.open(link.href, link.target || '_blank');
+          } catch (error) {
+            console.error('reCAPTCHA error:', error);
+            // Show fallback message
+            alert('Security verification failed. Please try again.');
+          }
+        });
+      });
+    }
+    
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initRecaptchaProtection);
+    } else {
+      initRecaptchaProtection();
+    }
+  </script>
 </body>
 </html>
 

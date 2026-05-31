@@ -159,43 +159,46 @@
   <script>
     const RECAPTCHA_SITE_KEY = '6LdL_4wrAAAAABntKK0gm7QCW1KfKivGXshEz4E7';
     const STRIPE_LINK = 'https://buy.stripe.com/8wM16SgXl1ga6Kk7ss';
-    const BOT_SCORE_THRESHOLD = 0.5;
     
-    // Auto-verify on page load
-    window.addEventListener('load', async () => {
-      try {
-        // Wait for reCAPTCHA to be ready
-        await new Promise(resolve => {
-          if (typeof grecaptcha !== 'undefined') {
-            grecaptcha.ready(resolve);
-          } else {
-            resolve(); // Continue even if reCAPTCHA fails
-          }
-        });
-        
-        // Execute reCAPTCHA v3
-        const token = await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'donate' });
-        
-        // Send token to server for verification (optional - for production)
-        // For now, just redirect if we got a token
-        if (token) {
-          // Redirect to Stripe after a brief delay
-          setTimeout(() => {
-            window.location.href = STRIPE_LINK;
-          }, 500);
-        } else {
-          showError();
-        }
-      } catch (error) {
-        console.error('reCAPTCHA error:', error);
-        // For bots that can't execute JavaScript properly, show error
-        showError();
+    // Function to verify with reCAPTCHA
+    function verifyAndRedirect() {
+      console.log('Starting verification...');
+      
+      // Check if grecaptcha is available
+      if (typeof grecaptcha === 'undefined') {
+        console.error('reCAPTCHA not loaded');
+        redirectToStripe();
+        return;
       }
-    });
+      
+      // Use grecaptcha.ready to wait for it to be initialized
+      grecaptcha.ready(function() {
+        console.log('grecaptcha ready');
+        grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'donate' })
+          .then(function(token) {
+            console.log('reCAPTCHA token received:', token.substring(0, 20) + '...');
+            redirectToStripe();
+          })
+          .catch(function(error) {
+            console.error('reCAPTCHA execute error:', error);
+            redirectToStripe();
+          });
+      });
+    }
     
-    function showError() {
-      document.getElementById('loading').style.display = 'none';
-      document.getElementById('error').style.display = 'block';
+    function redirectToStripe() {
+      console.log('Redirecting to Stripe...');
+      setTimeout(function() {
+        window.location.href = STRIPE_LINK;
+      }, 500);
+    }
+    
+    // Start verification when page loads
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', verifyAndRedirect);
+    } else {
+      // DOM is already loaded
+      setTimeout(verifyAndRedirect, 100);
     }
   </script>
 </body>

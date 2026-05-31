@@ -30,9 +30,6 @@
     gtag('js', new Date());
     gtag('config', 'G-M1N5T9NZ2K');
   </script>
-  
-  <!-- Google reCAPTCHA v3 -->
-  <script src="https://www.google.com/recaptcha/api.js?render=6LdL_4wrAAAAABntKK0gm7QCW1KfKivGXshEz4E7"></script>
 </head>
 <body>
   <!-- ==================== Header ==================== -->
@@ -120,7 +117,7 @@
       </div>
       
       <div class="grid grid-2" style="gap: 2rem;">
-        <a href="https://buy.stripe.com/8wM16SgXl1ga6Kk7ss" target="_blank" class="donation-cause-card scroll-animate" style="text-decoration: none; display: block; background: var(--white); border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-lg); transition: all var(--transition-base);">
+        <a href="donate-redirect.html" target="_blank" class="donation-cause-card scroll-animate" style="text-decoration: none; display: block; background: var(--white); border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-lg); transition: all var(--transition-base);">
           <img src="img/Yellow-Modern-Viral-Video-Tutorial-YouTube-Thumbnail-8.png" alt="Health screening" style="width: 100%; height: 200px; object-fit: cover;">
           <div style="padding: 1.5rem;">
             <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
@@ -132,7 +129,7 @@
           </div>
         </a>
         
-        <a href="https://buy.stripe.com/8wM16SgXl1ga6Kk7ss" target="_blank" class="donation-cause-card scroll-animate delay-1" style="text-decoration: none; display: block; background: var(--white); border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-lg); transition: all var(--transition-base);">
+        <a href="donate-redirect.html" target="_blank" class="donation-cause-card scroll-animate delay-1" style="text-decoration: none; display: block; background: var(--white); border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-lg); transition: all var(--transition-base);">
           <img src="img/155822135_260481349021561_7915060253537839522_n.jpg" alt="Food relief" style="width: 100%; height: 200px; object-fit: cover;">
           <div style="padding: 1.5rem;">
             <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
@@ -144,7 +141,7 @@
           </div>
         </a>
         
-        <a href="https://buy.stripe.com/8wM16SgXl1ga6Kk7ss" target="_blank" class="donation-cause-card scroll-animate delay-2" style="text-decoration: none; display: block; background: var(--white); border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-lg); transition: all var(--transition-base);">
+        <a href="donate-redirect.html" target="_blank" class="donation-cause-card scroll-animate delay-2" style="text-decoration: none; display: block; background: var(--white); border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-lg); transition: all var(--transition-base);">
           <img src="img/20241017_051735.jpg" alt="Educational materials" style="width: 100%; height: 200px; object-fit: cover; object-position: center 25%;">
           <div style="padding: 1.5rem;">
             <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
@@ -156,7 +153,7 @@
           </div>
         </a>
         
-        <a href="https://buy.stripe.com/8wM16SgXl1ga6Kk7ss" target="_blank" class="donation-cause-card scroll-animate delay-3" style="text-decoration: none; display: block; background: var(--white); border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-lg); transition: all var(--transition-base);">
+        <a href="donate-redirect.html" target="_blank" class="donation-cause-card scroll-animate delay-3" style="text-decoration: none; display: block; background: var(--white); border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-lg); transition: all var(--transition-base);">
           <img src="img/sfdp-washing-hands.png" alt="Clean water" style="width: 100%; height: 200px; object-fit: cover;">
           <div style="padding: 1.5rem;">
             <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
@@ -454,58 +451,6 @@
 
   <!-- Main JavaScript -->
   <script src="js/main.js"></script>
-  
-  <!-- reCAPTCHA verification for Stripe links -->
-  <script>
-    const RECAPTCHA_SITE_KEY = '6LdL_4wrAAAAABntKK0gm7QCW1KfKivGXshEz4E7';
-    let recaptchaReady = false;
-    
-    // Wait for reCAPTCHA to be ready
-    function waitForRecaptcha(callback, maxAttempts = 50) {
-      let attempts = 0;
-      const checkInterval = setInterval(() => {
-        attempts++;
-        if (typeof grecaptcha !== 'undefined' && grecaptcha.ready) {
-          clearInterval(checkInterval);
-          recaptchaReady = true;
-          grecaptcha.ready(() => {
-            callback();
-          });
-        } else if (attempts >= maxAttempts) {
-          clearInterval(checkInterval);
-          // reCAPTCHA didn't load, but continue anyway
-          console.warn('reCAPTCHA failed to load, continuing without protection');
-          callback();
-        }
-      }, 100);
-    }
-    
-    // Add reCAPTCHA verification to all Stripe links
-    function initRecaptchaProtection() {
-      const stripeLinks = document.querySelectorAll('a[href*="buy.stripe.com"]');
-      stripeLinks.forEach(link => {
-        link.addEventListener('click', async (e) => {
-          e.preventDefault();
-          try {
-            if (typeof grecaptcha !== 'undefined') {
-              const token = await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'donate' });
-              window.open(link.href, link.target || '_blank');
-            } else {
-              // Fallback: allow the link if reCAPTCHA isn't available
-              window.open(link.href, link.target || '_blank');
-            }
-          } catch (error) {
-            console.error('reCAPTCHA error:', error);
-            // Fallback: allow the link anyway to not block donors
-            window.open(link.href, link.target || '_blank');
-          }
-        });
-      });
-    }
-    
-    // Initialize when reCAPTCHA is ready
-    waitForRecaptcha(initRecaptchaProtection);
-  </script>
 </body>
 </html>
 

@@ -38,9 +38,6 @@
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-WPC8GB8R');</script>
   
-  <!-- Google reCAPTCHA v3 -->
-  <script src="https://www.google.com/recaptcha/api.js?render=6LdL_4wrAAAAABntKK0gm7QCW1KfKivGXshEz4E7"></script>
-  
   <style>
     .donate-hero {
       position: relative;
@@ -347,7 +344,7 @@
             </div>
             
             <!-- Donate Button -->
-            <a href="https://buy.stripe.com/8wM16SgXl1ga6Kk7ss" target="_blank" class="btn btn-donate btn-lg w-full" style="font-size: var(--text-xl);">
+            <a href="donate-redirect.html" target="_blank" class="btn btn-donate btn-lg w-full" style="font-size: var(--text-xl);">
               <i class="fas fa-heart"></i>
               <span>Donate Now</span>
             </a>
@@ -573,7 +570,7 @@
         <h2>Ready To Make A Difference?</h2>
         <p>Your generosity today will help prevent diseases, save lives, and build healthier communities tomorrow.</p>
         <div class="cta-buttons">
-          <a href="https://buy.stripe.com/8wM16SgXl1ga6Kk7ss" target="_blank" class="btn btn-donate btn-lg">
+          <a href="donate-redirect.html" target="_blank" class="btn btn-donate btn-lg">
             <i class="fas fa-heart"></i>
             <span>Donate Now</span>
           </a>
@@ -684,58 +681,6 @@
 
   <!-- Main JavaScript -->
   <script src="js/main.js"></script>
-  
-  <!-- reCAPTCHA verification for Stripe links -->
-  <script>
-    const RECAPTCHA_SITE_KEY = '6LdL_4wrAAAAABntKK0gm7QCW1KfKivGXshEz4E7';
-    let recaptchaReady = false;
-    
-    // Wait for reCAPTCHA to be ready
-    function waitForRecaptcha(callback, maxAttempts = 50) {
-      let attempts = 0;
-      const checkInterval = setInterval(() => {
-        attempts++;
-        if (typeof grecaptcha !== 'undefined' && grecaptcha.ready) {
-          clearInterval(checkInterval);
-          recaptchaReady = true;
-          grecaptcha.ready(() => {
-            callback();
-          });
-        } else if (attempts >= maxAttempts) {
-          clearInterval(checkInterval);
-          // reCAPTCHA didn't load, but continue anyway
-          console.warn('reCAPTCHA failed to load, continuing without protection');
-          callback();
-        }
-      }, 100);
-    }
-    
-    // Add reCAPTCHA verification to all Stripe links
-    function initRecaptchaProtection() {
-      const stripeLinks = document.querySelectorAll('a[href*="buy.stripe.com"]');
-      stripeLinks.forEach(link => {
-        link.addEventListener('click', async (e) => {
-          e.preventDefault();
-          try {
-            if (typeof grecaptcha !== 'undefined') {
-              const token = await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'donate' });
-              window.open(link.href, link.target || '_blank');
-            } else {
-              // Fallback: allow the link if reCAPTCHA isn't available
-              window.open(link.href, link.target || '_blank');
-            }
-          } catch (error) {
-            console.error('reCAPTCHA error:', error);
-            // Fallback: allow the link anyway to not block donors
-            window.open(link.href, link.target || '_blank');
-          }
-        });
-      });
-    }
-    
-    // Initialize when reCAPTCHA is ready
-    waitForRecaptcha(initRecaptchaProtection);
-  </script>
   
   <script>
     // Donation amount selection

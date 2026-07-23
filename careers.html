@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore open positions at the Society for Disease Prevention, including our Social Media Manager contract role and volunteer opportunities as a Grant Writer, Content Creator, Social Media Manager, or Campus Ambassador.">
+  <meta name="keywords" content="SFDP careers, SFDP jobs, social media manager job, nonprofit volunteer roles, grant writer volunteer, campus ambassador">
+
+  <title>Careers & Open Positions | Society for Disease Prevention</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="img/sfdp favicon.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M1N5T9NZ2K"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-M1N5T9NZ2K');
+  </script>
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WPC8GB8R');</script>
+
+  <style>
+    .careers-hero {
+      position: relative;
+      padding: calc(100px + var(--spacing-4xl)) 0 var(--spacing-4xl);
+      background: var(--primary-blue);
+      color: var(--white);
+      overflow: hidden;
+    }
+
+    .careers-hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .careers-hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center right;
+    }
+
+    .careers-hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to right,
+        var(--primary-blue) 0%,
+        var(--primary-blue) 40%,
+        rgba(30, 58, 95, 0.9) 55%,
+        rgba(30, 58, 95, 0.7) 70%,
+        rgba(30, 58, 95, 0.5) 85%,
+        rgba(30, 58, 95, 0.4) 100%
+      );
+    }
+
+    .job-card {
+      background: var(--white);
+      border-radius: var(--radius-xl);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .job-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 6px;
+      height: 100%;
+      background: var(--gradient-blue);
+    }
+
+    .job-badge {
+      display: inline-block;
+      padding: 0.35rem 0.9rem;
+      border-radius: var(--radius-full, 999px);
+      background: var(--accent-orange);
+      color: var(--white);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .role-card {
+      background: var(--white);
+      border-radius: var(--radius-xl);
+      padding: 2rem;
+      box-shadow: var(--shadow-lg);
+      transition: all var(--transition-normal);
+      position: relative;
+      overflow: hidden;
+      height: 100%;
+    }
+
+    .role-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--gradient-blue);
+      transition: width var(--transition-normal);
+    }
+
+    .role-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-2xl);
+    }
+
+    .role-card:hover::before {
+      width: 100%;
+      opacity: 0.05;
+    }
+
+    .role-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--gray-100);
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: var(--primary-blue);
+      margin-bottom: 1.5rem;
+      transition: all var(--transition-normal);
+    }
+
+    .role-card:hover .role-icon {
+      background: var(--primary-blue);
+      color: var(--white);
+    }
+
+    .flyer-frame {
+      background: var(--white);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-2xl);
+      padding: 1rem;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .flyer-frame img {
+      width: 100%;
+      border-radius: var(--radius-lg);
+      display: block;
+    }
+
+    .application-form {
+      background: var(--white);
+      border-radius: var(--radius-xl);
+      padding: 3rem;
+      box-shadow: var(--shadow-xl);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--gray-700);
+    }
+
+    .form-group label span {
+      color: #dc2626;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.875rem 1rem;
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-md);
+      font-size: var(--text-base);
+      transition: all var(--transition-fast);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary-blue);
+      box-shadow: 0 0 0 3px rgba(30, 58, 95, 0.1);
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .checkbox-item input {
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+    }
+
+    .checkbox-item label {
+      margin-bottom: 0;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WPC8GB8R"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- ==================== Header ==================== -->
+  <header class="header" id="header">
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <img src="img/SFDP PNG 3.png" alt="SFDP Logo" class="logo-default"><img src="img/SFDP PNG 1.png" alt="SFDP Logo" class="logo-scrolled">
+      </a>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About Us</a>
+        <a href="mission.html" class="nav-link">Our Mission</a>
+        <a href="projects.html" class="nav-link">Projects</a>
+        <a href="editorials.html" class="nav-link">Editorials</a>
+        <a href="careers.html" class="nav-link">Careers</a>
+        <a href="contact.html" class="nav-link">Contact Us</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="donate.html" class="btn btn-donate">
+          <i class="fas fa-heart"></i>
+          <span>Donate Now</span>
+        </a>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== Careers Hero ==================== -->
+  <section class="careers-hero">
+    <div class="careers-hero-bg">
+      <img src="img/8K7A4674-L.jpg" alt="SFDP team at work">
+    </div>
+    <div class="container" style="position: relative; z-index: 1;">
+      <div style="max-width: 600px;">
+        <span class="section-label" style="color: var(--accent-orange);">We're Hiring</span>
+        <h1 style="font-size: var(--text-5xl); color: white; margin-bottom: 1.5rem;">
+          Careers & <span class="text-highlight">Open Positions</span>
+        </h1>
+        <p style="font-size: var(--text-xl); opacity: 0.9; margin-bottom: 2rem;">
+          Join the SFDP team as contract staff or as a volunteer, and help us prevent disease and improve health outcomes in underserved communities.
+        </p>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <a href="#apply" class="btn btn-donate btn-lg">
+            <i class="fas fa-paper-plane"></i>
+            <span>Apply Now</span>
+          </a>
+          <a href="#positions" class="btn btn-outline-white btn-lg">
+            <i class="fas fa-briefcase"></i>
+            <span>View Positions</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== Contract Position ==================== -->
+  <section class="section" id="positions">
+    <div class="container">
+      <div class="text-center mb-2xl">
+        <span class="section-label">Paid Position</span>
+        <h2>Contract <span class="text-highlight">Staff Role</span></h2>
+      </div>
+
+      <div class="job-card scroll-animate">
+        <span class="job-badge">Contract Staff</span>
+        <h3 style="margin-bottom: 0.75rem;">Social Media Manager</h3>
+        <p class="text-gray" style="margin-bottom: 1.5rem;">
+          SFDP is hiring a paid, contract Social Media Manager to lead our online presence across Instagram, Facebook, X, TikTok, LinkedIn, and YouTube. You'll plan and publish content, grow our community, and help translate our health education work into stories that reach more people.
+        </p>
+        <ul style="color: var(--gray-600); padding-left: 1.25rem;">
+          <li style="margin-bottom: 0.5rem;">Build and manage a monthly content calendar across all SFDP platforms</li>
+          <li style="margin-bottom: 0.5rem;">Create and edit graphics, short-form video, and captions aligned with our brand</li>
+          <li style="margin-bottom: 0.5rem;">Track engagement and growth metrics, and report on what's working</li>
+          <li>Coordinate with our volunteer content and outreach teams</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== Volunteer Roles ==================== -->
+  <section class="section bg-light">
+    <div class="container">
+      <div class="text-center mb-2xl">
+        <span class="section-label">Volunteer Opportunities</span>
+        <h2>Open <span class="text-highlight">Volunteer Roles</span></h2>
+        <p class="text-gray mt-md" style="max-width: 600px; margin: 0 auto;">
+          No time commitment is too small. Find the volunteer role that matches your skills.
+        </p>
+      </div>
+
+      <div class="grid grid-2" style="gap: 2rem;">
+        <div class="role-card scroll-animate">
+          <div class="role-icon" style="color: #ec4899;">
+            <i class="fas fa-hand-holding-usd"></i>
+          </div>
+          <h4 style="margin-bottom: 0.75rem;">Grant Writer</h4>
+          <p class="text-gray" style="font-size: var(--text-sm); margin: 0;">
+            Research funding opportunities and write compelling grant proposals that help fund our health education and outreach programs.
+          </p>
+        </div>
+
+        <div class="role-card scroll-animate delay-1">
+          <div class="role-icon" style="color: #6366f1;">
+            <i class="fas fa-pen-fancy"></i>
+          </div>
+          <h4 style="margin-bottom: 0.75rem;">Content Creator</h4>
+          <p class="text-gray" style="font-size: var(--text-sm); margin: 0;">
+            Produce videos, graphics, and written content that educates communities and shares SFDP's impact across our channels.
+          </p>
+        </div>
+
+        <div class="role-card scroll-animate delay-2">
+          <div class="role-icon" style="color: var(--accent-teal);">
+            <i class="fas fa-laptop-code"></i>
+          </div>
+          <h4 style="margin-bottom: 0.75rem;">Social Media Manager</h4>
+          <p class="text-gray" style="font-size: var(--text-sm); margin: 0;">
+            Support our social channels on a volunteer basis&mdash;scheduling posts, engaging our community, and amplifying our health message.
+          </p>
+        </div>
+
+        <div class="role-card scroll-animate">
+          <div class="role-icon" style="color: var(--accent-orange);">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <h4 style="margin-bottom: 0.75rem;">Campus Ambassador</h4>
+          <p class="text-gray" style="font-size: var(--text-sm); margin: 0;">
+            Represent SFDP on your campus&mdash;organize awareness events and help grow our presence among students.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== Hiring Flyer ==================== -->
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-2" style="gap: 4rem; align-items: center;">
+        <div class="scroll-animate">
+          <span class="section-label">Hiring Flyer</span>
+          <h2>Share Our <span class="text-highlight">Hiring Flyer</span></h2>
+          <p class="text-gray mt-lg">
+            Know someone who'd be a great fit? Download the flyer below and help us spread the word about our open Social Media Manager position and volunteer roles.
+          </p>
+          <a href="img/sfdp-sm-hiring-2026.jpg" download class="btn btn-primary btn-lg mt-lg">
+            <i class="fas fa-download"></i>
+            <span>Download Flyer</span>
+          </a>
+        </div>
+        <div class="scroll-animate delay-1">
+          <div class="flyer-frame">
+            <img src="img/sfdp-sm-hiring-2026.jpg" alt="SFDP Social Media Manager hiring flyer 2026">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== Application Form ==================== -->
+  <section class="section bg-light" id="apply">
+    <div class="container">
+      <div class="grid grid-2" style="gap: 4rem; align-items: start;">
+        <div class="scroll-animate">
+          <span class="section-label">Get Started</span>
+          <h2>Apply <span class="text-highlight">Today</span></h2>
+          <p class="text-gray mt-lg">
+            Whether you're interested in the contract Social Media Manager role or a volunteer position, fill out the form and tell us about yourself. We'll follow up to discuss next steps.
+          </p>
+
+          <div style="margin-top: 2rem;">
+            <h4 style="margin-bottom: 1rem;">What Happens Next?</h4>
+            <ol style="padding-left: 1.25rem; color: var(--gray-600);">
+              <li style="margin-bottom: 0.75rem;">Submit your application</li>
+              <li style="margin-bottom: 0.75rem;">Our team reviews your submission (1-2 weeks)</li>
+              <li style="margin-bottom: 0.75rem;">Schedule an introductory call</li>
+              <li>Start making an impact!</li>
+            </ol>
+          </div>
+
+          <div style="background: var(--white); border-radius: var(--radius-lg); padding: 1.5rem; margin-top: 2rem;">
+            <h4 style="margin-bottom: 0.75rem;"><i class="fas fa-question-circle" style="color: var(--accent-orange); margin-right: 0.5rem;"></i>Questions?</h4>
+            <p class="text-gray" style="font-size: var(--text-sm); margin: 0;">
+              Contact us at <a href="mailto:info@s-fdp.org" style="color: var(--primary-blue); font-weight: 500;">info@s-fdp.org</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="application-form scroll-animate delay-1">
+          <h3 style="margin-bottom: 2rem;">Job & Volunteer Application</h3>
+
+          <form id="careersForm" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="c835a742-a484-4082-a5af-2872de4a2b3e">
+            <input type="hidden" name="subject" value="New Careers/Volunteer Application - SFDP">
+            <input type="text" name="botcheck" id="botcheck" style="display: none;" tabindex="-1" autocomplete="off">
+            <div class="form-row">
+              <div class="form-group">
+                <label>First Name <span>*</span></label>
+                <input type="text" name="firstName" required>
+              </div>
+              <div class="form-group">
+                <label>Last Name <span>*</span></label>
+                <input type="text" name="lastName" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Email Address <span>*</span></label>
+                <input type="email" name="email" required>
+              </div>
+              <div class="form-group">
+                <label>Phone Number</label>
+                <input type="tel" name="phone">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>City, Country <span>*</span></label>
+              <input type="text" name="location" required placeholder="e.g., Manchester, PA, USA">
+            </div>
+
+            <div class="form-group">
+              <label>Position <span>*</span></label>
+              <select name="position" required>
+                <option value="">Select a position</option>
+                <option value="sm-manager-contract">Social Media Manager (Contract Staff)</option>
+                <option value="grant-writer">Volunteer &ndash; Grant Writer</option>
+                <option value="content-creator">Volunteer &ndash; Content Creator</option>
+                <option value="sm-manager-volunteer">Volunteer &ndash; Social Media Manager</option>
+                <option value="campus-ambassador">Volunteer &ndash; Campus Ambassador</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Tell Us About Yourself <span>*</span></label>
+              <textarea name="about" rows="4" required placeholder="Share your relevant experience and why you'd like to join SFDP..."></textarea>
+            </div>
+
+            <div class="form-group">
+              <label>Link to Portfolio/Resume (optional)</label>
+              <input type="url" name="portfolio" placeholder="https://">
+            </div>
+
+            <div class="form-group">
+              <div class="checkbox-item">
+                <input type="checkbox" id="agree" name="agree" required>
+                <label for="agree">I agree to be contacted about this application <span>*</span></label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Simple Check: What is 3 + 4? <span>*</span></label>
+              <input type="text" id="botAnswer" name="botAnswer" required inputmode="numeric" pattern="7" placeholder="Enter the number">
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg w-full">
+              <i class="fas fa-paper-plane"></i>
+              <span>Submit Application</span>
+            </button>
+            <p id="formStatus" role="status" style="margin-top: 0.75rem; color: var(--gray-600); font-size: var(--text-sm);"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CTA Section ==================== -->
+  <section class="cta-section">
+    <div class="cta-background">
+      <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Join us">
+    </div>
+    <div class="cta-overlay"></div>
+
+    <div class="container">
+      <div class="cta-content scroll-animate">
+        <h2>Not Ready To Apply?</h2>
+        <p>Explore general volunteering with SFDP or support our work with a donation.</p>
+        <div class="cta-buttons">
+          <a href="join-us.html" class="btn btn-donate btn-lg">
+            <i class="fas fa-hand-holding-heart"></i>
+            <span>Volunteer With Us</span>
+          </a>
+          <a href="donate.html" class="btn btn-outline-white btn-lg">
+            <i class="fas fa-heart"></i>
+            <span>Donate Now</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== Footer ==================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <img src="img/SFDP PNG 3.png" alt="SFDP Logo" style="height: 60px;">
+          </a>
+          <p>
+            Society for Disease Prevention is a nonprofit organization committed to preventing public health crises and infectious disease outbreaks through education and community engagement.
+          </p>
+          <div class="footer-social">
+            <a href="https://web.facebook.com/societyfordiseaseprevention" target="_blank" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/societyfordiseaseprevention/" target="_blank" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://x.com/disease_society" target="_blank" aria-label="Twitter">
+              <i class="fab fa-x-twitter"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/society-for-disease-prevention-inc/" target="_blank" aria-label="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://www.tiktok.com/@society4diseasepreventio" target="_blank" aria-label="TikTok">
+              <i class="fab fa-tiktok"></i>
+            </a>
+            <a href="https://youtube.com/@societyfordiseasepreventioninc" target="_blank" aria-label="YouTube">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h4 class="footer-title">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="mission.html">Our Mission</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="editorials.html">Editorials</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4 class="footer-title">Get Involved</h4>
+          <ul class="footer-links">
+            <li><a href="donate.html">Donate Now</a></li>
+            <li><a href="join-us.html">Volunteer</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="innovation-challenge.html">Innovation Challenge</a></li>
+            <li><a href="newsletter.html">Newsletter</a></li>
+            <li><a href="https://youtube.com/@societyfordiseasepreventioninc" target="_blank">YouTube Shorts</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4 class="footer-title">Contact Info</h4>
+          <ul class="footer-links">
+            <li>
+              <i class="fas fa-map-marker-alt" style="margin-right: 8px; color: var(--accent-orange);"></i>
+              90 Village Rd, Manchester, PA 17345
+            </li>
+            <li>
+              <i class="fas fa-phone" style="margin-right: 8px; color: var(--accent-orange);"></i>
+              +1 (800) 659-0506
+            </li>
+            <li>
+              <i class="fas fa-envelope" style="margin-right: 8px; color: var(--accent-orange);"></i>
+              <a href="mailto:info@s-fdp.org">info@s-fdp.org</a>
+            </li>
+          </ul>
+
+          <a aria-label="Society for Disease Prevention Inc" href="https://app.candid.org/profile/9895577/society-for-disease-prevention-inc-84-3965788/?pkId=9029b0a4-f524-4d4a-9e49-e02a7f6c1516" target="_blank" style="display: inline-block; margin-top: 1rem;">
+            <img alt="" src="https://widgets.guidestar.org/prod/v1/pdp/transparency-seal/9895577/svg" style="width: 80px;">
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2018 - 2026 Society For Disease Prevention | All Rights Reserved</p>
+        <div class="footer-bottom-links">
+          <a href="whistleblower-policy.html">Whistleblower Policy</a>
+          <a href="conflict-of-interest.html">Conflict of Interest Policy</a>
+          <a href="privacy-policy.html">Privacy Policy</a>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--gray-600);">Powered by <a href="https://tech.omaxil.com" target="_blank" rel="noopener" style="color: #B8860B; text-decoration: none; font-weight: 500;">Omaxil Tech</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">
+    <i class="fas fa-chevron-up"></i>
+  </a>
+
+  <!-- Main JavaScript -->
+  <script src="js/main.js"></script>
+
+  <script>
+    // Form submission -> Web3Forms
+    const careersForm = document.getElementById('careersForm');
+    const formStatus = document.getElementById('formStatus');
+    const botAnswer = document.getElementById('botAnswer');
+    const botcheck = document.getElementById('botcheck');
+
+    careersForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      formStatus.style.color = 'var(--gray-600)';
+      formStatus.textContent = 'Submitting...';
+
+      // Simple bot check
+      const answer = (botAnswer.value || '').trim();
+      if (answer !== '7') {
+        formStatus.style.color = '#dc2626';
+        formStatus.textContent = 'Please answer the simple check correctly to submit.';
+        return;
+      }
+
+      // Honeypot should stay empty
+      if (botcheck.value) {
+        formStatus.style.color = '#dc2626';
+        formStatus.textContent = 'Submission blocked.';
+        return;
+      }
+
+      const formData = new FormData(careersForm);
+
+      try {
+        const response = await fetch(careersForm.action, {
+          method: 'POST',
+          body: formData
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          formStatus.style.color = 'var(--accent-teal)';
+          formStatus.textContent = 'Thank you for your application!';
+          careersForm.reset();
+        } else {
+          throw new Error(result.message || 'Unable to submit form. Please try again.');
+        }
+      } catch (error) {
+        formStatus.style.color = '#dc2626';
+        formStatus.textContent = error.message || 'There was an error submitting the form. Please try again later.';
+      }
+    });
+  </script>
+</body>
+</html>

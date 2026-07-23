@@ -156,21 +156,6 @@
       color: var(--white);
     }
 
-    .flyer-frame {
-      background: var(--white);
-      border-radius: var(--radius-xl);
-      box-shadow: var(--shadow-2xl);
-      padding: 1rem;
-      max-width: 480px;
-      margin: 0 auto;
-    }
-
-    .flyer-frame img {
-      width: 100%;
-      border-radius: var(--radius-lg);
-      display: block;
-    }
-
     .application-form {
       background: var(--white);
       border-radius: var(--radius-xl);
@@ -383,30 +368,6 @@
     </div>
   </section>
 
-  <!-- ==================== Hiring Flyer ==================== -->
-  <section class="section">
-    <div class="container">
-      <div class="grid grid-2" style="gap: 4rem; align-items: center;">
-        <div class="scroll-animate">
-          <span class="section-label">Hiring Flyer</span>
-          <h2>Share Our <span class="text-highlight">Hiring Flyer</span></h2>
-          <p class="text-gray mt-lg">
-            Know someone who'd be a great fit? Download the flyer below and help us spread the word about our open Social Media Manager position and volunteer roles.
-          </p>
-          <a href="img/sfdp-sm-hiring-2026.jpg" download class="btn btn-primary btn-lg mt-lg">
-            <i class="fas fa-download"></i>
-            <span>Download Flyer</span>
-          </a>
-        </div>
-        <div class="scroll-animate delay-1">
-          <div class="flyer-frame">
-            <img src="img/sfdp-sm-hiring-2026.jpg" alt="SFDP Social Media Manager hiring flyer 2026">
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ==================== Application Form ==================== -->
   <section class="section bg-light" id="apply">
     <div class="container">
@@ -439,7 +400,7 @@
         <div class="application-form scroll-animate delay-1">
           <h3 style="margin-bottom: 2rem;">Job & Volunteer Application</h3>
 
-          <form id="careersForm" action="https://api.web3forms.com/submit" method="POST">
+          <form id="careersForm" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="access_key" value="c835a742-a484-4082-a5af-2872de4a2b3e">
             <input type="hidden" name="subject" value="New Careers/Volunteer Application - SFDP">
             <input type="text" name="botcheck" id="botcheck" style="display: none;" tabindex="-1" autocomplete="off">
@@ -488,8 +449,8 @@
             </div>
 
             <div class="form-group">
-              <label>Link to Portfolio/Resume (optional)</label>
-              <input type="url" name="portfolio" placeholder="https://">
+              <label>Upload Resume/Portfolio (PDF or DOC, optional)</label>
+              <input type="file" name="attachment" accept=".pdf,.doc,.docx">
             </div>
 
             <div class="form-group">

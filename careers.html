@@ -299,16 +299,54 @@
 
       <div class="job-card scroll-animate">
         <span class="job-badge">Contract Staff</span>
-        <h3 style="margin-bottom: 0.75rem;">Social Media Manager</h3>
+        <h3 style="margin-bottom: 0.75rem;">Social Media Manager I</h3>
+        <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1.25rem; color: var(--gray-600); font-size: var(--text-sm);">
+          <span><i class="fas fa-location-dot" style="color: var(--accent-orange); margin-right: 0.4rem;"></i>Remote</span>
+          <span><i class="fas fa-calendar" style="color: var(--accent-orange); margin-right: 0.4rem;"></i>Deadline: August 7, 2026</span>
+          <span><i class="fas fa-clock" style="color: var(--accent-orange); margin-right: 0.4rem;"></i>Reviewed on a rolling basis</span>
+        </div>
         <p class="text-gray" style="margin-bottom: 1.5rem;">
-          SFDP is hiring a paid, contract Social Media Manager to lead our online presence across Instagram, Facebook, X, TikTok, LinkedIn, and YouTube. You'll plan and publish content, grow our community, and help translate our health education work into stories that reach more people.
+          SFDP is hiring a paid, contract Social Media Manager to lead our online presence across Instagram, Facebook, X, TikTok, LinkedIn, and YouTube.
         </p>
-        <ul style="color: var(--gray-600); padding-left: 1.25rem;">
-          <li style="margin-bottom: 0.5rem;">Build and manage a monthly content calendar across all SFDP platforms</li>
-          <li style="margin-bottom: 0.5rem;">Create and edit graphics, short-form video, and captions aligned with our brand</li>
-          <li style="margin-bottom: 0.5rem;">Track engagement and growth metrics, and report on what's working</li>
-          <li>Coordinate with our volunteer content and outreach teams</li>
+
+        <h4 style="margin-bottom: 0.75rem; font-size: var(--text-base);">Responsibilities</h4>
+        <ul style="color: var(--gray-600); padding-left: 1.25rem; margin-bottom: 1.5rem;">
+          <li style="margin-bottom: 0.5rem;">Manage 3 social media accounts</li>
+          <li style="margin-bottom: 0.5rem;">Create engaging video content and graphics</li>
+          <li style="margin-bottom: 0.5rem;">Develop and execute social media content strategies</li>
+          <li>Grow engagement and maintain brand presence across platforms</li>
         </ul>
+
+        <h4 style="margin-bottom: 0.75rem; font-size: var(--text-base);">Requirements</h4>
+        <ul style="color: var(--gray-600); padding-left: 1.25rem; margin-bottom: 1.5rem;">
+          <li style="margin-bottom: 0.5rem;">Previous experience working with a professional office and not-for-profit organization is an added advantage</li>
+          <li style="margin-bottom: 0.5rem;">Health background is an added advantage, as the majority of our content is focused on health</li>
+          <li style="margin-bottom: 0.5rem;">Strong content creation and social media management skills</li>
+          <li>Creative, organized, and up to date with social media trends</li>
+        </ul>
+
+        <div style="background: var(--gray-50); border-radius: var(--radius-lg); padding: 1.25rem 1.5rem;">
+          <p class="text-gray" style="margin: 0; font-size: var(--text-sm);">
+            Interested candidates should send portfolios and links to previous work to
+          </p>
+          <a href="mailto:recruitment@s-fdp.org?subject=Social%20Media%20Manager%20I%20Application" class="btn btn-primary mt-md">
+            <i class="fas fa-envelope"></i>
+            <span>recruitment@s-fdp.org</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== Hiring Flyer ==================== -->
+  <section class="section">
+    <div class="container">
+      <div class="text-center mb-2xl">
+        <span class="section-label">Official Flyer</span>
+        <h2>Hiring <span class="text-highlight">Flyer</span></h2>
+      </div>
+      <div style="max-width: 500px; margin: 0 auto;">
+        <img src="img/sfdp-sm-hiring-2026.jpg" alt="SFDP Social Media Manager I hiring flyer" style="width: 100%; border-radius: var(--radius-xl); box-shadow: var(--shadow-2xl);">
       </div>
     </div>
   </section>
@@ -376,7 +414,7 @@
           <span class="section-label">Get Started</span>
           <h2>Apply <span class="text-highlight">Today</span></h2>
           <p class="text-gray mt-lg">
-            Whether you're interested in the contract Social Media Manager role or a volunteer position, fill out the form and tell us about yourself. We'll follow up to discuss next steps.
+            Interested in the contract Social Media Manager role? Email your portfolio directly to <a href="mailto:recruitment@s-fdp.org" style="color: var(--primary-blue); font-weight: 500;">recruitment@s-fdp.org</a> (see above). For any of our volunteer positions, fill out the form and tell us about yourself&mdash;we'll follow up to discuss next steps.
           </p>
 
           <div style="margin-top: 2rem;">
@@ -398,11 +436,11 @@
         </div>
 
         <div class="application-form scroll-animate delay-1">
-          <h3 style="margin-bottom: 2rem;">Job & Volunteer Application</h3>
+          <h3 style="margin-bottom: 2rem;">Volunteer Application</h3>
 
           <form id="careersForm" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="access_key" value="c835a742-a484-4082-a5af-2872de4a2b3e">
-            <input type="hidden" name="subject" value="New Careers/Volunteer Application - SFDP">
+            <input type="hidden" name="subject" value="New Volunteer Application - SFDP Careers Page">
             <input type="text" name="botcheck" id="botcheck" style="display: none;" tabindex="-1" autocomplete="off">
             <div class="form-row">
               <div class="form-group">
@@ -432,14 +470,13 @@
             </div>
 
             <div class="form-group">
-              <label>Position <span>*</span></label>
+              <label>Volunteer Position <span>*</span></label>
               <select name="position" required>
                 <option value="">Select a position</option>
-                <option value="sm-manager-contract">Social Media Manager (Contract Staff)</option>
-                <option value="grant-writer">Volunteer &ndash; Grant Writer</option>
-                <option value="content-creator">Volunteer &ndash; Content Creator</option>
-                <option value="sm-manager-volunteer">Volunteer &ndash; Social Media Manager</option>
-                <option value="campus-ambassador">Volunteer &ndash; Campus Ambassador</option>
+                <option value="grant-writer">Grant Writer</option>
+                <option value="content-creator">Content Creator</option>
+                <option value="sm-manager-volunteer">Social Media Manager</option>
+                <option value="campus-ambassador">Campus Ambassador</option>
               </select>
             </div>
 

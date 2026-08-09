@@ -10,7 +10,7 @@ coverImage: "image_002.jpg"
 Over the past few decades, the way we eat has changed dramatically.
 
 <div class="callout-box">
-<h3>U nhealthy diets are among the leading risk factors contributing to non-communicable diseases . Over 35 million cardiovascular deaths are estimated to occur globally by 2050 .</h3>
+<h3>Unhealthy diets are among the leading risk factors contributing to non-communicable diseases. Over 35 million cardiovascular deaths are estimated to occur globally by 2050.</h3>
 </div>
 
 In today’s world, busy lifestyles and convenience have influenced daily dietary choices. Foods like packaged snacks, sugary drinks, and processed meals, that were once occasional meals, have gradually become everyday staples. These foods are made to be convenient, affordable, and attractive. However, as their inclusion in diets grows, scientists and public health experts are raising concerns: *Are we trading convenience today for health problems tomorrow?*
